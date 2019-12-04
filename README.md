@@ -19,7 +19,7 @@
 16. 在线构建器：拖动表单元素生成相应的HTML代码。
 17. 连接池监视：监视当前系统数据库连接池状态，可进行分析SQL找出系统性能瓶颈。
 
-## ruoyi-plus新增功能
+## ruoyi-cms新增功能
 1. ehcache缓存模块 ruoyi-ehcache 并配备页面监控
 2. redis缓存模块 ruoyi-redis 并配备页面监控
 3. 数据库备份操作页面
@@ -60,6 +60,9 @@
     p). PV页面访问管理
     
     q). 其它
+
+7. 博客主题界面。配备三套前台博客页面主题随意切换。(pblog,pnews,avatar)在sys_config表中配置主题。
+
 ## 在线体验
 > admin/admin123  
 > 陆陆续续收到一些打赏，为了更好的体验已用于演示服务器升级。谢谢各位小伙伴。
@@ -69,49 +72,111 @@ Ruoyi演示地址：http://ruoyi.vip
 **Ruoyi-plus演示地址：待定**
 
 文档地址：http://doc.ruoyi.vip
-
+## ruoyi-plus新增功能演示图
+<table>
+    <tr>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/090811_47d8563a_528854.png "/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/090954_1cf23ae8_528854.png "/></td>
+    </tr>
+    <tr>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/091030_92471a5c_528854.png "/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/091108_8d470b37_528854.png "/></td>
+    </tr>
+    <tr>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/091141_ac064647_528854.png "/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/091415_f92464ed_528854.png "/></td>
+    </tr>
+    <tr>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/092642_d112390c_528854.png "/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/092730_196ee826_528854.png "/></td>
+    </tr>
+    <tr>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/092815_8077e037_528854.png "/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/092845_94536ad4_528854.png "/></td>
+    </tr>
+    <tr>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/092913_9546de2a_528854.png "/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/092939_bc6be9ff_528854.png "/></td>
+    </tr>
+    <tr>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/093001_198199f7_528854.png "/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/093028_b95622f8_528854.png "/></td>
+    </tr>
+    <tr>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/093057_9246cb3c_528854.png "/></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/093213_b4d429a4_528854.png "/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/093235_e0ed62c1_528854.png "/></td>
+    </tr>
+    <tr>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/093348_e8c7ed2c_528854.png "/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/093408_086be17c_528854.png "/></td>
+    </tr>
+<tr>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/093800_5d6fbeac_528854.png "/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/093823_a514c451_528854.png "/></td>
+    </tr>
+<tr>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/093846_075bb6da_528854.png "/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/093905_e30594b8_528854.png "/></td>
+    </tr>
+<tr>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/093930_38d41d49_528854.png "/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/093950_acd73179_528854.png "/></td>
+    </tr>
+    <tr>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/095538_dae0e203_528854.png "/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/095605_6ca01ed5_528854.png "/></td>
+    </tr>
+    <tr>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/095636_bd90c4cd_528854.png "/></td>
+        <td></td>
+    </tr>
+</table>
 ## ruoyi演示图
 
 <table>
     <tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/25b5e333768d013d45a990c152dbe4d9d6e.jpg"/></td>
-        <td><img src="https://oscimg.oschina.net/oscnet/e29fd81b2d43b517f99535564af41f9d1d5.jpg"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/090623_54d9bf66_528854.jpeg"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/090623_7ab01b74_528854.jpeg"/></td>
     </tr>
     <tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/629f1510fb6205f773c8c284863406b694f.jpg"/></td>
-        <td><img src="https://oscimg.oschina.net/oscnet/9124eda87df0e72427cd63f458b813e3363.jpg"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/090623_5edb60b9_528854.jpeg"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/090623_c5100096_528854.jpeg"/></td>
     </tr>
     <tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/438c59467afd0097cfbe9c89db932661687.jpg"/></td>
-        <td><img src="https://oscimg.oschina.net/oscnet/72a015041db6843aca7f7b273688cb346f8.jpg"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/090623_a9be8b64_528854.jpeg"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/090623_d6405543_528854.jpeg"/></td>
     </tr>
 	<tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/ecb5f1c9929f1933f733f796749b2df73d9.jpg"/></td>
-        <td><img src="https://oscimg.oschina.net/oscnet/e4283d500eb10e8dd8701e7742f7facb065.jpg"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/090623_e5b14307_528854.jpeg"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/090623_57323758_528854.jpeg"/></td>
     </tr>	 
     <tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/2531dbf419a1b114e1177f8d2a120b8a9c3.jpg"/></td>
-        <td><img src="https://oscimg.oschina.net/oscnet/8b740a42dddc1e5a8a150d97c5060df258b.jpg"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/090623_1165f493_528854.jpeg"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/090623_9909abae_528854.jpeg"/></td>
     </tr>
 	<tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/00e642dc3515919b3760968cc496a12a849.jpg"/></td>
-        <td><img src="https://oscimg.oschina.net/oscnet/f72d28a3e60413a4e1b5c7c2f45f962fd65.jpg"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/090623_79420ac0_528854.jpeg"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/090623_77ca73e6_528854.jpeg"/></td>
     </tr>
 	<tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/19222e495869a2a99fc31c5d2bd4539e1e7.jpg"/></td>
-        <td><img src="https://oscimg.oschina.net/oscnet/264d25176f4e22b4b38e95fe6ce73775299.jpg"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/090623_59c33ec6_528854.jpeg"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/090623_7b46a78b_528854.jpeg"/></td>
     </tr>
 	<tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/d85fbb59be27fb33f68bdbb6e8bc967c97b.jpg"/></td>
-        <td><img src="https://oscimg.oschina.net/oscnet/bb902d2c54bad02a052e9a05e5f22a93df1.jpg"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/090623_3fc5a56f_528854.jpeg"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/090623_13c754da_528854.jpeg"/></td>
     </tr>
 	<tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/30cda883bb9a7f74f1454314e64f949942d.jpg"/></td>
-        <td><img src="https://oscimg.oschina.net/oscnet/deebaaa8d6b14a419ed5911f49e3f222a6f.jpg"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/090623_c3b78930_528854.jpeg"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/090623_00254551_528854.jpeg"/></td>
     </tr>
 	<tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/bed2b98a44e7ae820c2885329e711965c28.jpg"/></td>
-        <td><img src="https://oscimg.oschina.net/oscnet/5f3d39a141f21f81b90536f391b8408f1fa.jpg"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/090623_98e47528_528854.jpeg"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/090623_bddd8793_528854.jpeg"/></td>
     </tr>
 </table>
 
