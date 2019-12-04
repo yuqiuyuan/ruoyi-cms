@@ -72,26 +72,7 @@
         <div class="commonHeadLabel small">
             <div class="title">留言板</div>
         </div>
-        <!--<div class="guestBookGroup">
-            <form action="https://www.duoguyu.com/guestbook/index/init.html" method="post" name="guest" onsubmit="return check()">
-                <div class="inputLabel" style="display:none">
-                    <input name="title" type="hidden" class="inputBlock" value="留言标题" placeholder="留言标题" />
-                </div>
-                <div class="inputLabel">
-                    <input name="name" type="text" class="inputBlock" placeholder="昵称" />
-                </div>
-                <div class="inputLabel" style="display:none">
-                    <input name="email" type="email" class="inputBlock" placeholder="Email(选填)" />
-                </div>
-                <div class="inputLabel">
-                    <textarea name="bookmsg" cols="50" rows="6" class="textareaBlock" placeholder="留言内容" ></textarea>
-                </div>
-                <div class="inputLabel qrcode">
-                    <input name="code" type="text" class="inputBlock" placeholder="验证码" ><img class="qrcode" src="https://www.duoguyu.com/api/index/code.html" onclick="this.src=this.src+'?'" title="看不清？点击更换">
-                </div>
-                <input type="submit" name="dosubmit" value="提交留言" class="submitBtn"/>
-            </form>
-        </div>-->
+
 
         <form id="comment-form" class="form-horizontal commentGrid mt-10 comment guestBookGroup">
             <input   name="tid" type="hidden" value="-1">
@@ -112,7 +93,7 @@
 
             <textarea id="comment-textarea" style="background: #fff;" class="commentTextarea"  name="content" placeholder="我来说两句~"></textarea>
             <input type="button" id="submitCommentBtn" name="dosubmit" value="提交留言" class="submitBtn"/>
-            <!--<div class="btnBox"><input type="button"  class="submitBtn" name="dosubmit" value="发表评论"></div>-->
+
         </form>
         <!-- 留言列表 -->
         <div class="commonHeadLabel small mt40">
@@ -133,7 +114,7 @@
 
         <!-- 友联 -->
         <div class="commonHeadLabel small mt40">
-            <div class="title">友情链接 <small class="info" style="font-weight:normal;">/ 交换友联，请发E-mail至tonney@duoguyu.com</small></div>
+            <div class="title">友情链接 <small class="info" style="font-weight:normal;">/ 交换友联，请发E-mail至747506908@qq.com</small></div>
         </div>
         <div class="newArticleGrid link">
             <div  th:each="item:${@cms.getFriendLinks()}"  class="itemLi layoutAuto">
@@ -163,7 +144,7 @@
         <div class="detailGroup">
             <ul class="updateGroup">
                 <li>
-                    <p class="title"><span class="cfBlue mr10">Version 5.3.6 Beta</span><small>2019/06/12</small></p>
+                    <p class="title"><span class="cfBlue mr10">Version 4.1.0</span><small>2019/06/12</small></p>
                     <p>当前主题: <b>Avatar</b> v1.2.2。</p>
                     <p><b>Add:</b></p>
                     <p class="pl20">首页增加“最新留言”板块，展示最近3条留言信息。</p>
@@ -172,54 +153,7 @@
                     <p class="pl20">2: 调整“关于我”界面栏目，修复一处留言分页的前端bug;</p>
                     <p class="pl20">3: 优化其它小细节等；</p>
                     <p class="pl20">4: 升级至响应式（2019/06/21 Update.）。</p>
-                    <p class="tipsInfo">tips: <a href="https://www.duoguyu.com/resource/30.html" target="_blank" title="Avatar响应式博客模版主题-尝鲜版，免费下载"><b>Avatar</b> 响应式博客模版主题-尝鲜版</a> 已提供免费下载。</p>
-                </li>
-                <li>
-                    <p class="title"><span class="cfBlue mr10">Version 5.3.2 Beta</span><small>2019/05/09</small></p>
-                    <p>变更主题至: <b>Avatar</b> v1.0.1。</p>
-                    <p><b>Update:</b></p>
-                    <p class="pl20">1: 升级全新界面风格，调整至1100px容器宽度，优化导航栏目;</p>
-                    <p class="pl20">2: 增加“隔三岔五”栏目，不定期更新一篇语录及配图（2019/07/09 变更为“一席话”）;</p>
-                    <p class="pl20">3: 调整文章列表布局，优化资讯内容风格。</p>
-                </li>
-                <li>
-                    <p class="title"><span class="cfBlue mr10">Version 5.2.1 Beta</span><small>2019/03/24</small></p>
-                    <p>主题升级至: <b>Intro</b> v5.2。</p>
-                    <p><b>Add:</b></p>
-                    <p class="pl20">1: 首页增加“最近更新”板块;</p>
-                    <p class="pl20">2: 札记增加“图文/标题”模式，默认为标题模式，下次访问时可根据记录历史模式载入视图;</p>
-                    <p class="pl20">3: 内容页增加“点赞”功能。</p>
-                    <p><b>Update:</b></p>
-                    <p class="pl20">1: 优化札记及资源栏目的界面视图UI;</p>
-                    <p class="pl20">2: 更新内容页布局风格；更新404页面(文青版)，猛戳此处获取<a href="https://www.duoguyu.com/wtf/16.html" target="_blank" title="404页面(文青版)">404页面(文青版)</a>。</p>
-                    <p><b>Fix:</b></p>
-                    <p class="pl20">菜单导航在firefox浏览器显示异常的问题。</p>
-                    <p class="tipsInfo">tips: <a href="https://www.duoguyu.com/resource/19.html" target="_blank" title="Intro v5.2 完整版模版主题免费下载"><b>Intro</b> v5.2 完整版</a> 模版主题已提供免费下载。</p>
-                </li>
-                <li>
-                    <p class="title"><span class="cfBlue mr10">Version 5.1.0 Beta</span><small>2019/03/20</small></p>
-                    <p>正式命名为: <b>Intro</b>, 意为“序章”。</p>
-                    <p><b>Update:</b></p>
-                    <p class="pl20">调整“资源、小程序”栏目的界面UI，优化部分交互代码。</p>
-                </li>
-                <li>
-                    <p class="title"><span class="cfBlue mr10">Version 5.0.0</span><small>2019/03/14</small></p>
-                    <p><b>一切过往，皆为序章</b></p>
-                    <p>大版本全新重构，从零开始，回归博客本体；原垂直资讯主站已加入时光博物馆，猛戳此处<a href="http://old.duoguyu.com" target="_blank" title="多骨鱼旧站">查看旧站</a> 。</p>
-                    <p class="tipsInfo">tips: <a href="https://www.duoguyu.com/resource/6.html" target="_blank" title="「多骨鱼 - 垂直资讯类模版主题2019」v3.2.完整版，YzmCMS模板主题"><b>「多骨鱼 - 垂直资讯类模版主题2019」</b> v3.2.完整版，YzmCMS模板主题</a> 已提供免费下载。</p>
-                </li>
-                <li>
-                    <p class="title"><span class="cfBlue mr10">Version 3.2</span><small>2018/09/15</small></p>
-                    <p>站点属性定义为互联网垂直资讯类网站，后台管理系统升级至YzmCMS v5.2版本。</p>
-                </li>
-                <li>
-                    <p class="title"><span class="cfBlue mr10">Version 2.0</span><small>2018/01/05</small></p>
-                    <p>站点主题二次改版，界面更加清爽简约，并升级了默认的评论模块。</p>
-                    <p>配置更安全的SSL加密传输协议，支持HTTPS访问。</p>
-                </li>
-                <li>
-                    <p class="title"><span class="cfBlue mr10">Version 1.0.2</span><small>2017/08/25</small></p>
-                    <p>多骨鱼完成建站并部署上线，采用的是YzmCMS 3.0版本后台管理系统。</p>
+                    <p class="tipsInfo">tips: <a href="#" target="_blank" title="Avatar响应式博客模版主题-尝鲜版，免费下载"><b>Avatar</b> 响应式博客模版主题-尝鲜版</a> 已提供免费下载。</p>
                 </li>
             </ul>
         </div>
