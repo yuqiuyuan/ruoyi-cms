@@ -61,7 +61,7 @@
     
     q). 其它
 
-7. 博客主题界面。配备三套前台博客页面主题随意切换。(pblog,pnews,avatar)在sys_config表中配置主题。
+7. 博客主题界面。配备三套前台博客页面主题随意切换。(pblog,pnews,avatar)在sys_config表中配置主题。 **avatar完整模板等更多免费模板请进群下载。** 
 
 ## 在线体验
 > admin/admin123  
