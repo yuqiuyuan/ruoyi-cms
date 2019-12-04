@@ -19,7 +19,7 @@
 16. 在线构建器：拖动表单元素生成相应的HTML代码。
 17. 连接池监视：监视当前系统数据库连接池状态，可进行分析SQL找出系统性能瓶颈。
 
-## ruoyi-plus新增功能
+## ruoyi-cms新增功能
 1. ehcache缓存模块 ruoyi-ehcache 并配备页面监控
 2. redis缓存模块 ruoyi-redis 并配备页面监控
 3. 数据库备份操作页面
