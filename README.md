@@ -69,49 +69,63 @@ Ruoyi演示地址：http://ruoyi.vip
 **Ruoyi-plus演示地址：待定**
 
 文档地址：http://doc.ruoyi.vip
-
+## ruoyi-plus新增功能演示图
+<table>
+    <tr>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/090811_47d8563a_528854.png "/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/090954_1cf23ae8_528854.png "/></td>
+    </tr>
+    <tr>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/091030_92471a5c_528854.png "/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/091108_8d470b37_528854.png "/></td>
+    </tr>
+    <tr>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/091141_ac064647_528854.png "/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/091415_f92464ed_528854.png "/></td>
+    </tr>
+</table>
 ## ruoyi演示图
 
 <table>
     <tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/25b5e333768d013d45a990c152dbe4d9d6e.jpg"/></td>
-        <td><img src="https://oscimg.oschina.net/oscnet/e29fd81b2d43b517f99535564af41f9d1d5.jpg"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/090623_54d9bf66_528854.jpeg"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/090623_7ab01b74_528854.jpeg"/></td>
     </tr>
     <tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/629f1510fb6205f773c8c284863406b694f.jpg"/></td>
-        <td><img src="https://oscimg.oschina.net/oscnet/9124eda87df0e72427cd63f458b813e3363.jpg"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/090623_5edb60b9_528854.jpeg"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/090623_c5100096_528854.jpeg"/></td>
     </tr>
     <tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/438c59467afd0097cfbe9c89db932661687.jpg"/></td>
-        <td><img src="https://oscimg.oschina.net/oscnet/72a015041db6843aca7f7b273688cb346f8.jpg"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/090623_a9be8b64_528854.jpeg"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/090623_d6405543_528854.jpeg"/></td>
     </tr>
 	<tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/ecb5f1c9929f1933f733f796749b2df73d9.jpg"/></td>
-        <td><img src="https://oscimg.oschina.net/oscnet/e4283d500eb10e8dd8701e7742f7facb065.jpg"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/090623_e5b14307_528854.jpeg"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/090623_57323758_528854.jpeg"/></td>
     </tr>	 
     <tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/2531dbf419a1b114e1177f8d2a120b8a9c3.jpg"/></td>
-        <td><img src="https://oscimg.oschina.net/oscnet/8b740a42dddc1e5a8a150d97c5060df258b.jpg"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/090623_1165f493_528854.jpeg"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/090623_9909abae_528854.jpeg"/></td>
     </tr>
 	<tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/00e642dc3515919b3760968cc496a12a849.jpg"/></td>
-        <td><img src="https://oscimg.oschina.net/oscnet/f72d28a3e60413a4e1b5c7c2f45f962fd65.jpg"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/090623_79420ac0_528854.jpeg"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/090623_77ca73e6_528854.jpeg"/></td>
     </tr>
 	<tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/19222e495869a2a99fc31c5d2bd4539e1e7.jpg"/></td>
-        <td><img src="https://oscimg.oschina.net/oscnet/264d25176f4e22b4b38e95fe6ce73775299.jpg"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/090623_59c33ec6_528854.jpeg"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/090623_7b46a78b_528854.jpeg"/></td>
     </tr>
 	<tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/d85fbb59be27fb33f68bdbb6e8bc967c97b.jpg"/></td>
-        <td><img src="https://oscimg.oschina.net/oscnet/bb902d2c54bad02a052e9a05e5f22a93df1.jpg"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/090623_3fc5a56f_528854.jpeg"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/090623_13c754da_528854.jpeg"/></td>
     </tr>
 	<tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/30cda883bb9a7f74f1454314e64f949942d.jpg"/></td>
-        <td><img src="https://oscimg.oschina.net/oscnet/deebaaa8d6b14a419ed5911f49e3f222a6f.jpg"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/090623_c3b78930_528854.jpeg"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/090623_00254551_528854.jpeg"/></td>
     </tr>
 	<tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/bed2b98a44e7ae820c2885329e711965c28.jpg"/></td>
-        <td><img src="https://oscimg.oschina.net/oscnet/5f3d39a141f21f81b90536f391b8408f1fa.jpg"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/090623_98e47528_528854.jpeg"/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/090623_bddd8793_528854.jpeg"/></td>
     </tr>
 </table>
 
