@@ -60,6 +60,9 @@
     p). PV页面访问管理
     
     q). 其它
+
+7. 博客主题界面。配备三套前台博客页面主题随意切换。
+
 ## 在线体验
 > admin/admin123  
 > 陆陆续续收到一些打赏，为了更好的体验已用于演示服务器升级。谢谢各位小伙伴。
@@ -82,6 +85,54 @@ Ruoyi演示地址：http://ruoyi.vip
     <tr>
         <td><img src="https://images.gitee.com/uploads/images/2019/1204/091141_ac064647_528854.png "/></td>
         <td><img src="https://images.gitee.com/uploads/images/2019/1204/091415_f92464ed_528854.png "/></td>
+    </tr>
+    <tr>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/092642_d112390c_528854.png "/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/092730_196ee826_528854.png "/></td>
+    </tr>
+    <tr>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/092815_8077e037_528854.png "/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/092845_94536ad4_528854.png "/></td>
+    </tr>
+    <tr>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/092913_9546de2a_528854.png "/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/092939_bc6be9ff_528854.png "/></td>
+    </tr>
+    <tr>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/093001_198199f7_528854.png "/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/093028_b95622f8_528854.png "/></td>
+    </tr>
+    <tr>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/093057_9246cb3c_528854.png "/></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/093213_b4d429a4_528854.png "/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/093235_e0ed62c1_528854.png "/></td>
+    </tr>
+    <tr>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/093348_e8c7ed2c_528854.png "/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/093408_086be17c_528854.png "/></td>
+    </tr>
+<tr>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/093800_5d6fbeac_528854.png "/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/093823_a514c451_528854.png "/></td>
+    </tr>
+<tr>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/093846_075bb6da_528854.png "/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/093905_e30594b8_528854.png "/></td>
+    </tr>
+<tr>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/093930_38d41d49_528854.png "/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/093950_acd73179_528854.png "/></td>
+    </tr>
+    <tr>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/095538_dae0e203_528854.png "/></td>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/095605_6ca01ed5_528854.png "/></td>
+    </tr>
+    <tr>
+        <td><img src="https://images.gitee.com/uploads/images/2019/1204/095636_bd90c4cd_528854.png "/></td>
+        <td></td>
     </tr>
 </table>
 ## ruoyi演示图
