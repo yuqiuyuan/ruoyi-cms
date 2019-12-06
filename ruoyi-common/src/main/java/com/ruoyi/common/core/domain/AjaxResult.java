@@ -179,7 +179,19 @@ public class AjaxResult extends HashMap<String, Object>
     {
         return new AjaxResult(Type.ERROR, msg, data);
     }
-
+    /**
+     * 返回成功消息
+     *
+     * @param key 键值
+     * @param value 内容
+     * @return 成功消息
+     */
+    @Override
+    public AjaxResult put(String key, Object value)
+    {
+        super.put(key, value);
+        return this;
+    }
     public  boolean isSuccess(){
         Object o=this.get(AjaxResult.CODE_TAG);
         if(o!=null){
