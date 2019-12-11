@@ -1207,7 +1207,7 @@ INSERT INTO `sys_config` VALUES ('7', '站点介绍个人简介', 'site.person.d
 INSERT INTO `sys_config` VALUES ('8', '博客首页title', 'blog.index.title', '葡萄博客', 'Y', 'admin', '2018-03-16 11:33:00', 'admin', '2019-10-10 13:41:12', null);
 INSERT INTO `sys_config` VALUES ('9', '博客首页description', 'blog.index.description', '葡萄cms,极简的Java版内容管理系统。葡萄博客,个人博客网站，技术交流，经验分享。', 'Y', 'admin', '2018-03-16 11:33:00', 'admin', '2019-10-10 13:41:12', null);
 INSERT INTO `sys_config` VALUES ('10', '博客首页keywords', 'blog.index.keywords', '葡萄cms,葡萄博客,Java,JavaScript,Spring,SpringBoot,Vue', 'Y', 'admin', '2018-03-16 11:33:00', 'admin', '2019-10-10 13:41:12', null);
-INSERT INTO `sys_config` VALUES ('11', '站点URL', 'site.url', 'http://www.ptcms.com', 'Y', 'admin', '2018-03-16 11:33:00', 'admin', '2019-10-10 13:41:12', null);
+INSERT INTO `sys_config` VALUES ('11', '站点URL', 'site.url', 'http://www.pt-cms.com', 'Y', 'admin', '2018-03-16 11:33:00', 'admin', '2019-10-10 13:41:12', null);
 INSERT INTO `sys_config` VALUES ('12', '站点名称', 'site.name', '葡萄内容管理系统', 'Y', 'admin', '2018-03-16 11:33:00', 'admin', '2019-10-10 13:41:12', null);
 INSERT INTO `sys_config` VALUES ('13', '站点备案号', 'site.beian', '鲁ICP备19006478号-1', 'Y', 'admin', '2018-03-16 11:33:00', 'admin', '2019-10-10 13:41:12', null);
 INSERT INTO `sys_config` VALUES ('14', '博客主题', 'blog.theme', 'pblog', 'Y', 'admin', '2018-03-16 11:33:00', 'admin', '2019-10-10 13:41:12', 'avatar/pnews/pblog');
