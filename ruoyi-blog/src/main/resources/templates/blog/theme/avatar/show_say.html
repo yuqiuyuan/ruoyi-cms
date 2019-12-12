@@ -17,8 +17,6 @@
     <script type="text/javascript" src="{STATIC_URL}avatar/plugin/layui/layui.js"></script>
     <script type="text/javascript" src="{STATIC_URL}avatar/js/detailMotheds.js"></script>
 	<script type="text/javascript" src="{STATIC_URL}avatar/js/digg.js"></script>
-	
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.2/css/swiper.min.css">
 </head>
 <body>
     <div class="fixedHeadSwitch">
@@ -26,47 +24,26 @@
     </div>
             
     <!-- baseGroup -->
-    <div class="baseGroup mt100 w1100 layoutAuto">
+    <div class="baseGroup w1100 mt100 layoutAuto">
         <!-- detailGrid -->
-        <div class="detailGrid web">
-            
-            <div class="webHeadLabel">
-                <div class="webImg" style="background:url('{$thumb}') no-repeat; background-size:cover;"></div>
-                <a href="{$webSite}" target="_blank" class="website" style="right:0;">立即访问</a>
-                <h1 class="title">{$title}</h1>
-                <p class="info">
-                    {$webTag}
-                </p>
-            </div>
-            
-            <!-- 介绍 -->
-            <div class="commonHeadLabel small mt40">
-               <div class="title">介绍</div>
-            </div>
-            <article class="articleDetailGroup">
-                {$content}
-            </article>
-            
-            <!-- 预览 -->
-            <div class="commonHeadLabel small mt40">
-               <div class="title">预览</div>
-            </div>
-            <div class="launchTopGird web">
-                <div class="swiper-container" id="webImgGrid">
-                    <div class="swiper-wrapper">
-                        {php $webImgArray = string2array($webImgArray);}
-    					{loop $webImgArray $v}
-                        <div class="swiper-slide">
-        	                <div class="imgBox">
-        	                    <img class="img" src="{$v[url]}" alt="{$v[alt]}" title="{$v[alt]}">
-        	                </div>
-        	            </div>
-        			    {/loop}
-        		    </div>
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
+        <div class="detailGrid my">
+        
+            <article>
+                <div class="posterGrid">
+                    <div class="bodyBox">
+                        <div class="poster" style="background:url('{$thumb}') no-repeat center; background-size:cover;"></div>
+                        <div class="pl10 pr10">
+                            <h2 class="title">{$title}</h2>
+                            <p class="author">
+                                by.<span class="ml5">{$nickname}</span>
+                            </p>
+                            <p class="author">
+                                <span class="ml5">{date('Y/m/d',$updatetime)}</span>
+                            </p>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </article>
             
 			<!-- zanGroup -->
 			<div id="pt-cms_digg_div" class="zanGroup">
@@ -75,27 +52,10 @@
 				</div>
 				<p><span id="up" class="numFont2">{$up}</span></p>
 			</div>
+			<!-- / zanGroup -->
+			
     		<div class="clearfix"></div>
-            <div class="mt80 mb20" style="border-top:1px solid #eee"></div>
     		
-    	    <!-- 猜你喜欢 -->
-            <div class="commonHeadLabel small mt40">
-               <div class="title">猜你喜欢</div>
-            </div>
-            <div class="newArticleGrid link web">
-                {m:lists field="title,url,thumb,description,webTag" modelid="$modelid" order="RAND()" limit="3"}
-    		    {loop $data $v}
-    		    <div class="itemLi">
-                    <a href="{$v[url]}" target="_blank" class="content">
-                        <div class="img" style="background:url('{$v[thumb]}') no-repeat; background-size:cover;"></div>
-                        <h2>{str_cut($v['title'], 80)}</h2>
-                        <p>{$v[webTag]}</p>
-                    </a>
-    		    </div>
-    		    {/loop}
-    		    <div class="clearfix"></div>
-            </div>
-            
     		<!-- 评论区 开始 -->
             <div class="commonHeadLabel small mt80">
                <div class="title">评论列表</div>
@@ -148,20 +108,67 @@
         		
     		</div>
     		
+    		<!-- rightGrid -->
+            {if $isTheme}
+    		<div class="rightGrid my">
+                <div class="myInfoGrid">
+                    <div class="thumbBox">
+                        <img src="{$thumb}" alt="{$title}">
+                    </div>
+                    <div class="itemTitle">
+                        <h6>{$title}</h6>
+                    </div>
+                    <div class="itemTitle float">
+                        <p>最后更新：</p><h6>{date('Y/m/d H:i:s',$updatetime)}</h6>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="itemTitle float">
+                        <p>模版类型：</p><h6>{$themeType}</h6>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="itemTitle float">
+                        <p>软件版本：</p><h6>{$cmsVersion}</h6>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="itemTitle float">
+                        <p>评分等级：</p><h6>{$themeScore}</h6>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="itemTitle float">
+                        <p>下载地址：</p><h6><a href="{$webZip}" class="downloadBtn">免费获取</a></h6>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="detail down">
+                        <p class="title">注意事项：</p>
+                        <p>本站内分享的模版默认都是基于<a href="http://www.pt-cms.com" target="_blank" title="pt-cms官网">pt-cms</a>，详细安装方法见<a href="https://www.duoguyu.com/pt-cms/10.html" target="_blank" title="模版安装说明">模版安装说明</a>。</p>
+                        <p>如果下载的模版无法正常使用或报错，请至<a href="http://bbs.pt-cms.com" target="_blank" title="pt-cms论坛">pt-cms社区论坛</a>寻求帮助，或者加入QQ群（161208398）谈论反馈问题。</p>
+                    </div>
+                </div>
+                <div class="brandGrid" id="brandGrid"></div>
+    		</div>
+            {else}
+    		<div class="rightGrid my fixed bgf">
+                <div class="commonHeadLabel small">
+                   <div class="title">推荐阅读</div>
+                </div>
+                <div class="labelItem">
+                	{m:lists field="title,url,thumb,click,inputtime" modelid="$modelid" order="RAND()" limit="4"}
+                	{loop $data $v}
+                    <a href="{$v[url]}" class="item">
+                        <h3>{str_cut($v['title'], 80)}</h3>
+                        <p>阅读 {$v[click]} <span>/</span> {format_time($v['inputtime'])}</p>
+                    </a>
+                	{/loop}
+                </div>
+                <div class="brandGrid" id="brandGrid"></div>
+                
+    		</div>
+            {/if}
+    		
+    		
     	</div>	
     </div>
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.2/js/swiper.min.js"></script>
-    <script>        
-    $(function(){
-        var indexFocusSwiper = new Swiper ('#webImgGrid', {
-            slidesPerView: 2,
-            spaceBetween: 20,
-            navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev',},
-            //loop: true,
-        }) 
-    });
-    </script>
     <!-- footer -->
     <footer class="bgfa" style="position:relative; z-index:10;">
     {m:include "index","footer"}

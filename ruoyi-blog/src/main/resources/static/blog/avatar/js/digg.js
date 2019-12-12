@@ -1,6 +1,6 @@
 /**
- *  YzmCMS 文章顶踩插件
- *	www.yzmcms.com
+ *  pt-cms 文章顶踩插件
+ *	www.pt-cms.com
  *  作者：袁志蒙
  *  @lastmodify		2018-11-15
  */
@@ -52,4 +52,4 @@ function SetCookie(c_name, value, expiredays){
     document.cookie = c_name + "=" +escape(value) + ((expiredays == null) ? "" : ";expires=" + exdate.toGMTString()); 
 }
 
-// SITE: www.yzmcms.com
+// SITE: www.pt-cms.com

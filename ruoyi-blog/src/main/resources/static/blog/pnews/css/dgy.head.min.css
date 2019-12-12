@@ -18,9 +18,9 @@
 .adGrid.h80{ height:80px;}
 .adGrid.homeMid{background:#f64480;}
 .adGrid.homeMid2{background:#494F5E;}
-.adGrid.yzmcms{ padding:20px; text-align:center; color:#fff; font-size:12px; line-height:16px;}
-.adGrid.yzmcms h3{font-size:16px; line-height:20px; letter-spacing: 1px;}
-.adGrid.yzmcms h3>span{font-size:16px; line-height:20px; letter-spacing:0; font-weight: normal;}
+.adGrid.pt-cms{ padding:20px; text-align:center; color:#fff; font-size:12px; line-height:16px;}
+.adGrid.pt-cms h3{font-size:16px; line-height:20px; letter-spacing: 1px;}
+.adGrid.pt-cms h3>span{font-size:16px; line-height:20px; letter-spacing:0; font-weight: normal;}
 .adGrid.homeRight{background:#f64480; margin:15px 10px 15px; }
 .adGrid a{ display:block;}
 .adGrid a>img{ display:block; width:100%; margin:0 auto; border:0;}

@@ -6,14 +6,14 @@
                     <a th:if="${category.parentId==null||category.parentId==0}"  th:href="@{${'/blog/category/' + category.categoryId}}"   th:text="${category.categoryName}">
                     </a>
                 </li>
-                <li class="copyright"><p>©源自优秀的轻量级开源管理系统<a target="_blank"   th:href="${@config.getKey('site.url')}" class="alink">PT-CMS</a></p></li>
+                <li class="copyright"><p>©源自优秀的轻量级开源管理系统<a target="_blank"   th:href="${@config.getKey('site.url')}" class="alink">pt-cms</a></p></li>
             </ul>
         </aside>
         <article>
             <section>
                 <p><span style="color:#666;">站点声明：本站转载作品版权归原作者及来源网站所有，原创内容作品版权归作者所有，任何内容转载、商业用途等均须联系原作者并注明来源。</span></p>
 
-                <p style="color:#888;"><span style="padding-right:20px;">Copyright © [[${#dates.format(new java.util.Date().getTime(), 'yyyy')}]].[[${@config.getKey('site.name')}]] All Rights Reserved. Powered by <a th:href="${@config.getKey('site.url')}" style="color: #888;" target="_blank" title="pt-cms是一款精简的自适应CMS系统...">PT-CMS</a>.</span>
+                <p style="color:#888;"><span style="padding-right:20px;">Copyright © [[${#dates.format(new java.util.Date().getTime(), 'yyyy')}]].[[${@config.getKey('site.name')}]] All Rights Reserved. Powered by <a th:href="${@config.getKey('site.url')}" style="color: #888;" target="_blank" title="pt-cms是一款精简的自适应CMS系统...">pt-cms</a>.</span>
                     <span style="color:#666;">[[${@config.getKey('site.beian')}]]</span>
                 </p>
                 <p>相关侵权、举报、投诉及建议等，请联系站长!</p>

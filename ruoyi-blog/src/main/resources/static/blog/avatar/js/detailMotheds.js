@@ -1,7 +1,7 @@
 /*
 *
 *  name: detailMotheds
-*  author: tonney
+*  author: markbro
 *  date: 2019/04/17 14:15
 *
 */
@@ -10,7 +10,7 @@ $(function(){
 });
 var brandInit = function(){
     var brandArray = [
-        {img:"https://www.duoguyu.com/dist/images/brand/brand-yzmcms.jpg",url:"http://www.yzmcms.com?from=duoguyu.com" },
+        {img:"https://www.duoguyu.com/dist/images/brand/brand-pt-cms.jpg",url:"http://www.pt-cms.com?from=duoguyu.com" },
         {img:"https://www.duoguyu.com/dist/images/brand/brand-aliyun.jpg",url:"https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=psmzr0yi" },
         ];
     var _brand = parseInt(Math.random()*(brandArray.length));
