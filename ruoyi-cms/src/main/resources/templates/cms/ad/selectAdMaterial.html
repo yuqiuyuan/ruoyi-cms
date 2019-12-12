@@ -106,7 +106,7 @@
             $.modal.alertWarning("请选择一条记录");
             return;
         }
-        var datas=$.btTable.bootstrapTable('getSelections');
+        var datas=$("#bootstrap-table").bootstrapTable('getSelections');
         var id=datas[0].materialId;
         var name=datas[0].materialName;
 
