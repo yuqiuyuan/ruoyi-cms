@@ -24,8 +24,13 @@ $(function() {
     }else{
         $("#rememberMe").attr("checked",false);
     }
-    $("#username").val(cookieName);
-    $("#password").val(cookiePass);
+    if($.common.isNotEmpty(cookieName)){
+        $("#username").val(cookieName);
+    }
+    if($.common.isNotEmpty(cookiePass)){
+        $("#password").val(cookiePass);
+    }
+
 	validateKickout();
     validateRule();
 	$('.imgcode').click(function() {
