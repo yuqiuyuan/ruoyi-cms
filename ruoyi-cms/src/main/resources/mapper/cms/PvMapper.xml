@@ -32,6 +32,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="deviceType != null  and deviceType != ''"> and device_type = #{deviceType}</if>
             <if test="ip != null  and ip != ''"> and ip = #{ip}</if>
         </where>
+        order by create_time desc
     </select>
     
     <select id="selectPvById" parameterType="Long" resultMap="PvResult">
