@@ -151,7 +151,14 @@
                 <div class="form-group">
                     <label class="col-sm-4 control-label">评分：</label>
                     <div class="col-sm-8">
-                        <input name="score" class="form-control" type="text"  th:field="*{score}" >
+                        <select class="form-control" required name="score"  th:field="*{score}" >
+                            <option value="">-请选择-</option>
+                            <option value="1">1分</option>
+                            <option value="2">2分</option>
+                            <option value="3">3分</option>
+                            <option value="4">4分</option>
+                            <option value="5">5分</option>
+                        </select>
                     </div>
                 </div>
             </div>
