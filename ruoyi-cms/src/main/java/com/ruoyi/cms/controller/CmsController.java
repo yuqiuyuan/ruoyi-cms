@@ -2,6 +2,7 @@ package com.ruoyi.cms.controller;
 
 import com.ruoyi.cms.domain.Attachment;
 import com.ruoyi.cms.domain.Pv;
+import com.ruoyi.cms.service.CmsService;
 import com.ruoyi.cms.service.IAttachmentService;
 import com.ruoyi.cms.service.IPvService;
 import com.ruoyi.cms.service.PVQueueService;
@@ -42,6 +43,8 @@ public class CmsController extends BaseController {
 
     @Autowired
     private IPvService pvService;
+    @Autowired
+    CmsService cms;
     /**
      * 上传附件请求
      */
@@ -178,6 +181,14 @@ public class CmsController extends BaseController {
     public AjaxResult pv(Pv pv, HttpServletRequest request)
     {
         pvQueueService.pushPvQueue(request,pv);
+        return success();
+    }
+
+    @PostMapping( "/cms/clearSiteInfoCache")
+    @ResponseBody
+    public AjaxResult clearSiteInfoCache(Pv pv, HttpServletRequest request)
+    {
+        cms.clearCache();
         return success();
     }
 }
