@@ -63,6 +63,8 @@ public class BlogController extends BaseController
     private ILinkTypeService linkTypeService;
     @Autowired
     private ILinkService linkService;
+    @Autowired
+    private IBlogThemeService blogThemeService;
 
     private static Cache<String,Integer> articleViewCache= CacheUtil.newLRUCache(1000,1000*60*60);
     private static Cache<String,Integer> articleUpVoteCache= CacheUtil.newLRUCache(1000,1000*60*60);
@@ -518,5 +520,26 @@ public class BlogController extends BaseController
         model.addAttribute("linkList", linkList);
 
         return prefix+"/" + getTheme() + "/list_nav";
+    }
+    @GetMapping("/blogTheme")
+    public String blogTheme(Model model){
+        BlogTheme form = new BlogTheme();
+        startPage();
+        List<BlogTheme> themes = blogThemeService.selectBlogThemeList(form);
+        PageInfo pageInfo=new PageInfo(themes);
+        model.addAttribute("total", pageInfo.getTotal());
+        model.addAttribute("pageNo", pageInfo.getPageNum());
+        model.addAttribute("pageSize", pageInfo.getPageSize());
+        model.addAttribute("totalPages", pageInfo.getPages());
+        model.addAttribute("hasPrevious", pageInfo.isHasPreviousPage());
+        model.addAttribute("hasNext", pageInfo.isHasNextPage());
+        model.addAttribute("currentPage", pageInfo.getPageNum());
+        model.addAttribute("prePage", pageInfo.getPrePage());
+        model.addAttribute("nextPage", pageInfo.getNextPage());
+        model.addAttribute("navNums", pageInfo.getNavigatepageNums());
+        model.addAttribute("themeList",themes);
+        String currentTheme = blogThemeService.queryCurrentBlogTheme();
+        model.addAttribute("currentTheme",currentTheme);
+        return prefix+"/blogTheme";
     }
 }

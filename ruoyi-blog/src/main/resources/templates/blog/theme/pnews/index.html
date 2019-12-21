@@ -17,8 +17,10 @@
 	<link rel="stylesheet" th:href="@{/blog/pnews/plugin/swiper4/swiper-4.1.0.min.css}"/>
 
 	<script th:src="@{/blog/pnews/js/jquery-2.1.4.min.js}"></script>
+	<script th:src="@{/ajax/libs/layer/layer.min.js}"></script>
 	<script th:src="@{/blog/pnews/js/jquery.lazyload.min.js}"></script>
 	<script th:src="@{/blog/pnews/js/baseMotheds.js}"></script>
+	<script th:inline="javascript"> var ctx = [[@{/}]]; </script>
 	<script th:src="@{/blog/pnews/plugin/swiper4/swiper-4.1.0.min.js}"></script>
 </head>
 <body>
@@ -41,6 +43,11 @@
 			</ul>
 		</div>
 		<div class="userWrap">
+			<div class="searchWrap" style="color:#fff;width: 140px;">
+                <a  style="color:#fff;" th:href="@{/admin}" target="_blank">登陆后台</a>
+                <span style="display: inline-block;margin-right: 5px;margin-left: 5px;">|</span>
+                <a onclick="switchBlogTheme()" style="cursor: pointer;color:#fff;" target="_blank">切换模板</a>
+    		</div>
 			<div class="searchWrap" id="searchWrap">
 				<form method="get" th:action="@{/blog/search}" target="_blank">
 					<input type="text" class="searchInput" name="content"/>
@@ -236,6 +243,18 @@
 	</div>
 </div>
 <div th:replace="blog/theme/pnews/footer"></div>
+<script type="text/javascript">
+    /* 切换主题 */
+    function switchBlogTheme() {
+        layer.open({
+            type : 2,
+            shadeClose : true,
+            title : "切换主题",
+            area : ["1428px", "470px"],
+            content : [ctx + "blog/blogTheme?pageSize=3", 'no']
+        })
+    }
 
+</script>
 </body>
 </html>

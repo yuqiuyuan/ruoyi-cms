@@ -1,3 +1,5 @@
+<script th:inline="javascript"> var ctx = [[@{/}]]; </script>
+<script th:src="@{/ajax/libs/layer/layer.min.js}"></script>
 <div th:fragment="top"  class="top-box">
     <div class="pb-container">
         <span class="">
@@ -45,12 +47,36 @@
                         留言板
                     </a>
                 </li>
+                <li class="">
+                    <a th:href="@{/admin}" target="_blank" >
+                        登陆后台
+                    </a>
+                </li>
+                <li class="">
+                    <a  onclick="switchBlogTheme()" style="cursor: pointer;" target="_blank"  >
+                        切换模板
+                    </a>
+                </li>
                 <!--<li>
                     <a href="#">
                         <i  class="fa fa-search search-btn"></i>
                     </a>
                 </li>-->
             </ul>
+
         </div>
+
     </div>
+    <script type="text/javascript">
+        /* 切换主题 */
+        function switchBlogTheme() {
+            layer.open({
+                type : 2,
+                shadeClose : true,
+                title : "切换主题",
+                area : ["1428px", "470px"],
+                content : [ctx + "blog/blogTheme?pageSize=3", 'no']
+            })
+        }
+    </script>
 </nav>
