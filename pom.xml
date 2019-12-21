@@ -223,7 +223,6 @@
 		<module>ruoyi-quartz</module>
 		<module>ruoyi-generator</module>
         <module>ruoyi-common</module>
-        <module>ruoyi-app</module>
 		<module>ruoyi-ehcache</module>
 		<module>ruoyi-redis</module>
 		<module>ruoyi-spider</module>
