@@ -259,7 +259,7 @@ public class ShiroConfig
         filterChainDefinitionMap.put("/blog/**", "anon");//注意前台博客请求不拦截
         filterChainDefinitionMap.put("/page/view", "anon");
         filterChainDefinitionMap.put("/images/**", "anon");
-
+        filterChainDefinitionMap.put("/cms/blogTheme/updateBlogThemeConfig", "anon");
         // 退出 logout地址，shiro去清除session
         filterChainDefinitionMap.put("/logout", "logout");
         // 不需要拦截的访问
