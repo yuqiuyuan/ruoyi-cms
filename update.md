@@ -1,4 +1,18 @@
 ## 更新日志
+## 2019年12月22日
+
+1. 新增websocket模块
+2. pblog博客主题新增在线人数展示
+3. 后台新增消息群发页面
+
+![输入图片说明](https://images.gitee.com/uploads/images/2019/1222/192113_c6f37838_528854.jpeg "1.jpg")
+![输入图片说明](https://images.gitee.com/uploads/images/2019/1222/192202_43f42552_528854.jpeg "2.jpg")
+
+菜单sql:
+
+INSERT INTO `sys_menu` (`menu_id`, `menu_name`, `parent_id`, `order_num`, `url`, `target`, `menu_type`, `visible`, `perms`, `icon`, `create_by`, `create_time`, `update_by`, `update_time`, `remark`) VALUES ('3097', '消息群发', '3', '4', '/notice', 'menuItem', 'C', '0', 'notice', '#', 'admin', '2019-12-22 15:17:46', '', NULL, '');
+
+
 ## 2019年12月21日
 
 1. 优化:新增切换博客主题模板功能。
