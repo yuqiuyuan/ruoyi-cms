@@ -59,78 +59,6 @@ $(function(){
     baseMotheds.init();
 });
 var baseMotheds = function(){
-
-    var semantic_checkbox=function(){
-        try{
-            $checkbox= $('form').find('.ui.checkbox') ;
-            $checkbox.checkbox();
-        }catch(ex){}
-    }
-    var scrollHead = function(){
-        var headGroup = $('#headGroup').height();
-        var headFullTabs = $('#headFullTabs').height();
-        var sroll = headGroup - headFullTabs;
-        $(window).bind("scroll resize", function() {
-            if ($(window).scrollTop() > sroll) {
-                $('#headFullTabs').addClass('index');
-                $('#indexGroup').css('padding-top','50px');
-            }else{
-                $('#headFullTabs').removeClass('index');
-                $('#indexGroup').css('padding-top','0');
-            }
-        });
-    };
-    var scrollHeadNew = function(){
-        var nav = $('#nav').height();
-        var fullPitch = $('.fullPitch').height();
-        var headFullTabs = $('#headFullTabs').height();
-        var sroll = nav+fullPitch+headFullTabs+headFullTabs-1;
-        $(window).bind("scroll resize", function() {
-            if ($(window).scrollTop() > sroll) {
-                $('#headFullTabs').addClass('index');
-
-            }else{
-                $('#headFullTabs').removeClass('index');
-
-            }
-        });
-    };
-    // headSearch
-    var headSearch = function(){
-        $('.searchWrap .searchbtn').click(function(){
-            var searchText=$('.searchWrap input.searchInput').val();
-            if(isEmpty(searchText)){
-                return;
-            }
-            $.layer.alert("搜索功能正在开发中...");
-        });
-        $('.searchWrap input.searchInput').focus(function(){
-            $(this).parents('.searchWrap').addClass('show');
-        }).blur(function(){
-            if(isEmpty($(this).val())){
-                $(this).parents('.searchWrap').removeClass('show');
-            }
-        });
-
-    };
-    var headSearchNew = function(){
-        $('#searchbtn').click(function(){
-            var searchText=$('#div_search input.searchInput').val();
-            if(isEmpty(searchText)){
-                return;
-            }else{
-                //$.layer.alert("搜索功能正在开发中...");
-                window.location.href="/myblog/search?words="+searchText+"&rows=6";
-            }
-
-        });
-        document.onkeydown = function(e){
-            var ev = document.all ? window.event : e;
-            if(ev.keyCode==13) {
-                $('#searchbtn').click();
-            }
-        }
-    };
     // lazyLoad
     var lazyLoad = function(){
         try{
@@ -190,12 +118,8 @@ var baseMotheds = function(){
     }
     return{
         init: function(){
-            scrollHead();
-            scrollHeadNew();
-            headSearch();
-            headSearchNew();
+
             lazyLoad();
-            semantic_checkbox();
             //imgError();
             //imgNull();
             goTop();
