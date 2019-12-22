@@ -124,7 +124,7 @@ var baseMotheds = function(){
             //imgNull();
             goTop();
             bubble();
-            //websocket();
+            websocket();
         }
     }
 }();

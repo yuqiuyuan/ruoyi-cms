@@ -260,6 +260,8 @@ public class ShiroConfig
         filterChainDefinitionMap.put("/page/view", "anon");
         filterChainDefinitionMap.put("/images/**", "anon");
         filterChainDefinitionMap.put("/cms/blogTheme/updateBlogThemeConfig", "anon");
+        filterChainDefinitionMap.put("/websocket", "anon");
+
         // 退出 logout地址，shiro去清除session
         filterChainDefinitionMap.put("/logout", "logout");
         // 不需要拦截的访问

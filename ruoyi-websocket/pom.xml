@@ -9,20 +9,17 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>ruoyi-blog</artifactId>
-    <description>博客模块</description>
+    <artifactId>ruoyi-websocket</artifactId>
 
     <dependencies>
+        <!-- 核心模块-->
         <dependency>
             <groupId>com.ruoyi</groupId>
-            <artifactId>ruoyi-cms</artifactId>
-            <version>4.1.0</version>
+            <artifactId>ruoyi-framework</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.ruoyi</groupId>
-            <artifactId>ruoyi-websocket</artifactId>
-            <version>4.1.0</version>
-            <scope>provided</scope>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-websocket</artifactId>
         </dependency>
     </dependencies>
 

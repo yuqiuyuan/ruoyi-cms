@@ -230,7 +230,8 @@
 		<module>ruoyi-cms</module>
         <module>ruoyi-blog</module>
         <module>ruoyi-oss</module>
-    </modules>
+		<module>ruoyi-websocket</module>
+	</modules>
     <packaging>pom</packaging>
 
 
