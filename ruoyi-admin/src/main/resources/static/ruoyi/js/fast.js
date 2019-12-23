@@ -138,7 +138,7 @@ var wesocketMsgResolver = {
         value && $(".onlineNum").html(value);
     },
     notification: function (value) {
-        value && Fast.msg_info(value);
+        value && Fast.msg_info(decodeURIComponent(value));
     }
 };
 
