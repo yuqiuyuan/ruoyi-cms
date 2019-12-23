@@ -1,4 +1,8 @@
 ## 更新日志
+## 2019年12月23日
+1. 更新：文章新增和编辑页面增加栏目选择项
+![输入图片说明](https://images.gitee.com/uploads/images/2019/1223/081455_947bcf30_528854.jpeg "1.jpg")
+![输入图片说明](https://images.gitee.com/uploads/images/2019/1223/081510_cff21afd_528854.jpeg "2.jpg")
 ## 2019年12月22日
 
 1. 新增websocket模块
