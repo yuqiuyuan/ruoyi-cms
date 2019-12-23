@@ -3,6 +3,15 @@
 1. 更新：文章新增和编辑页面增加栏目选择项
 ![输入图片说明](https://images.gitee.com/uploads/images/2019/1223/081455_947bcf30_528854.jpeg "1.jpg")
 ![输入图片说明](https://images.gitee.com/uploads/images/2019/1223/081510_cff21afd_528854.jpeg "2.jpg")
+
+2. 完善ruoyi-oss模块功能
+![输入图片说明](https://images.gitee.com/uploads/images/2019/1223/140718_717c64ba_528854.jpeg "1.jpg")
+
+ **sys_config表sql:** 
+INSERT INTO `sys_config` (`config_id`, `config_name`, `config_key`, `config_value`, `config_type`, `create_by`, `create_time`, `update_by`, `update_time`, `remark`) VALUES ('4', 'oss存储配置', 'sys.oss.cloudStorage', '{\"type\":1,\"qiniuDomain\":\"http://832s18.s3-cn-south-1.qiniucs.com\",\"qiniuPrefix\":\"upload\",\"qiniuAccessKey\":\"RmWBeMWWW5L_8hVtzqHjRBLnN1GrrldgxvL1SUdT\",\"qiniuSecretKey\":\"qFasmo516ADBxCKA2lwOzphx5FCXlYKa3GNXKuS6\",\"qiniuBucketName\":\"media\",\"aliyunDomain\":\"\",\"aliyunPrefix\":\"\",\"aliyunEndPoint\":\"\",\"aliyunAccessKeyId\":\"\",\"aliyunAccessKeySecret\":\"\",\"aliyunBucketName\":\"\",\"qcloudDomain\":\"\",\"qcloudPrefix\":\"\",\"qcloudSecretId\":\"\",\"qcloudSecretKey\":\"\",\"qcloudBucketName\":\"\",\"qcloudRegion\":\"\"}', 'Y', 'admin', '2018-03-16 11:33:00', 'ry', '2019-10-10 13:41:12', 'oss存储配置(七牛，阿里，腾讯三选一)');
+ **sys_menu表sql:** 
+INSERT INTO `sys_menu` (`menu_id`, `menu_name`, `parent_id`, `order_num`, `url`, `target`, `menu_type`, `visible`, `perms`, `icon`, `create_by`, `create_time`, `update_by`, `update_time`, `remark`) VALUES ('2005', 'OSS文件管理', '1', '10', '/system/oss', 'menuItem', 'C', '0', 'system:oss:view', '#', 'admin', '2018-11-16 13:59:45', 'admin', '2019-12-23 14:03:43', '');
+
 ## 2019年12月22日
 
 1. 新增websocket模块
