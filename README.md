@@ -67,9 +67,7 @@
 > admin/admin123  
 > 陆陆续续收到一些打赏，为了更好的体验已用于演示服务器升级。谢谢各位小伙伴。
 
-Ruoyi演示地址：http://ruoyi.vip  
-
-**Ruoyi-plus演示地址：待定**
+**Ruoyi-plus演示地址：http://106.13.164.230/blog
 
 文档地址：http://doc.ruoyi.vip
 ## ruoyi-plus新增功能演示图
