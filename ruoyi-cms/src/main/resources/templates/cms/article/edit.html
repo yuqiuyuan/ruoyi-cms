@@ -40,7 +40,7 @@
                 </div>
             </div>
 
-            <div class="row">
+           <!-- <div class="row">
                 <div class="col-sm-12">
                     <div class="form-group">
                         <label class="col-xs-2 control-label">文章模型：</label>
@@ -52,7 +52,34 @@
                         </div>
                     </div>
                 </div>
+            </div>-->
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">文章标题：</label>
+                        <div class="col-sm-8">
+                            <div class="input-group">
+                                <input id="treeId" name="categoryId" type="hidden" th:value="${article.category?.categoryId}"/>
+                                <input class="form-control" type="text" onclick="selectCategoryTree()" id="treeName" readonly="true" th:value="${article.category?.categoryName}">
+                                <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">文章模型：</label>
+                        <div class="col-sm-8">
+                            <div class="radio-box" th:each="dict : ${@dict.getType('article_model')}">
+                                <input type="radio" th:id="${'articleModel_' + dict.dictCode}" name="articleModel" th:value="${dict.dictValue}" th:checked="${dict.default}" th:field="*{articleModel}">
+                                <label th:for="${'articleModel_' + dict.dictCode}" th:text="${dict.dictLabel}"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
@@ -173,6 +200,25 @@
     <th:block th:include="include :: ueditor" />
 
     <script type="text/javascript">
+        /*栏目分类选择*/
+        function selectCategoryTree() {
+            var prefixTemp = ctx + "cms/category"
+            var options = {
+                title: '栏目分类选择',
+                width: "380",
+                url: prefixTemp + "/selectCategoryTree/" + $("#treeId").val(),
+                callBack: doSubmit
+            };
+            $.modal.openOptions(options);
+        }
+
+        function doSubmit(index, layero){
+            var body = layer.getChildFrame('body', index);
+            $("#treeId").val(body.find('#treeId').val());
+            $("#treeName").val(body.find('#treeName').val());
+            layer.close(index);
+        }
+
         var ue = UE.getEditor('editor');
         function getContent() {
             return UE.getEditor('editor').getContent();
