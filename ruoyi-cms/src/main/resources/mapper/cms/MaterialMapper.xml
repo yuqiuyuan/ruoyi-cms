@@ -25,7 +25,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </resultMap>
 
     <sql id="selectMaterialVo">
-        select a.material_id, a.group_id, a.material_name, a.material_type, a.description, a.material_size, a.save_path, a.thumbnail, a.audit_state, a.audit_reason, a.use_state, a.width, a.height, a.uploader_id, a.upload_time, a.remark
+        select a.material_id, a.group_id,b.group_name, a.material_name, a.material_type, a.description, a.material_size, a.save_path, a.thumbnail, a.audit_state, a.audit_reason, a.use_state, a.width, a.height, a.uploader_id, a.upload_time, a.remark
         from cms_material a
         inner join cms_material_group b on a.group_id=b.group_id
     </sql>
