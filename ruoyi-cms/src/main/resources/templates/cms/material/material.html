@@ -240,7 +240,7 @@
         layer.close(index);
     }
     function audit(){
-        var rows = $.common.isEmpty($.table._option.uniqueId) ? $.table.selectFirstColumns() : $.table.selectColumns($.table._option.uniqueId);
+        var rows = $.table.selectFirstColumns();
         if (rows.length == 0) {
             $.modal.alertWarning("请至少选择一条记录");
             return;
