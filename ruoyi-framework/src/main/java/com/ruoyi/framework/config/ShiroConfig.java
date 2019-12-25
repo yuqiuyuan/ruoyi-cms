@@ -259,6 +259,7 @@ public class ShiroConfig
         filterChainDefinitionMap.put("/blog/**", "anon");//注意前台博客请求不拦截
         filterChainDefinitionMap.put("/page/view", "anon");
         filterChainDefinitionMap.put("/images/**", "anon");
+        filterChainDefinitionMap.put("/loginPage/**", "anon");
         filterChainDefinitionMap.put("/cms/blogTheme/updateBlogThemeConfig", "anon");
         filterChainDefinitionMap.put("/websocket", "anon");
 

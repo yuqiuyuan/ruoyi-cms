@@ -1,15 +1,18 @@
 package com.ruoyi.web.controller.system;
 
+import com.ruoyi.cms.util.CmsConstants;
 import com.ruoyi.common.core.controller.BaseController;
 import com.ruoyi.common.core.domain.AjaxResult;
 import com.ruoyi.common.utils.ServletUtils;
 import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.framework.util.ShiroUtils;
 import com.ruoyi.system.domain.SysUser;
+import com.ruoyi.system.service.ISysConfigService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,6 +29,12 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 public class SysLoginController extends BaseController
 {
+    @Autowired
+    private ISysConfigService configService;
+
+    private String getLoginPageCode(){
+        return configService.selectConfigByKey(CmsConstants.KEY_LOGIN_PAGE);
+    }
     @GetMapping("/login")
     public String login(HttpServletRequest request, HttpServletResponse response)
     {
@@ -38,8 +47,14 @@ public class SysLoginController extends BaseController
         {
             return ServletUtils.renderString(response, "{\"code\":\"1\",\"msg\":\"未登录或登录超时。请重新登录\"}");
         }
+        String loginPageCode=getLoginPageCode();
+        if(StringUtils.isEmpty(loginPageCode)){
+            return "login";
+        }else{
+            //配置了login.page参数
+            return "/loginPage/"+loginPageCode+"/login";//页面在cms模块loginPage文件夹下
+        }
 
-        return "login";
     }
 
     @PostMapping("/login")

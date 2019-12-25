@@ -54,4 +54,8 @@ public class CmsConstants {
      * 博客主题
      */
     public static final String KEY_BLOG_THEME="blog.theme";
+    /**
+     * 登录页面
+     */
+    public static final String KEY_LOGIN_PAGE="login.page";
 }
