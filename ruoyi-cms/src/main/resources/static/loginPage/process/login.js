@@ -85,7 +85,10 @@ var login = {
             var a = document,
             b = a.getElementById("username"),
             c = a.getElementById("password"),
-            verycode= a.getElementById("validateCode");
+            verycode;
+            if(captchaEnabled){
+             verycode= a.getElementById("validateCode");
+            }
             var rememberMe = $("input[name='rememberMe']").is(':checked');
             if ("" == b.value.trim()) return b.focus(),
             void login.showTip("用户名/邮箱不能为空", b.nextElementSibling);
@@ -115,7 +118,7 @@ var login = {
                 data: {
                     "username": b.value,
                     "password": c.value,
-                    "validateCode" : verycode.value,
+                    "validateCode" : verycode!=null?verycode.value:"",
                     "rememberMe": rememberMe
                 },
                 success: function(r) {
