@@ -1,4 +1,27 @@
 ## 更新日志
+## 2019年12月25日
+1. 新增登陆页面配置功能
+2. 新增登录页管理功能
+![输入图片说明](https://images.gitee.com/uploads/images/2019/1225/133117_8a40e33f_528854.jpeg "process.jpg")
+可在sys_config表中配置login.page项来指定登录页面
+
+sys_config表:
+INSERT INTO `sys_config` (`config_id`, `config_name`, `config_key`, `config_value`, `config_type`, `create_by`, `create_time`, `update_by`, `update_time`, `remark`) VALUES ('15', '登录页面', 'login.page', 'process', 'Y', 'admin', '2018-03-16 11:33:00', 'admin', '2019-10-10 13:41:12', '默认为空 可选有process/');
+
+cms_login_page表:
+CREATE TABLE `cms_login_page` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) DEFAULT NULL COMMENT '登录主题名称',
+  `code` varchar(50) DEFAULT NULL COMMENT '页面代码',
+  `cover_img` varchar(255) DEFAULT NULL COMMENT '封面图片',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `create_by` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+
+INSERT INTO `cms_login_page` VALUES ('1', '默认', 'default', '/images/loginPage/default.jpg', '2019-12-24 10:54:32', 'ry');
+INSERT INTO `cms_login_page` VALUES ('2', 'process', 'process', '/images/loginPage/process.jpg', '2019-12-24 10:54:32', 'ry');
 ## 2019年12月23日
 1. 更新：文章新增和编辑页面增加栏目选择项
 ![输入图片说明](https://images.gitee.com/uploads/images/2019/1223/081455_947bcf30_528854.jpeg "1.jpg")
