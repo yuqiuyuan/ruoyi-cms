@@ -1,6 +1,7 @@
 package com.ruoyi.spider.domain;
 
 import com.ruoyi.spider.config.SpiderConstants;
+import com.ruoyi.spider.fast.FastConfigContext;
 import com.ruoyi.spider.util.FackUserAgentUtil;
 import lombok.Data;
 import org.apache.commons.collections.CollectionUtils;
@@ -196,6 +197,10 @@ public class SpiderConfig extends BaseEntity
         }
         return this;
     }
+    public SpiderConfig addEntryUrl(String entryUrl) {
+        this.entryUrlsList.add(entryUrl);
+        return this;
+    }
     public void setEntryUrlsList(List<String> entryUrlsList) {
         this.entryUrlsList = entryUrlsList;
     }
@@ -302,6 +307,6 @@ public class SpiderConfig extends BaseEntity
      */
     public SpiderConfig setUserId(String userId) {
         this.userId = userId;
-        return this;
+        return FastConfigContext.replaceConfigUid(this);
     }
 }

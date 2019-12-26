@@ -92,14 +92,19 @@ public class FastConfigContext {
         if (StringUtils.isNotEmpty(targetLinksRegex)) {
             config.setTargetRegex(targetLinksRegex.replace("{userId}", uid));
         }
-        List<String> entryUrls = config.getEntryUrlsList();
-        if (CollectionUtils.isNotEmpty(entryUrls)) {
+        //注意入口变量有2个  entryUrlsList 和 entryUrls
+        List<String> entryUrlsList = config.getEntryUrlsList();
+        if (CollectionUtils.isNotEmpty(entryUrlsList)) {
             List<String> newEntryUrls = new ArrayList<>();
-            for (String entryUrl : entryUrls) {
+            for (String entryUrl : entryUrlsList) {
                 newEntryUrls.add(entryUrl.replace("{userId}", uid));
             }
             config.setEntryUrlsList(newEntryUrls);
         }
+        //entryUrls
+        String entryUrls=config.getEntryUrls();
+        config.setEntryUrls(entryUrls.replace("{userId}", uid));
+
         Map<String, String> header = config.getHeaders();
         if (MapUtils.isNotEmpty(header)) {
             Set<Map.Entry<String, String>> entries = header.entrySet();
