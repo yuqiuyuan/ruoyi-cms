@@ -1,4 +1,11 @@
 ## 更新日志
+## 2019年12月28日
+1. 文章管理增加markdown文本编辑器支持（可在sys_config表中配置editor.type项来指定编辑器可选项有editormd和ueditor）
+![输入图片说明](https://images.gitee.com/uploads/images/2019/1228/140012_6a7f9677_528854.jpeg "markdown.jpg")
+
+sys_config表:
+INSERT INTO `sys_config` (`config_id`, `config_name`, `config_key`, `config_value`, `config_type`, `create_by`, `create_time`, `update_by`, `update_time`, `remark`) VALUES ('16', '编辑器类型', 'editor.type', 'editormd', 'Y', 'admin', '2018-03-16 11:33:00', 'admin', '2019-10-10 13:41:12', '默认为空 可选有editormd/ueditor');
+
 ## 2019年12月25日
 1. 新增登陆页面配置功能
 2. 新增登录页管理功能
