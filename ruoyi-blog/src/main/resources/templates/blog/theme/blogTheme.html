@@ -67,6 +67,9 @@
         $.modal.confirm("确认选择该主题模板吗?", function() {
             var url=ctx+"cms/blogTheme/updateBlogThemeConfig"
             $.operate.saveModal(url,{code:code});
+            setTimeout(function(){
+            window.top.location.reload();
+            },2000);
         });
     }
 </script>
