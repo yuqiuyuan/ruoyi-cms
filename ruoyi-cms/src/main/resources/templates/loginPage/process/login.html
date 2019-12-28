@@ -27,11 +27,11 @@
         <div><span id="logo-text"><label>Ry<span class="logo-dot rotate"></span></label>-Plus后台管理系统</span></div>
 
             <div style="margin-top:25px;position:relative;">
-                <input id="username" name="username" value="" class="txt" type="text" placeholder="用户名/邮箱">
+                <input id="username" name="username" value="admin" class="txt" type="text" placeholder="用户名/邮箱" >
                 <div class="error-tip"></div>
             </div>
             <div class="login-input" style="margin-top:20px;position:relative;">
-                <input name="password" id="password" class="txt" type="password" placeholder="密码" >
+                <input name="password" id="password" class="txt" type="password" placeholder="密码" value="admin123" >
                 <a  href="/forget">忘记密码</a>
                 <div class="error-tip"></div>
             </div>
@@ -68,7 +68,7 @@
 </div>
 <div class="weixin-con" id="weixin_dlg"><div style="margin-top:200px;">加载中...</div></div>
 
-<script th:inline="javascript"> var ctx = [[@{/}]]; var captchaType = [[${captchaType}]]; </script>
+<script th:inline="javascript"> var ctx = [[@{/}]]; var captchaType = [[${captchaType}]];var captchaEnabled= [[${captchaEnabled}]]; </script>
 <script  th:src="@{/js/jquery.min.js}"></script>
 <script  th:src="@{/ajax/libs/layer/layer.min.js}"></script>
 <script  th:src="@{/ajax/libs/blockUI/jquery.blockUI.js}"></script>
