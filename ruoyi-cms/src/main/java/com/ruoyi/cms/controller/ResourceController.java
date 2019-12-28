@@ -130,11 +130,11 @@ public class ResourceController extends BaseController
 
 
     /**
-     * 上传附件请求
+     * 上传资源请求
      */
     @PostMapping("/uploadResource")
     @ResponseBody
-    public AjaxResult uploadAttach(MultipartFile file) throws Exception
+    public AjaxResult uploadResource(MultipartFile file) throws Exception
     {
         try
         {

@@ -58,4 +58,20 @@ public class CmsConstants {
      * 登录页面
      */
     public static final String KEY_LOGIN_PAGE="login.page";
+
+    /**
+     * 编辑器类型
+     */
+    public static final String KEY_EDITOR_TYPE="editor.type";
+
+    /**
+     * 编辑器类型-editormd
+     */
+    public static final String EDITOR_TYPE_EDITORMD="editormd";
+
+    /**
+     * 编辑器类型-ueditor
+     */
+    public static final String EDITOR_TYPE_UEDITOR="ueditor";
+
 }

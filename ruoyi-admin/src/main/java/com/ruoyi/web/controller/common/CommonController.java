@@ -2,6 +2,8 @@ package com.ruoyi.web.controller.common;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,6 +72,7 @@ public class CommonController
      */
     @PostMapping("/common/upload")
     @ResponseBody
+    @ApiOperation("通用上传请求")
     public AjaxResult uploadFile(MultipartFile file) throws Exception
     {
         try

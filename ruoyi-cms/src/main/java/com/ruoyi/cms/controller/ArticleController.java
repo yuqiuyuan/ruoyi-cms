@@ -11,19 +11,20 @@ import com.alibaba.fastjson.JSONObject;
 import com.ruoyi.cms.domain.ArticleModel;
 import com.ruoyi.cms.domain.Tags;
 import com.ruoyi.cms.service.ITagsService;
+import com.ruoyi.cms.util.CmsConstants;
+import com.ruoyi.common.config.Global;
 import com.ruoyi.common.core.text.Convert;
 import com.ruoyi.common.exception.BusinessException;
 import com.ruoyi.common.utils.StringUtils;
+import com.ruoyi.common.utils.file.FileUploadUtils;
+import com.ruoyi.common.utils.file.MimeTypeUtils;
+import com.ruoyi.system.service.ISysConfigService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import com.ruoyi.common.annotation.Log;
 import com.ruoyi.common.enums.BusinessType;
 import com.ruoyi.cms.domain.Article;
@@ -32,6 +33,7 @@ import com.ruoyi.common.core.controller.BaseController;
 import com.ruoyi.common.core.domain.AjaxResult;
 import com.ruoyi.common.utils.poi.ExcelUtil;
 import com.ruoyi.common.core.page.TableDataInfo;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * 文章管理Controller
@@ -49,6 +51,14 @@ public class ArticleController extends BaseController
     private IArticleService articleService;
     @Autowired
     private ITagsService tagsService;
+
+    @Autowired
+    private ISysConfigService configService;
+
+    private String getEditorType(){
+        return configService.selectConfigByKey(CmsConstants.KEY_EDITOR_TYPE);
+    }
+
     @RequiresPermissions("cms:article:view")
     @GetMapping()
     public String article()
@@ -90,7 +100,13 @@ public class ArticleController extends BaseController
     {
         List<Tags> tags=tagsService.selectTagsAll();
         mmap.put("tags",tags);
-        return prefix + "/add";
+
+        String editorType = getEditorType();
+        if(CmsConstants.EDITOR_TYPE_EDITORMD.equals(editorType)){
+            return prefix + "/add_editormd";
+        }else{
+            return prefix + "/add";
+        }
     }
 
     /**
@@ -116,7 +132,12 @@ public class ArticleController extends BaseController
         String tagIds=article.getTags();
         List<Tags> tags= tagsService.selectSelectedTagsAll(tagIds);
         mmap.put("tags", tags);
-        return prefix + "/edit";
+        String editorType = getEditorType();
+        if(CmsConstants.EDITOR_TYPE_EDITORMD.equals(editorType)){
+            return prefix + "/edit_editormd";
+        }else{
+            return prefix + "/edit";
+        }
     }
 
     /**
@@ -177,4 +198,42 @@ public class ArticleController extends BaseController
         return prefix+"/article-duoguyu";
 
     }
+
+
+
+    /**
+     * 上传图片(markdown编辑器上传图片使用)
+     */
+    @PostMapping("/uploadImage")
+    @ResponseBody
+    public Object uploadImage(@RequestParam("editormd-image-file") MultipartFile file) throws Exception
+    {
+        try
+        {
+            /*// 上传的后台只需要返回一个 JSON 数据，结构如下：
+                 {
+                 success : 0 | 1,           // 0 表示上传失败，1 表示上传成功
+                 message : "提示的信息，上传成功或上传失败及错误信息等。",
+                 url     : "图片地址"        // 上传成功时才返回
+                 }
+                 */
+
+            // 上传图片并返回新文件名称
+            String path = FileUploadUtils.upload(Global.getUploadPath(), file, MimeTypeUtils.IMAGE_EXTENSION);
+            Map map=new HashMap();
+            map.put("success",1);
+            map.put("url",path);
+            map.put("message","上传成功!");
+            return map;
+        }
+        catch (Exception e)
+        {
+            Map map=new HashMap();
+            map.put("success",0);
+            map.put("url","");
+            map.put("message","上传失败!"+e.getMessage());
+            return map;
+        }
+    }
+
 }
