@@ -52,7 +52,7 @@ public class SysLoginController extends BaseController
             return "login";
         }else{
             //配置了login.page参数
-            return "/loginPage/"+loginPageCode+"/login";//页面在cms模块loginPage文件夹下
+            return "loginPage/"+loginPageCode+"/login";//页面在cms模块loginPage文件夹下
         }
 
     }

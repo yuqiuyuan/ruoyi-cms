@@ -74,4 +74,17 @@ public class CmsConstants {
      */
     public static final String EDITOR_TYPE_UEDITOR="ueditor";
 
+    /**
+     * 后台首页页面
+     */
+    public static final String KEY_ADMIN_INDEX="admin.index.type";
+
+    /**
+     * 后台首页页面-index
+     */
+    public static final String ADMIN_INDEX_INDEX="index";
+    /**
+     * 后台首页页面-index_topMenu
+     */
+    public static final String ADMIN_INDEX_TOP_MENU="index_topMenu";
 }

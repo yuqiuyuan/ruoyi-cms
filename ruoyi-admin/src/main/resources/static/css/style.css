@@ -6865,8 +6865,8 @@ body.rtls .top-navigation .footer.fixed, body.rtls.top-navigation .footer.fixed 
 }
 
 .navbar-header {
-	width: 10%;
-	height: 50px;
+	width: 60px;
+	height: 60px;
 }
 
 .bs-glyphicons {
