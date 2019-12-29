@@ -1,4 +1,12 @@
 ## 更新日志
+## 2019年12月29日
+1. 后台首页页面可配置选择（可在sys_config表中配置admin.index.type项来指定编辑器可选项有index和index_topMenu）；index_topMenu页面是今天新增的一级菜单在顶部显示。
+
+![输入图片说明](https://images.gitee.com/uploads/images/2019/1229/171832_04f9f4b7_528854.jpeg "2.jpg")
+
+sys_config表:
+INSERT INTO `sys_config` (`config_id`, `config_name`, `config_key`, `config_value`, `config_type`, `create_by`, `create_time`, `update_by`, `update_time`, `remark`) VALUES ('17', '后台首页', 'admin.index.type', 'index_topMenu', 'Y', 'admin', '2018-03-16 11:33:00', 'admin', '2019-10-10 13:41:12', '后台首页类型。可选的index/index_topMenu');
+
 ## 2019年12月28日
 1. 文章管理增加markdown文本编辑器支持（可在sys_config表中配置editor.type项来指定编辑器可选项有editormd和ueditor）
 
