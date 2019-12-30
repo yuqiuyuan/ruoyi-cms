@@ -1,4 +1,7 @@
 ## 更新日志
+## 2019年12月30日
+1. admin模块新增系统事件功能
+
 ## 2019年12月29日
 1. 后台首页页面可配置选择（可在sys_config表中配置admin.index.type项来指定编辑器可选项有index和index_topMenu）；index_topMenu页面是今天新增的一级菜单在顶部显示。
 
