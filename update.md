@@ -2,6 +2,21 @@
 ## 2019年12月30日
 1. admin模块新增系统事件功能
 
+
+```
+CREATE TABLE `sys_event_log` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(50) DEFAULT NULL COMMENT '用户ID',
+  `user_name` varchar(50) DEFAULT NULL COMMENT '用户名称',
+  `event_code` varchar(50) DEFAULT NULL COMMENT '事件代码',
+  `event_name` varchar(50) DEFAULT NULL COMMENT '事件名称',
+  `source` varchar(255) DEFAULT NULL COMMENT '来源',
+  `datas` text COMMENT '参数',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  PRIMARY KEY (`id`)
+) 
+```
+
 ## 2019年12月29日
 1. 后台首页页面可配置选择（可在sys_config表中配置admin.index.type项来指定编辑器可选项有index和index_topMenu）；index_topMenu页面是今天新增的一级菜单在顶部显示。
 
