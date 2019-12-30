@@ -15,6 +15,9 @@ CREATE TABLE `sys_event_log` (
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`)
 ) 
+
+INSERT INTO `sys_menu` (`menu_id`, `menu_name`, `parent_id`, `order_num`, `url`, `target`, `menu_type`, `visible`, `perms`, `icon`, `create_by`, `create_time`, `update_by`, `update_time`, `remark`) VALUES ('3099', '系统事件日志', '2', '6', '/system/eventLog', 'menuItem', 'C', '0', 'system:eventLog:view', '#', 'admin', '2019-12-30 20:40:31', '', NULL, '');
+
 ```
 
 ## 2019年12月29日
