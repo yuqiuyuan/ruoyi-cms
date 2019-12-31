@@ -79,7 +79,7 @@
         });
     })
     function selectImage() {
-        var url=ctx+"cms/ad/selectAdMaterial";
+        var url=ctx+"cms/ad/selectAdMaterial/"+$("#adId").val();
         $.modal.open("广告素材选择",url);
     }
 
