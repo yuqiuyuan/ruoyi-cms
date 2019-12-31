@@ -6,8 +6,9 @@ import cn.hutool.cache.Cache;
 import cn.hutool.cache.CacheUtil;
 import com.alibaba.fastjson.JSONArray;
 import com.google.common.collect.Lists;
+import com.ruoyi.cms.util.CmsConstants;
 import com.ruoyi.common.utils.StringUtils;
-import com.ruoyi.redis.util.RedisUtil;
+import com.ruoyi.ehcache.util.EhCacheUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.ruoyi.cms.mapper.TagsMapper;
@@ -137,13 +138,13 @@ public class TagsServiceImpl implements ITagsService
 
     @Override
     public List<Tags> selectBlogTabs() {
-        String s=RedisUtil.getDefaultInfo("blogTabs");
+        String s=(String)EhCacheUtils.getDefaultInfo(CmsConstants.KEY_TAGS_BLOG);
         List<Tags> tags=null;
         if(StringUtils.isNotEmpty(s)){
             tags = JSONArray.parseArray(s, Tags.class);
         }else{
             tags=tagsMapper.selectBlogTabs();
-            RedisUtil.putDefaultInfo("blogTabs",tags);
+            EhCacheUtils.putDefaultInfo(CmsConstants.KEY_TAGS_BLOG,tags);
         }
         return tags;
     }

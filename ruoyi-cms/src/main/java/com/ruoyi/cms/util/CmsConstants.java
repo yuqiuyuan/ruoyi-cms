@@ -87,4 +87,24 @@ public class CmsConstants {
      * 后台首页页面-index_topMenu
      */
     public static final String ADMIN_INDEX_TOP_MENU="index_topMenu";
+
+    /**
+     * 博客标签
+     */
+    public static final String KEY_TAGS_BLOG="blogTab";
+
+    /**
+     * 系统标签
+     */
+    public static final String KEY_TAGS_SYSTEM="s";
+
+    /**
+     * 个人标签
+     */
+    public static final String KEY_TAGS_PERSON="p";
+
+    /**
+     * 文章模板标签
+     */
+    public static final String KEY_TAGS_ARTICLE_TEMPLATE="articleTemplate";
 }
