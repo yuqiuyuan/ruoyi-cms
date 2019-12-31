@@ -73,20 +73,6 @@ public class ArticleTemplateController extends BaseController
     }
 
     /**
-     * 导出文章模板列表
-     */
-    @RequiresPermissions("cms:articleTemplate:export")
-    @Log(title = "文章模板", businessType = BusinessType.EXPORT)
-    @PostMapping("/export")
-    @ResponseBody
-    public AjaxResult export(ArticleTemplate articleTemplate)
-    {
-        List<ArticleTemplate> list = articleTemplateService.selectArticleTemplateList(articleTemplate);
-        ExcelUtil<ArticleTemplate> util = new ExcelUtil<ArticleTemplate>(ArticleTemplate.class);
-        return util.exportExcel(list, "articleTemplate");
-    }
-
-    /**
      * 新增文章模板
      */
     @GetMapping("/add")
@@ -145,4 +131,11 @@ public class ArticleTemplateController extends BaseController
     {
         return toAjax(articleTemplateService.deleteArticleTemplateByIds(ids));
     }
+    /*#############################华丽的分割线#####################################*/
+    @GetMapping("/listNew")
+    public String articleTemplateList()
+    {
+        return prefix + "/articleTemplateList";
+    }
+
 }

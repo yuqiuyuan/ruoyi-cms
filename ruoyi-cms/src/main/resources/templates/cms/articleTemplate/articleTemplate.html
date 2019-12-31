@@ -55,6 +55,10 @@
             </div>
 
             <div class="btn-group-sm" id="toolbar" role="group">
+                <a class="btn btn-success" onclick="listNew()" >
+                    <i class="fa fa-plus"></i> 新版页面
+                </a>
+
                 <a class="btn btn-success" onclick="$.operate.addFull()" shiro:hasPermission="cms:articleTemplate:add">
                     <i class="fa fa-plus"></i> 添加
                 </a>
@@ -88,6 +92,10 @@
         var auditDatas = [[${@dict.getType('audit_state')}]];
         var prefix = ctx + "cms/articleTemplate";
 
+        function listNew(){
+            var url = prefix + '/listNew';
+            $.modal.openTab("文章模板列表", url);
+        }
         $(function() {
             var options = {
                 url: prefix + "/list",
