@@ -1,4 +1,51 @@
 ## 更新日志
+## 2019年12月31日
+1. 新增文章模板管理功能，该功能是为其它功能做基础数据维护的。所以后续会在该功能基础上作其它更新。
+
+![输入图片说明](https://images.gitee.com/uploads/images/2019/1231/142230_b4545b1b_528854.png "11.png")
+
+菜单sql:
+
+```
+INSERT INTO `sys_menu` (`menu_id`, `menu_name`, `parent_id`, `order_num`, `url`, `target`, `menu_type`, `visible`, `perms`, `icon`, `create_by`, `create_time`, `update_by`, `update_time`, `remark`) VALUES ('3100', '文章模板管理', '2025', '5', '/cms/articleTemplate', 'menuItem', 'C', '0', 'cms:articleTemplate:view', '#', 'admin', '2019-12-31 09:14:26', '', NULL, '');
+
+```
+
+数据字典sql：
+```
+INSERT INTO `sys_dict_type` (`dict_id`, `dict_name`, `dict_type`, `status`, `create_by`, `create_time`, `update_by`, `update_time`, `remark`) VALUES ('115', '模板分类', 'template_type', '0', 'admin', '2019-11-17 12:33:38', '', NULL, NULL);
+INSERT INTO `sys_dict_data` (`dict_code`, `dict_sort`, `dict_label`, `dict_value`, `dict_type`, `css_class`, `list_class`, `is_default`, `status`, `create_by`, `create_time`, `update_by`, `update_time`, `remark`) VALUES ('177', '1', '公共', 'public', 'share_type', NULL, 'primary', 'Y', '0', 'admin', '2019-12-31 08:45:54', '', NULL, NULL);
+INSERT INTO `sys_dict_data` (`dict_code`, `dict_sort`, `dict_label`, `dict_value`, `dict_type`, `css_class`, `list_class`, `is_default`, `status`, `create_by`, `create_time`, `update_by`, `update_time`, `remark`) VALUES ('178', '2', '会员', 'vip', 'share_type', '', 'success', 'N', '0', 'admin', '2019-12-31 08:49:08', 'admin', '2019-12-31 11:53:30', '');
+
+```
+新建表结构：
+
+```
+
+DROP TABLE IF EXISTS `cms_article_template`;
+CREATE TABLE `cms_article_template` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `name` varchar(255) DEFAULT NULL COMMENT '文章模板名称',
+  `tags` varchar(255) DEFAULT NULL COMMENT '标签',
+  `user_id` varchar(50) DEFAULT NULL COMMENT '用户ID',
+  `user_name` varchar(50) DEFAULT NULL COMMENT '用户名称',
+  `content` text COMMENT '内容',
+  `share_type` varchar(50) DEFAULT NULL COMMENT '共享类型',
+  `weight` int(11) DEFAULT NULL COMMENT '权重',
+  `hot_falg` smallint(6) DEFAULT NULL COMMENT '最热',
+  `new_flag` smallint(6) DEFAULT NULL COMMENT '最新',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `audit` smallint(6) DEFAULT NULL COMMENT '审核标志',
+  `audit_time` datetime DEFAULT NULL COMMENT '审核时间',
+  `audit_by` varchar(50) DEFAULT NULL COMMENT '审核人',
+  `audit_name` varchar(50) DEFAULT NULL COMMENT '审核人名称',
+  `audit_reason` varchar(255) DEFAULT NULL COMMENT '原因',
+  PRIMARY KEY (`id`)
+)
+```
+表数据有点多，没法贴出来，请进群下载！
+
+
 ## 2019年12月30日
 1. admin模块新增系统事件功能
 
