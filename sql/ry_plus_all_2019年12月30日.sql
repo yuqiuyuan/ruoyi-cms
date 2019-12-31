@@ -2637,3 +2637,18 @@ CREATE TABLE `third_sms_his` (
 -- ----------------------------
 -- Records of third_sms_his
 -- ----------------------------
+INSERT INTO `sys_config` (`config_id`, `config_name`, `config_key`, `config_value`, `config_type`, `create_by`, `create_time`, `update_by`, `update_time`, `remark`) VALUES ('17', '后台首页', 'admin.index.type', 'index_topMenu', 'Y', 'admin', '2018-03-16 11:33:00', 'admin', '2019-10-10 13:41:12', '后台首页类型。可选的index/index_topMenu');
+
+CREATE TABLE `sys_event_log` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(50) DEFAULT NULL COMMENT '用户ID',
+  `user_name` varchar(50) DEFAULT NULL COMMENT '用户名称',
+  `event_code` varchar(50) DEFAULT NULL COMMENT '事件代码',
+  `event_name` varchar(50) DEFAULT NULL COMMENT '事件名称',
+  `source` varchar(255) DEFAULT NULL COMMENT '来源',
+  `datas` text COMMENT '参数',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  PRIMARY KEY (`id`)
+)
+
+INSERT INTO `sys_menu` (`menu_id`, `menu_name`, `parent_id`, `order_num`, `url`, `target`, `menu_type`, `visible`, `perms`, `icon`, `create_by`, `create_time`, `update_by`, `update_time`, `remark`) VALUES ('3099', '系统事件日志', '2', '6', '/system/eventLog', 'menuItem', 'C', '0', 'system:eventLog:view', '#', 'admin', '2019-12-30 20:40:31', '', NULL, '');
