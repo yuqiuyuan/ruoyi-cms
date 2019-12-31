@@ -126,7 +126,12 @@
                     <div class="form-group">
                         <label class="col-sm-4 control-label">封面图片：</label>
                         <div class="col-sm-8">
-                            <input name="coverImage" class="form-control" type="text">
+                            <!--<input name="coverImage" class="form-control" type="text">-->
+                            <div class="input-group">
+                                <input id="materialPath" name="coverImage" readonly="true" onclick="selectImage()"  class="form-control valid" type="text">
+                                <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -201,7 +206,10 @@
     <th:block th:include="include :: select2-js" />
     <th:block th:include="include :: ueditor" />
     <script type="text/javascript">
-
+        function selectImage() {
+            var url=ctx+"cms/material/selectMaterialWithGroup";
+            $.modal.open("封面图片选择",url);
+        }
         /*栏目分类选择*/
         function selectCategoryTree() {
             var prefixTemp = ctx + "cms/category"

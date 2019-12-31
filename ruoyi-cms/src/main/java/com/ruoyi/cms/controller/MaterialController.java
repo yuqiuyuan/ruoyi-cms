@@ -183,4 +183,14 @@ public class MaterialController extends BaseController
         return success();
     }
 
+    /**
+     * 打开素材选择界面
+     * @return
+     */
+    @GetMapping("/selectMaterialWithGroup")
+    public String selectMaterialWithGroup()
+    {
+        return prefix + "/selectMaterialWithGroup";
+    }
+
 }
