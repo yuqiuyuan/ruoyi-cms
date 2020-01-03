@@ -1,4 +1,15 @@
 ## 更新日志
+## 2020年1月3日
+1. 新增登录页主题solo
+
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0103/210857_230b6b85_528854.jpeg "solo.jpg")
+
+
+```
+INSERT INTO `cms_login_page` (`id`, `name`, `code`, `cover_img`, `create_time`, `create_by`) VALUES ('3', 'solo', 'solo', '/images/loginPage/solo.jpg', '2019-12-24 10:54:32', 'ry');
+
+```
+
 ## 2020年1月1日
 1. 新版文章模板列表页面（瀑布流滑动到底部加载）
 
