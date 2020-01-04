@@ -3,6 +3,7 @@ package com.ruoyi.cms.controller;
 import java.util.List;
 
 import com.ruoyi.cms.domain.MaterialUse;
+import com.ruoyi.common.utils.StringUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,6 +21,8 @@ import com.ruoyi.common.core.controller.BaseController;
 import com.ruoyi.common.core.domain.AjaxResult;
 import com.ruoyi.common.utils.poi.ExcelUtil;
 import com.ruoyi.common.core.page.TableDataInfo;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * 素材Controller
@@ -188,8 +191,14 @@ public class MaterialController extends BaseController
      * @return
      */
     @GetMapping("/selectMaterialWithGroup")
-    public String selectMaterialWithGroup()
+    public String selectMaterialWithGroup(HttpServletRequest request, ModelMap mmap)
     {
+        String materialId=request.getParameter("materialId");
+        String materialName=request.getParameter("materialName");
+        String materialPath=request.getParameter("materialPath");
+        mmap.put("materialId", StringUtils.isNotEmpty(materialId)?materialId:"");
+        mmap.put("materialName",StringUtils.isNotEmpty(materialName)?materialName:"");
+        mmap.put("materialPath",StringUtils.isNotEmpty(materialPath)?materialPath:"");
         return prefix + "/selectMaterialWithGroup";
     }
 

@@ -128,7 +128,7 @@
                         <div class="col-sm-8">
                             <!--<input name="coverImage" class="form-control" type="text">-->
                             <div class="input-group">
-                                <input id="materialPath" name="coverImage" readonly="true" onclick="selectImage()"  class="form-control valid" type="text">
+                                <input id="materialPathTest" name="coverImage" readonly="true" onclick="selectImage()"  class="form-control valid" type="text">
                                 <span class="input-group-addon"><i class="fa fa-search"></i></span>
                             </div>
 
@@ -207,7 +207,7 @@
     <th:block th:include="include :: ueditor" />
     <script type="text/javascript">
         function selectImage() {
-            var url=ctx+"cms/material/selectMaterialWithGroup";
+            var url=ctx+"cms/material/selectMaterialWithGroup?materialPath=materialPathTest";
             $.modal.open("封面图片选择",url);
         }
         /*栏目分类选择*/

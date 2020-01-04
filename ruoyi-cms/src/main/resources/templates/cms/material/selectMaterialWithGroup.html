@@ -159,19 +159,9 @@
                 {field : 'materialSize',title : '素材大小',formatter: function(value, row, index) {
                         return renderFileSize(value);
                     }},
-                {field : 'auditState',title : '审核状态',formatter: function(value, row, index) {
-                        return $.table.selectDictLabel(auditStateDatas, value);
-                    }
-                },
-                {field : 'auditReason',title : '审核意见',visible: false},
-                {field : 'useState',title : '使用状态',formatter: function(value, row, index) {
-                        return $.table.selectDictLabel(useStateDatas, value);
-                    }
-                },
                 {field : 'width',title : '宽'},
                 {field : 'height',title : '高'},
-                {field : 'uploadTime',title : '上传日期'},
-                {field : 'remark',title : '备注',visible: false},
+                {field : 'uploadTime',title : '上传日期'}
                ]
         };
         $.table.init(options);
@@ -199,6 +189,10 @@
         $("#groupName").val(body.find('#treeName').val());
         layer.close(index);
     }
+
+    var materialId=[[${materialId}]];
+    var materialName=[[${materialName}]];
+    var materialPath=[[${materialPath}]];
     function submitHandler() {
         var rows = $.table.selectFirstColumns();
         if (rows.length !=1) {
@@ -210,9 +204,23 @@
         var name=datas[0].materialName;
         var savePath=datas[0].savePath;
         var index = parent.layer.getFrameIndex(window.name);
-        parent.$("#materialId").val(id);
-        parent.$("#materialName").val(name);
-        parent.$("#materialPath").val(savePath);
+
+        if($.common.isNotEmpty(materialId)){
+            parent.$("#"+materialId).val(id);
+        }else{
+            parent.$("#materialId").val(id);
+        }
+        if($.common.isNotEmpty(materialName)){
+            parent.$("#"+materialName).val(name);
+        }else{
+            parent.$("#materialName").val(name);
+        }
+        if($.common.isNotEmpty(materialPath)){
+            parent.$("#"+materialPath).val(savePath);
+        }else{
+            parent.$("#materialPath").val(savePath);
+        }
+
         parent.layer.close(index);
     }
 </script>
