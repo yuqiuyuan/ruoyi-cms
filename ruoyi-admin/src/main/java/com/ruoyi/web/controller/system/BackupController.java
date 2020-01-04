@@ -57,20 +57,22 @@ public class BackupController extends BaseController {
         String name="";
         String hourSeconds="";
         for(String s:fs){
-            i++;
-            temp=new HashMap<>();
-            temp.put("rowNum",i);
-            name=s;
-            temp.put("name",name);
-            name=name.replace("ry_plus_","");
-            hourSeconds=name.substring(11,19);
-            hourSeconds=hourSeconds.replace("_",":");
-            name=name.substring(0,10);
+            if(s.endsWith(".sql")){
+                i++;
+                temp = new HashMap<>();
+                temp.put("rowNum", i);
+                name = s;
+                temp.put("name", name);
+                name = name.replace("ry_plus_", "");
+                hourSeconds = name.substring(11, 19);
+                hourSeconds = hourSeconds.replace("_", ":");
+                name = name.substring(0, 10);
 
-            name=name.replace("_","-");
-            name=name+" "+hourSeconds;
-            temp.put("time",name);
-            files.add(temp);
+                name = name.replace("_", "-");
+                name = name + " " + hourSeconds;
+                temp.put("time", name);
+                files.add(temp);
+            }
         }
         return getDataTable(files);
     }

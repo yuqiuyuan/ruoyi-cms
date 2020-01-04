@@ -111,7 +111,7 @@ public class RyTask
                 .append(" ").append("--hex-blob")//使用十六进制符号转储二进制字符序列，防止乱码
                 .append(" > ").append(sqlFile.getPath());
         if (isWindows()) {
-            BatCommandUtil.writeAndExcute(fileBasePath+"backupmysql.bat",new StringBuilder()
+            BatCommandUtil.writeAndExcute(fileBasePath+File.separator+"backupmysql.bat",new StringBuilder()
                     .append("cd /d ").append(mysqlBasedir).append("bin").append("\r\n")
                     .append("mysqldump").append(cmdStr.toString()).toString());
         } else {
