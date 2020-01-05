@@ -85,6 +85,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="extra2 != null  and extra2 != ''"> and extra2 = #{extra2}</if>
             <if test="extra3 != null  and extra3 != ''"> and extra3 = #{extra3}</if>
         </where>
+          order by create_time desc
     </select>
 
     <select id="selectArticlesRegionNotNull" parameterType="Article" resultMap="ArticleResult">
@@ -125,6 +126,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="extra3 != null  and extra3 != ''"> and extra3 = #{extra3}</if>
             and article_region is not null and article_region!=''
         </where>
+          order by create_time desc
     </select>
     <select id="selectArticlesRegionIsNull" parameterType="Article" resultMap="ArticleResult">
         <include refid="selectArticleVo"/>
@@ -164,6 +166,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="extra3 != null  and extra3 != ''"> and extra3 = #{extra3}</if>
             and (article_region is null or article_region =='')
         </where>
+          order by create_time desc
     </select>
     <select id="selectArticleById" parameterType="String" resultMap="ArticleResult">
         <include refid="selectArticleVo"/>
