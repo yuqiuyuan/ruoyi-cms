@@ -7,6 +7,8 @@
 */
 /* 切换主题 */
 function switchBlogTheme() {
+    $.modal.alertWarning("该功能移到了后台管理中!请到后台切换!");
+    return;
     layer.open({
         type : 2,
         shadeClose : true,

@@ -21,6 +21,7 @@
 	<script th:src="@{/blog/pnews/js/jquery.lazyload.min.js}"></script>
 	<script th:src="@{/blog/pnews/js/baseMotheds.js}"></script>
 	<script th:inline="javascript"> var ctx = [[@{/}]]; </script>
+	<script th:src="@{/ruoyi/js/ry-ui.js?v=4.1.0}"></script>
 	<script th:src="@{/blog/pnews/plugin/swiper4/swiper-4.1.0.min.js}"></script>
 </head>
 <body>
@@ -246,6 +247,9 @@
 <script type="text/javascript">
     /* 切换主题 */
     function switchBlogTheme() {
+
+        $.modal.alertWarning("该功能移到了后台管理中!请到后台切换!");
+        return;
         layer.open({
             type : 2,
             shadeClose : true,

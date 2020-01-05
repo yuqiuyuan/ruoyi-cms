@@ -1,5 +1,4 @@
 <script th:inline="javascript"> var ctx = [[@{/}]]; </script>
-<script th:src="@{/ajax/libs/layer/layer.min.js}"></script>
 <div th:fragment="top"  class="top-box">
     <div class="pb-container">
         <span class="">
@@ -70,6 +69,8 @@
     <script type="text/javascript">
         /* 切换主题 */
         function switchBlogTheme() {
+            $.modal.alertWarning("该功能移到了后台管理中!请到后台切换!");
+            return;
             layer.open({
                 type : 2,
                 shadeClose : true,
