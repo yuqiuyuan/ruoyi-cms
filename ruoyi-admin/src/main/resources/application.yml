@@ -8,15 +8,15 @@ ruoyi:
   copyrightYear: 2019
   # 实例演示开关
   demoEnabled: true
-  # 文件路径 示例（ Windows配置D:/ruoyi/uploadPath，Linux配置 /home/ruoyi/uploadPath）
-  profile: D:\RuoYi-plus\uploads
+  # 文件路径 示例（ Windows配置D:/ruoyi/uploadPath，Linux配置 /home/ruoyi/uploadPath）C:\ry\uploads   D:\RuoYi-plus\uploads
+  profile: C:\ry\uploads
   # 获取ip地址开关
   addressEnabled: true
 
 # 开发环境配置
 server:
   # 服务器的HTTP端口，默认为80
-  port: 80
+  port: 8089
   servlet:
     # 应用的访问路径
     context-path: /
@@ -96,9 +96,9 @@ shiro:
     # 首页地址
     indexUrl: /blog
     # 验证码开关
-    captchaEnabled: false
+    captchaEnabled: true
     # 验证码类型 math 数组计算 char 字符
-    captchaType: math
+    captchaType: char
   cookie:
     # 设置Cookie的域名 默认空，即当前访问的域名
     domain: 
@@ -128,3 +128,11 @@ xss:
   excludes: /system/notice/*
   # 匹配链接
   urlPatterns: /system/*,/monitor/*,/tool/*
+
+ip:
+    # 排除链接（多个用逗号分隔）
+    excludes: /favicon.ico*,/ruoyi.png*,/css/**,/docs/**,/fonts/**,/img/**,/ajax/**,/js/**,/ruoyi/**,/druid/**,/captcha/captchaImage**,/profile/upload/**,/profile/material/**,/images/**,/loginPage/**,/logout,/login
+    # 匹配链接
+    urlPatterns: /*
+    #黑名单ip（多个用逗号分隔）
+    list:
