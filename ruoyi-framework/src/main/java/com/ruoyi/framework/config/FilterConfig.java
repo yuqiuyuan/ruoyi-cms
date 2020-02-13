@@ -29,7 +29,8 @@ public class FilterConfig
     @Value("${xss.urlPatterns}")
     private String urlPatterns;
 
-
+    @Value("${ip.enabled}")
+    private String enabledIp;
 
     @Value("${ip.excludes}")
     private String excludesIP;
@@ -71,6 +72,7 @@ public class FilterConfig
         Map<String, String> initParameters = new HashMap<String, String>();
         initParameters.put("excludes", excludesIP);
         initParameters.put("list", ipList);
+        initParameters.put("enabled", enabledIp);
         registration.setInitParameters(initParameters);
         return registration;
     }

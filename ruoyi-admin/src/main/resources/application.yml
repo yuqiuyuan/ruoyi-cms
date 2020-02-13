@@ -130,6 +130,8 @@ xss:
   urlPatterns: /system/*,/monitor/*,/tool/*
 
 ip:
+    # 黑名单开关
+    enabled: false
     # 排除链接（多个用逗号分隔）
     excludes: /favicon.ico*,/ruoyi.png*,/css/**,/docs/**,/fonts/**,/img/**,/ajax/**,/js/**,/ruoyi/**,/druid/**,/captcha/captchaImage**,/profile/upload/**,/profile/material/**,/images/**,/loginPage/**,/logout,/login
     # 匹配链接

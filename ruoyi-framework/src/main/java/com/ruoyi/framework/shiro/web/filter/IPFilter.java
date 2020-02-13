@@ -26,6 +26,8 @@ public class IPFilter implements Filter {
      */
     public List<String> excludes = new ArrayList<>();
 
+    private boolean enabled=false;
+
     private static Cache<String,Integer> cache= CacheUtil.newLRUCache(1000,1000*10);
 
     private static final AntPathMatcher antPathMatcher = new AntPathMatcher();
@@ -35,7 +37,7 @@ public class IPFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         String tempExcludes = filterConfig.getInitParameter("excludes");
-
+        String enabledIp = filterConfig.getInitParameter("enabled");
         String list = filterConfig.getInitParameter("list");
 
         if (StringUtils.isNotEmpty(tempExcludes))
@@ -55,13 +57,19 @@ public class IPFilter implements Filter {
                 ipList.add(arr[i]);
             }
         }
-
+        if (StringUtils.isNotEmpty(enabledIp))
+        {
+            enabled=Boolean.valueOf(enabledIp);
+        }
     }
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
+        if(!enabled){
+            filterChain.doFilter(req, resp);
+        }
         String ip = IpUtils.getIpAddr(req);
         String uri=req.getRequestURI();
         if(ipList.contains(ip)){
