@@ -69,6 +69,7 @@ public class IPFilter implements Filter {
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
         if(!enabled){
             filterChain.doFilter(req, resp);
+            return;
         }
         String ip = IpUtils.getIpAddr(req);
         String uri=req.getRequestURI();
