@@ -56,7 +56,6 @@ public class CmsController extends BaseController {
     @Value("${cms.oss.endpoint}")
     private String endpoint;
 
-
     @Value("${cms.oss.accessKeyId}")
     private String accessKeyId;
 

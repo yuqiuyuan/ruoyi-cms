@@ -114,16 +114,6 @@ public class ArticleServiceImpl implements IArticleService {
         if ("off".equals(article.getCommentFlag())) {
             article.setCommentFlag("0");
         }
-        if (1 == article.getPdfFlag()) {
-            Document doc = Jsoup.parse(article.getContent());
-            final Elements a = doc.select("a");
-            final String href = a.attr("href");
-            String content = "<iframe style='width:100%;height:700px' src=\"" +
-                    href +
-                    "\"></iframe>";
-            article.setContent(content);
-        }
-
         int n = articleMapper.insertArticle(article);
         n = articleMapper.insertArticleContent(article);
         return n;
@@ -156,7 +146,9 @@ public class ArticleServiceImpl implements IArticleService {
             article.setCommentFlag("0");
         }
         int n = articleMapper.updateArticle(article);
-        n = articleMapper.updateArticleContent(article);
+        if (1 != article.getPdfFlag()) {
+            n = articleMapper.updateArticleContent(article);
+        }
         return n;
     }
 
@@ -230,6 +222,25 @@ public class ArticleServiceImpl implements IArticleService {
     private void selectCategory(List<Article> list) {
         list.forEach(a -> {
             String cid = a.getCategoryId();
+            if (null != cid) {
+                Category category = categoryCache.get(cid);
+                if (null == category) {
+                    category = categoryService.selectCategoryById(Long.valueOf(cid));
+                    if (category != null) {
+                        categoryCache.put(cid, category);
+                    }
+                }
+                if (category != null) {
+                    a.setCategory(category);
+                }
+            }
+
+        });
+    }
+
+    private void selectCategory(Article a) {
+        if (null != a) {
+            String cid = a.getCategoryId();
             Category category = categoryCache.get(cid);
             if (category == null) {
                 category = categoryService.selectCategoryById(Long.valueOf(cid));
@@ -240,21 +251,6 @@ public class ArticleServiceImpl implements IArticleService {
             if (category != null) {
                 a.setCategory(category);
             }
-        });
-    }
-
-    private void selectCategory(Article a) {
-
-        String cid = a.getCategoryId();
-        Category category = categoryCache.get(cid);
-        if (category == null) {
-            category = categoryService.selectCategoryById(Long.valueOf(cid));
-            if (category != null) {
-                categoryCache.put(cid, category);
-            }
-        }
-        if (category != null) {
-            a.setCategory(category);
         }
     }
 
@@ -263,7 +259,7 @@ public class ArticleServiceImpl implements IArticleService {
         //转换标签名称，这部分可以使用缓存提升性能
         articles.forEach(a -> {
             String tagsStr = a.getTags();
-            if (StringUtils.isNotEmpty(tagsStr)) {
+            if (StringUtils.isNotEmpty(tagsStr) && "undefined".equals(tagsStr)) {
                 String[] tagsArr = Convert.toStrArray(tagsStr);
                 String tags_name = "";
                 List<Tags> tags = Lists.newArrayList();
@@ -293,23 +289,25 @@ public class ArticleServiceImpl implements IArticleService {
     }
 
     private void selectTags(Article a) {
-        String tids = a.getTags();//tagIds
-        if (StringUtils.isEmpty(tids)) {
-            return;
-        }
-        String[] arr = Convert.toStrArray(tids);
-        List<Tags> tags = Lists.newArrayList();
-        for (String tid : arr) {
-            if (StringUtils.isEmpty(tid)) {
-                continue;
+        if (null != a) {
+            String tids = a.getTags();//tagIds
+            if (StringUtils.isEmpty(tids)) {
+                return;
             }
-            Tags tag = tagCache.get(tid);
-            if (tag == null) {
-                tag = tagsMapper.selectTagsById(Long.valueOf(tid));
-                tagCache.put(tid, tag);
+            String[] arr = Convert.toStrArray(tids);
+            List<Tags> tags = Lists.newArrayList();
+            for (String tid : arr) {
+                if (StringUtils.isEmpty(tid)) {
+                    continue;
+                }
+                Tags tag = tagCache.get(tid);
+                if (tag == null) {
+                    tag = tagsMapper.selectTagsById(Long.valueOf(tid));
+                    tagCache.put(tid, tag);
+                }
+                tags.add(tag);
             }
-            tags.add(tag);
+            a.setTagList(tags);
         }
-        a.setTagList(tags);
     }
 }

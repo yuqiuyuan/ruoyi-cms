@@ -2,10 +2,9 @@ package com.ruoyi.cms.domain;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
 import com.ruoyi.common.annotation.Excel;
 import com.ruoyi.common.core.domain.BaseEntity;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -249,46 +248,13 @@ public class Article extends BaseEntity {
      */
     private String extraName;
 
+    /**
+     * 前端上传的文档地址对象
+     */
+    private MultipartFile docUrl;
+    /**
+     * 前端上传的封面地址对象
+     */
+    private MultipartFile coverImageUrl;
 
-    @Override
-    public String toString() {
-        return new ToStringBuilder(this, ToStringStyle.MULTI_LINE_STYLE)
-                .append("id", getId())
-                .append("yhid", getYhid())
-                .append("articleRegion", getArticleRegion())
-                .append("author", getAuthor())
-                .append("publishTime", getPublishTime())
-                .append("title", getTitle())
-                .append("keywords", getKeywords())
-                .append("description", getDescription())
-                .append("coverImage", getCoverImage())
-                .append("articleModel", getArticleModel())
-                .append("copyFlag", getCopyFlag())
-                .append("categoryId", getCategoryId())
-                .append("personalCategory", getPersonalCategory())
-                .append("link", getLink())
-                .append("staticUrl", getStaticUrl())
-                .append("tags", getTags())
-                .append("hit", getHit())
-                .append("replyNum", getReplyNum())
-                .append("upVote", getUpVote())
-                .append("downVote", getDownVote())
-                .append("hotFlag", getHotFlag())
-                .append("newFlag", getNewFlag())
-                .append("commentFlag", getCommentFlag())
-                .append("topFlag", getTopFlag())
-                .append("favourite", getFavourite())
-                .append("missionId", getMissionId())
-                .append("templateName", getTemplateName())
-                .append("createTime", getCreateTime())
-                .append("updateTime", getUpdateTime())
-                .append("available", getAvailable())
-                .append("deleted", getDeleted())
-                .append("extra1", getExtra1())
-                .append("extra2", getExtra2())
-                .append("extra3", getExtra3())
-                .append("content", getContent())
-                .append("contentMarkdownSource", getContentMarkdownSource())
-                .toString();
-    }
 }
