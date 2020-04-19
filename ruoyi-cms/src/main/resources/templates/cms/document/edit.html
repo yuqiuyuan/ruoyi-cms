@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:include="include :: header('修改文档管理')"/>
+    <th:block th:include="include :: select2-css"/>
+    <th:block th:include="include :: jasny-bootstrap-css"/>
+    <th:block th:include="include :: bootstrap-fileinput-css"/>
+</head>
+<body class="white-bg">
+<div class="wrapper wrapper-content animated fadeInRight ibox-content">
+    <form class="form-horizontal m" id="form-article-edit" th:object="${article}">
+        <input name="id" th:field="*{id}" type="hidden">
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label class="col-xs-2 control-label">推荐专区：</label>
+                    <div class="col-xs-10">
+                        <div class="radio-box" th:each="dict : ${@dict.getType('article_region')}">
+                            <input type="radio" th:id="${'articleRegion_' + dict.dictCode}" name="articleRegion"
+                                   th:value="${dict.dictValue}" th:checked="${dict.default}"
+                                   th:field="*{articleRegion}">
+                            <label th:for="${'articleRegion_' + dict.dictCode}" th:text="${dict.dictLabel}"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label class="col-xs-2 control-label">状态：</label>
+                    <div class="col-xs-10">
+                        <div class="radio-box" th:each="dict : ${@dict.getType('sys_available_status')}">
+                            <input type="radio" th:id="${'available_' + dict.dictCode}" name="available"
+                                   th:value="${dict.dictValue}" th:checked="${dict.default}" th:field="*{available}">
+                            <label th:for="${'available_' + dict.dictCode}" th:text="${dict.dictLabel}"></label>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">文档标题：</label>
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <input id="treeId" name="categoryId" type="hidden"
+                                   th:value="${article.category?.categoryId}"/>
+                            <input class="form-control" type="text" onclick="selectCategoryTree()" id="treeName"
+                                   readonly="true" th:value="${article.category?.categoryName}">
+                            <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">文档模型：</label>
+                    <div class="col-sm-8">
+                        <div class="radio-box" th:each="dict : ${@dict.getType('article_model')}">
+                            <input type="radio" th:id="${'articleModel_' + dict.dictCode}" name="articleModel"
+                                   th:value="${dict.dictValue}" th:checked="${dict.default}" th:field="*{articleModel}">
+                            <label th:for="${'articleModel_' + dict.dictCode}" th:text="${dict.dictLabel}"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">文档标题：</label>
+                    <div class="col-sm-8">
+                        <input id="title" name="title" class="form-control" type="text" th:field="*{title}">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">是否转载：</label>
+                    <div class="col-sm-8">
+                        <label class="toggle-switch switch-solid">
+                            <input type="checkbox" id="isCopy" name="isCopy" th:checked="${article.copyFlag == 1}">
+                            <span></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="div_isCopy_extend" style="display: none;">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label class="col-xs-2 control-label">原文链接：</label>
+                    <div class="col-xs-10">
+                        <input type="hidden" name="copyFlag" id="copyFlag" th:field="*{copyFlag}">
+                        <input type="text" class="form-control" id="link" name="link" th:field="*{link}"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">关键词：</label>
+                    <div class="col-sm-8">
+                        <input name="keywords" class="form-control" type="text" th:field="*{keywords}">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">启用评论：</label>
+                    <div class="col-sm-8">
+                        <label class="toggle-switch switch-solid">
+                            <input type="checkbox" id="commentFlag" name="commentFlag"
+                                   th:checked="${article.commentFlag==1 || article.commentFlag=='1'}">
+                            <span></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">标签：</label>
+                    <div class="col-sm-8">
+
+                        <select id="tags" name="tags" class="form-control select2-multiple" multiple>
+                            <option th:each="tag:${tags}" th:value="${tag.tagId}" th:text="${tag.tagName}"
+                                    th:selected="${tag.selected}" th:disabled="${tag.status == '1'}"></option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label class="col-xs-2 control-label">封面图片：</label>
+                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                        <div class="fileinput-new thumbnail" style="width: 140px; height: 140px;">
+                            <img th:src="*{coverImage}">
+                        </div>
+                        <div class="fileinput-preview fileinput-exists thumbnail"
+                             style="max-width: 200px; max-height: 150px;"></div>
+                        <div>
+                            <span class="btn btn-white btn-file"><span class="fileinput-new">选择图片</span><span
+                                    class="fileinput-exists">更改</span><input id="coverImage" type="file"></span>
+                            <a href="#" class="btn btn-white fileinput-exists" data-dismiss="fileinput">清除</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input id="staticUrl" th:value="*{staticUrl}" type="hidden">
+        <div class="row">
+            <div class="col-sm-12">
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label class="col-xs-2 control-label">描述：</label>
+                            <div class="col-xs-10">
+                                        <textarea rows="4" class="form-control" name="description" placeholder="描述"
+                                                  id="description">[[*{description}]]</textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-offset-5 col-sm-10">
+                        <button type="button" class="btn btn-sm btn-primary" onclick="submitHandler()"><i
+                                class="fa fa-check"></i>保 存
+                        </button>&nbsp;
+                        <button type="button" class="btn btn-sm btn-danger" onclick="closeItem()"><i
+                                class="fa fa-reply-all"></i>关 闭
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+</div>
+
+</form>
+</div>
+<th:block th:include="include :: footer"/>
+<th:block th:include="include :: select2-js"/>
+<th:block th:include="include :: jasny-bootstrap-js"/>
+<script type="text/javascript">
+
+    /*栏目分类选择*/
+    function selectCategoryTree() {
+        var prefixTemp = ctx + "cms/category"
+        var options = {
+            title: '栏目分类选择',
+            width: "380",
+            url: prefixTemp + "/selectCategoryTree/" + $("#treeId").val(),
+            callBack: doSubmit
+        };
+        $.modal.openOptions(options);
+    }
+
+    function doSubmit(index, layero) {
+        var body = layer.getChildFrame('body', index);
+        $("#treeId").val(body.find('#treeId').val());
+        $("#treeName").val(body.find('#treeName').val());
+        layer.close(index);
+    }
+
+</script>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var staticUrl = $("#staticUrl").val()
+        console.log("----")
+        console.log(staticUrl)
+        $("#docUrl").fileinput({
+            'theme': 'explorer-fas',
+            'uploadUrl': '#',
+            overwriteInitial: false,
+            initialPreviewAsData: true,
+            initialPreview: [
+                staticUrl
+            ]
+        });
+    });
+    $(function () {
+        $("#editor").css("height", "380px");
+        $('#tags').select2({
+            placeholder: "请选择标签",
+            allowClear: true
+        });
+        $("#isCopy").on("change", function () {
+            var v = $(this).prop("checked");
+            if (v) {
+                $("#copyFlag").val("1");//转载标志
+                $("#div_isCopy_extend").show();
+            } else {
+                $("#copyFlag").val("0");
+                $("#div_isCopy_extend").hide();
+            }
+        });
+        var copyFlag = $("#copyFlag").val();
+        if (copyFlag == 1 || copyFlag == '1') {
+            $("#div_isCopy_extend").show();
+        }
+
+    })
+    var prefix = ctx + "cms/article";
+    $("#form-article-edit").validate({
+        focusCleanup: true
+    });
+
+    function submitHandler() {
+        if ($.validate.form()) {
+            var title = $("#title").val();
+            if (isEmpty(title)) {
+                Fast.msg_error("请输入标题!");
+                return;
+            }
+            var copyFlag = $("#copyFlag").val();
+            if (copyFlag == '1') {
+                var link = $("#link").val();
+                if (isEmpty(link)) {
+                    Fast.msg_error("请输入原文链接!");
+                    return;
+                }
+            }
+            var tagIds = $.form.selectSelects("tags");
+            if (isEmpty(tagIds)) {
+                Fast.msg_error("请选择标签!");
+                return;
+            }
+            var formData = new FormData();
+            if (document.getElementById("coverImage").files && document.getElementById("coverImage").files.length > 0) {
+                formData.append("coverImageUrl", document.getElementById("coverImage").files[0]);
+            }
+            formData.append("articleRegion", $("input[name='articleRegion']:checked").val());
+            formData.append("id", $("#id").val());
+            formData.append("available", $("input[name='available']:checked").val());
+            formData.append("pdfFlag", 1);
+            formData.append("categoryId", $("input[name='categoryId']").val());
+            formData.append("articleModel", $("input[name='articleModel']:checked").val());
+            formData.append("title", $("input[name='title']").val());
+            formData.append("isCopy", $("input[name='isCopy']").val());
+            formData.append("copyFlag", $("input[name='copyFlag']").val());
+            formData.append("keywords", $("input[name='keywords']").val());
+            formData.append("tags", tagIds);
+            formData.append("commentFlag", $("input[name='commentFlag']").val());
+            formData.append("description", $("#description").val());
+            $.ajax({
+                cache: true,
+                type: "POST",
+                dataType: "json",
+                url: ctx + "cms/document/edit",
+                data: formData,
+                async: false,
+                processData: false,		//用于对data参数进行序列化处理 这里必须false
+                contentType: false, 	//必须
+                error: function (request) {
+                    $.modal.alertError("系统错误");
+                },
+                success: function (data) {
+                    $.operate.successCallback(data);
+                }
+            });
+        }
+    }
+</script>
+</body>
+</html>
