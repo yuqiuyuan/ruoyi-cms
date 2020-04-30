@@ -18,243 +18,244 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class Article extends BaseEntity {
-    private static final long serialVersionUID = 1L;
 
-    /**
-     * 主键，文章ID
-     */
-    private String id;
+  private static final long serialVersionUID = 1L;
 
-    /**
-     * 作者
-     */
-    @Excel(name = "作者")
-    private String yhid;
+  /**
+   * 主键，文章ID
+   */
+  private String id;
 
-    /**
-     * 推荐到哪个专区。比如：头条、精选、最新、热门、评论最多等
-     */
-    @Excel(name = "推荐到哪个专区。比如：头条、精选、最新、热门、评论最多等")
-    private String articleRegion;
+  /**
+   * 作者
+   */
+  @Excel(name = "作者")
+  private String yhid;
 
-    /**
-     * 原文作者
-     */
-    @Excel(name = "原文作者")
-    private String author;
+  /**
+   * 推荐到哪个专区。比如：头条、精选、最新、热门、评论最多等
+   */
+  @Excel(name = "推荐到哪个专区。比如：头条、精选、最新、热门、评论最多等")
+  private String articleRegion;
 
-    /**
-     * 发布时间
-     */
-    @Excel(name = "发布时间")
-    private String publishTime;
+  /**
+   * 原文作者
+   */
+  @Excel(name = "原文作者")
+  private String author;
 
-    /**
-     * 文章标题
-     */
-    @Excel(name = "文章标题")
-    private String title;
+  /**
+   * 发布时间
+   */
+  @Excel(name = "发布时间")
+  private String publishTime;
 
-    /**
-     * 关键词
-     */
-    @Excel(name = "关键词")
-    private String keywords;
+  /**
+   * 文章标题
+   */
+  @Excel(name = "文章标题")
+  private String title;
 
-    /**
-     * 摘要
-     */
-    @Excel(name = "摘要")
-    private String description;
+  /**
+   * 关键词
+   */
+  @Excel(name = "关键词")
+  private String keywords;
 
-    /**
-     * 封面图片
-     */
-    @Excel(name = "封面图片")
-    private String coverImage;
+  /**
+   * 摘要
+   */
+  @Excel(name = "摘要")
+  private String description;
 
-    /**
-     * 文章模型
-     */
-    @Excel(name = "文章模型")
-    private String articleModel;
+  /**
+   * 封面图片
+   */
+  @Excel(name = "封面图片")
+  private String coverImage;
 
-    /**
-     * 转载标志
-     */
-    @Excel(name = "转载标志")
-    private Integer copyFlag;
+  /**
+   * 文章模型
+   */
+  @Excel(name = "文章模型")
+  private String articleModel;
 
-    /**
-     * pdf标志
-     */
-    @Excel(name = "pdf标志")
-    private Integer pdfFlag;
+  /**
+   * 转载标志
+   */
+  @Excel(name = "转载标志")
+  private Integer copyFlag;
 
-    /**
-     * 频道栏目ID
-     */
-    @Excel(name = "频道栏目ID")
-    private String categoryId;
+  /**
+   * pdf标志
+   */
+  @Excel(name = "pdf标志")
+  private int pdfFlag;
 
-    /**
-     * 个人分类，多个用逗号分隔
-     */
-    @Excel(name = "个人分类，多个用逗号分隔")
-    private String personalCategory;
+  /**
+   * 频道栏目ID
+   */
+  @Excel(name = "频道栏目ID")
+  private String categoryId;
 
-    /**
-     * 原始链接
-     */
-    @Excel(name = "原始链接")
-    private String link;
+  /**
+   * 个人分类，多个用逗号分隔
+   */
+  @Excel(name = "个人分类，多个用逗号分隔")
+  private String personalCategory;
 
-    /**
-     * 静态化后url
-     */
-    @Excel(name = "静态化后url")
-    private String staticUrl;
+  /**
+   * 原始链接
+   */
+  @Excel(name = "原始链接")
+  private String link;
 
-    /**
-     * 标签
-     */
-    @Excel(name = "标签")
-    private String tags;
+  /**
+   * 静态化后url
+   */
+  @Excel(name = "静态化后url")
+  private String staticUrl;
 
-    /**
-     * 点击数
-     */
-    @Excel(name = "点击数")
-    private Long hit;
+  /**
+   * 标签
+   */
+  @Excel(name = "标签")
+  private String tags;
 
-    /**
-     * 回复数
-     */
-    @Excel(name = "回复数")
-    private Long replyNum;
+  /**
+   * 点击数
+   */
+  @Excel(name = "点击数")
+  private Long hit;
 
-    /**
-     * 点赞数
-     */
-    @Excel(name = "点赞数")
-    private Long upVote;
+  /**
+   * 回复数
+   */
+  @Excel(name = "回复数")
+  private Long replyNum;
 
-    /**
-     * 差评数
-     */
-    @Excel(name = "差评数")
-    private Long downVote;
+  /**
+   * 点赞数
+   */
+  @Excel(name = "点赞数")
+  private Long upVote;
 
-    /**
-     * 热点标志
-     */
-    @Excel(name = "热点标志")
-    private Integer hotFlag;
+  /**
+   * 差评数
+   */
+  @Excel(name = "差评数")
+  private Long downVote;
 
-    /**
-     * 新增标志
-     */
-    @Excel(name = "新增标志")
-    private Integer newFlag;
+  /**
+   * 热点标志
+   */
+  @Excel(name = "热点标志")
+  private Integer hotFlag;
 
-    /**
-     * 是否开启评论
-     */
-    @Excel(name = "是否开启评论")
-    private String commentFlag;
+  /**
+   * 新增标志
+   */
+  @Excel(name = "新增标志")
+  private Integer newFlag;
 
-    /**
-     * 置顶标志
-     */
-    @Excel(name = "置顶标志")
-    private Integer topFlag;
+  /**
+   * 是否开启评论
+   */
+  @Excel(name = "是否开启评论")
+  private String commentFlag;
 
-    /**
-     * 收藏数
-     */
-    @Excel(name = "收藏数")
-    private Long favourite;
+  /**
+   * 置顶标志
+   */
+  @Excel(name = "置顶标志")
+  private Integer topFlag;
 
-    /**
-     * 趴取任务的ID
-     */
-    @Excel(name = "趴取任务的ID")
-    private String missionId;
+  /**
+   * 收藏数
+   */
+  @Excel(name = "收藏数")
+  private Long favourite;
 
-    /**
-     * 生成静态页面的模板(cms_template表中的name)
-     */
-    @Excel(name = "生成静态页面的模板(cms_template表中的name)")
-    private String templateName;
+  /**
+   * 趴取任务的ID
+   */
+  @Excel(name = "趴取任务的ID")
+  private String missionId;
 
-    /**
-     * 状态标志
-     */
-    @Excel(name = "状态标志")
-    private Integer available;
+  /**
+   * 生成静态页面的模板(cms_template表中的name)
+   */
+  @Excel(name = "生成静态页面的模板(cms_template表中的name)")
+  private String templateName;
 
-    /**
-     * 删除标志
-     */
-    @Excel(name = "删除标志")
-    private Integer deleted;
+  /**
+   * 状态标志
+   */
+  @Excel(name = "状态标志")
+  private Integer available;
 
-    /**
-     * 附加字段1
-     */
-    @Excel(name = "附加字段1")
-    private String extra1;
+  /**
+   * 删除标志
+   */
+  @Excel(name = "删除标志")
+  private Integer deleted;
 
-    /**
-     * 附加字段2
-     */
-    @Excel(name = "附加字段2")
-    private String extra2;
+  /**
+   * 附加字段1
+   */
+  @Excel(name = "附加字段1")
+  private String extra1;
 
-    /**
-     * 附加字段3
-     */
-    @Excel(name = "附加字段3")
-    private String extra3;
+  /**
+   * 附加字段2
+   */
+  @Excel(name = "附加字段2")
+  private String extra2;
 
-    /**
-     * 文章内容
-     */
-    private String content;
+  /**
+   * 附加字段3
+   */
+  @Excel(name = "附加字段3")
+  private String extra3;
 
-    /**
-     * 文章markdown源码
-     */
-    private String contentMarkdownSource;
+  /**
+   * 文章内容
+   */
+  private String content;
 
-    /**
-     * 扩展字段。标签名称
-     */
-    private String tagsName;
-    /**
-     * 栏目分类
-     */
-    private Category category;
-    /**
-     * 扩展字段
-     */
-    private List<Tags> tagList;
-    /**
-     * 扩展字段，存放一个标签id
-     */
-    private String tag;
-    /**
-     * 扩展字段
-     */
-    private String extraName;
+  /**
+   * 文章markdown源码
+   */
+  private String contentMarkdownSource;
 
-    /**
-     * 前端上传的文档地址对象
-     */
-    private MultipartFile docUrl;
-    /**
-     * 前端上传的封面地址对象
-     */
-    private MultipartFile coverImageUrl;
+  /**
+   * 扩展字段。标签名称
+   */
+  private String tagsName;
+  /**
+   * 栏目分类
+   */
+  private Category category;
+  /**
+   * 扩展字段
+   */
+  private List<Tags> tagList;
+  /**
+   * 扩展字段，存放一个标签id
+   */
+  private String tag;
+  /**
+   * 扩展字段
+   */
+  private String extraName;
+
+  /**
+   * 前端上传的文档地址对象
+   */
+  private MultipartFile docUrl;
+  /**
+   * 前端上传的封面地址对象
+   */
+  private MultipartFile coverImageUrl;
 
 }
