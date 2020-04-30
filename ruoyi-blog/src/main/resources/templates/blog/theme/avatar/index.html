@@ -139,20 +139,20 @@
                 <div class="swiper-wrapper">
 
                     <div th:each="item,temp:${@cms.recommendedResourceList(3)}" class="itemLi swiper-slide">
-                        <a th:href="@{${'/blog/resource/'+item.id}}" target="_blank" class="content">
-                            <div class="imgBox full layoutAuto">
-                                <img class="img" th:src="@{${item.coverImage}}" th:alt="${item.title}">
-                            </div>
-                            <div class="articleGroup">
-                                <h2 th:text="${item.title}"></h2>
-                                <div class="detail" th:text="${#strings.abbreviate(item.description,65)}"></div>
-                                <div class="btmInfo">
-                                    <span class="">浏览 [[${item.hit}]]</span>
-                                    <span class="text"
-                                          th:text="${#dates.format(item.createTime,'yyyy-MM-dd HH:mm:ss')}"></span>
-                                </div>
-                            </div>
-                        </a>
+<!--                        <a th:href="@{${'/blog/resource/'+item.id}}" target="_blank" class="content">-->
+<!--                            <div class="imgBox full layoutAuto">-->
+<!--                                <img class="img" th:src="@{${item.coverImage}}" th:alt="${item.title}">-->
+<!--                            </div>-->
+<!--                            <div class="articleGroup">-->
+<!--                                <h2 th:text="${item.title}"></h2>-->
+<!--                                <div class="detail" th:text="${#strings.abbreviate(item.description,65)}"></div>-->
+<!--                                <div class="btmInfo">-->
+<!--                                    <span class="">浏览 [[${item.hit}]]</span>-->
+<!--                                    <span class="text"-->
+<!--                                          th:text="${#dates.format(item.createTime,'yyyy-MM-dd HH:mm:ss')}"></span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </a>-->
                     </div>
 
                     <div class="clearfix"></div>
