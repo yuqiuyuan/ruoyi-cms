@@ -355,17 +355,17 @@ public class CmsService {
       limit = 10;
     }
     //8个文章+2个资源
-    List<Article> articleList = this.indexList(8);
+    List<Article> articleList = this.indexList(10);
     articleList.forEach(a -> {
       a.setExtraName("article");
     });
-    List<Resource> resourceList = this.recommendedResourceList(2);
-    resourceList.forEach(r -> {
-      r.setExtraName("resource");
-    });
+//    List<Resource> resourceList = this.recommendedResourceList(2);
+//    resourceList.forEach(r -> {
+//      r.setExtraName("resource");
+//    });
     List<Object> res = Lists.newArrayList();
     res.addAll(articleList);
-    res.addAll(resourceList);
+//    res.addAll(resourceList);
     Collections.shuffle(res);
     return res;
   }
