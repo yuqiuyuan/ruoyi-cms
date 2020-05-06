@@ -221,10 +221,10 @@
       </div>
 
       <!-- 广告业务 -->
-      <div class="brandGrid" id="brandGrid"><a
-          href="https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=psmzr0yi"
-          target="_blank"><img class="img"
-                               src="https://www.duoguyu.com/dist/images/brand/brand-aliyun.jpg"></a></div>
+<!--      <div class="brandGrid" id="brandGrid"><a-->
+<!--          href="https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=psmzr0yi"-->
+<!--          target="_blank"><img class="img"-->
+<!--                               src="https://www.duoguyu.com/dist/images/brand/brand-aliyun.jpg"></a></div>-->
 
       <!-- 留言列表 -->
       <div class="commonHeadLabel small mt40">
@@ -248,29 +248,29 @@
       </div>
 
       <!-- 友链 -->
-      <div class="commonHeadLabel small mt40">
-        <h2 class="title">友链推荐</h2>
-      </div>
-      <div class="indexSiteGird">
+<!--      <div class="commonHeadLabel small mt40">-->
+      <!--        <h2 class="title">友链推荐</h2>-->
+      <!--      </div>-->
+      <!--      <div class="indexSiteGird">-->
 
-        <a th:each="item:${@cms.getFriendLinks()}" th:href="${item.link}" class="item" target="_blank">
-          <img class="img" th:src="@{${item.logo}}" th:alt="${item.name}">
-          <p class="title" th:text="${item.name}"></p>
-          <p th:text="${#strings.abbreviate(item.description,65)}"></p>
-          <div class="moreBox"><i class="iconfont icon-iconset0424 icon"></i></div>
-        </a>
+      <!--        <a th:each="item:${@cms.getFriendLinks()}" th:href="${item.link}" class="item" target="_blank">-->
+      <!--          <img class="img" th:src="@{${item.logo}}" th:alt="${item.name}">-->
+      <!--          <p class="title" th:text="${item.name}"></p>-->
+      <!--          <p th:text="${#strings.abbreviate(item.description,65)}"></p>-->
+      <!--          <div class="moreBox"><i class="iconfont icon-iconset0424 icon"></i></div>-->
+      <!--        </a>-->
 
-      </div>
+      <!--      </div>-->
 
       <!-- 特别鸣谢 -->
-      <div class="commonHeadLabel small mt40">
-        <h2 class="title">特别鸣谢</h2>
-      </div>
-      <div class="thankGroup" style="margin-top:-5px; padding:0;">
-        <p><a href="http://www.pt-cms.com" target="_blank" title="pt-cms官网">pt-cms</a> Java版轻量级开源管理系统，提供后台系统支持。
-        </p>
-        <p><a href="#" target="_blank" title="若依后台管理">若依后台管理</a> 若依后台管理系统提供技术支持。</p>
-      </div>
+<!--      <div class="commonHeadLabel small mt40">-->
+<!--        <h2 class="title">特别鸣谢</h2>-->
+<!--      </div>-->
+<!--      <div class="thankGroup" style="margin-top:-5px; padding:0;">-->
+<!--        <p><a href="http://www.pt-cms.com" target="_blank" title="pt-cms官网">pt-cms</a> Java版轻量级开源管理系统，提供后台系统支持。-->
+<!--        </p>-->
+<!--        <p><a href="#" target="_blank" title="若依后台管理">若依后台管理</a> 若依后台管理系统提供技术支持。</p>-->
+<!--      </div>-->
 
 
     </div>
