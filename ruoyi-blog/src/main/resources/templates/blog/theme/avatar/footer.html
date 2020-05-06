@@ -10,14 +10,14 @@
             <a th:if="${category.parentId==null||category.parentId==0}"  th:href="@{${'/blog/category/' + category.categoryId}}" th:text="${category.categoryName}"></a>
     </span>-->
         <span class="item">
-                    <a th:href="@{/blog/category}" th:class="${categoryId=='category'? 'current':''}">文章分类</a>
+                    <a th:href="@{/blog/category}" th:class="${categoryId=='category'? 'current':''}">文章</a>
         		</span>
         <span class="item">
                     <a th:href="@{/blog/resource/list?pageSize=6}">资源</a>
         		</span>
-        <span class="item">
-                    <a th:href="@{/blog/nav}" th:class="${categoryId=='nav'? 'current':''}">导航</a>
-        		</span>
+        <!--        <span class="item">-->
+        <!--                    <a th:href="@{/blog/nav}" th:class="${categoryId=='nav'? 'current':''}">导航</a>-->
+        <!--        		</span>-->
         <span class="item">
                     <a th:href="@{/blog/siteMsg}">留言</a>
         		</span>
