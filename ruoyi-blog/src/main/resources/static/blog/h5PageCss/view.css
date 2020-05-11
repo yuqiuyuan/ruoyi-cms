@@ -1,0 +1,126 @@
+.guide_browser_layout{position:fixed;width:100%;height:100%;left:0;right:0;top:0;bottom:0;z-index:1000;}
+.guide_ios_baidu{background:#000 url('../res/images/guide_ios_baidu.png') center bottom no-repeat;background-size:100% auto;}
+.guide_andro_baidu{background:#000 url('../res/images/guide_andro_baidu.png') center bottom no-repeat;background-size:100% auto;}
+.guide_ios_uc{background:#000 url('../res/images/guide_ios_uc.png') center bottom no-repeat;background-size:100% auto;}
+.guide_ios_chrome{background:#000 url('../res/images/guide_ios_chrome.png') center bottom no-repeat;background-size:100% auto;}
+.guide_ios_safari{background:#000 url('../res/images/guide_ios_safari.png') center bottom no-repeat;background-size:100% auto;}
+.guide_andro_chrome{background:#000 url('../res/images/guide_andro_chrome.png') center bottom no-repeat;background-size:100% auto;}
+.guide_andro_uc{background:#000 url('../res/images/guide_andro_uc.png') center bottom no-repeat;background-size:100% auto;}
+.guide_andro_default{background:#000 url('../res/images/guide_andro_default.png') center bottom no-repeat;background-size:100% auto;}
+.guide_weixin_andro{background:#000 url('../res/images/guide_weixin_andro.png') center  no-repeat;background-size:100% auto;}
+.guide_weixin_ios{background:#000 url('../res/images/guide_weixin_ios.png') center  no-repeat;background-size:100% auto;}
+/*end ad*/
+#docContent .adBox{position:relative;padding:10px 0;background:url(/images_cn/iphone/miniDocin/split.png) repeat-x left top;background-size:1px 4px;}
+.remove_ad_btn{position:absolute;right:0;top:5px;width:74px;height:22px;background:url(../res/images/remove_ad_close.png) 0 0 no-repeat;background-size:74px 22px;z-index:10;}
+.remove_ad_btn_plus{width:77px;background:url(../res/images/remove_ad_close_plus.png) 0 0 no-repeat;background-size:77px 22px;}
+.downLoadTipInfo .close_tips{position:absolute;left:0;top:1px;width:30px;height:30px;background:url(/images_cn/iphone/wePay/ico_pay_close.png) center center no-repeat;background-size:11px 11px;z-index:1;}
+.downLoadTipInfo .i_tips{display:inline-block;width:9px;height:9px;background:url(../res/images/ico_end_tips.png) 0 0 no-repeat;background-size:9px auto;margin-left:10px;vertical-align:1px;}
+.save_file_btns{display:-webkit-flex;}
+.save_file_btns a{-webkit-box-flex:1;width:50%;border:1px solid #333;border-radius:3px;height:44px;line-height:44px;color:#333;font-size:14px;}
+.save_file_btns a:last-child{margin-left:0.14rem;}
+/*relateDoc*/
+.relateDoc .booklist dd,.relateDoc .booklist dd.bookTitle{color:#333; font-weight:400;}
+.relateDoc .booklist dd{margin-left:0;padding-left:20px;color:#878C92;}
+.relateDoc h1{color:#333;font-weight:400; }
+.bookRelative{font-size:18px;font-weight:400; }
+.relateDoc .bookRelative{font-size:18px;color:#333;font-weight:400;padding:10px 0;margin:0 15px 10px;border-bottom:1px solid #f1f1f1;}
+/*html view more*/
+/* .foldpagewg-root{position: absolute;bottom:0;width:100%;z-index:2;background-image:-webkit-linear-gradient(270deg,rgba(255,255,255,0) 0,rgba(255,255,255,.84) 42%,#fff 81%,#fff 100%);background-image:linear-gradient(-180deg,rgba(255,255,255,0) 0,rgba(255,255,255,.84) 42%,#fff 81%,#fff 100%)} */
+.foldpagewg-root{position: absolute;bottom:0;width:100%;z-index:2;background-image:-webkit-linear-gradient(270deg,rgba(255,255,255,0) 0%,rgba(255,255,255,0.8) 13%,rgba(255,255,255,1) 35%,rgba(255,255,255,1) 100%));background-image:linear-gradient(180deg,rgba(255,255,255,0) 0%,rgba(255,255,255,0.8) 13%,rgba(255,255,255,1) 35%,rgba(255,255,255,1) 100%)}
+
+.foldpagewg-root .foldpagewg-top{height:auto;}
+.foldpagewg-root .foldpagewg-bottom{padding-bottom:16px;text-align:center;font-size:14px;color:#999;position:relative;margin:0 15px;}
+.foldpagewg-root .foldpagewg-bottom .spot-line{position:absolute;left:0;right:0;top:10px;width:100%;height:0px;border-bottom:1px dashed #dcdddc;}
+.foldpagewg-root .foldpagewg-bottom .unread-percent{position:relative;display:inline-block;padding:0 19px;background-color:#fff;z-index:1;}
+.foldpagewg-root .foldpagewg-text{display:inline-block;vertical-align:middle;line-height:15px;font-size:15px;color:#3086f3;}
+.foldpagewg-root .foldpagewg-text-con{padding-top:63px;padding-bottom:15px;font-size:0;text-align:center;}
+/* .foldpagewg-root .foldpagewg-icon{display:inline-block;width:11px;height:15px;background:url(../res/images/ico_tab_arrow_down.png) center center no-repeat;background-size:11px auto;vertical-align:middle;margin-left:8px;} */
+.foldpagewg-root2{position:relative;bottom:16px;background-color:#fff;text-align:center;}
+.foldpagewg-root2 .foldpagewg-text-con{padding-top:10px;}
+.open_in_app .ico_button{display:block;margin:0 0.15rem;width:auto;margin-top:12px;height:44px;line-height:44px;padding:0;}
+.foldpagewg-root2 .foldpagewg-top{height:auto;line-height:40px;}
+.foldpagewg-top-up{bottom:0;height:40px;line-height:40px;}
+.foldpagewg-top-up .foldpagewg-text{display:inline-block;vertical-align:middle;line-height:15px;font-size:15px;color:#3086f3;}
+.foldpagewg-top-up .foldpagewg-icon{display:inline-block;width:11px;height:15px;background:url(../res/images/ico_tab_arrow_down.png) center center no-repeat;background-size:11px auto;vertical-align:middle;margin-left:8px;transform:rotate(180deg);}
+/*function bar*/
+.func-bar-ft{position:fixed;left:0;bottom:0;z-index:103;width:100%;height:54px;background-color:rgba(255, 255, 255, .98);box-shadow:0 -1px 0 #d1d1d1;}
+.func-bar-ft li{float:left;}
+.func-bar-ft .doc-home{display:inline-block;width:19px;height:18px;background:url(../res/images/ico_end_house.png) 0 0 no-repeat;}
+.func-bar-ft .doc-qq{display:inline-block;width:16px;height:18px;background:url(../res/images/ico_black_qq.png) 0 0 no-repeat;}
+.func-bar-ft .doc-qq-vip{display:inline-block;width:16px;height:18px;background:url(../res/images/ico_vip_qq.png) 0 0 no-repeat;}
+.func-bar-ft .doc-share-ft{display:inline-block;margin:18px 0 0 0;width:19px;height:18px;background:url(../res/images/ico_end_share.png) 0 0 no-repeat;background-size:100% auto;}
+.func-bar-ft .doc-collect{display:inline-block;margin:18px 0 0 0;width:19px;height:17px;background:url(../res/images/ico_end_addfav.png) 0 0 no-repeat;background-size:auto 100%;}
+.func-bar-ft .doc-collect.off{background-image:url(../res/images/ico_end_addok.png);}
+.func-bar-ft .doc-collect.ok{background-image:url(../res/images/ico_end_addok.png);}
+.func-bar-ft .doc-home,.func-bar-ft .doc-share-ft,.func-bar-ft .doc-collect,.func-bar-ft .doc-collect.off,.func-bar-ft .doc-qq,.func-bar-ft .doc-qq-vip{font-size:12px;background-size:19px auto;background-position:top center;width:100%;text-align:center;margin-top:10px;padding-top:21px;color:#000;}
+.func-bar-ft .doc-qq,.func-bar-ft .doc-qq-vip{background-size:16px auto;}
+.func-bar-ft .doc-share-ft{background-size:16px auto;}
+.func-bar-ft .doc-download{display:inline-block;width:100%;height:54px;line-height:54px;text-align:center;background-color:#338aec;color:#fff;font-size:16px;}
+.func-bar-ft .doc-download.disabled{background-color:#f2f2f2;color:#ccc;}
+.func-bar-bd{display:flex;display: -webkit-flex;box-sizing:border-box;width:100%;flex-wrap:nowrap;}
+.func-bar-bd .func-item{height:54px;-webkit-box-flex:1;width:14%;text-align:center;box-sizing:border-box;}
+.func-bar-bd .func3{width:58%;padding-left:2%;text-align:right;}
+.free_down_fun .nextForb{border-color:#ccc;color:#ccc;}
+/*open vip*/
+.openvip_qx_list{font-size:0;display:-webkit-box;}
+.openvip_qx_list li{display:block;-webkit-box-flex:1;width:33.33%;}
+.openvip_qx_list li .no_ad{background:url(/images_cn/iphone/wePay/tq_1.png) 0 0 no-repeat;background-size:39px auto;}
+.openvip_qx_list li .vip_service{background:url(/images_cn/iphone/wePay/tq_2.png) 0 0 no-repeat;background-size:39px auto;}
+.openvip_qx_list li .vip_sendemail{background:url(/images_cn/iphone/wePay/tq_6.png) 0 0 no-repeat;background-size:39px auto;}
+.openvip_qx_list li .vip_down{background:url(/images_cn/vip/tq_4.png) 0 0 no-repeat;background-size:39px auto;}
+.openvip_qx_list li .vip_yhq{background:url(/images_cn/vip/tq_7.png) 0 0 no-repeat;background-size:39px auto;}
+.openvip_qx_list li span{display:inline-block;width:39px;height:39px;}
+.openvip_qx_list li .t1{font-size:14px;color:#666;line-height:18px;margin-top:8px;}
+/*plus quan*/
+.quan-content2 .quan-box{padding:22px 20px 0;box-sizing:border-box;}
+.quan-content2 .quan-items{position:relative;height:56px;margin:0 0.3rem 20px 16%;}
+.quan-content2 .quan-nouse{height:48px;line-height:48px;margin-bottom:0;}
+.quan-content2 .quan-items .quan-item-left{height:56px;background-color:#f8f1e0;border-radius:8px;position: relative;}
+.quan-content2 .quan-item-left .i_zhekou{float:left;font-size:36px;color:#d5a248;height:56px;line-height:56px;padding-left:13%;margin-right:20px;}
+.quan-content2 .quan-item-left .i_zhekou span{font-size:26px;}
+.quan-content2 .i_limit_date .limit_date_t1,.quan-content2 .i_limit_date .limit_date_t2{font-size:14px;color:#999;display:block;}
+.quan-content2 .i_limit_date .limit_date_t2{font-size:12px;height:81px;line-height:56px;}
+.quan-content2 .i_status_01 .limit_date_t2{height:auto;line-height:initial;}
+.quan-content2 .i_status_01 .limit_date_t1{padding-top:8px;margin-bottom:5px;}
+.quan-content2 .quan-item-right .btn_use{display:inline-block;height:25px;line-height:25px;padding:0 14px;font-size:13px;color:#fff;background-image:-webkit-linear-gradient(90deg, #e6c670, #e3af51);background-image:-o-linear-gradient(90deg, #e6c670, #e3af51);background-image:linear-gradient(90deg, #e6c670, #e3af51);border-radius:25px;}
+.quan-content2 .ico_quan_coner{position:absolute;left:0;top:0;width:38px;height:38px;z-index:1;font-style:normal;}
+.quan-content2 .ico_quan_coner span{position:absolute;top:4px;left:-11px;-webkit-transform: rotate(-42deg) scale(0.9);transform: rotate(-42deg) scale(0.9);color:#fff;width:50px;text-align:center;font-size:12px;}
+.quan-content2 .ico_coner_01{background:url(/images_cn/iphone/plus/ico_coner_01.png) 0 0 no-repeat;background-size:38px auto;}
+.quan-content2 .ico_coner_02{background:url(/images_cn/iphone/plus/ico_coner_02.png) 0 0 no-repeat;background-size:38px auto;}
+.quan-content2 .ico_coner_03{background:url(/images_cn/iphone/plus/ico_coner_03.png) 0 0 no-repeat;background-size:38px auto;}
+.quan-content2 .quan-style02 .quan-item-left,.quan-content2.quan-style02 .quan-item-right{background-color:#f8f4e9;}
+.quan-content2 .quan-style02 .quan-item-left .i_zhekou{color:#e8c37b;}
+.quan-content2 .label-choose{position:absolute;top:20px;left:-36px;width:21px;height:21px;background:url(/images_cn/iphone/plus/ico_plus_radio_cancel.png) 0 0 no-repeat;background-size:21px auto;}
+.quan-content2 .label-choose-check .label-choose{background:url(/images_cn/iphone/plus/ico_plus_radio_check.png) 0 0 no-repeat;background-size:21px auto;}
+.quan-content2 .quan-nouse .label-choose{top:13px;}
+.disable-quan .quan-items .quan-item-left{background-color:#f2f2f2;}
+.disable-quan .quan-item-left .i_zhekou{color:#c5c5c5;}
+.disable-quan .i_limit_date .limit_date_t2,.disable-quan .i_limit_date .limit_date_t1{color:#c5c5c5;}
+.disable-quan .quan-items{margin-left:10%;}
+.disable-quan .label-choose,.disable-quan .quan-nouse{display:none;}
+.coupon_use_box{padding-top:10px;}
+.coupon_use_box .coupon_use,.coupon_use_box .coupon_use_none{font-size:16px;margin-bottom:10px;}
+.coupon_use_box .coupon_use:after{display:inline-block;content:"";width:20px;height:18px;background:url(/images_cn/iphone/plus/ico_plus_right_arrow.png) center center no-repeat;background-size:9px auto;position: relative;top:2px;margin-left:2px;}
+.coupon_use_box .coupon_use_title{color:#333;}
+.coupon_use_box .coupon_mark{display:inline-block;height:19px;line-height:20px;padding:0 6px;border:1px solid #d89e59;font-size:12px;color:#c17813;border-radius:19px;margin:0 12px;}
+.coupon_use_box .coupon_mark .openTequan,.coupon_use_box .coupon_mark .openTequan:active{color:#c17813;}
+.coupon_use_box .coupon_remain_pay{color:#333;font-size:16px;}
+#couponChooseModel .model_body{height:270px;}
+#plusVipTips .plus_tips_txt{font-size:14px;line-height:22px;text-align:center;}
+.quick {margin-bottom:22px;}
+.quick .btnc_red{background-color:#d51e11;border-radius:3px;}
+.quick .award{color:#6D6D6D;font-style:normal;}
+.quick .award .i_dot_line{font-style:normal;border-bottom:1px dashed #4bbcdf;}
+.show_opacity_layout{position:fixed;left:0;top:0;bottom:0;right:0;width:100%;background-color:rgba(0,0,0,0.65);z-index:102;}
+.show_opacity_layout .inner{position:absolute;top:0;right:0;bottom:0;left:0;margin:auto;width:78%;z-index:103;}
+.show_opacity_layout .ico_close{position:absolute;bottom:-68px;left:106px;width:60px;height:60px;background:url(/images_cn/iphone/cyqa/ico_close@3x.png) center center no-repeat;background-size:30px auto;}
+@media only screen and (max-device-width:360px){
+    .openvip_qx_list li .t1{font-size:12px;}
+    #plusVipTips .plus_tips_txt{font-size:13px;}
+}
+@media only screen and (max-device-width:320px){
+   .touch_slider_active .off_price{width:100%!important;}
+   .quan-content2 .quan-item-left .i_zhekou{margin-right:10px;padding-left:14%;}
+   #plusVipTips .plus_tips_txt{font-size:12px;}
+   #j_confirm_buy .coupon_use_box p{font-size:14px;}
+}

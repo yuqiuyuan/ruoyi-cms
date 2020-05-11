@@ -1,0 +1,6975 @@
+html, body, div, span, object, iframe, header, footer, figure, section, h1, h2, h3, h4, h5, h6, p, a, em, img, dl, dt, dd, ol, ul, li, fieldset, form, label, input, button, textarea, a {
+    font-family: -apple-system, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "Microsoft JhengHei", "Source Han Sans SC", SimSun, sans-serif;
+    font-size: 100%;
+    font-weight: 400;
+    outline: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+}
+
+ul li, ol li {
+    list-style: none
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+caption, th, td {
+    text-align: left;
+    font-weight: 400;
+}
+
+table, td, th {
+    vertical-align: middle;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+    content: "";
+}
+
+blockquote, q {
+    quotes: "" "";
+}
+
+a img {
+    border: none;
+}
+
+a {
+    color: #326FA8;
+    text-decoration: none
+}
+
+a, a:hover, a:active {
+    color: #2284E2;
+}
+
+input, button, label, a, span, div {
+    -webkit-tap-highlight-color: #F00;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.clear {
+    zoom: 1;
+    clear: both
+}
+
+.clear:after {
+    display: block;
+    content: "\0020";
+    overflow: hidden;
+    height: 0;
+    clear: both
+}
+
+.navIcon, .loadMore span, .backTop, .searchBt, .breadNav li a, .loginLinkBox li a, .loginIcon, .showControl .openMore {
+    background: url(/images_cn/iphone/miniDocin/miniBackgrounds.png?rand=20120307) no-repeat;
+}
+
+.bookhotOut {
+    background: url(/images_cn/icon_hot.png) 0 0 no-repeat;
+}
+
+input::-webkit-input-placeholder {
+    color: #b3b3b3;
+}
+
+header, footer, nav, section {
+    display: block;
+}
+
+body {
+    -webkit-text-size-adjust: none;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+    display: none;
+}
+
+input[type="search"]:focus {
+    background-color: transparent;
+}
+
+.fl {
+    float: left;
+    display: inline;
+}
+
+.fr {
+    float: right;
+    display: inline;
+}
+
+.fr span {
+    color: #b3b3b3;
+}
+
+.fch {
+    color: #c5c5c5;
+}
+
+.fcr {
+    color: #ff0000;
+}
+
+.fcy {
+    color: #f8b57e;
+}
+
+body {
+    background-color: #fff;
+}
+
+#header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    font-weight: 400;
+    color: #fff;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: #3479ba;
+    z-index: 99;
+    height: 42px;
+    line-height: 42px;
+    text-align: center;
+    font-size: 20px;
+}
+
+#header a, .header a {
+    height: 42px;
+}
+
+#header img {
+    vertical-align: -11px;
+}
+
+#content, .content {
+    padding: 42px 0 0;
+}
+
+#content {
+    min-height: 480px;
+}
+
+.ui_btn {
+    display: inline-block;
+    width: 95px;
+    height: 28px;
+    border-radius: 4px;
+    color: #fff;
+    text-align: center;
+    line-height: 28px;
+    font-size: 15px;
+    float: left;
+    margin: 0 11px;
+}
+
+.ui_btn_blue {
+    background-color: #3086f2;
+}
+
+.ui_btn_gray {
+    background-color: #f4f4f4;
+    border: 1px solid #ADB2B5;
+    color: #6D6D6D;
+}
+
+.ui_btn_blue:hover {
+    color: #fff;
+}
+
+.ui_btn_gray:hover {
+    color: #6D6D6D;
+}
+
+.ico_vip_mark {
+    display: inline-block;
+    width: 19px;
+    height: 17px;
+    overflow: hidden;
+    background: url(/images_cn/newDocin/ico_vip.png) 0 0 no-repeat;
+}
+
+/*new btns*/
+.ico_button {
+    display: inline-block;
+    font-size: 16px;
+    text-decoration: none !important;
+    padding: 8px 12px;
+    border-radius: 2px;
+    -moz-border-radius: 3px;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+}
+
+.ico_button:active {
+    box-shadow: inset 0px 0px 3px #999;
+    -o-box-shadow: inset 0px 0px 3px #999;
+    -webkit-box-shadow: inset 0px 0px 3px #999;
+    -moz-box-shadow: inset 0px 0px 3px #999;
+}
+
+.ico_button:hover {
+    color: #fff;
+}
+
+.btnc_blue {
+    background-color: #3086f2;
+    text-decoration: none;
+    color: #fff;
+}
+
+.btnc_blue:hover {
+    color: #fff;
+    text-decoration: none;
+    background-color: #368dfb;
+}
+
+.btnc_blue1 {
+    background-color: #124a91;
+    text-decoration: none;
+    color: #fff;
+}
+
+.btnc_blue1:hover {
+    color: #fff;
+    text-decoration: none;
+    background-color: #1456a8;
+}
+
+.btnc_green {
+    background-color: #6DB324;
+    text-decoration: none;
+    color: #fff;
+}
+
+.btnc_green:hover {
+    color: #fff;
+    text-decoration: none;
+    background-color: #81c13f;
+}
+
+.btnc_org {
+    background-color: #ff6c00;
+    text-decoration: none;
+    color: #fff;
+}
+
+.btnc_org:hover {
+    color: #fff;
+    text-decoration: none;
+    background-color: #ff7611;
+}
+
+.btnc_org1 {
+    background-color: #ff7300;
+    text-decoration: none;
+    color: #fff;
+}
+
+.btnc_org1:hover {
+    color: #fff;
+    text-decoration: none;
+    background-color: #ff5000;
+}
+
+.btnc_gray {
+    background-color: #767c85;
+    text-decoration: none;
+    color: #fff;
+}
+
+.btnc_gray:hover {
+    color: #fff;
+    text-decoration: none;
+    background-color: #767c85;
+}
+
+.btnc_gray1 {
+    background-color: #eee;
+    text-decoration: none;
+    color: #3d3d3d;
+}
+
+/*多用于取消*/
+.btnc_gray1:hover {
+    color: #3d3d3d;
+    text-decoration: none;
+    background-color: #dfdfdf;
+}
+
+.btnc_gray2 {
+    background-color: #ddd;
+    text-decoration: none;
+    color: #aeaeae;
+    text-shadow: 1px 1px 0 #e6e6e6;
+    cursor: default;
+}
+
+.btnc_gray2:hover {
+    color: #d0cfcf;
+    color: #aeaeae;
+    text-decoration: none;
+}
+
+.btnc_gray3, .btnc_gray3:hover {
+    background-color: #D5D5D5;
+    text-decoration: none;
+    color: #999;
+}
+
+/* ico-doc-type-bigger */
+.doc-cover {
+    float: left;
+    width: 34px;
+    height: 39px;
+    margin-top: 2px;
+    margin-right: 10px;
+    font-size: 0;
+    line-height: 9999em;
+    overflow: hidden;
+    background: url("/images_cn/doc_type_bigger.png?rand=20160223") no-repeat scroll 0 0;
+    background-size: 194px auto;
+}
+
+.type-gif {
+    background-position: -80px -90px;
+}
+
+.type-doc {
+    background-position: 0 0;
+}
+
+.type-docx {
+    background-position: 0 0;
+}
+
+.type-xls, .type-xlsx {
+    background-position: -40px 0;
+}
+
+.type-ppt, .type-pptx {
+    background-position: -80px 0;
+}
+
+.type-pps, .type-ppsx {
+    background-position: -120px 0;
+}
+
+.type-bmp {
+    background-position: -120px -90px;
+}
+
+.type-rtf {
+    background-position: -160px 0;
+}
+
+.type-jpg, .type-jpeg {
+    background-position: 0 -90px
+}
+
+.type-tif, .type-tiff {
+    background-position: -160px -90px;
+}
+
+.type-txt {
+    background-position: -40px -135px;
+}
+
+.type-pot, .type-potx {
+    background-position: -80px 0;
+}
+
+.type-wps {
+    background-position: -80px -45px;
+}
+
+.type-dps {
+    background-position: -120px -45px;
+}
+
+.type-pdf {
+    background-position: 0 -135px;
+}
+
+.type-epub {
+    background-position: -120px -135px;
+}
+
+.type-xml {
+    background-position: -80px -135px;
+}
+
+.type-png {
+    background-position: -40px -90px;
+}
+
+.type-wpt {
+    background-position: 0 -45px;
+}
+
+.type-dpt {
+    background-position: -40px -45px;
+}
+
+.type-dwg {
+    background-position: -160px -45px;
+}
+
+/* ico-doc-type-new */
+.icon-docs-type {
+    height: 62px;
+    width: 100%;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
+
+.icon-folder {
+    background-image: url(/images_cn/svg/docType/folder.svg);
+}
+
+.icon-base {
+    background-image: url(/images_cn/svg/docType/base.svg);
+}
+
+.icon-doc, .icon-docx {
+    background-image: url(/images_cn/svg/docType/doc.svg);
+}
+
+.icon-ppt, .iconpptx {
+    background-image: url(/images_cn/svg/docType/ppt.svg);
+}
+
+.icon-xls, .icon-xlsx {
+    background-image: url(/images_cn/svg/docType/xls.svg);
+}
+
+.icon-pdf {
+    background-image: url(/images_cn/svg/docType/pdf.svg);
+}
+
+.icon-txt {
+    background-image: url(/images_cn/svg/docType/txt.svg);
+}
+
+.icon-gif {
+    background-image: url(/images_cn/svg/docType/gif.svg);
+}
+
+.icon-jpg {
+    background-image: url(/images_cn/svg/docType/jpg.svg);
+}
+
+.icon-bmp {
+    background-image: url(/images_cn/svg/docType/bmp.svg);
+}
+
+.icon-png {
+    background-image: url(/images_cn/svg/docType/png.svg);
+}
+
+.icon-tif {
+    background-image: url(/images_cn/svg/docType/tif.svg);
+}
+
+.btn_touch {
+    display: inline-block;
+    padding: 0 12px;
+    text-align: center;
+    font-size: 13px;
+    height: 30px;
+    line-height: 30px;
+    text-decoration: none;
+}
+
+.btn_touch:hover {
+    text-decoration: none;
+}
+
+.btn_touch_blue {
+    background-color: #1c98e7;
+    color: #fff;
+    border: 1px solid #007dcc;
+}
+
+.btn_touch_blue:hover {
+    color: #fff;
+}
+
+.btn_touch_gray {
+    background-color: #f2f2f2;
+    color: #555;
+    border: 1px solid #d1d1d1;
+}
+
+.btn_touch_gray:hover {
+    color: #555;
+}
+
+.btn_touch_disabled {
+    background-color: #f2f2f2;
+    border: 1px solid #f2f2f2;
+    color: #ccc;
+    text-shadow: 2px 2px 2px #fff;
+}
+
+.btn_touch_disabled:hover {
+    color: #ccc;
+}
+
+/*width 100% btns*/
+.btn_100 {
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    height: 38px;
+    line-height: 38px;
+    border-radius: 3px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.btn_submit {
+    background-color: #3086f2;
+    color: #fff;
+    border-bottom: 1px solid #1b4b88;
+    border-top: 1px solid #98c3f9;
+}
+
+.btn_submit:hover {
+    text-decoration: none;
+    color: #fff;
+}
+
+.btn_cancel {
+    background-color: #d5d5d5;
+    color: #bab9b9;
+    border-bottom: 1px solid #909090;
+    border-top: 1px solid #f1f1f1;
+}
+
+.btn_cancel:hover {
+    text-decoration: none;
+    color: #bab9b9;
+}
+
+/*bar*/
+.navBar {
+    position: absolute;
+    top: 6px;
+    right: 0;
+    width: 48px;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 10px;
+    text-align: left;
+    font-size: 16px;
+    border-left: 1px dotted #6196c9;
+    color: #b4e1e3;
+}
+
+.navBar .point {
+    display: block;
+    position: absolute;
+    top: 14px;
+    right: 4px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #b4e1e3;
+    height: 0;
+    width: 0;
+    transition: all .2s;
+}
+
+.navBar .point:before {
+    position: absolute;
+    top: -6px;
+    left: -5px;
+    content: "";
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #3479ba;
+    height: 0;
+    width: 0;
+}
+
+.navBar .rotate {
+    transform: rotate(180deg);
+}
+
+.subNavLight {
+    height: 62px;
+    line-height: 26px;
+    overflow: hidden;
+    background-color: #fff;
+    display: none;
+}
+
+.subNavLight ul {
+    width: 100%;
+    overflow: hidden;
+    background-color: #e5f2ef;
+    position: fixed;
+    top: 42px;
+    padding: 5px 0;
+    z-index: 10;
+    display: none;
+}
+
+.subNavLight li {
+    width: 20%;
+    float: left;
+    text-align: center;
+}
+
+.subNavLight .tr {
+    width: 23%;
+}
+
+.subNavLight .tw {
+    width: 18%;
+}
+
+.subNavLight a {
+    position: relative;
+    font-size: 16px;
+    color: #242424;
+}
+
+.subNavLight .hot:after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background-color: #f00;
+    right: -10px;
+    top: 4px;
+    border-radius: 50%;
+}
+
+.subNavDark {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 101;
+    width: 100%;
+}
+
+.subNavDark .head {
+    position: relative;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    background-color: #313131;
+    color: #8e8e8e;
+}
+
+.subNavDark .homePage {
+    position: absolute;
+    left: 8px;
+    top: 0;
+    color: #8e8e8e;
+}
+
+.subNavDark .pageTitle {
+    margin: 0 70px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.subNavDark .navBar {
+    position: absolute;
+    right: 8px;
+    top: 0;
+    width: auto;
+    padding: 0 10px;
+    font-size: 14px;
+    border: 0;
+    color: #8e8e8e;
+}
+
+.subNavDark .navBar .point {
+    right: 0;
+    border-top: 5px solid #aaabab;
+}
+
+.subNavDark .navBar .point:before {
+    display: none;
+}
+
+.subNavDark .rotate {
+    transform: rotate(180deg);
+}
+
+.subNavDark .section {
+    background-color: rgba(38, 38, 38, 0.95);
+    display: none;
+}
+
+.subNavDark ul {
+    width: 100%;
+    overflow: hidden;
+    padding: 6px 0;
+    z-index: 1;
+    line-height: 26px;
+}
+
+.subNavDark li {
+    width: 20%;
+    float: left;
+    text-align: center;
+}
+
+.subNavLight .tr {
+    width: 23%;
+}
+
+.subNavLight .tw {
+    width: 18%;
+}
+
+.subNavDark li a {
+    font-size: 16px;
+    color: #8e8e8e;
+}
+
+.subNavDark .search-box {
+    display: block;
+    position: initial;
+    padding-top: 2px;
+    height: 48px;
+    background: none;
+    border: 0;
+}
+
+.subNavDark .searInner {
+    margin: 0 5%;
+}
+
+.toolbarBackcon {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    height: 42px;
+}
+
+.headerCon {
+    margin: 0 100px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.toolbarSerachCon {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    height: 42px;
+    font-size: 0;
+}
+
+.toolbarBackbtn, .toolbarSearbtn, .toolbarCate, .ui_ico, .toolbarSerachCon .btnSubscri, .toolbarShareBtn {
+    display: inline-block;
+    background: url(../../img/h5/ui_mini_view_new.png?rand=20151217) 0 center no-repeat;
+    background-size: 64px auto;
+}
+
+.toolbarBackbtn {
+    padding: 0 0 0 18px;
+    width: 42px;
+    height: 42px;
+    font-size: 18px;
+    font-weight: normal;
+    color: #fff;
+    line-height: 42px;
+    background-position: 10px -194px;
+}
+
+.toolbarBackbtn:hover {
+    color: #fff;
+}
+
+.toolbarSearbtn {
+    width: 42px;
+    height: 42px;
+    background-position: 16px -156px;
+}
+
+.toolbarShareBtn {
+    width: 42px;
+    height: 42px;
+    background-position: 16px -330px;
+}
+
+.toolbarSerachCon .btnSubscri {
+    width: 42px;
+    height: 42px;
+    background-position: 16px -262px;
+}
+
+.toolbarSerachCon .sOkNow {
+    background-position: 16px -294px;
+}
+
+.toolbarSerachCon .sLoading {
+    background: url(/images_cn/iphone/addLoding.gif) right center no-repeat;
+    background-size: 22px 22px;
+}
+
+.toolbarCate {
+    width: 30px;
+    height: 42px;
+    background-position: 0 -228px;
+    text-decoration: none;
+}
+
+.endSearchBar {
+    width: 60%;
+    margin: 0 auto;
+    padding-left: 10px;
+}
+
+@media only screen and (max-width: 320px) {
+    .endSearchBar {
+        width: 56%;
+    }
+}
+
+.endSearchBar .searInner {
+    padding: 5px 0 0;
+}
+
+.endSearchBar .searArea {
+    margin: 0;
+    height: 32px;
+    border-radius: 4px
+}
+
+.endSearchBar .searArea input[type="search"] {
+    display: block;
+    box-sizing: border-box;
+    border-radius: 0;
+    background: none;
+    border: 0;
+    height: 32px;
+    width: 100%;
+    font-size: 15px;
+    line-height: 32px;
+    -webkit-tap-highlight-color: rgba(255, 0, 0, 0);
+    -webkit-appearance: none;
+    -webkit-box-sizing: border-box;
+    padding: 0 60px 0 5px;
+}
+
+.endSearchBar .search-btn {
+    top: 8px;
+    right: 3px;
+    width: 30px;
+    height: 26px;
+    border-radius: 3px;
+    text-indent: -999em;
+    background: url(/images_cn/iphone/search-btn-bg.png) no-repeat 1px 2px #3086f3;
+    background-size: 100% auto;
+}
+
+.endSearchBar .cross {
+    right: 30px;
+    top: 4px;
+    background-size: 16px 16px;
+}
+
+.userLogin {
+    padding: 10px 20px;
+    border-top: 1px solid #ececec;
+}
+
+.docinLogin label {
+    position: relative;
+    display: block;
+    padding: 0 0 0 10px;
+    border-radius: 3px;
+    border: 1px solid #b0b0b0;
+    background-color: #fff;
+    box-shadow: 0 0 1px #d7d7d8 inset;
+    height: 40px;
+}
+
+.docinLogin .textBox {
+    display: block;
+    width: 100%;
+    border: none;
+    height: 40px;
+    line-height: normal;
+    font-size: 14px;
+    background: none;
+}
+
+#login_tel_q, #login_tel {
+    padding-left: 28px;
+}
+
+.login_tel_f {
+    position: absolute;
+    left: 10px;
+    top: 0;
+    line-height: 40px;
+    font-size: 14px;
+    color: #b3b3b3;
+}
+
+.login_tel_f.black {
+    color: #333;
+}
+
+.docinLogin .identifyCode label {
+    width: 46%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.docinLogin .getvalidacode {
+    display: inline-block;
+    width: 40%;
+    float: right;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 14px;
+    background-color: #f8f8f8;
+    color: #535353;
+    border: 1px solid #c9c9c9;
+    border-radius: 3px;
+}
+
+#msgSendTips {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: 200px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    margin-left: -100px;
+    margin-top: -30px;
+    font-size: 12px;
+    background: rgba(0, 0, 0, .6);
+    color: #fff;
+    border-radius: 6px;
+}
+
+/*.docinLogin .identifyCode img{vertical-align: middle;display: inline-block;}*/
+.docinLogin p {
+    position: relative;
+    padding-top: 10px;
+}
+
+.docinLogin p .errorBox {
+    -position: absolute;
+    box-shadow: 0 2px 2px #ccc;
+    width: 100%;
+    z-index: 1;
+    display: none;
+}
+
+.docinLogin p .loginErrorTips {
+    padding: 0 5px;
+    height: 26px;
+    line-height: 26px;
+    background-color: #fffae1;
+    font-size: 12px;
+    line-height: 26px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    display: block;
+}
+
+.docinLogin p .loginErrorTips i {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: url(/images_cn/iphone/miniDocin/icon_attion.png) center center no-repeat;
+    background-size: 16px 15px;
+    vertical-align: middle;
+    margin-right: 3px;
+}
+
+.userLogin p.logo_email {
+    padding: 5px 0;
+}
+
+.userLogin p.logo_email span {
+    color: #ff2a00;
+}
+
+.userLogin p.logo_emails {
+    color: #666;
+}
+
+.change_code {
+    font-size: 14px;
+}
+
+/* newHeahder */
+.toolbarBackbtn {
+    width: 15px;
+    text-indent: -999em;
+}
+
+.subNavLight {
+    line-height: 30px;
+    height: 100px;
+}
+
+.subNavLight ul {
+    background-color: #3479ba;
+    border-top: 1px solid #71a1cf;
+}
+
+.subNavLight a {
+    color: #fff;
+    font-size: 15px;
+}
+
+.info-my {
+    padding-left: 15px;
+    background: url(/images_cn/iphone/miniDocin/ico_info_my.png) no-repeat 0 50%;
+    background-size: 13px auto;
+}
+
+/*.loginControl{margin-top:12px;}*/
+.loginControl {
+    margin-top: 20px;
+}
+
+.loginBtn {
+    display: block;
+    border: none;
+    background: none;
+    background-color: #3086f2;
+    width: 100%;
+    height: 38px;
+    line-height: 38px;
+    border-radius: 3px;
+    font-size: 20px;
+    color: #fff;
+    border: 1px solid #3086f2;
+    border-bottom: 1px solid #1b4b88;
+    border-top: 1px solid #98c3f9;
+    text-align: center;
+}
+
+/* .loginBtn:hover{background-color:#4396ff;} */
+.loginLinkBox {
+    border-radius: 5px;
+    border: 1px solid #BDBDBD;
+    margin: 10px 0;
+    background-color: #fff;
+}
+
+.loginControl {
+    line-height: 30px;
+    display: -webkit-box;
+    display: box;
+    width: 100%;
+}
+
+.loginButton {
+    -webkit-box-flex: 1;
+    display: block;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    background: -webkit-linear-gradient(#51b2ef, #134f8c);
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#51b2ef), to(#134f8c));
+}
+
+.loginButtonAct {
+    background: #2F7CB9;
+}
+
+.loginTips {
+    display: block;
+    margin-left: 10px;
+    text-align: right;
+}
+
+.loginLinkBox li {
+    display: -webkit-box;
+    display: box;
+    border-bottom: 1px solid #bdbdbd;
+    padding: 0 20px;
+    height: 40px;
+    line-height: 40px;
+}
+
+.loginLinkBox li a {
+    background-position: right -2000px;
+    display: block;
+    -webkit-box-flex: 1;
+    height: 100%;
+    color: #7d899d;
+}
+
+.loginIcon {
+    display: inline-block;
+    width: 24px;
+    height: 16px;
+    position: relative;
+    top: 5px;
+    margin-right: 3px;
+}
+
+.loginLinkBoxNew .loginIcon {
+    width: 28px;
+    height: 20px;
+}
+
+.iconRr {
+    background-position: 0 -225px;
+}
+
+.iconQq {
+    background-position: 0 -241px;
+}
+
+.iconWb {
+    background-position: 0 -257px;
+}
+
+.appLogin {
+    padding: 15px 0 0;
+}
+
+#forget_pwd .docin-ui-title {
+    position: static;
+    top: 0;
+    padding: 12px 0;
+    text-align: center;
+    font-size: 14px;
+    color: #6c6c6c;
+}
+
+#forget_pwd .docin-ui-body {
+    font-size: 12px;
+    color: #999;
+}
+
+#forget_pwd .ui-btns {
+    font-size: 12px;
+}
+
+#forget_pwd .docin_ui_btn0 {
+    margin-left: 0;
+}
+
+#forget_pwd .docin_ui_btn1 {
+    margin-right: 0;
+}
+
+/*email list*/
+.emailist {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    font-size: 12px;
+}
+
+.emailist li {
+    height: 28px;
+    line-height: 28px;
+    color: #333;
+    padding: 0 8px;
+    white-space: nowrap;
+    display: block;
+    font-size: 14px;
+}
+
+.emailist li.on {
+    background-color: #f7f7f7;
+}
+
+.emailist li:hover {
+    background-color: #f7f7f7;
+}
+
+/*search*/
+.search-box {
+    position: absolute;
+    top: 42px;
+    width: 100%;
+    z-index: 2;
+    background-color: #ebebeb;
+    border-bottom: 2px solid #b3b3b0;
+    height: 42px;
+    padding: 6px 0 0 0;
+    overflow: hidden;
+    display: none;
+}
+
+.result_s {
+    display: block;
+    position: static !important;
+}
+
+.searInner {
+    position: relative;
+    padding: 0 5px;
+}
+
+.searArea {
+    height: 34px;
+    background-color: #fff;
+    margin-right: 70px;
+}
+
+.search-btn {
+    position: absolute;
+    right: 5px;
+    top: 0;
+    background-color: #3386f0;
+}
+
+.search-novel {
+    right: 75px;
+}
+
+.btn-blue {
+    -webkit-appearance: none;
+    border: none;
+    background-color: #3086f2;
+    border-radius: 5px;
+    text-shadow: 0 0 0;
+    width: 64px;
+    height: 36px;
+    line-height: 36px;
+    font-size: 16px;
+    margin: 0 0 0 2px;
+    color: #fff;
+    text-shadow: rgba(0, 0, 0, 0.6) 0px -1px 0;
+    padding: 0;
+    display: inline-block;
+}
+
+.search-box .searArea input[type="text"] {
+    display: block;
+    box-sizing: border-box;
+    border-radius: 0;
+    background: none;
+    border: none;
+    height: 34px;
+    width: 100%;
+    font-size: 16px;
+    line-height: 34px;
+    -webkit-tap-highlight-color: rgba(255, 0, 0, 0);
+    -webkit-appearance: none;
+    -webkit-box-sizing: border-box;
+    padding: 0 34px 0 5px;
+    border: 1px solid #bfbfbf;
+}
+
+.cross {
+    position: absolute;
+    right: 78px;
+    top: 0;
+    bottom: 0;
+    width: 35px;
+    background: url(/images_cn/iphone/miniDocin/cross.png) center center no-repeat;
+    background-size: 16px 16px;
+    z-index: 2;
+    display: none;
+}
+
+.bdSug_wpr {
+    border-color: #e2e2e2 !important;
+}
+
+.bdSug_wpr td {
+    height: 26px !important;
+    padding: 2px 5px !important;
+}
+
+.bdSug_app {
+    display: none;
+}
+
+.booklist {
+    background-color: #fff;
+    font-size: 12px;
+}
+
+.moveWrap {
+    border-left: 1px solid #5e5e5e;
+}
+
+.toolList {
+    position: absolute;
+    background-color: #e6e7e8;
+}
+
+.toolListCon {
+    width: 84%;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+}
+
+.loginBar {
+    height: 58px;
+    background-color: #999;
+    font-size: 16px;
+    color: #fff;
+    padding: 0 10px;
+}
+
+.loginBar .user_pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    float: left;
+    margin: 8px 15px 0 0;
+    position: relative;
+}
+
+.loginBar img {
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+}
+
+.loginBar .ico_vip_mark {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.loginBar .userName {
+    font-size: 14px;
+    white-space: nowarp;
+    padding: 0 0 0 5px;
+}
+
+.loginBar .user_login_info {
+    float: left;
+    font-size: 12px;
+    line-height: 24px;
+    margin: 4px 0 0;
+}
+
+.loginBar .user_login_info .user_name {
+    font-size: 14px;
+}
+
+.loginBar .ui_btn {
+    width: 74px;
+    height: 22px;
+    line-height: 22px;
+    font-size: 12px;
+    margin: 0 16px 0 0;
+}
+
+/* .subscribWrap{background-color:#e6e7e8;} */
+.subscribWrap {
+}
+
+.quickLogin {
+    border-bottom: 1px solid #c4c4c4;
+    padding: 14px 0 10px 16px;
+}
+
+.minNav {
+    border-bottom: 1px solid #c4c4c4;
+}
+
+.minNav a {
+    display: block;
+    height: 32px;
+    line-height: 32px;
+    font-size: 15px;
+    color: #000;
+    padding: 6px 0 6px 20px;
+}
+
+.minNav a.cur {
+    background-color: #B4D6F5;
+}
+
+.ui_ico {
+    width: 32px;
+    height: 32px;
+    vertical-align: middle;
+}
+
+.ui_index {
+    background-position: 1px 4px;
+}
+
+.ui_type {
+    background-position: 0 -63px;
+}
+
+.ui_daily {
+    background-position: -32px -92px;
+}
+
+.ui_topic {
+    background-position: 1px -94px;
+}
+
+.ui_set {
+    background-position: 2px -30px;
+}
+
+.ui_down {
+    background-position: -29px -30px;
+}
+
+.ui_quit {
+    background-position: 3px -128px;
+}
+
+.ui_bookshop {
+    background-position: -30px 4px;
+}
+
+.ui_case {
+    background-position: -32px -63px;
+}
+
+.ui_mydocin {
+    /*background: url(/images_cn/iphone/miniDocin/ico_mydocin.png) 0 0 no-repeat;*/
+    background-size: 20px auto;
+    background-position: 0 4px;
+}
+
+.mySubscrib {
+    padding: 0 20px;
+}
+
+.mySubscrib dt {
+    font-size: 15px;
+    color: #6e6a6b;
+    height: 32px;
+    line-height: 32px;
+    padding-top: 6px;
+}
+
+.mySubscrib dt a {
+    display: block;
+    color: #6e6a6b;
+    font-size: 15px;
+}
+
+.mySubscrib dd a, .myQuit a {
+    display: block;
+    height: 32px;
+    line-height: 32px;
+    font-size: 15px;
+    padding: 5px 0;
+    color: #000;
+}
+
+.mySubscrib dd a:visited, .myQuit a:visited, .minNav a:visited {
+    color: #000;
+}
+
+.myQuit {
+    padding: 6px 0 6px 20px;
+    font-size: 15px;
+    color: #6e6a6b;
+    border-top: 1px solid #C4C4C4;
+}
+
+.subscribCon {
+}
+
+.subscribList li {
+    position: relative;
+}
+
+.subscribList li:not(:first-child) {
+    border-top: 2px solid #e5e5e5;
+}
+
+.subscribList .btnSubscri {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 46px;
+    width: 20%;
+    background: url(/images_cn/iphone/miniDocin/ui_mini_subscri.png) 0 0 no-repeat;
+    background-size: 22px 150px;
+    background-position: center -110px;
+}
+
+.subscribList .sOkNow {
+    background-position: center -52px;
+}
+
+.subscribList .sOk {
+    background-position: center 12px
+}
+
+.subscribList .sLoading {
+    background: url(/images_cn/newDocin/loading.gif) center center no-repeat;
+    background-size: 22px 22px;
+}
+
+.subscribList .listInner a {
+    display: block;
+    padding: 0 10px;
+    height: 46px;
+    line-height: 46px;
+    padding: 0 10px;
+    font-size: 1em;
+    color: #333;
+    font-weight: bold;
+}
+
+.booklist h2 {
+    padding: 15px 0 0 9px;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.loadMoreData {
+    color: #838383;
+    display: block;
+    font-size: 14px;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.loadingPage {
+    height: 40px;
+    width: 200px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -20px;
+    margin-left: -100px;
+    text-align: center;
+    color: #838383;
+    font-size: 14px;
+    line-height: 40px;
+}
+
+.subscribList .goto {
+    background: url(/images_cn/iphone/miniDocin/goView.png) center center no-repeat;
+    background-size: 9px 15px;
+}
+
+.add_tips_box {
+    padding: 15px 0;
+    width: 226px;
+    margin: 0 auto;
+}
+
+.add_tips_box p {
+    font-size: 14px;
+    color: #808080;
+    font-weight: bold;
+    line-height: 26px;
+}
+
+.add_sub_tips {
+    margin-top: 25px;
+}
+
+.add_sub_tips a {
+    display: inline-block;
+    width: 193px;
+    height: 112px;
+    background: url(/images_cn/iphone/miniDocin/add_subscri_tips.png) 0 0 no-repeat;
+    background-size: 193px 112px;
+}
+
+/*guide tips*/
+#nativeRead, #addBookStoreTips {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 202;
+    display: none;
+}
+
+.readRcmd {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #FFF;
+    margin: auto;
+    padding: 10px 0;
+    text-align: center;
+    width: 224px;
+    border-radius: 5px;
+}
+
+.readRcmd .title1 {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.readRcmd .title2 {
+    font-size: 11px;
+    color: #999;
+    line-height: 22px;
+}
+
+.readRcmd .closeBtn {
+    position: absolute;
+    right: -20px;
+    top: -22px;
+    padding: 10px;
+}
+
+.readRcmd .closeBtn span {
+    float: left;
+    width: 24px;
+    height: 24px;
+    background: url(/images_cn/iphone/mvdownload/icon_close.png) 0 0 no-repeat;
+    background-size: 24px 24px;
+    overflow: hidden;
+    font: 0/0 a;
+}
+
+.readRcmd .downlowdBox {
+    position: relative;
+}
+
+.readRcmd .downlowdBox .rndl {
+    background-color: #3475cd;
+    border-radius: 5px;
+    color: #FFF;
+    display: block;
+    height: 33px;
+    line-height: 33px;
+    margin: 0 auto;
+    text-align: center;
+    width: 98px;
+    font-size: 12px;
+}
+
+.osPic img {
+    margin: 10px 0;
+}
+
+.readRcmd .gotoWebsites {
+    position: absolute;
+    width: 70px;
+    left: 158px;
+    top: 0;
+    font-size: 10px;
+    font-weight: bold;
+    line-height: 33px;
+}
+
+.reflowContent {
+    position: relative;
+}
+
+.hotspot {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 20%;
+    z-index: 1;
+}
+
+.hotSpots #mobile_left_hotspot {
+    left: 0;
+}
+
+.hotSpots #mobile_right_hotspot {
+    right: 0;
+}
+
+#scroller .minpic img {
+    width: 50%;
+    min-height: 240px;
+}
+
+.fullscreen-button {
+    display: block;
+    background-image: url(/images_cn/iphone/miniDocin/close-fullscreen.png);
+    background-size: 50px 50px;
+    border-radius: 5px;
+    top: 65%;
+    height: 50px;
+    overflow: hidden;
+    position: absolute;
+    right: 10px;
+    width: 50px;
+    z-index: 10;
+}
+
+.fullscreen {
+    display: block;
+    background-image: url(/images_cn/iphone/miniDocin/fullscreen.png);
+}
+
+.relateDoc {
+    display: none;
+    background-color: #fff;
+}
+
+.relateDoc .hd {
+    height: 40px;
+    line-height: 22px;
+    background-color: #f6f6f6;
+    padding: 10px 15px;
+    border-top: 2px solid #e4e4e4;
+}
+
+.relateDoc h1 {
+    position: static;
+    font-size: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    color: #707171;
+    font-weight: bold;
+    text-overflow: ellipsis;
+}
+
+.relateDoc .fcqh {
+    color: #ccc;
+}
+
+.relateDoc .booklist dd.bookTitle {
+    height: auto;
+}
+
+/*doc list*/
+.booklist {
+    clear: both;
+}
+
+.booklist dl {
+    border-bottom: 1px solid #ebebeb;
+    padding: 10px;
+    clear: both;
+    height: auto;
+    position: relative;
+}
+
+.booklist dl[id^="adv_"] {
+    height: 100px !important;
+    padding: 0 0 0 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+    width: 100%;
+}
+
+.booklist dt {
+    float: left;
+    display: inline-block;
+    width: 52px;
+    text-align: right;
+    position: relative;
+}
+
+.booklist dt a {
+    position: relative;
+    display: inline-block;
+    line-height: 0;
+}
+
+.bookPic {
+    position: relative;
+    float: right;
+    border: 1px solid #CCC;
+    max-height: 75px;
+    overflow: hidden;
+}
+
+.bookPicLoading {
+    background: url("/images_cn/newDocin/loading.gif") no-repeat scroll center center transparent;
+    display: inline-block;
+    height: 90px;
+    position: relative;
+    width: 63px;
+}
+
+.bookPage {
+    background: #F7F7F7;
+    border: 1px solid #CCC;
+    bottom: 0;
+    color: #333;
+    cursor: pointer;
+    height: 18px;
+    line-height: 18px;
+    font-size: 12px;
+    padding: 0 4px 0 6px;
+    position: absolute;
+    right: -1px;
+    white-space: nowrap;
+    bottom: -1px
+}
+
+.booklist dt img, .booklist .down_related_left img {
+    min-width: 50px;
+    max-width: 80px;
+    width: 100%;
+    max-height: 200px;
+    min-height: 60px;
+    /*background: #ebebeb url(/images_cn/iphone/miniDocin/pic_no.png) center center no-repeat;*/
+    background-size: 50px 13px;
+    display: block;
+    font-size: 0;
+}
+
+.booklist dd {
+    margin: 0 0 0 68px;
+    color: #878C92;
+    line-height: 16.8px;
+    font-weight: 400;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.booklist dd span.fch {
+    color: #878C92
+}
+
+.linkAera {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.linkAera a {
+    display: block;
+}
+
+.bookTitle {
+    font-size: 16px;
+    position: relative;
+}
+
+.booklist dd.bookTitle {
+    overflow: hidden;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 8px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.bookTitle a {
+    color: #000;
+}
+
+.booklist dd.bookTitle .s {
+    color: #ff0000;
+}
+
+.bookhotOut {
+    height: 7px;
+    display: inline-block;
+    width: 55px;
+    position: relative;
+    top: 0;
+    left: 4px;
+}
+
+.hot1 {
+    background-position: 0 0;
+}
+
+.hot2 {
+    background-position: 0 -8px;
+}
+
+.hot3 {
+    background-position: 0 -16px;
+}
+
+.hot4 {
+    background-position: 0 -24px;
+}
+
+.hot5 {
+    background-position: 0 -32px;
+}
+
+.goView {
+    width: 9px;
+    height: 13px;
+    display: inline-block;
+    float: right;
+    background: url(/images_cn/iphone/miniDocin/goView.png) no-repeat;
+    background-size: 9px 13px;
+}
+
+.loadMore {
+    text-align: center;
+    height: 50px;
+}
+
+.loadMore a {
+    display: inline-block;
+    height: 100%;
+    padding: 0 30px;
+}
+
+.loadMore span {
+    padding-right: 15px;
+    background-position: 50px -77px;
+    font-size: 12px;
+    line-height: 50px;
+    color: #069;
+}
+
+.loadingData {
+    height: 50px;
+    background: url(/images_cn/newDocin/loading.gif) no-repeat center;
+    display: none;
+}
+
+/* download related list */
+.down_related_section {
+    display: flex;
+    align-items: flex-start;
+    overflow: hidden;
+}
+
+.booklist_related a {
+    display: block;
+    padding: 10px 5px 0;
+}
+
+.down_related_left {
+    float: left;
+    width: 52px;
+    text-align: right;
+    position: relative;
+}
+
+.down_related_right {
+    width: calc(100% - 68px);
+    margin: 0 0 0 16px;
+    border-bottom: 0 !important;
+    clear: none !important;
+    position: relative !important;
+    padding-top: 0 !important;
+    padding-bottom: 10px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    box-sizing: content-box;
+}
+
+.down_related_right:after {
+    content: " ";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 1px;
+    border-bottom: 1px solid #ebebeb;
+    color: #d9d9d9;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: scaleY(.333);
+    transform: scaleY(.333);
+    left: 0;
+}
+
+.booklist_related a:last-child .down_related_right:after {
+    border-bottom: 0;
+}
+
+.down_related_right dd {
+    margin: 0 !important;
+}
+
+.down_related_right .bookTitle {
+    margin-bottom: 11px !important;
+}
+
+.booklist_related h2 {
+    padding: 0;
+    line-height: 51px;
+    font-size: 22px;
+    color: #000;
+    position: relative;
+}
+
+.booklist_related h2:after {
+    content: " ";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 1px;
+    border-bottom: 1px solid #c6c6c8;
+    color: #d9d9d9;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: scaleY(.333);
+    transform: scaleY(.333);
+    left: 0;
+}
+
+/*type list*/
+.typeList {
+    margin: 0 10px;
+    border-left: 1px solid #e5e5e5;
+}
+
+.typeList li {
+    float: left;
+    height: 45px;
+    line-height: 45px;
+    border-bottom: 1px solid #e5e5e5;
+    width: 49.9%;
+    overflow: hidden;
+}
+
+.typeList li a {
+    position: relative;
+    font-size: 1em;
+    text-indent: 0.6em;
+    font-weight: 400;
+    color: #6e6e6e;
+    display: block;
+    overflow: hidden;
+}
+
+.typeList a:nth-child(2n+1) {
+    border-right: 1px solid #E5E5E5;
+}
+
+@media all and (orientation: landscape) {
+    .typeList li a {
+        text-indent: 2em;
+    }
+}
+
+.typeList li a .goView {
+    position: relative;
+    right: 2em;
+    top: 18px;
+}
+
+/*recommend*/
+.minTopic {
+    margin: 12px 0 6px 0;
+    display: table;
+    width: 100%;
+}
+
+.minTopic {
+    text-align: center;
+}
+
+.minTopic a {
+    display: table-cell;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.5em;
+    margin: 0 8px;
+}
+
+.minTopic a img {
+    width: 132px;
+    height: 95px;
+    border: 1px solid #d3d1cd;
+}
+
+.class_tit {
+    background-color: #f3f9ff;
+    height: 32px;
+    line-height: 32px;
+    border: 1px solid #e4e4e3;
+    border-left: none;
+    border-right: none;
+    padding: 0 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.class_tit h4 {
+    float: left;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.class_tit .showControl {
+    color: #333;
+    position: absolute;
+    right: 5px;
+    width: 100%;
+    text-align: right;
+}
+
+.class_tit .showControl span {
+    float: right;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.showControl .openMore {
+    width: 10px;
+    height: 10px;
+    background-position: 0 -280px;
+    padding: 0;
+    margin: 10px 0 0 5px;
+}
+
+.showControl .floder {
+    background-position: -12px -280px;
+}
+
+.topicList dl {
+    padding: 15px 5% 10px 5px;
+}
+
+.topicList a:nth-of-type(2) dl {
+    border-bottom: none;
+}
+
+.topicList dt {
+    height: auto;
+}
+
+.loadmoretopic a:nth-of-type(1) dl {
+    border-top: 2px solid #EBEBEB;
+}
+
+.loadmoretopic a:nth-last-of-type(1) dl {
+    border-bottom: none;
+}
+
+/*type list*/
+.secTypeList li:last-of-type {
+    border-right: none;
+}
+
+.secTypeList li.last {
+    border-right: none;
+    width: 100%;
+    text-indent: 51%;
+    overflow: hidden;
+}
+
+.tabBtn {
+    height: 26px;
+    padding: 10px 18px;
+}
+
+.tabBtn .btn_doudan {
+    float: right;
+    width: 91px;
+    height: 26px;
+}
+
+.btn_doudan span {
+    float: left;
+    height: 26px;
+    line-height: 26px;
+    text-align: center;
+    background: url(/images_cn/iphone/miniDocin/tab_btn.png) 0 0 no-repeat;
+    font-weight: 400;
+    color: #333;
+    cursor: pointer;
+    font-size: 0.8em;
+}
+
+.btn_doudan span.btn_doci {
+    width: 45px;
+}
+
+.btn_doudan span.btn_dd {
+    width: 46px;
+    background-position: -45px 0;
+}
+
+.btn_doudan span.on1 {
+    background-position: 0 -26px;
+    color: #fff;
+}
+
+.btn_doudan span.on2 {
+    background-position: -45px -26px;
+    color: #fff;
+}
+
+.notips {
+    text-align: center;
+    padding: 30px 0;
+}
+
+/*doc detail*/
+.docDetail {
+    background: #F2F3F3;
+    border-bottom: 1px solid #BCBEC1;
+    padding: 15px;
+    clear: both;
+}
+
+.docDetail h1 {
+    font-size: 16px;
+    padding: 0 0 10px 0;
+    font-weight: 700;
+    padding: 0 0 8px 0;
+}
+
+.docDetail dl {
+    clear: both;
+}
+
+.docDetail dt {
+    float: left;
+    margin-right: 5px;
+}
+
+.docDetail dt a {
+    display: inline-block;
+    background: #fff;
+    padding: 4px;
+    -webkit-box-shadow: 2px 2px 2px #ccc;
+    -moz-box-shadow: 2px 2px 2px #ccc;
+    border: 1px solid #fff;
+    -moz-border-radius: 4px;
+    -khtml-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    position: relative;
+}
+
+.docDetail dt a .bookPage {
+    right: 4px;
+    bottom: 4px;
+    font-size: 12px;
+}
+
+.docDetail dt a img {
+    border: 1px solid #ccc;
+    display: block;
+    width: 100px;
+    min-height: 100px;
+}
+
+.docDetail dd {
+    margin: 0 0 5px 130px;
+    line-height: 1.4em;
+}
+
+.docDetail_new dd {
+    margin: 0 0 0 130px;
+}
+
+.docDetail_new .bookhotOut {
+    left: 0;
+}
+
+.docDetail dd span:first-of-type {
+    margin-right: 10px;
+}
+
+.docDetail .dtTitle {
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.docDetail .dtDesc {
+    line-height: 1.6em;
+    font-size: 14px;
+    margin: 0;
+    clear: both;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.docDetail dd.marb12 {
+    margin-bottom: 10px;
+    margin-top: 8px;
+}
+
+#docDetailMore {
+    font-size: 14px;
+}
+
+#docDetailMore, #hideMoreDis {
+    display: none;
+}
+
+.docDetail .dtAddBh {
+    clear: both;
+    margin: 10px 0 30px;
+    float: left;
+    width: 100%;
+    position: relative;
+}
+
+.docDetail dd span.addBt {
+    margin-right: 0;
+}
+
+.addBt {
+    text-align: center;
+    font-weight: bold;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#4C9D25), to(#32641D));
+    display: block;
+    border: 2px solid #32641D;
+    padding: 10px 20px;
+    color: #fff;
+    font-size: 16px;
+    -moz-border-radius: 8px;
+    -khtml-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+}
+
+.addTips {
+    position: absolute;
+    bottom: -25px;
+    left: 0;
+    color: #b5b5b5;
+    padding: 0 20px;
+    width: 58%;
+    text-align: center;
+}
+
+.addBookTips {
+    padding: 2px 0;
+    color: #B5B5B5;
+    text-align: center;
+}
+
+.bookRelative {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 15px 0 0 9px
+}
+
+/*topic*/
+.wraper {
+    padding: 0 10px;
+}
+
+.icon_zt {
+    display: inline-block;
+    width: 32px;
+    height: 16px;
+    background-color: #c00000;
+    color: #fff;
+    line-height: 16px;
+    text-align: center;
+    margin: 1px 5px 0 0;
+    font-size: 12px;
+}
+
+@media all and (orientation: landscape) {
+    .bookTitle .icon_zt {
+        margin: 3px 5px 0 0;
+    }
+}
+
+.topicDetail .dtDesc {
+    float: none;
+    clear: none;
+    margin: 0;
+}
+
+/*doc-mark*/
+.doc-mark em {
+    background: url(/images_cn/iphone/icon_mark.png) no-repeat 0 0;
+}
+
+.doc-mark em {
+    float: left;
+    width: 16px;
+    height: 16px;
+    font: 0/0 a;
+    overflow: hidden;
+}
+
+.doc-mark em {
+    background-position: -20px 0;
+}
+
+.doc-mark em.gif {
+    background-position: 0 0
+}
+
+.doc-mark em.doc {
+    background-position: -20px 0;
+}
+
+.doc-mark em.docx {
+    background-position: -20px 0;
+}
+
+.doc-mark em.xls {
+    background-position: -40px 0;
+}
+
+.doc-mark em.xlsx {
+    background-position: -40px 0;
+}
+
+.doc-mark em.ppt {
+    background-position: -60px 0;
+}
+
+.doc-mark em.pptx {
+    background-position: -60px 0;
+}
+
+.doc-mark em.pps {
+    background-position: -80px 0;
+}
+
+.doc-mark em.ppsx {
+    background-position: -80px 0;
+}
+
+.doc-mark em.bmp {
+    background-position: -100px 0;
+}
+
+.doc-mark em.rtf {
+    background-position: -120px 0;
+}
+
+.doc-mark em.jpg {
+    background-position: -140px 0;
+}
+
+.doc-mark em.jpeg {
+    background-position: -140px 0;
+}
+
+.doc-mark em.pub {
+    background-position: 0px -20px;
+}
+
+.doc-mark em.tif {
+    background-position: -20px -20px;
+}
+
+.doc-mark em.tiff {
+    background-position: -20px -20px;
+}
+
+.doc-mark em.txt {
+    background-position: -40px -20px;
+}
+
+.doc-mark em.pot {
+    background-position: -60px -20px;
+}
+
+.doc-mark em.potx {
+    background-position: -60px -20px;
+}
+
+.doc-mark em.wps {
+    background-position: -80px -20px;
+}
+
+.doc-mark em.et {
+    background-position: -100px -20px;
+}
+
+.doc-mark em.dps {
+    background-position: -120px -20px;
+}
+
+.doc-mark em.pdf {
+    background-position: -140px -20px;
+}
+
+.doc-mark em.epub {
+    background-position: 0 -40px;
+}
+
+.doc-mark em.xml {
+    background-position: -20px -40px;
+}
+
+.doc-mark em.pdw {
+    background-position: -40px -40px;
+}
+
+.doc-mark em.pxl {
+    background-position: -60px -40px;
+}
+
+.doc-mark em.psw {
+    background-position: -80px -40px;
+}
+
+.doc-mark em.eml {
+    background-position: -100px -40px;
+}
+
+.doc-mark em.ps {
+    background-position: -120px -40px;
+}
+
+.doc-mark em.vsd {
+    background-position: -140px -40px;
+}
+
+.doc-mark em.mpp {
+    background-position: 0px -60px;
+}
+
+.doc-mark em.png {
+    background-position: -20px -60px;
+}
+
+.doc-mark em.umd {
+    background-position: 0 -40px;
+}
+
+.doc-mark em.wpt {
+    background-position: 0px -60px;
+}
+
+.doc-mark em.dpt {
+    background-position: -20px -60px;
+}
+
+.doc-mark em.topic {
+    background-position: -40px -60px;
+}
+
+.doc-mark em.doudan {
+    width: 18px;
+    height: 16px;
+    background-position: -60px -60px;
+}
+
+.doc-mark dl {
+    padding: 10px 0 3px 0;
+    margin: 0 15px;
+}
+
+.doc-mark dd {
+    margin: 0 0 5px 32px;
+}
+
+.doc-mark dd.ddCreator {
+    color: #999;
+}
+
+.doc-mark dd.bookTitle {
+    font-size: 16px;
+}
+
+.bookTitle em {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/*reader btn*/
+.addBt {
+    float: left;
+    width: 58%;
+    padding: 10px 6%;
+}
+
+.docDetail_new .addBt {
+    float: none;
+    width: auto;
+    padding: 8px 0;
+    border: 1px solid #32641D;
+    font-size: 14px;
+    text-align: center;
+    font-weight: bold;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#4C9D25), to(#32641D));
+    display: block;
+    color: #fff;
+    font-size: 16px;
+    -moz-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.addBtBrightGray {
+    float: right;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#ebebeb), to(#bababa));
+    border: 2px solid #cecece;
+    color: #333;
+    width: 14%;
+}
+
+.docDetail_new .addBtBrightGray {
+    float: none;
+    width: auto;
+    border: 1px solid #CECECE;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#ebebeb), to(#bababa));
+    color: #333;
+}
+
+.docDetail_new .addBtBlue {
+    border-color: #3C76AC;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#007AE5), to(#004282));
+}
+
+a.addBtBrightGray {
+    color: #333;
+}
+
+a.addBtBrightGray:visited, a.addBtBrightGray:hover {
+    color: #333;
+}
+
+/*docinviwer*/
+.content, .previewCont {
+    text-align: center;
+    position: relative;
+    height: 100%;
+}
+
+.previewCont {
+    z-index: 2;
+    margin: 0;
+    padding-top: 30px;
+}
+
+.docReaderBox {
+    background-color: #f2f3f3;
+}
+
+.prev {
+    background-color: #8a8a8a;
+}
+
+.docMainCont {
+    vertical-align: middle;
+    text-align: center;
+    overflow: hidden;
+    height: 200px;
+}
+
+.docMainCont img {
+    background-color: #fff;
+}
+
+.controlBtn {
+    position: absolute;
+    width: 74px;
+    height: 36px;
+    text-align: center;
+    line-height: 36px;
+    background-color: #8a8a8a;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.controlBtn:hover, .controlBtn:active {
+    color: #fff;
+}
+
+.backBtn {
+    left: 0;
+    top: 0;
+}
+
+.zoomBtn {
+    right: 0;
+    top: 0;
+}
+
+.docinMask {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: url(/images_cn/iphone/miniDocin/icon-circle.gif) no-repeat scroll 50% 40%;
+    background-size: 64px 64px;
+    display: none;
+    z-index: 1;
+}
+
+.guide {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5) url(/images_cn/iphone/miniDocin/icon-gesture.png) center center no-repeat;
+    z-index: 200;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: none;
+}
+
+.guideJpg {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5) url(/images_cn/iphone/miniDocin/tips_jpg.png) 0 0 no-repeat;
+    background-size: 100% auto;
+    z-index: 200;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: none;
+}
+
+.guideHtml {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5) url(/images_cn/iphone/miniDocin/tips_html.png) 0 50% no-repeat;
+    background-size: 100% auto;
+    z-index: 1008;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: none;
+}
+
+.docToolBar {
+    position: fixed;
+    bottom: 0;
+    height: 48px;
+    background-color: #F2F3F3;
+    padding: 2px 0 0 0;
+    display: table;
+    width: 100%;
+    z-index: 99;
+    table-layout: fixed;
+}
+
+.docToolBar .one {
+    display: table-cell;
+    text-align: center;
+    height: 47px;
+    line-height: 47px;
+    background-color: #F2F3F3;
+    border-top: 1px solid #dddede;
+    vertical-align: top;
+}
+
+.docToolBar .one_add {
+    display: table-cell;
+    width: 36%;
+    height: 48px;
+    line-height: 48px;
+    vertical-align: top;
+}
+
+.docToolBar .one:first-child {
+}
+
+.docToolBar .one:first-child a {
+}
+
+.docToolBar .one:last-child a {
+}
+
+.docToolBar .one a {
+    color: #666;
+    display: block;
+    border-top: 1px solid #f5f5f5;
+    font-size: 16px;
+    font-weight: bold;
+    height: 46px;
+}
+
+.docToolBar .one_add .btnc_org {
+    border-color: #ff6c00;
+}
+
+.docToolBar .is_org {
+    width: 44%;
+}
+
+.docLoading {
+    position: absolute;
+    top: 45px;
+    left: -2px;
+    background: url(/images_cn/ipadreader/loading.gif) no-repeat center 40% #fff;
+    width: 101%;
+    height: 100%;
+    display: none;
+}
+
+@media all and (orientation: landscape) {
+    .docReaderBox {
+        height: 208px;
+    }
+
+    .docLoading {
+        height: 100%;
+    }
+}
+
+@media all and (orientation: portrait) {
+    .docReaderBox {
+        height: 356px;
+    }
+
+    .docLoading {
+        height: 100%;
+    }
+}
+
+.nopage {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    width: 200px;
+    height: 100px;
+    margin: -100px 0 0 -100px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    text-align: center;
+    line-height: 100px;
+    font-size: 24px;
+    -text-shadow: 1px 1px 0px #000;
+    color: #fff;
+    z-index: 10;
+}
+
+.pageInfo {
+    position: absolute;
+    color: #999;
+    bottom: -15px;
+    width: 100%;
+    text-align: center;
+    font-weight: normal;
+    font-size: 10px;
+    -webkit-text-size-adjust: none;
+}
+
+.addbtn {
+    display: block;
+    border-radius: 5px;
+    color: #fff;
+    border: 2px solid #32641D;
+    height: 47px;
+    line-height: 47px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    margin-top: -3px;
+}
+
+.btn_green {
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#4C9D25), to(#32641D));
+    border-color: #32641D;
+    background-color: #32641D;
+    border-color: #32641D;
+}
+
+.btn_blue {
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#518bce), to(#3f6da4));
+    border-color: #3C76AC;
+    background-color: #3f6da4;
+}
+
+.btn_gray {
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#ebebeb), to(#bababa));
+    border-color: #cecece;
+    background-color: #bababa;
+}
+
+a.addbtn:hover, a.addbtn:active {
+    color: #fff;
+}
+
+.btn-cancel {
+    background: #f8f8f8;
+    border: 1px solid #e7e7e7;
+    color: #8a8a8a;
+    display: inline-block;
+    padding: 10px 26px;
+    border-radius: 2px;
+    box-shadow: 0 1px 1px #fff inset;
+}
+
+/*footer*/
+.miniFooter {
+    line-height: 30px;
+    padding: 10px;
+    font-family: 'tahoma';
+    background-color: #fff;
+}
+
+.switchLink {
+    float: left;
+}
+
+.switchLink span, .switchLink a {
+    font-size: 10px;
+}
+
+.switchLink .speLine {
+    margin: 0 5px;
+}
+
+.copyRight {
+    float: right;
+    font-size: 10px;
+    line-height: 34px;
+}
+
+/*search */
+.searchBox {
+    padding: 10px 60px 10px 10px;
+    position: relative;
+}
+
+.keyWords {
+    width: 100%;
+    height: 28px;
+    line-height: 28px;
+    border: 1px solid #5D738E;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.searchBt {
+    width: 28px;
+    height: 28px;
+    background-position: 0 -95px;
+    border: 0;
+    position: absolute;
+    right: 10px;
+    top: 14px;
+}
+
+h3.searchHot {
+    text-align: left;
+    padding: 0;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+.hotTags {
+    position: relative;
+    width: 270px;
+    margin: 0 auto;
+    height: 200px;
+}
+
+.hotTags a {
+    position: absolute;
+    display: inline-block;
+    height: 30px;
+    line-height: 32px;
+    min-width: 90px;
+    max-width: 100px;
+    overflow: hidden;
+    text-decoration: none;
+    color: #000;
+    box-shadow: 2px 2px 2px #eee;
+    -webkit-box-shadow: 2px 2px 2px #ddd;
+    border-radius: 2px;
+    text-align: center;
+    font-size: 16px;
+    font-family: "΢���ź�";
+}
+
+.hotTags a:active {
+    background: #f00;
+}
+
+.tagsBlue {
+    background: #AAD4FF;
+}
+
+.tagsYellow {
+    background: #FFFAAC;
+}
+
+.tagsLightRed {
+    background: #FFACD7;
+}
+
+.tagsOrange {
+    background: #FFE1AC;
+}
+
+.tagsPur {
+    background: #D1BBFA;
+}
+
+.tagsGreen {
+    background: #EAFFAC;
+}
+
+.tagsLightBlue {
+    background: #ACF6FF;
+}
+
+.tag1 {
+    top: 16px;
+    left: 25px;
+    z-index: 2;
+}
+
+.tag2 {
+    top: 7px;
+    left: 180px
+}
+
+.tag3 {
+    top: 54px;
+    left: 3px;
+}
+
+.tag4 {
+    top: 42px;
+    left: 110px;
+    z-index: 1;
+}
+
+.tag5 {
+    top: 100px;
+    left: 0px;
+}
+
+.tag6 {
+    top: 90px;
+    left: 90px;
+}
+
+.tag7 {
+    top: 72px;
+    left: 180px;
+}
+
+.tag8 {
+    top: 117px;
+    left: 155px;
+}
+
+.tag9 {
+    top: 137px;
+    left: 32px;
+}
+
+.tag10 {
+    top: 145px;
+    left: 118px;
+}
+
+.searchNo {
+    width: 180px;
+    padding: 40px 0 20px 65px;
+    height: 70px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.searchNo img {
+    position: absolute;
+    top: 20px;
+    left: 0;
+}
+
+.searchNo p {
+    line-height: 30px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #666;
+    text-align: left;
+}
+
+.resultNo {
+    width: 220px;
+    padding: 40px 0 20px 65px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.resultNo p {
+    line-height: 26px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #666;
+    text-align: left;
+}
+
+.resultNo img {
+    position: absolute;
+    top: 40px;
+    left: 0;
+}
+
+/*dialogBox*/
+.mask {
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: 1006;
+}
+
+.dialogBox {
+    position: absolute;
+    top: 80px;
+    left: 15%;
+    display: none;
+    z-index: 1008;
+}
+
+.dialogShare {
+    width: 70%;
+    background-color: #fff;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    position: fixed;
+    z-index: 1008;
+}
+
+.dialogInner {
+    padding: 10px 0;
+}
+
+.shareCon dt {
+    color: #333;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 0 24px;
+    line-height: 32px;
+}
+
+.shareCon dd {
+    border-top: 1px solid #e7e7e7;
+    padding: 8px 24px;
+    font-size: 14px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.shareCon dd a {
+    display: block;
+    font-size: 14px;
+    color: #333;
+    background: url("/images_cn/iphone/miniDocin/goView.png") 95% center no-repeat;
+    background-size: 9px 13px;
+    line-height: 28px;
+}
+
+.shareCon dd:last-child a {
+    background: none;
+    text-align: center;
+}
+
+.shareCon .btn-blue {
+    height: auto;
+}
+
+.shareCon .share {
+    display: inline-block;
+    background: url(/images_cn/iphone/miniDocin/ico_touch_share.png) 0 0 no-repeat;
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    overflow: hidden;
+    margin: 0 10px 0 0;
+    font: 0/0 a;
+    background-size: 24px auto;
+    vertical-align: middle;
+}
+
+.shareCon .shareWx {
+    background-position: 0 0;
+}
+
+.shareCon .shareQz {
+    background-position: 0 -34px;
+}
+
+.shareCon .shareWb {
+    background-position: 0 -68px;
+}
+
+.shareCon .shareQq {
+    background-position: 0 -108px;
+}
+
+.shareCon .shareTx {
+    background-position: 0 -144px;
+}
+
+.shareCon .shareQQ {
+    background: url(/images_cn/iphone/miniDocin/ico_qq_60x60.png) no-repeat 0 0;
+    background-size: 100%;
+}
+
+.shareCon dd:last-child {
+    height: auto;
+}
+
+.dialogShare .btn-cancel {
+    padding: 0 26px;
+    height: 34px;
+    line-height: 34px;
+    border-radius: 4px;
+}
+
+/*backTop*/
+.goBackTop {
+    position: fixed;
+    right: 5px; /*bottom:20px;*/
+    bottom: 90px;
+    width: 40px;
+    height: 40px;
+    background-color: #454545;
+    -webkit-border-radius: 2px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 40px;
+    color: #fff;
+    font-size: 20px;
+    z-index: 90;
+    visibility: hidden;
+    opacity: 0.9;
+    -webkit-box-shadow: 0 0 5px #9C9C9C;
+}
+
+.goBackTop span {
+    position: relative;
+    background: url(../../img/h5/top.png) 0 0 no-repeat;
+    background-size: 18px 15px;
+    background-position: 50% 70%;
+    display: block;
+    padding: 16px 0;
+    line-height: 14px;
+    text-align: center;
+}
+
+/*main content*/
+.mainContent {
+    position: relative;
+}
+
+#docinReader img {
+    width: 100%;
+    display: none;
+}
+
+.mainContent img {
+    vertical-align: middle;
+    max-width: 100%;
+}
+
+.ui-btn {
+    position: fixed;
+    top: 35px;
+    height: 30px;
+    line-height: 30px;
+    -moz-border-radius: 2px;
+    -khtml-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 0 5px;
+    color: #fff;
+    z-index: 100;
+}
+
+.pageno {
+    right: 5px;
+    font-family: Thomas;
+}
+
+.goback {
+    font-size: 16px;
+    left: 5px;
+}
+
+.goback:hover {
+    color: #fff;
+}
+
+/*ad*/
+.preview_ad_Wrap {
+    width: 100%;
+    position: fixed;
+    bottom: 50px;
+    z-index: 10;
+    font-size: 28px;
+}
+
+.st1 .down_app {
+    width: 100%;
+    vertical-align: middle;
+    background: rgba(77, 77, 88, 0.9);
+    display: block;
+    position: relative;
+    text-align: center;
+    line-height: 0;
+    overflow: hidden;
+}
+
+.st1 .ad_con { /*padding:0.5em 0;*/
+    overflow: hidden;
+    display: inline-block;
+}
+
+.preview_ad_Wrap .close_btn_con {
+    position: absolute;
+    right: 0;
+    top: -18px;
+    width: 40px;
+    height: 30px;
+    display: block;
+}
+
+.preview_ad_Wrap .close_btn_icon {
+    width: 48px;
+    height: 18px;
+    background: url(/images_cn/iphone/btn_ad_close.png) 0 0 no-repeat;
+    background-size: 48px 18px;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.st1 {
+    z-index: 11;
+}
+
+.float_ad_Wrap {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    z-index: 10;
+    background-color: #fff;
+}
+
+.float_ad_Wrap .close_btn_icon {
+    width: 68px;
+    height: 25px;
+    background: url(/images_cn/iphone/btn_ad_close.png) 0 0 no-repeat;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+/*.st1 .down_app{text-align:center;}
+.st1 .ad_con{overflow:hidden;}
+.st1 #cproIframe1Wrap{bottom:50px!important;}*/
+.st2 .down_app {
+    text-align: center;
+}
+
+.st2 .ad_con {
+    width: 203px;
+    margin: 0 auto;
+}
+
+.mid_page_wrap {
+    width: 100%;
+    height: 100%;
+    background: #c1b783 url(/images_cn/iphone/miniDocin/ad_next_tip.png) right bottom no-repeat;
+    background-size: 60% auto;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    overflow: hidden;
+}
+
+.mid_page_body {
+    text-align: center;
+}
+
+.mid_page_con {
+    display: inline-block;
+}
+
+.mid_page_tit {
+    color: #1b7100;
+    text-align: center;
+    padding: 0 0 5px 0;
+    height: 30px;
+    line-height: 30px;
+}
+
+@media all and (orientation: landscape) {
+    .mid_page_tit {
+        display: none;
+    }
+}
+
+.mm-ismenu {
+    background-color: #E6E7E8;
+}
+
+/*compare*/
+.mySubscrib dd a img {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: 4px;
+    margin-right: 7px;
+}
+
+/*yzm*/
+.addFavVerifi {
+    position: absolute;
+    left: 50%;
+    margin-left: -125px;
+    top: 80px;
+    background-color: #FFF;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 250px;
+    display: block;
+}
+
+.addFavVerifi p {
+}
+
+.addFavVerifi .mart10 {
+    margin: 10px 0 0 0;
+}
+
+.addFavVerifi .dialogTitle h3 {
+    font-size: 14px;
+    color: #3C3C3C;
+    font-weight: bold;
+}
+
+.addFavVerifi .dialogInner {
+    padding: 20px 10px;
+}
+
+.addFavVerifi .dialogCont {
+    margin: 10px 0 0 0;
+    font-size: 13px;
+}
+
+.addFavVerifi .dialog_buttons {
+    margin: 20px 0 0 0;
+    text-align: center;
+}
+
+.addFavVerifi .dialog_buttons a {
+    float: none;
+}
+
+.addFavVerifi .closeBtn {
+    padding: 10px;
+    position: absolute;
+    right: -20px;
+    top: -22px;
+}
+
+.verifi_bd dt {
+    float: left;
+    width: 44px;
+    text-align: left;
+    height: 30px;
+    line-height: 30px;
+}
+
+.verifi_bd dd {
+    margin: 0 0 3px 44px;
+}
+
+.verifi_bd dd .txt {
+    border: 1px solid #D5D5D5;
+    width: 30%;
+    height: 30px;
+    line-height: 30px;
+    padding: 0;
+}
+
+.verifi_bd dd img {
+    vertical-align: bottom;
+    margin: 0 5px 0 0;
+}
+
+.verifi_bd .fcr {
+    color: #ea0202;
+    display: inline-block;
+}
+
+/*cartoon catelog*/
+.catelog_mod {
+    background-color: #fff;
+}
+
+.catelog_mod .hd {
+    height: 36px;
+    line-height: 36px;
+    border: none;
+    padding: 0 15px;
+    background-color: #fff;
+}
+
+.catelog_mod .hd h3, .catelog_mod .hd a {
+    font-size: 16px;
+    color: #707171;
+    font-weight: bold;
+}
+
+.catelog_mod .hd a {
+    float: right;
+}
+
+.catelog_mod .bd {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.catelog_mod .catelog_list {
+    padding: 0 0 0 16px;
+}
+
+.catelog_mod .catelog_list a {
+    float: left;
+    width: 30%;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    background-color: #ebecec;
+    color: #999;
+    margin: 0 3% 10px 0;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 14px;
+}
+
+.catelog_mod .catelog_list a.cur {
+    background-color: #56bef7;
+    color: #fff;
+}
+
+.catelog_mod .catelog_list a.see_more {
+    font-size: 20px;
+}
+
+/*Android chrome*/
+.touchDialog {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin: -100px 0 0 -140px;
+    width: 280px;
+    background-color: #fff;
+    z-index: 100;
+    box-shadow: 0 0 2px #000;
+}
+
+.touchDialog .closeBtn {
+    position: absolute;
+    right: -25px;
+    top: -25px;
+    width: 58px;
+    height: 58px;
+    background: url(/images_cn/iphone/mvdownload/icon_close.png) center center no-repeat;
+    background-size: 60% 60%;
+}
+
+.touchDialog .inner {
+    padding: 10px;
+}
+
+.touchDialog .btns {
+    padding-top: 10px;
+    text-align: center;
+}
+
+.touchDialog .btns .ui_btn {
+    font-size: 14px;
+    margin: 0 15px;
+    float: none;
+    display: inline-block;
+    font-weight: normal;
+}
+
+.touchDialog .noNext {
+    display: block;
+    padding-top: 10px;
+}
+
+.touchDialog .noNext input {
+    margin: 0;
+    margin-right: 5px;
+    float: left;
+    border: 1px solid #ccc;
+    width: 12px;
+    height: 12px;
+    margin-top: 2px;
+}
+
+/*private*/
+.privMask {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    background: #131313 url(/images_cn/iphone/miniDocin/pri_mask_bg.jpg) center center no-repeat;
+    background-size: 100% 100%;
+    z-index: 100;
+}
+
+.short {
+    height: 58px;
+    top: auto;
+}
+
+.privMask .forbidShare { /*font-size:16px;*/
+    font-size: 13px;
+    color: #fff;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    position: absolute;
+    top: 50%;
+    margin-top: -50px;
+    width: 100%;
+}
+
+.short .forbidShare {
+    margin-top: -20px;
+}
+
+.privMask .forbidShare span {
+    font-size: 16px;
+}
+
+.encryptionMode { /*padding:65px 0 0 0;*/
+    width: 60%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -120px 0 0 -30%;
+}
+
+.encryptionMode .t {
+    font-size: 16px;
+    color: #fff;
+    text-align: left;
+}
+
+.encryptionMode .t1 {
+    font-size: 14px;
+    text-align: left;
+    color: #ff0000;
+    height: 20px;
+    line-height: 20px;
+}
+
+.encryptionMode .inputPass {
+    display: block;
+    margin: 10px 0;
+}
+
+.encryptionMode .inputPass input {
+    display: block;
+    background-color: #fff;
+    height: 36px;
+    line-height: 36px;
+    border-radius: 3px;
+    width: 100%;
+    border: none;
+    font-size: 20px;
+}
+
+.encryptionMode .btn_area a.ico_button {
+    padding: 8px 0;
+    display: block;
+}
+
+/*new dialog*/
+.touchDialogBox {
+    width: 250px;
+    background-color: #fff;
+    border: 1px solid #6e6e6e;
+    position: absolute;
+    z-index: 100;
+    display: none;
+}
+
+.touchDialogBox .inner {
+    padding: 15px;
+}
+
+.touchDialogBox .hd {
+    position: relative;
+    padding: 0 0 10px 0;
+}
+
+.touchDialogBox .closeX {
+    position: absolute;
+    right: -5px;
+    top: -5px;
+    width: 16px;
+    height: 18px;
+    background: url(/images_cn/iphone/miniDocin/ico_dialog_close.png) center center no-repeat;
+    background-size: 8px 9px;
+}
+
+.touchDialogBox .hd h3 {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.touchDialogBox .dialogButton {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.touchDialogBox .dialogButton .ico_button {
+    display: block;
+}
+
+.touchDialogBox .btn_sec .ico_button {
+    display: inline-block;
+    padding: 8px 0;
+    width: 48%;
+}
+
+/*report*/
+.docInfo {
+    color: #ccc;
+}
+
+.docInfo .uploader, .docInfo .uploadTime {
+    margin: 0 5px 0 0;
+}
+
+.ico_report {
+    display: inline-block;
+    width: 12px;
+    height: 10px;
+    background: url(/images_cn/iphone/miniDocin/ico_report.png) 0 0 no-repeat;
+    background-size: 12px 10px;
+    margin: 0 3px 0 0;
+}
+
+.docInfo .report_area {
+    padding: 5px 8px;
+}
+
+.ui_about {
+    background: url(/images_cn/iphone/miniDocin/ico_about.png) 2px 4px no-repeat;
+    background-size: 19px 19px;
+}
+
+.reportDiv .report_list dd {
+    height: 42px;
+    line-height: 42px;
+    text-align: center;
+    font-size: 16px;
+    background-color: #eee;
+    margin: 6px 0;
+    border-radius: 3px;
+}
+
+.reportDiv .p1 {
+    padding: 0 0 5px 0;
+}
+
+.reportDiv .errorBord {
+    border: 1px solid #737373;
+    height: 100px;
+}
+
+.reportDiv .errorTxt {
+    border: none;
+    display: block;
+    margin: 0;
+    width: 210px;
+    height: 90px;
+    font-size: 12px;
+    padding: 3px;
+}
+
+.reportDiv .btn_touch {
+    padding: 0;
+    width: 48%;
+}
+
+/*about*/
+.aboutUs {
+    padding: 10px 20px;
+}
+
+.aboutUs h1 {
+    text-align: center;
+}
+
+.aboutUs h1 img {
+    vertical-align: middle;
+    width: 120px;
+}
+
+.aboutUs h2, .aboutUs p {
+    font-size: 14px;
+    line-height: 24px;
+    padding: 20px 0 0;
+}
+
+.booklist dl.relaAd {
+    height: 45px;
+    padding: 10px 10px 0;
+}
+
+.booklist div[id^="touch_xgwd_ad_"] {
+    margin: 0 auto 0 0;
+    width: 320px;
+}
+
+.docInfo {
+    font-size: 0.7em
+}
+
+.relateDoc .booklist dd {
+    margin-left: 0;
+    padding-left: 20px;
+}
+
+/*doudan*/
+.doudan-dlWrap dt {
+    background: url("/images_cn/news/doudansmall.png") no-repeat scroll center center transparent;
+    float: left;
+    height: 60px;
+    margin-top: 5px;
+    padding: 10px 0 0 0;
+    width: 60px;
+}
+
+.doudan-dlWrap dt img {
+    border: 1px solid #CCC;
+    display: block;
+    height: 51px;
+    width: 36px;
+    min-width: 36px;
+    min-height: 51px;
+    margin-left: 10px;
+}
+
+.douDanDetail dd {
+    margin: 0 0 5px 0;
+}
+
+.douDanDetail .dtTitle {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.douDanDetail .dtType {
+    float: left;
+    color: #979797;
+    padding: 0 20px 0 0;
+}
+
+.douDanDetail .dtDate {
+    float: left;
+    color: #979797;
+}
+
+.douDanDetail .dtDesc {
+    margin: 0;
+}
+
+/*like too*/
+.likeToo {
+    background-color: #fff;
+    border-bottom: 1px solid #EBEBEB;
+}
+
+.likeToo h3 {
+    padding: 10px 15px;
+    color: #3479BA;
+}
+
+.likeToo .bd {
+    position: relative;
+    height: 110px;
+    width: 100%;
+}
+
+.swipe_wrap {
+    height: 100px;
+    width: 100%;
+}
+
+.swipe_wrap li {
+    position: relative;
+    width: 142px;
+    float: left;
+    text-align: left;
+    margin: 0 0 0 10px;
+}
+
+.swipe_wrap li a {
+    display: block;
+    color: #fff;
+    line-height: 22px;
+    overflow: hidden;
+}
+
+.swipe_wrap li.tp_doudan {
+    background-color: #4fbcc6;
+}
+
+.swipe_wrap li.tp_doudan a {
+    display: table-cell;
+    width: 142px;
+    font-size: 28px;
+    *font-size: 90px;
+    vertical-align: middle;
+}
+
+.swipe_wrap li.tp_doudan a:hover {
+    text-decoration: none;
+}
+
+.swipe_wrap li.tp_doudan a .txt {
+    padding: 0 15px;
+    display: inline-block;
+    font-size: 16px;
+    vertical-align: middle;
+}
+
+.swipe_wrap li.tp_doudan a:hover .txt {
+    text-decoration: none;
+}
+
+.swipe_wrap li.tp_topic a img {
+    display: block;
+    width: 140px;
+    border: 1px solid #ddd;
+    max-height: 100px;
+    min-height: 100px;
+}
+
+.swipe_wrap li.tp_topic .title {
+    height: 40px;
+    line-height: 20px;
+    overflow: hidden;
+    padding: 3px 3px 0 5px;
+    font-size: 14px;
+    color: #333;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.swipe_wrap li.tp_topic a:hover .title {
+    text-decoration: none;
+}
+
+#scroller1 {
+    height: 100px;
+    overflow: hidden;
+}
+
+/*recommend*/
+.recomm_mod {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #ccc;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: none;
+}
+
+.recomm_mod h3 {
+    text-align: left;
+    padding: 10px 6px;
+}
+
+.recomm_mod .recomm_in {
+    position: relative;
+    width: 308px;
+    margin: 0 auto;
+}
+
+.recomm_mod .swipe_wrap {
+    height: auto;
+}
+
+.recomm_mod .swipe_wrap li {
+    margin: 6px 6px 0 6px;
+}
+
+/*app tuiguang*/
+.index-app-recom {
+    position: relative;
+    background-color: #fff;
+    border-bottom: #e4e4e4;
+    width: 100%;
+    height: 56px;
+    border-bottom: 1px solid #EBEBEB;
+}
+
+.index-app-recom .app-logo {
+    width: 32px;
+    height: 32px;
+    background: url(/images_cn/iphone/miniDocin/docin_app_65x65.png?rand=20150127) center center;
+    background-size: 32px 32px;
+    position: absolute;
+    left: 20px;
+    top: 12px
+}
+
+.index-app-recom .app-info {
+    font-size: 14px;
+    line-height: 18px;
+    color: #afafaf;
+    position: absolute;
+    left: 58px;
+    top: 10px
+}
+
+.index-app-recom .ico_button {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    padding: 0;
+    width: 80px;
+    height: 32px;
+    line-height: 32px;
+    font-size: 14px;
+}
+
+.index-app-recom .close {
+    position: absolute;
+    left: 1px;
+    top: 2px;
+    background: url(/images_cn/iphone/miniDocin/ico_ad_close2.png) center center no-repeat;
+    width: 16px;
+    height: 16px;
+    background-size: 8px 8px;
+    z-index: 2;
+}
+
+.suspenAd {
+    position: fixed;
+    bottom: 50px;
+    z-index: 10;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+}
+
+.suspenAd .close {
+    width: 40px;
+    height: 40px;
+    top: -10px;
+    left: -8px;
+    background-image: url(/images_cn/iphone/miniDocin/ico_ad_close1.png);
+}
+
+/*micro case weianli*/
+.toolbarOrderCon {
+    position: absolute;
+    right: 12px;
+    top: 0;
+    height: 42px;
+    font-size: 14px;
+    color: #fff;
+}
+
+.toolbarOrder {
+    display: inline-block;
+    height: 26px;
+    line-height: 26px;
+    padding: 0 8px;
+    border: 1px solid #ffea00;
+    border-radius: 3px;
+    color: #ffea00;
+    font-size: 14px;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.microCaseBanner, .microListWrap {
+    padding: 0 12px;
+    margin: 15px 0 0;
+}
+
+.caseInfo dt {
+    float: left;
+    font-size: 32px;
+    font-weight: bold;
+    color: #262626;
+    height: 36px;
+    line-height: 36px;
+}
+
+.caseInfo dd {
+    padding-left: 106px;
+    text-align: right;
+}
+
+.caseInfo dd .t1 {
+    color: #999;
+    font-size: 11px;
+}
+
+.caseInfo dd .t2 {
+    color: #434343;
+    font-size: 17px;
+}
+
+.subscriYear {
+    margin-top: 18px;
+}
+
+.quick {
+    text-align: center;
+}
+
+.quick .award {
+    font-size: 14px;
+    line-height: 20px;
+    padding: 6px 0 0;
+}
+
+.quick .award del {
+    color: #999;
+}
+
+.quick .award .fco {
+    color: #fb7905;
+    font-size: 14px;
+}
+
+.quick .ico_button {
+    width: 80%;
+    padding: 14px 0;
+    font-size: 18px;
+}
+
+.microList li {
+    margin-bottom: 12px;
+}
+
+.microList li a {
+    position: relative;
+    display: block;
+    border: 1px solid #c7c7c7;
+    min-height: 134px;
+}
+
+.microList li a img {
+    vertical-align: middle;
+    width: 100%;
+}
+
+.microList li a p {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 10px;
+    color: #fff;
+    text-align: right;
+    padding: 0 15px;
+}
+
+.microList li a:before {
+    content: "";
+    width: 100%;
+    height: 48%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: -moz-linear-gradient(bottom, rgba(0, 0, 0, .7) 0%, rgba(0, 0, 0, .0) 90%);
+    background: -webkit-gradient(linear, 0% 100%, 0% 10%, from(rgba(0, 0, 0, .7)), to(rgba(0, 0, 0, .0)));
+}
+
+.microList .tips, .microList .title {
+    display: block;
+}
+
+.microList .tips {
+    height: 1.4em;
+    box-sizing: content-box;
+    padding-left: 10px;
+    text-align: left;
+    font-weight: bold;
+    font-size: 1.2em;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.microList .title {
+    margin-right: 1em;
+}
+
+/*micro buy div*/
+.ico_succ {
+    display: inline-block;
+    width: 30px;
+    height: 23px;
+    background: url(/images_cn/iphone/miniDocin/ico_succ.png) 0 0 no-repeat;
+    vertical-align: -4px;
+    background-size: 30px 23px;
+}
+
+.ico_mention {
+    display: inline-block;
+    width: 25px;
+    height: 23px;
+    background: url(/images_cn/iphone/miniDocin/ico_mention.png) 0 0 no-repeat;
+    vertical-align: -4px;
+    background-size: 25px 23px;
+}
+
+.microBuyDiv .bd p {
+    font-size: 14px;
+    line-height: 24px;
+    text-align: center;
+}
+
+.microBuyDiv .dialogButton .ico_button {
+    display: inline-block;
+    padding: 0 12px;
+    height: 26px;
+    line-height: 26px;
+    font-size: 14px;
+    margin: 0 3px;
+}
+
+.microBuyDiv .dialogButton .btnc_blue {
+    border: 1px solid #3086f2;
+}
+
+.microBuyDiv .dialogButton .btnc_gray3 {
+    border: 1px solid #a5a5a5;
+    background-color: #fff;
+    color: #a5a5a5;
+}
+
+.microBuyDiv .dialogButton .setTimeClose {
+    color: #999;
+    font-size: 12px;
+}
+
+.page {
+    height: 100%;
+}
+
+.nav_bar {
+    box-sizing: border-box;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 42px;
+    line-height: 42px;
+    background-color: rgba(0, 0, 0, .8);
+    text-align: center;
+    color: #fff;
+    padding: 0 8px;
+    z-index: 3;
+}
+
+.nav_bar a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav_bar .backReturn {
+    float: left;
+    color: #fff;
+    background: url(/images_cn/iphone/miniDocin/ico_btn_back.png) 0 center no-repeat;
+    background-size: 12px 21px;
+    padding: 0 0 0 18px;
+    text-indent: -999em;
+}
+
+.nav_bar .pageNum {
+    float: right;
+}
+
+/*preview*/
+.previewEnd {
+    text-align: center;
+    color: #333;
+    display: none;
+    position: relative;
+    background-color: #fff;
+    padding: 60px 0 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.previewEnd .txt1 {
+    color: #ff0000;
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.previewEnd .txt2 {
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.quick_mod .award {
+    font-size: 12px;
+    margin: 12px 0 38px;
+}
+
+.quick_mod .award .ico_award {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: url(/images_cn/businessCase/dy_bj.png) 0 0 no-repeat;
+    background-size: 16px 16px;
+    vertical-align: top;
+    margin: 0 5px 0 0;
+}
+
+.quick_mod .isLogin {
+    font-size: 14px;
+    margin-top: 30px;
+}
+
+.toolbarBackbtn {
+    color: #fff;
+}
+
+.toolbarBackbtn:hover {
+    color: #fff;
+}
+
+.fr a {
+    color: #2284e2;
+}
+
+/*microReader*/
+.microReader img {
+    width: 100%;
+    display: none;
+    vertical-align: middle;
+}
+
+.pageBtn {
+    position: absolute;
+    top: 0;
+    width: 37px;
+    height: 100%;
+    z-index: 2;
+}
+
+.preBtn {
+    background: url(/images_cn/iphone/miniDocin/preBtn.png) left center no-repeat;
+    left: 0;
+    background-size: 37px 68px;
+}
+
+.nextBtn {
+    background: url(/images_cn/iphone/miniDocin/nextBtn.png) right center no-repeat;
+    right: 0;
+    background-size: 37px 68px;
+}
+
+.noPage {
+    opacity: .4;
+}
+
+input[type=submit], input[type=button] {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-appearance: none;
+    -moz-appearance: none
+}
+
+#tapWrap {
+    width: 50%;
+    left: 25%;
+}
+
+/* migu search-btn-focus */
+.unfocus-btn {
+    line-height: 34px;
+    background-color: #f3f3f3;
+    color: #494949;
+    border: 1px solid #c1c1c1;
+    text-shadow: 0 0 0;
+}
+
+/* migu-novel */
+.migu .bookItem {
+    position: relative;
+}
+
+.migu .bookItem a {
+    display: block;
+}
+
+.migu dl {
+    padding: 12px;
+}
+
+.migu dt {
+    width: 90px;
+    height: 120px;
+}
+
+.migu .bookPic {
+    max-height: 120px;
+}
+
+.migu dt img {
+    min-width: 90px;
+    max-width: 90px;
+    width: 90px;
+    min-height: 120px;
+    max-height: 120px;
+    height: 120px;
+}
+
+.migu dd {
+    margin-left: 105px;
+    line-height: 24px;
+    font-size: 14px;
+}
+
+.migu .bookDetails {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+}
+
+.migu .bookType {
+    position: absolute;
+    left: 118px;
+    bottom: 12px;
+    line-height: 18px;
+    vertical-align: bottom;
+}
+
+.migu.home {
+    border-bottom: 1px solid #ebebeb;
+}
+
+.migu.home dl {
+    border: 0;
+}
+
+.migu-novel-more {
+    margin-top: -3px;
+    padding: 0 10px 7px;
+    font-size: 12px;
+}
+
+/* migu-novel bookType */
+.bookType {
+    height: 18px;
+    padding: 0 8px;
+    font-size: 12px;
+    border: 1px solid;
+    border-radius: 4px;
+}
+
+.bookType:active, .bookType:hover {
+    color: #fff;
+}
+
+.yuanchuanglingyi {
+    border-color: #666632;
+    color: #666632;
+}
+
+.yuanchuanglingyi:active, .yuanchuanglingyi:hover {
+    background-color: #666632;
+}
+
+.qingchunxiaoshuo {
+    border-color: #ff99cb;
+    color: #ff99cb;
+}
+
+.qingchunxiaoshuo:active, .qingchunxiaoshuo:hover {
+    background-color: #ff99cb;
+}
+
+.kehuanxiaoshuo {
+    border-color: #1087c9;
+    color: #1087c9;
+}
+
+.kehuanxiaoshuo:active, .kehuanxiaoshuo:hover {
+    background-color: #1087c9;
+}
+
+.chuanjijishi {
+    border-color: #6a6ace;
+    color: #6a6ace;
+}
+
+.chuanjijishi:active, .chuanjijishi:hover {
+    background-color: #6a6ace;
+}
+
+.kepubaike {
+    border-color: #00c0ff;
+    color: #00c0ff;
+}
+
+.kepubaike:active, .kepubaike:hover {
+    background-color: #00c0ff;
+}
+
+.qinzijiaoyu {
+    border-color: #fd9a00;
+    color: #fd9a00;
+}
+
+.qinzijiaoyu:active, .qinzijiaoyu:hover {
+    background-color: #fd9a00;
+}
+
+.wuxiaxianxia {
+    border-color: #9d9700;
+    color: #9d9700;
+}
+
+.wuxiaxianxia:active, .wuxiaxianxia:hover {
+    background-color: #9d9700;
+}
+
+.xuanhuanqihuan {
+    border-color: #666698;
+    color: #666698;
+}
+
+.xuanhuanqihuan:active, .xuanhuanqihuan:hover {
+    background-color: #666698;
+}
+
+.youxijingji {
+    border-color: #009bca;
+    color: #009bca;
+}
+
+.youxijingji:active, .youxijingji:hover {
+    background-color: #009bca;
+}
+
+.lingyixuanyi {
+    border-color: #373f6e;
+    color: #373f6e;
+}
+
+.lingyixuanyi:active, .lingyixuanyi:hover {
+    background-color: #373f6e;
+}
+
+.menghuanxiaoyuan {
+    border-color: #61a465;
+    color: #61a465;
+}
+
+.menghuanxiaoyuan:active, .menghuanxiaoyuan:hover {
+    background-color: #61a465;
+}
+
+.liangxingxinli {
+    border-color: #f868c9;
+    color: #f868c9;
+}
+
+.liangxingxinli:active, .liangxingxinli:hover {
+    background-color: #f868c9;
+}
+
+.lvyou {
+    border-color: #eef6f6;
+    color: #eef6f6;
+}
+
+.lvyou:active, .lvyou:hover {
+    background-color: #eef6f6;
+}
+
+.guanchangshangzhan {
+    border-color: #1ea4e2;
+    color: #1ea4e2;
+}
+
+.guanchangshangzhan:active, .guanchangshangzhan:hover {
+    background-color: #1ea4e2;
+}
+
+.qiyejianghu {
+    border-color: #4cb034;
+    color: #4cb034;
+}
+
+.qiyejianghu:active, .qiyejianghu:hover {
+    background-color: #4cb034;
+}
+
+.jingjiguanli {
+    border-color: #3062be;
+    color: #3062be;
+}
+
+.jingjiguanli:active, .jingjiguanli:hover {
+    background-color: #3062be;
+}
+
+.xiandaidoushi {
+    border-color: #9458bc;
+    color: #9458bc;
+}
+
+.xiandaidoushi:active, .xiandaidoushi:hover {
+    background-color: #9458bc;
+}
+
+.renwensheke {
+    border-color: #8f5966;
+    color: #8f5966;
+}
+
+.renwensheke:active, .renwensheke:hover {
+    background-color: #8f5966;
+}
+
+.wuxiajianghu {
+    border-color: #937e00;
+    color: #937e00;
+}
+
+.wuxiajianghu:active, .wuxiajianghu:hover {
+    background-color: #937e00;
+}
+
+.rexuejunshi {
+    border-color: #a73810;
+    color: #a73810;
+}
+
+.rexuejunshi:active, .rexuejunshi:hover {
+    background-color: #a73810;
+}
+
+.lishi {
+    border-color: #683345;
+    color: #683345;
+}
+
+.lishi:active, .lishi:hover {
+    background-color: #683345;
+}
+
+.waiyuxuexi {
+    border-color: #4cb034;
+    color: #4cb034;
+}
+
+.waiyuxuexi:active, .waiyuxuexi:hover {
+    background-color: #4cb034;
+}
+
+.huanxiangshijie {
+    border-color: #373f6e;
+    color: #373f6e;
+}
+
+.huanxiangshijie:active, .huanxiangshijie:hover {
+    background-color: #373f6e;
+}
+
+.xiandaiyanqing {
+    border-color: #f96866;
+    color: #f96866;
+}
+
+.xiandaiyanqing:active, .xiandaiyanqing:hover {
+    background-color: #f96866;
+}
+
+.nvshengxuanyi {
+    border-color: #f571ad;
+    color: #f571ad;
+}
+
+.nvshengxuanyi:active, .nvshengxuanyi:hover {
+    background-color: #f571ad;
+}
+
+.shishangxiuxian {
+    border-color: #fead10;
+    color: #fead10;
+}
+
+.shishangxiuxian:active, .shishangxiuxian:hover {
+    background-color: #fead10;
+}
+
+.shenghuojiankang {
+    border-color: #95c30a;
+    color: #95c30a;
+}
+
+.shenghuojiankang:active, .shenghuojiankang:hover {
+    background-color: #95c30a;
+}
+
+.wenxuejingdian {
+    border-color: #5c87cb;
+    color: #5c87cb;
+}
+
+.wenxuejingdian:active, .wenxuejingdian:hover {
+    background-color: #5c87cb;
+}
+
+.gaoganjunhun {
+    border-color: #61b1e2;
+    color: #61b1e2;
+}
+
+.gaoganjunhun:active, .gaoganjunhun:hover {
+    background-color: #61b1e2;
+}
+
+.guyanchuanyue {
+    border-color: #dc55ae;
+    color: #dc55ae;
+}
+
+.guyanchuanyue:active, .guyanchuanyue:hover {
+    background-color: #dc55ae;
+}
+
+.lishijunshi {
+    border-color: #226ce7;
+    color: #226ce7;
+}
+
+.lishijunshi:active, .lishijunshi:hover {
+    background-color: #226ce7;
+}
+
+.qingganxiaoshuo {
+    border-color: #d65959;
+    color: #d65959;
+}
+
+.qingganxiaoshuo:active, .qingganxiaoshuo:hover {
+    background-color: #d65959;
+}
+
+.touzilicai {
+    border-color: #1284d4;
+    color: #1284d4;
+}
+
+.touzilicai:active, .touzilicai:hover {
+    background-color: #1284d4;
+}
+
+.haomenzongcai {
+    border-color: #2774aa;
+    color: #2774aa;
+}
+
+.haomenzongcai:active, .haomenzongcai:hover {
+    background-color: #2774aa;
+}
+
+.nvshenghuanxiang {
+    border-color: #ab56d3;
+    color: #ab56d3;
+}
+
+.nvshenghuanxiang:active, .nvshenghuanxiang:hover {
+    background-color: #ab56d3;
+}
+
+.yingshiyule {
+    border-color: #e8006d;
+    color: #e8006d;
+}
+
+.yingshiyule:active, .yingshiyule:hover {
+    background-color: #e8006d;
+}
+
+.chenggonglizhi {
+    border-color: #5cab41;
+    color: #5cab41;
+}
+
+.chenggonglizhi:active, .chenggonglizhi:hover {
+    background-color: #5cab41;
+}
+
+/*pay layout*/
+.docin-ui-wrapper {
+    background-color: #fff;
+    width: 270px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    color: #333;
+}
+
+.docin-ui-overlay {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.docin-ui-head {
+    position: relative;
+    margin: 0 1px;
+}
+
+.docin-ui-title {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    bottom: 0;
+}
+
+.docin-ui-close {
+    position: absolute;
+    background: url(/images_cn/iphone/miniDocin/ico_ad_close2.png) center center no-repeat;
+    width: 32px;
+    height: 16px;
+    background-size: 12px 12px;
+    right: 12px;
+    top: 12px;
+}
+
+.docin-ui-btns {
+    width: 100%;
+    display: -moz-box;
+    display: -webkit-box;
+    display: box;
+    box-sizing: border-box;
+    padding: 0 20px;
+}
+
+#j_confirm_buy .docin-ui-btns {
+    padding: 0 6px;
+}
+
+.ui-btns-box {
+    -moz-box-flex: 1;
+    -webkit-box-flex: 1;
+    box-flex: 1;
+    text-align: center;
+    box-sizing: border-box;
+    width: 1%;
+}
+
+.ui-btns-box:nth-of-type(2) {
+    margin-left: 6px;
+}
+
+.ui-btns {
+    display: block;
+    height: 32px;
+    line-height: 32px;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.ui-btns:hover {
+    color: #fff;
+}
+
+.ui-btns-confirm {
+    background-color: #2899e5;
+}
+
+.ui-btns-cancel {
+    background-color: #ededed;
+    color: #8a8a8a;
+}
+
+.docin_ui_btn0 {
+    background-color: #a5a5a5;
+    margin-left: 15px;
+}
+
+.docin_ui_btn1 {
+    background-color: #2899e5;
+    margin-right: 15px;
+}
+
+.docin-ui-foot {
+    padding: 0 0 20px;
+}
+
+.docin-ui-pop {
+    z-index: 1000;
+}
+
+.docin-ui-pop .min_ft .scale8 {
+    display: block;
+}
+
+.pay_val {
+    margin: 10px 0 0;
+}
+
+.pay_val li {
+    float: left;
+    width: 50%;
+    margin: 5px 0;
+}
+
+.pay_val li label {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: url(/images_cn/iphone/wePay/p_cancel.png) 0 0 no-repeat;
+    background-size: 16px 16px;
+    padding: 0 6px 0 0;
+    position: relative;
+    vertical-align: top;
+    top: 15px;
+}
+
+.pay_val li p {
+    display: inline-block;
+    text-align: center;
+    font-size: 12px;
+    line-height: 30px;
+    vertical-align: top;
+}
+
+.pay_val li .val_10 {
+    background: url(/images_cn/iphone/wePay/p_p_10.png) 0 0 no-repeat;
+}
+
+.pay_val li .val_20 {
+    background: url(/images_cn/iphone/wePay/cz_20.png) 0 0 no-repeat;
+}
+
+.pay_val li .val_50 {
+    background: url(/images_cn/iphone/wePay/cz_50.png) 0 0 no-repeat;
+}
+
+.pay_val li .val_100 {
+    background: url(/images_cn/iphone/wePay/cz_100_vip.png) 0 0 no-repeat;
+}
+
+.pay_val li .val_200 {
+    background: url(/images_cn/iphone/wePay/cz_200_vip.png) 0 0 no-repeat;
+}
+
+.pay_val li .val_500 {
+    background: url(/images_cn/iphone/wePay/cz_500_vip.png) 0 0 no-repeat;
+}
+
+.pay_val li .val_other {
+    background: url(/images_cn/iphone/wePay/p_p_other.png) 0 0 no-repeat;
+}
+
+.pay_val li .val_range {
+    background: url(/images_cn/iphone/wePay/cz_range_vip.png) 0 0 no-repeat;
+    color: #fff;
+    font-size: 21px;
+}
+
+.pay_val li .pic_val {
+    display: block;
+    width: 76px;
+    height: 44px;
+    background-size: 76px 44px;
+    line-height: 44px;
+}
+
+.pay_val li.add label {
+    background-image: url(/images_cn/iphone/wePay/p_select.png);
+}
+
+.pay_chose {
+    overflow: hidden;
+}
+
+.pay_chose li {
+    float: left;
+    width: 50%;
+    white-space: nowrap;
+}
+
+.radio {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: url(/images_cn/iphone/wePay/p_cancel.png) 0 0 no-repeat;
+    background-size: 16px 16px;
+    padding: 0 6px 0 0;
+    position: relative;
+    vertical-align: top;
+    top: 3px;
+}
+
+.radio.selected {
+    background-image: url(/images_cn/iphone/wePay/p_select.png);
+}
+
+/*docin chongzhi*/
+.pb_warp {
+    padding: 8px;
+}
+
+.pb_warp .fcr {
+    color: #ff0000;
+}
+
+.pb_warp .fcb {
+    color: #000;
+}
+
+.order_detail {
+    font-size: 14px;
+    line-height: 30px;
+    color: #666;
+}
+
+.box_flex {
+    width: 100%;
+    display: -moz-box;
+    display: -webkit-box;
+    display: box;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.flex_1 {
+    -moz-box-flex: 1;
+    -webkit-box-flex: 1;
+    box-flex: 1;
+    text-align: center;
+    box-sizing: border-box;
+    text-align: left;
+    font-size: 16px;
+    color: #333;
+}
+
+.money_list .money_list_hd {
+    font-size: 14px;
+    color: #666;
+}
+
+.money_list .money_hd {
+    height: 32px;
+    line-height: 32px;
+    background: url(/images_cn/iphone/wePay/ico_pay_wx_3x.png) 0 center no-repeat;
+    background-size: auto 19px;
+    padding: 0 0 0 30px;
+    color: #666;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.money_list .not_wePay {
+    background: none;
+    padding: 0;
+}
+
+ul.money_choose li {
+    width: 33.33%;
+    float: left;
+    margin: 10px 0 0 0;
+}
+
+ul.money_choose li a {
+    display: block;
+    color: #333;
+    text-align: center;
+    font-size: 10px;
+    line-height: 16px;
+}
+
+ul.money_choose li a span {
+    display: block;
+    height: 43px;
+    background-size: 74px 43px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin: 0 0 5px 0;
+}
+
+ul.money_choose li i {
+    font-style: normal;
+    color: #ff0000;
+}
+
+ul.money_choose li a .val_01 {
+    background-image: url(/images_cn/iphone/wePay/cz_01.png);
+}
+
+ul.money_choose li a .val_02 {
+    background-image: url(/images_cn/iphone/wePay/cz_02.png);
+}
+
+ul.money_choose li a .val_05 {
+    background-image: url(/images_cn/iphone/wePay/cz_05.png);
+}
+
+ul.money_choose li a .val_10 {
+    background-image: url(/images_cn/iphone/wePay/cz_10.png);
+}
+
+ul.money_choose li a .val_20 {
+    background-image: url(/images_cn/iphone/wePay/cz_20.png);
+}
+
+ul.money_choose li a .val_50 {
+    background-image: url(/images_cn/iphone/wePay/cz_50.png);
+}
+
+ul.money_choose li a .val_100 {
+    background-image: url(/images_cn/iphone/wePay/cz_100_vip.png);
+}
+
+ul.money_choose li a .val_200 {
+    background-image: url(/images_cn/iphone/wePay/cz_200_vip.png);
+}
+
+ul.money_choose li a .val_500 {
+    background-image: url(/images_cn/iphone/wePay/cz_500_vip.png);
+}
+
+ul.money_choose li a .val_1000 {
+    background-image: url(/images_cn/iphone/wePay/cz_1000_vip.png);
+}
+
+ul.money_choose li a .val_2000 {
+    background-image: url(/images_cn/iphone/wePay/cz_2000_vip.png);
+}
+
+ul.money_choose li a .val_5000 {
+    background-image: url(/images_cn/iphone/wePay/cz_5000_vip.png);
+}
+
+ul.money_choose li a .val_10000 {
+    background-image: url(/images_cn/iphone/wePay/cz_10000_vip.png);
+}
+
+ul.money_choose li a .val_other {
+    background-image: url(/images_cn/iphone/wePay/cz_other_more.png);
+}
+
+.quick_show {
+    float: right;
+    background: url(/images_cn/iphone/wePay/ico_pao.png) 0 center no-repeat;
+    background-size: 19px 18px;
+    padding: 0 0 0 22px;
+    font-size: 10px;
+    height: 18px;
+    line-height: 18px;
+    margin: 22px 0 0 0;
+}
+
+ul.money_choose li a .vip_09 {
+    background-image: url(/images_cn/iphone/wePay/vip_09.png);
+}
+
+ul.money_choose li i.auto_renewal {
+    color: #999;
+    font-size: 12px;
+    display: block;
+    white-space: nowrap;
+    text-align: center;
+}
+
+ul.money_choose li i.auto_renewal:after {
+    display: inline-block;
+    content: '';
+    width: 15px;
+    height: 15px;
+    background-image: url(/images_cn/iphone/wePay/gantanhao.svg);
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    vertical-align: -3px;
+}
+
+/*vip*/
+.buy_vip .fcb {
+    color: #000;
+}
+
+.vip_info {
+    position: relative;
+    background-color: #e3e3e5;
+    line-height: 24px;
+    padding: 5px 8px;
+    font-size: 12px;
+    color: #666;
+}
+
+.vip_info .ico_button {
+    padding: 0;
+    width: 72px;
+    height: 26px;
+    line-height: 26px;
+    font-size: 12px;
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    margin-top: -13px;
+}
+
+.get_vip_way {
+    font-size: 12px;
+    margin: 10px 8px 0;
+    line-height: 18px;
+}
+
+.how_to_get {
+    font-weight: bold;
+}
+
+.get_way_hd {
+    color: #666;
+    padding: 5px 0 0;
+}
+
+ul.money_choose {
+    margin: 0 0 15px 0;
+}
+
+ul.money_choose li i {
+    font-style: normal;
+    color: #ff0000;
+}
+
+ul.money_choose li a span[class^="vip_"] {
+    height: 53px;
+    background-size: 74px 53px;
+}
+
+ul.money_choose li a .vip_10 {
+    background-image: url(/images_cn/iphone/wePay/vip_01.png);
+}
+
+ul.money_choose li a .vip_20 {
+    background-image: url(/images_cn/iphone/wePay/vip_03.png);
+}
+
+ul.money_choose li a .vip_30 {
+    background-image: url(/images_cn/iphone/wePay/vip_06.png);
+}
+
+.vip_privilege {
+    padding: 10px 0 0;
+}
+
+.vip_privilege li {
+    border-bottom: 2px solid #f7f7f7;
+    color: #666;
+    padding: 0 0 0 56px;
+    height: 38px;
+    line-height: 38px;
+    background-size: 32px 32px;
+    background-repeat: no-repeat;
+    background-position: 15px center;
+}
+
+.vip_privilege li.vip_down {
+    background-image: url(/images_cn/vip/tq_4.png);
+}
+
+.vip_privilege li.no_ad {
+    background-image: url(/images_cn/iphone/wePay/tq_1.png);
+}
+
+.vip_privilege li.vip_service {
+    background-image: url(/images_cn/iphone/wePay/tq_2.png);
+}
+
+.vip_privilege li.vip_sendemail {
+    background-image: url(/images_cn/iphone/wePay/tq_6.png);
+    border-bottom: none;
+}
+
+.vip_privilege li.no_limit {
+    background-image: url(/images_cn/iphone/wePay/tq_3.png);
+}
+
+.reminder {
+    margin: 60px 20px 30px;
+}
+
+.reminder ul {
+    margin: 0 0 0 16px;
+}
+
+.reminder p {
+    color: #999;
+    font-size: 12px;
+}
+
+.reminder ul li {
+    color: #999;
+    font-size: 12px;
+    list-style: disc;
+    margin-top: 5px;
+}
+
+.buy_vip .reminder {
+    margin-top: 15px;
+}
+
+/*my docin*/
+.my_docin_bar {
+    height: 125px;
+    background: url(/images_cn/iphone/wePay/ps_bg_personal@2x.png) 0 0 no-repeat;
+    background-size: cover;
+}
+
+.my_docin_mod ul {
+    background-color: #fff;
+    padding: 0 0 0 19px;
+}
+
+.my_docin_mod ul li {
+    height: 42px;
+    border-bottom: 1px solid #f3f3f3;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.my_docin_mod ul li a {
+    width: calc(100% - 44px);
+    color: #333;
+    font-size: 13px;
+    padding: 0 0 0 31px;
+    display: block;
+    background: url(/images_cn/iphone/wePay/ico_arr.png) right center no-repeat;
+    background-size: 6px 10px;
+}
+
+/* .my_docin_mod .mod_1 li:first-child a{padding-top:2px;} */
+.my_docin_mod .mod_1 {
+    margin: 0 0 10px 0;
+}
+
+.my_docin_mod .mod_2 {
+}
+
+.my_docin_mod li::before {
+    content: "";
+    width: 30px;
+    height: 42px;
+    position: absolute;
+    top: 0;
+    left: 4px;
+    background-repeat: no-repeat;
+    background-position: left center;
+}
+
+.my_docin_mod .ico_recharge::before {
+    background-image: url(/images_cn/iphone/wePay/ico_recharge_flag_01_new.png);
+    background-size: 18px 19px;
+}
+
+.my_docin_mod .ico_recharge_record::before {
+    background-image: url(/images_cn/iphone/wePay/ico_recharge_record_flag_01_new.png);
+    background-size: 18px 14px;
+}
+
+.my_docin_mod .ico_awrad_record::before {
+    background-image: url(/images_cn/iphone/wePay/ico_award_flag_01_new.png);
+    background-size: 18px 14px;
+}
+
+.my_docin_mod .ico_get_vip::before {
+    background-image: url(/images_cn/iphone/wePay/ico_vip_flag_01_new2.png);
+    background-size: 18px 15px;
+}
+
+.my_docin_mod .ico_contact::before {
+    background-image: url(/images_cn/iphone/wePay/ico_contactus_flag_01_new.png);
+    background-size: 18px 18px;
+}
+
+.my_docin_mod .ico_about::before {
+    background-image: url(/images_cn/iphone/wePay/ico_about_01_new.png);
+    background-size: 18px 18px;
+}
+
+.my_docin_mod .ico_quit::before {
+    background-image: url(/images_cn/iphone/wePay/ico_quit_01_new.png);
+    background-size: 18px 19px;
+}
+
+.my_docin_mod .ico_bind::before {
+    background-image: url(/images_cn/iphone/wePay/ico_bind_01_new.png);
+    background-size: 18px 21px;
+}
+
+.my_docin_mod .ico_bind .iNew {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background-color: #f00;
+    left: 95px;
+    top: 10px;
+    border-radius: 50%;
+}
+
+.head_port {
+    text-align: center;
+    font-size: 12px;
+    padding: 15px 0 0;
+}
+
+.head_port .user_head {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
+}
+
+.head_port .user_head img {
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    display: inline-block;
+    margin: 0 0 8px 0;
+}
+
+.head_port .user_head .ico_vip_mark {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.head_port .user_login_info {
+    line-height: 22px;
+    color: #fff;
+}
+
+.head_port .user_login_info a.fcr:hover {
+    color: #ff0000;
+    text-decoration: none;
+}
+
+.head_port .user_login_info .login_tab {
+    font-size: 14px;
+}
+
+.user_login_info .btnc_org {
+    font-size: 12px;
+    height: 20px;
+    line-height: 20px;
+    width: 36px;
+    padding: 0;
+}
+
+/*docin syt*/
+.order_warp {
+    margin: 5px 8px;
+    font-size: 14px;
+    line-height: 28px;
+    color: #636363;
+}
+
+.order_pay_way dt {
+    margin: 0 0 20px 0;
+}
+
+.order_pay_way dd {
+    padding: 0 10px;
+    font-size: 0;
+}
+
+.order_pay_way dd a.pay_link {
+    display: inline-block;
+    width: 40%;
+    height: 74px;
+    border: 1px solid #cdcdcd;
+    border-radius: 3px;
+    position: relative;
+    text-align: left;
+    color: #636363;
+    text-align: center;
+    vertical-align: top;
+    margin: 0 5% 30px;
+    box-sizing: border-box;
+}
+
+.order_pay_way dd a.pay_link span[class^="ico_"] {
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 54px;
+    font-size: 14px;
+    position: relative;
+    top: 10px;
+}
+
+.order_pay_way dd a.pay_link .ico_wePay {
+    background: url(/images_cn/iphone/wePay/ico_wx_02.png) 0 0 no-repeat;
+    background-size: 47px 40px;
+}
+
+.order_pay_way dd a.pay_link span.ico_alipayApp {
+    background: url(/images_cn/iphone/wePay/ico_alipay.png) 0 0 no-repeat;
+    background-size: 40px 40px;
+    top: 10px;
+}
+
+.order_pay_way dd a.pay_link .wePay_tips {
+    color: #999;
+    font-size: 10px;
+    position: absolute;
+    bottom: 6px;
+    left: 0;
+    right: 0;
+    display: block;
+    line-height: 16px;
+    text-align: center;
+}
+
+.order_pay_way dd a.pay_link span.ico_jdPay {
+    background: url(/images_cn/iphone/wePay/ico_jdzf.png) 0 0 no-repeat;
+    background-size: 112px auto;
+    padding-left: 0;
+    width: 112px;
+}
+
+@media (max-width: 320px) {
+    .order_pay_way dd a.pay_link {
+        width: 44%;
+        margin: 0 3% 30px;
+    }
+
+    .order_pay_way dd {
+        padding: 0;
+    }
+}
+
+.contact_us {
+    margin: 25px;
+}
+
+.contact_us .kf_qq {
+    font-size: 14px;
+    color: #666;
+    line-height: 28px;
+}
+
+.contact_us .kf_vip {
+    font-size: 14px;
+    color: #666;
+    margin: 30px 0 0;
+}
+
+.contact_us .kf_vip dt, .contact_us .kf_vip dd {
+    margin-bottom: 10px;
+    line-height: 28px;
+}
+
+.contact_us .kf_vip dd {
+    width: 100%;
+    display: -moz-box;
+    display: -webkit-box;
+    display: box;
+}
+
+.contact_us .kf_vip dd .ico_button {
+    height: 34px;
+    line-height: 34px;
+    padding: 0;
+    font-size: 14px;
+    -moz-box-flex: 1;
+    -webkit-box-flex: 1;
+    box-flex: 1;
+    box-sizing: border-box;
+    display: block;
+    width: 1%;
+    border-radius: 5px;
+}
+
+/*award record*/
+.award_record {
+    margin: 8px;
+}
+
+.record_list li {
+    border-bottom: 1px dashed #d4d4d4;
+    line-height: 20px;
+    font-size: 12px;
+    padding: 6px 0;
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.record_list .record_row {
+    display: table-row;
+}
+
+.record_list .item_cell {
+    display: table-cell;
+    color: #999;
+}
+
+.record_list .record_time {
+    width: 20%;
+}
+
+.record_list .record_detail {
+    width: 80%;
+}
+
+.record_list .record_source {
+    text-overflow: ellipsis;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.record_list li .fc_org {
+    color: #f47402;
+}
+
+.record_list li .fc_gre {
+    color: #12a02a;
+}
+
+.ico_you {
+    width: 13px;
+    height: 13px;
+    background: transparent url(/images_cn/ico_you.png) 0 0 no-repeat;
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: 3px;
+    position: relative;
+    top: -1px;
+    *top: 1px;
+    _top: 5px;
+}
+
+div[id$="_0_closebtn"] {
+    display: none !important;
+}
+
+.waitingShow {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    height: 36px;
+    margin-top: -18px;
+    line-height: 36px;
+    background: rgba(50, 50, 50, .8);
+    z-index: 99;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    padding: 0 15px;
+}
+
+.waitingShow span {
+    display: inline-block
+}
+
+.waitingShow .icon {
+    width: 20px;
+    height: 20px;
+    background: url(/images_cn/iphone/miniDocin/waiting.png);
+    background-size: 100% 100%;
+    position: relative;
+    top: 6px;
+    margin-right: 5px;
+    -webkit-animation-name: waiting-loading-frames;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear
+}
+
+@-webkit-keyframes waiting-loading-frames {
+    0% {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg)
+    }
+    50% {
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg)
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}
+
+.wd200 {
+    width: 200px;
+    margin-left: -100px;
+}
+
+.toMyDocinApp {
+    height: 48px;
+    background-color: #d9f0e6;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    padding: 8px 0 8px 20px;
+}
+
+.toMyDocinApp a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.toMyDocinApp a img {
+    float: left;
+    width: 45px;
+    margin: 0 14px 0 0;
+}
+
+.toMyDocinApp a .t1 {
+    color: #848484;
+    display: block;
+    font-size: 12px;
+}
+
+.toMyDocinApp a .t2 {
+    color: #ff4e00;
+    font-size: 14px;
+    display: block;
+}
+
+.toMyDocinApp a p {
+    float: left;
+    text-align: right;
+}
+
+.toMyDocinApp a p span {
+    display: block;
+    padding: 2px 0;
+}
+
+.addDocinApp {
+    height: 46px;
+    line-height: 46px;
+    text-align: center;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    background-color: #e4f0fb;
+}
+
+.addDocinApp img {
+    display: inline-block;
+    width: 29px;
+    height: 29px;
+    background-color: #e4f0fb;
+    margin: 10px 10px 0 0;
+    vertical-align: top;
+}
+
+.addDocinApp span.t1 {
+    color: #999;
+    font-size: 12px;
+}
+
+.toLogin {
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+}
+
+.toLogin span {
+    color: #006699;
+    font-size: 14px;
+    display: block;
+}
+
+ul.money_choose li {
+    margin: 18px 0;
+}
+
+@media only screen and (min-width: 375px) {
+    .privMask .forbidShare {
+        font-size: 16px;
+        color: #fff;
+    }
+
+    .docToolBar .is_org {
+        width: 36%;
+    }
+
+    .docin-ui-wrapper {
+        width: 306px;
+    }
+
+    .pay_val li .pic_val {
+        display: block;
+        width: 97px;
+        height: 56px;
+        line-height: 56px;
+        background-size: 97px 56px;
+    }
+
+    .pay_val li label {
+        width: 20px;
+        height: 20px;
+        background-size: 20px 20px;
+        top: 20px;
+    }
+
+    .loginBar {
+        height: 72px
+    }
+
+    .loginBar .user_pic {
+        width: 46px;
+        height: 46px;
+        border-radius: 46px;
+        float: left;
+        margin: 10px 16px 0 0;
+    }
+
+    .loginBar img {
+        width: 46px;
+        height: 46px;
+        border-radius: 46px;
+    }
+
+    .loginBar .user_login_info {
+        line-height: 28px;
+        margin: 6px 0 0;
+        font-size: 14px;
+    }
+
+    .loginBar .user_login_info .user_name {
+        font-size: 16px;
+    }
+
+    .loginBar .ui_btn {
+        width: 86px;
+        height: 26px;
+        line-height: 26px;
+        font-size: 14px;
+        margin: 0 20px 0 0;
+    }
+
+    .pb_warp {
+        padding: 10px;
+    }
+
+    .money_list .money_hd {
+        height: 38px;
+        line-height: 38px;
+        background-size: auto 19px;
+        padding: 0 0 0 30px;
+        font-size: 15px;
+    }
+
+    ul.money_choose li a {
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    ul.money_choose li a span {
+        height: 55px;
+        background-size: 94px 55px;
+    }
+
+    .quick_show {
+        background-size: 23px 22px;
+        padding: 0 0 0 28px;
+        font-size: 12px;
+        height: 22px;
+        line-height: 22px;
+    }
+
+    .reminder ul li, .reminder p {
+        font-size: 13px;
+    }
+
+    .vip_info {
+        font-size: 14px;
+    }
+
+    .vip_info {
+        line-height: 28px;
+        padding: 5px 10px;
+    }
+
+    .vip_info .ico_button {
+        width: 92px;
+        height: 30px;
+        line-height: 30px;
+        font-size: 14px;
+        margin-top: -15px;
+        right: 10px;
+    }
+
+    .get_vip_way {
+        font-size: 14px;
+        margin: 16px 10px 0;
+        line-height: 20px;
+    }
+
+    .get_way_hd {
+        padding: 10px 0 0;
+    }
+
+    ul.money_choose {
+        margin: 0 0 20px 0;
+    }
+
+    ul.money_choose li a span[class^="vip_"] {
+        height: 67px;
+        background-size: 94px 67px;
+    }
+
+    .vip_privilege li {
+        font-size: 14px;
+        background-size: 39px 39px;
+        height: 48px;
+        line-height: 48px;
+        padding: 0 0 0 70px;
+    }
+
+    .buy_vip .reminder {
+        margin-top: 20px;
+    }
+
+    /*my docin*/
+    .my_docin_mod {
+        margin: 0;
+    }
+
+    .my_docin_mod ul {
+        padding: 0 0 0 24px;
+    }
+
+    .my_docin_mod ul li {
+        height: 52px;
+    }
+
+    .my_docin_mod ul li a {
+        width: calc(100% - 61px);
+        font-size: 16px;
+        padding: 0 0 0 39px;
+        margin: 0 22px 0 0;
+        background-size: 8px 14px;
+    }
+
+    .my_docin_mod li::before {
+        width: 34px;
+        height: 52px;
+    }
+
+    .my_docin_mod .ico_recharge::before {
+        background-size: 22px 22px;
+    }
+
+    .my_docin_mod .ico_recharge_record::before {
+        background-size: 22px 17px;
+    }
+
+    .my_docin_mod .ico_awrad_record::before {
+        background-size: 22px 17px;
+    }
+
+    .my_docin_mod .ico_bind::before {
+        background-size: 18px 21px;
+    }
+
+    .my_docin_mod .ico_get_vip::before {
+        background-size: 23px 19px;
+    }
+
+    .my_docin_mod .ico_contact::before {
+        background-size: 21px 21px;
+    }
+
+    .my_docin_mod .ico_about::before {
+        background-size: 21px 21px;
+    }
+
+    .my_docin_mod .ico_quit::before {
+        background-size: 21px 23px;
+    }
+
+    .my_docin_mod .ico_bind .iNew {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background-color: #f00;
+        left: 115px;
+        top: 12px;
+        border-radius: 50%;
+    }
+
+    .my_docin_bar {
+        height: 156px;
+    }
+
+    .head_port {
+        font-size: 14px;
+        padding: 18px 0 0;
+    }
+
+    .head_port .user_head {
+        width: 48px;
+        height: 48px;
+    }
+
+    .head_port .user_head img {
+        width: 48px;
+        height: 48px;
+        border-radius: 48px;
+        margin: 0 0 10px 0;
+    }
+
+    .head_port .user_login_info {
+        line-height: 26px;
+    }
+
+    .head_port .user_login_info .login_tab {
+        font-size: 16px;
+    }
+
+    .contact_us .kf_qq {
+        font-size: 16px;
+    }
+
+    .contact_us .kf_vip {
+        font-size: 16px;
+    }
+
+    .record_list li {
+        font-size: 14px;
+        line-height: 24px;
+    }
+
+    .toMyDocinApp a img {
+        margin: 0 28px 0 0;
+    }
+}
+
+.addFavTips {
+    width: 100%;
+    padding: 16px 0;
+    background-color: #fff;
+    position: fixed;
+    bottom: 50px;
+    z-index: 103;
+}
+
+.addFavTips p {
+    text-align: center;
+    font-size: 14px;
+    padding-bottom: 10px;
+}
+
+.addFavTips .ui-btns-confirm {
+    width: 168px;
+    height: 38px;
+    line-height: 38px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 15px;
+    background-color: #fff;
+    border: 1px solid #3d93d0;
+    color: #3d93d0;
+}
+
+.goto-app-sheet {
+    height: 45px;
+    line-height: 45px;
+    font-size: 14px;
+    text-align: center;
+    color: #0f6e9e;
+    border-top: 1px solid #d8d8d8;
+}
+
+.open_docin_app {
+    border-top: 1px solid #ebebeb;
+    border-bottom: 1px solid #ebebeb;
+}
+
+.open_docin_app p {
+    color: #333;
+    font-size: 13px;
+    padding: 0 19px;
+    height: 64px;
+    line-height: 64px;
+}
+
+.ico_phone {
+    display: inline-block;
+    background: url(/images_cn/iphone/miniDocin/ico_phone.png) 0 0 no-repeat;
+    width: 18px;
+    height: 26px;
+    background-size: 18px auto;
+    vertical-align: middle;
+    margin-right: 12px;
+}
+
+.open_link {
+    display: inline-block;
+    padding: 0 8px;
+    height: 24px;
+    line-height: 25px;
+    border: 1px solid #4d97df;
+    color: #4d97df;
+    border-radius: 3px;
+    width: 74px;
+    text-align: center;
+}
+
+.open_docin_app p .open_link {
+    float: right;
+    margin-top: 19px;
+}
+
+.booklist dl.rs {
+    padding-right: 140px;
+}
+
+.booklist dl.rs .open_link {
+    position: absolute;
+    top: 18px;
+    right: 19px;
+    font-size: 13px;
+    line-height: 25px;
+}
+
+.open_more_related {
+    text-align: center;
+    padding: 15px 0;
+    background-color: #fff;
+}
+
+.open_more_related .btnc_blue {
+    width: 70%;
+    height: 38px;
+    line-height: 38px;
+    padding: 0;
+    background-color: #2799e5;
+}
+
+.loginLinkBox li .loginIcon {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    margin-right: 12px;
+}
+
+.loginLinkBoxNew li .iconRr {
+    background: url(/images_cn/iphone/miniDocin/ico_renren_60x60.png) center center no-repeat;
+    background-size: 22px auto;
+}
+
+.loginLinkBoxNew li .iconQq {
+    background: url(/images_cn/iphone/miniDocin/ico_qq_60x60.png) center center no-repeat;
+    background-size: 22px auto;
+}
+
+.loginLinkBoxNew li .iconWb {
+    background: url(/images_cn/iphone/miniDocin/ico_sina_60x60.png) center center no-repeat;
+    background-size: 22px auto;
+}
+
+.loginLinkBoxNew li .iconWx {
+    background: url(/images_cn/iphone/miniDocin/ico_weixin_60x60.png) center center no-repeat;
+    background-size: 22px auto;
+}
+
+.off_nine {
+    display: inline-block;
+    height: 14px;
+    line-height: 14px;
+    color: #ff0000;
+    width: 30px;
+    text-align: center;
+    border-radius: 15px;
+    border: 1px solid #ff0000;
+    margin-right: 5px;
+    font-size: 12px;
+    vertical-align: text-bottom;
+}
+
+.doc_entries_layout {
+    position: fixed;
+    top: 15%;
+    left: 0;
+    right: 0;
+    width: 96%;
+    background-color: #fff;
+    border: 3px solid #c6dafc;
+    margin: 0 auto;
+    box-sizing: border-box;
+    border-radius: 5px;
+    z-index: 1001;
+}
+
+.doc_entries_layout .inner {
+    padding: 25px;
+}
+
+.doc_entries_layout .doc_entries_close {
+    position: absolute;
+    top: 21px;
+    right: 23px;
+    width: 18px;
+    height: 18px;
+    background: url(/images_cn/iphone/miniDocin/ico_close_50x50.png) 0 0 no-repeat;
+    background-size: 18px 18px;
+    font-size: 0;
+    line-height: 0;
+}
+
+.doc_entries_layout .hd {
+    font-size: 14px;
+    color: #757575;
+    margin-bottom: 5px;
+}
+
+.doc_entries_layout h3 {
+    font-size: 24px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    overflow: hidden;
+    padding-right: 10px;
+}
+
+.doc_entries_layout .doc_entries_scroll {
+    overflow-y: scroll;
+}
+
+.doc_entries_layout .entries_desc {
+    font-size: 14px;
+    color: #666;
+    line-height: 24px;
+    text-indent: 2em;
+    margin-bottom: 25px;
+}
+
+.doc_entries_layout .entries_desc a {
+    color: #666;
+    text-decoration: underline;
+    margin-left: 12px;
+}
+
+.doc_entries_layout .ico_min_entries, .doc_entries_layout .entries_bottom_close {
+    background: url(/images_cn/iphone/miniDocin/ico_entries_165x165.png) 0 0 no-repeat;
+    display: inline-block;
+}
+
+.doc_entries_layout .ico_min_entries {
+    float: left;
+    width: 55px;
+    height: 55px;
+    vertical-align: bottom;
+    margin-right: 9px;
+    background-size: 55px auto;
+}
+
+.doc_entries_scroll ul li {
+    height: 55px;
+    line-height: 26px;
+    margin-bottom: 18px;
+}
+
+.doc_entries_scroll ul li .li_r {
+    display: table-cell;
+    vertical-align: middle;
+    overflow: hidden;
+    height: 55px;
+}
+
+.doc_entries_scroll ul li a {
+    font-size: 16px;
+    text-decoration: underline;
+    color: #333;
+}
+
+.doc_entries_layout .ico_min_doc {
+    background-position: 0 0;
+}
+
+.doc_entries_layout .ico_min_video {
+    background-position: 0 -55px;
+}
+
+.doc_entries_layout .ico_min_link {
+    background-position: 0 -110px;
+}
+
+.doc_entries_layout .link_source {
+    color: #999;
+    display: inline-block;
+}
+
+.doc_entries_overlay {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+}
+
+.doc_entries_layout .entries_bottom_close {
+    height: 106px;
+    width: 55px;
+    background-position: 0 -165px;
+    background-size: 55px auto;
+    position: absolute;
+    left: 50%;
+    margin-left: -27.5px;
+    bottom: -109px;
+}
+
+/*yuebuzudibutanchu*/
+.model_purchase_dialog .model_dialog {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    -webkit-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    transform: translateY(100%);
+    -webkit-transition: -webkit-transform 300ms;
+    transition: transform 300ms;
+    width: 100%;
+    z-index: 1110;
+}
+
+/*.model_purchase_dialog .dialog_show{-webkit-transform: translateY(0); -ms-transform: translateY(0); transform: translateY(0);}*/
+.model_purchase_dialog .dialog_mask {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 1000;
+    display: none;
+}
+
+.model_show .model_dialog {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+}
+
+.model_show .dialog_mask {
+    background-color: rgba(0, 0, 0, .6);
+    display: block;
+}
+
+.payment_btn {
+    text-align: center;
+    padding: 0 0.12rem;
+}
+
+.payment_btn .ui_btns {
+    display: block;
+    height: 49px;
+    line-height: 49px;
+    text-align: center;
+    background-color: #4c88e4;
+    font-size: 17px;
+    color: #fff;
+    border-radius: 4px;
+}
+
+.model_purchase_dialog .model_content {
+    padding-bottom: 18px;
+    min-height: 320px;
+}
+
+.model_purchase_dialog .close_dialog {
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    width: 40px;
+    height: 40px;
+    background: url(/images_cn/iphone/wePay/ico_pay_close.png) center center no-repeat;
+    background-size: 12px 12px;
+}
+
+.model_purchase_dialog .back_step {
+    background: url(/images_cn/iphone/wePay/ico_back_arrow_3x.png) center center no-repeat;
+    background-size: 12px auto;
+}
+
+.model_purchase_dialog .model_head {
+    margin-bottom: 20px;
+}
+
+.model_purchase_dialog .model_head h4 {
+    font-size: 18px;
+    text-align: center;
+    padding: 15px 0;
+    line-height: 20px;
+    border-bottom: 1px solid #e9e9e9;
+}
+
+.model_purchase_dialog .model_head .account_balance {
+    color: #333;
+    text-align: center;
+    font-size: 14px;
+    padding-top: 16px;
+}
+
+.Jslider {
+    overflow: hidden;
+}
+
+.money_slider {
+    margin-bottom: -40px;
+}
+
+.money_slider .money_items {
+    white-space: nowrap;
+    font-size: 0;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: auto;
+    padding-bottom: 40px;
+}
+
+.money_slider .money_items li {
+    display: inline-block;
+    width: 70px;
+    height: 88px;
+    border: 1px solid #f1f1f1;
+    border-radius: 4px;
+    position: relative;
+    box-sizing: border-box;
+    vertical-align: middle;
+    margin: 0 0 0 0.07rem;
+}
+
+.money_slider .money_items li:first-child {
+    margin: 0 0 0 0.12rem;
+}
+
+.money_slider .money_items li:last-child {
+    margin: 0 0.12rem 0 0.07rem;
+}
+
+.money_slider .money_items li.cur {
+    border-color: #7b96d0;
+    background-color: #e5ebfb;
+}
+
+.money_slider .money_items .money_item_wrap {
+    text-align: center;
+    width: 100%;
+}
+
+.money_slider .money_items .money_item_wrap span {
+    display: block;
+}
+
+.money_slider .money_items .money_item_wrap .t1 {
+    font-size: 20px;
+    padding-top: 24px;
+    line-height: 100%;
+}
+
+.money_slider .money_items .money_item_wrap .t2 {
+    font-size: 12px;
+    white-space: normal;
+    padding-top: 7px;
+    color: #666;
+    line-height: 15px;
+}
+
+.money_slider .money_items .money_item_wrap i {
+    position: absolute;
+    right: -1px;
+    top: -1px;
+    background: url(/images_cn/iphone/wePay/ico_vip_zengsong_2x.png) 0 0 no-repeat;
+    width: 31px;
+    height: 31px;
+    background-size: 31px 31px;
+}
+
+.model_purchase_dialog .model_body {
+    padding-top: 0;
+    height: 216px;
+    overflow-y: auto;
+}
+
+.way_style {
+    padding: 12px 0;
+    height: 28px;
+    line-height: 28px;
+    border-top: 1px solid #e4e4e4;
+    border-bottom: 1px solid #e4e4e4;
+    margin: 15px 0.12rem 10px;
+}
+
+.payment_way .way_btn {
+    font-size: 14px;
+    float: right;
+    color: #999;
+    background: url(/images_cn/iphone/wePay/ico_right_arrow_3x.png) right center no-repeat;
+    background-size: 8px 13px;
+    margin-right: 22px;
+    padding-right: 20px;
+}
+
+.payment_way .cur_way {
+    display: inline-block;
+    padding-left: 40px;
+    margin-left: 22px;
+    height: 28px;
+    font-size: 16px;
+}
+
+.payment_way .way_weixin {
+    background: url(/images_cn/iphone/wePay/ico_pay_wx_2x.png) 0 center no-repeat;
+    background-size: 27px auto;
+}
+
+.payment_way .way_jdzf {
+    background: url(/images_cn/iphone/wePay/ico_pay_jdzf_2x.png) 0 center no-repeat;
+    background-size: 20px auto;
+    height: 25px;
+}
+
+.payment_way .way_zfb {
+    background: url(/images_cn/iphone/wePay/ico_pay_zfb_2x.png) 0 center no-repeat;
+    background-size: 25px auto;
+    height: 30px;
+}
+
+.payment_way li {
+    height: 28px;
+    line-height: 28px;
+    padding: 12px 0;
+}
+
+.payment_way li .wx_tips {
+    color: #999;
+    font-size: 14px;
+    padding-left: 10px;
+}
+
+#j_downloadSign .docin-ui-wrapper {
+    width: 350px;
+}
+
+#j_downloadSign .btnc_blue1 {
+    background-color: #bfdbf9;
+    color: #fff;
+}
+
+#j_downloadSign .docin-ui-head {
+    height: 20px;
+}
+
+#j_downloadSign .docin-ui-title {
+    left: 20px;
+    font-weight: bold;
+}
+
+/* add new build vip deadline */
+.slideBox-mob {
+    width: 100%;
+    height: 42px;
+    line-height: 42px;
+    background-color: #eacf71;
+    position: fixed;
+    z-index: 10;
+    box-sizing: border-box;
+    padding-left: 11px;
+    padding-right: 11px;
+    overflow: hidden;
+}
+
+.slideBox-mob-close {
+    display: block;
+    height: 100%;
+    float: left;
+}
+
+.slideBox-mob-close svg {
+    position: relative;
+    bottom: 1px;
+}
+
+.slideBox-mob p {
+    display: block;
+    font-size: 12px;
+    padding-left: 15px;
+    float: left;
+}
+
+.slideBox-mob p span {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.slideBox-mob-buy {
+    width: 68px;
+    height: 26px;
+    line-height: 26px;
+    text-align: center;
+    margin-top: 8px;
+    background-color: #000;
+    color: #eacf71;
+    border-radius: 15px;
+    font-size: 12px;
+    text-decoration: none;
+    float: right;
+}
+
+/* add new weixin broswer quick payment */
+#onlyWx-purchase {
+    width: 100%;
+    height: 100%;
+}
+
+.onlyWx-purchase-mask {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 102;
+    background-color: rgba(0, 0, 0, 0);
+    display: none;
+}
+
+.onlyWx-purchase-content {
+    width: 100%;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 200;
+    background-color: #fff;
+    -webkit-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    transform: translateY(100%);
+    -webkit-transition: -webkit-transform 300ms;
+    transition: transform 300ms;
+}
+
+.onlyWx-purchase-show .onlyWx-purchase-mask {
+    background-color: rgba(0, 0, 0, 0.6);
+    display: block;
+}
+
+.onlyWx-purchase-show .onlyWx-purchase-content {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+}
+
+.onlyWx-purchase-content-head {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid #e9e9e9;
+    margin-bottom: 1px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.close-purchase-mask {
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin-top: 5px;
+    margin-left: 5px;
+    background: url(/images_cn/iphone/wePay/ico_pay_close.png) center center no-repeat;
+    background-size: 12px 12px;
+}
+
+.onlyWx-purchase-title {
+    width: calc(100% - 50px);
+    margin-right: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.onlyWx-purchase-title .cur {
+    border-bottom: 2px solid #5a86dd;
+}
+
+.purchase-title-item {
+    display: inline-block;
+    height: 49px;
+    line-height: 49px;
+    font-size: 16px;
+}
+
+.purchase-title-item:last-child {
+    margin-left: 70px;
+}
+
+.onlyWx-purchase-content-main {
+    width: 100%;
+}
+
+.onlyWx-purchase-content-main > p {
+    line-height: 54px;
+    text-align: center;
+    font-size: 15px;
+}
+
+.onlyWx-purchase-money {
+    color: #e93323;
+}
+
+.onlyWx-purchase-content-main > ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+}
+
+.onlyWx-purchase-choices {
+    width: 25%;
+    height: 88px;
+    border: 1px solid #f1f1f1;
+    border-radius: 4px;
+    list-style: none;
+    text-align: center;
+    margin-left: 7px;
+    margin-right: 0;
+    position: relative;
+}
+
+.onlyWx-purchase-choices:first-child {
+    margin-left: 12px;
+}
+
+.onlyWx-purchase-choices:last-child {
+    margin-right: 12px;
+}
+
+.onlyWx-purchase-one {
+    font-size: 20px;
+    padding-top: 24px;
+    line-height: 100%;
+}
+
+.onlyWx-purchase-two {
+    margin-top: 7px;
+    color: #666;
+    line-height: 15px;
+    font-size: 12px;
+    white-space: normal;
+}
+
+.onlyWx-purchase-choices-cur {
+    border-color: #7b96d0;
+    background-color: #e5ebfb;
+}
+
+.ico-free-vip {
+    width: 31px;
+    height: 31px;
+    position: absolute;
+    right: -1px;
+    top: -1px;
+    background: url(/images_cn/iphone/wePay/ico_vip_zengsong_3x.png) 0 0 no-repeat;
+    background-size: 31px 31px;
+}
+
+.onlyWx-purchase-content-foot {
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 12px;
+    padding-right: 12px;
+    margin-top: 20px;
+}
+
+.onlyWx-purchase-content-foot > p {
+    line-height: 28.666px;
+    font-size: 12px;
+    color: #666;
+}
+
+.newUserTips {
+    line-height: 28px;
+    margin-bottom: 31px;
+    font-size: 16px;
+}
+
+.newUserTips .loginSpan {
+    color: #ff0000;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 3), only screen and ( min--moz-device-pixel-ratio: 3), only screen and (  -o-min-device-pixel-ratio: 3/1), only screen and (  min-device-pixel-ratio: 3), only screen and (    min-resolution: 384dpi), only screen and (    min-resolution: 3dppx) {
+    /* Retina styles here */
+    .model_purchase_dialog .model_head .account_balance {
+        font-size: 15px;
+    }
+
+    .payment_way .way_weixin {
+        background: url(/images_cn/iphone/wePay/ico_pay_wx_3x.png) 0 center no-repeat;
+        background-size: 27px auto;
+    }
+
+    .payment_way .way_jdzf {
+        background: url(/images_cn/iphone/wePay/ico_pay_jdzf_3x.png) 0 0 no-repeat;
+        background-size: 20px auto;
+    }
+
+    .payment_way .way_zfb {
+        background: url(/images_cn/iphone/wePay/ico_pay_zfb_3x.png) 0 4px no-repeat;
+        background-size: 25px auto;
+    }
+
+    .money_slider .money_items .money_item_wrap i {
+        background: url(/images_cn/iphone/wePay/ico_vip_zengsong_3x.png) 0 0 no-repeat;
+        background-size: 31px 31px;
+    }
+}
+
+.money_slider .money_items {
+    display: -webkit-box;
+}
+
+.money_slider .money_items li {
+    -webkit-box-flex: 1;
+    display: block;
+    width: 25%;
+}
+
+.off_price label input {
+    margin-right: 4px;
+    vertical-align: -1px;
+}
+
+@media only screen and (max-device-width: 360px) {
+    .open_docin_app p {
+        font-size: 12px;
+    }
+
+    .ico_phone {
+        margin-right: 6px;
+    }
+
+    .off_price {
+        font-size: 14px !important;
+    }
+
+    .off_nine {
+        font-size: 12px;
+    }
+
+    #j_downloadSign .yzm_input {
+        width: 108px !important;
+    }
+
+    #j_downloadSign .docin-ui-wrapper {
+        width: 320px;
+    }
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 400px) {
+    .privMask .forbidShare {
+        font-size: 15px;
+    }
+
+    .pay_val li .val_range {
+        font-size: 19px;
+    }
+}
+
+@media only screen and (max-device-width: 320px) {
+    .privMask .forbidShare {
+        font-size: 13px;
+    }
+
+    .docinLogin .identifyCode label {
+        width: 37%;
+    }
+
+    .toMyDocinApp a img {
+        margin-right: 10px;
+    }
+
+    .pay_val li .val_range {
+        font-size: 18px;
+    }
+
+    .money_list .money_list_hd {
+        margin-bottom: 10px;
+    }
+
+    .flex_1 {
+        font-size: 14px;
+    }
+
+    #j_downloadSign .docin-ui-wrapper {
+        width: 300px;
+    }
+
+    .order_detail {
+        font-size: 12px;
+        line-height: 22px;
+    }
+}

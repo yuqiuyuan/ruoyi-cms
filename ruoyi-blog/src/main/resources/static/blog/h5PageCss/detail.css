@@ -1,0 +1,495 @@
+body {
+	background-color: #fff;
+	position: relative;
+}
+
+.freeDown .ico_button {
+	padding: 0;
+	width: 120px;
+	height: 32px;
+	line-height: 32px;
+	margin-top: 6px;
+}
+
+.convertTips {
+	height: 32px;
+	line-height: 32px;
+	padding: 2px 8px 0;
+	font-size: 14px;
+	margin: 0 0 10px 0;
+	text-align: center;
+	color: #999;
+	font-size: 12px;
+}
+
+.convertTips a,
+.convertTips a:hover {
+	color: #999;
+	text-decoration: underline;
+}
+
+.docInfoMod {
+	padding: 10px 10px 0;
+}
+
+.docInfoMod h1 {
+	font-size: 20px;
+	font-weight: 700;
+	color: #292732;
+	line-height: 32px;
+}
+
+.docInfoMod .detail {
+	font-size: 12px;
+	color: #292732;
+	padding: 12px 0 8px;
+	line-height: 2;
+	border-bottom: 1px solid #e1e1e1;
+}
+
+.docInfoMod .detail span {
+	padding-right: 14px;
+}
+
+#docContent {
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+}
+
+#docContent .panel {
+	padding: 15px 10px;
+	background: url(https://st.douding.cn/images_cn/iphone/miniDocin/split.png) repeat-x left top;
+	background-size: 1px 4px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+	-webkit-touch-callout: none;
+}
+
+#docContent .panel:first-of-type {
+	background: none;
+}
+
+#docContent .panel .pageNum {
+	color: #939499;
+	text-align: right;
+}
+
+.pageTabBtn {
+	height: 50px;
+	line-height: 50px;
+	color: #2d4463;
+	text-align: center;
+	background-color: #f2f2f0;
+}
+
+.loading {
+	position: relative;
+	height: 200px;
+	line-height: 200px;
+	text-align: center;
+	color: gray;
+	font-size: 12px;
+}
+
+.no_more_mod {
+	display: none;
+}
+
+.no_more_inner {
+	padding: 15px 0;
+	background-color: #fff;
+}
+
+.no_more_tips {
+	text-align: center;
+}
+
+.no_more_tips p {
+	font-size: 20px;
+	height: 40px;
+	line-height: 40px;
+	color: #565656;
+}
+
+.no_more_tips p img {
+	vertical-align: middle;
+	margin-right: 24px;
+}
+
+.no_more_tips .freeDown {
+	text-align: center;
+}
+
+.no_more_tips .freeDown .ico_button {
+	width: 280px;
+	margin-top: 12px;
+}
+
+.no_more_tips .freeDown .btnc_blue {
+	background-color: #2799e5;
+}
+
+div[id^="page"] div {
+	width: auto !important;
+	height: auto !important;
+	min-height: 30px;
+}
+
+div[id^="page"] p {
+	line-height: 28px !important;
+	text-indent: 2em !important;
+	letter-spacing: 0 !important;
+	margin-bottom: 10px !important;
+	font-size: 16.8px;
+}
+
+div[id^="page"] span {
+	word-break: break-word;
+	font-size: 16.8px !important;
+	font-family: '\5fae\8f6f\96c5\9ed1', 'Helvetica', 'STHeiti', 'Droid Sans Fallback' !important;
+}
+
+div[id^="page"] img {
+	height: auto !important;
+	display: block;
+	margin: 0 auto;
+	width: 100%;
+	transform-origin: top;
+}
+
+div[id^="page"] div a {
+	text-decoration: underline;
+}
+
+.relateDoc {
+	display: block;
+}
+
+.waitingShow {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	/*width:120px;*/
+	height: 36px;
+	margin-top: -18px;
+	margin-left: -60px;
+	line-height: 36px;
+	background: rgba(50, 50, 50, .95);
+	z-index: 99;
+	border-radius: 5px;
+	font-size: 14px;
+	color: #fff;
+	text-align: center;
+}
+
+.waitingShow span {
+	display: inline-block;
+}
+
+.waitingShow .icon {
+	width: 20px;
+	height: 20px;
+	background: url(https://st.douding.cn/images_cn/iphone/miniDocin/waiting.png);
+	background-size: 100% 100%;
+	position: relative;
+	top: 6px;
+	margin-right: 5px;
+	-webkit-animation-name: waiting-loading-frames;
+	-webkit-animation-duration: 2s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear
+}
+
+@-webkit-keyframes waiting-loading-frames {
+	0% {
+		transform: rotate(0deg);
+		-webkit-transform: rotate(0deg)
+	}
+
+	50% {
+		-webkit-transform: rotate(180deg);
+		transform: rotate(180deg)
+	}
+
+	100% {
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg)
+	}
+}
+
+.wd200 {
+	width: 200px;
+	margin-left: -100px;
+}
+
+.no_more_tips_build {
+	padding: 0 15px;
+	font-size: 15px;
+	line-height: 24px;
+	color: #565656;
+}
+
+.no_more_tips_build p {
+	position: relative;
+	padding: 20px 0 0;
+}
+
+.no_more_tips_build .freeDown .ico_button {
+	position: absolute;
+	right: 0;
+	top: 16px;
+	width: 132px;
+	height: 32px;
+	margin: 0;
+	line-height: 32px;
+	text-align: center;
+	font-size: 16px;
+	background-color: #ff6c00;
+	color: #fff;
+	border-radius: 3px;
+}
+
+@media only screen and (max-device-width:320px) {
+	.no_more_tips_build {
+		font-size: 14px;
+		padding: 0 18px;
+	}
+}
+
+.match-plan-wrap {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	z-index: 9;
+	width: 100%;
+	height: 60px;
+	background-color: #fff;
+	border-top: 1px solid #e1e1e1;
+}
+
+.match-plan ul {
+	width: 400%;
+	overflow: hidden;
+}
+
+.match-plan li {
+	position: relative;
+	float: left;
+	width: 25%;
+	background-color: #fff;
+}
+
+.match-plan a {
+	position: relative;
+	display: block;
+	overflow: hidden;
+}
+
+.match-plan-info {
+	position: relative;
+	float: left;
+	margin: 0 60px 0 38px;
+}
+
+.match-plan-pic {
+	position: absolute;
+	left: 0;
+	top: 11px;
+	width: 34px;
+	height: 40px;
+	overflow: hidden;
+	border: 1px solid #c7c7c7;
+}
+
+.match-plan-pic img {
+	width: 100%;
+	vertical-align: bottom;
+}
+
+.match-plan-title {
+	height: 24px;
+	line-height: 24px;
+	margin: 15px 0 20px 54px;
+	font-size: 14px;
+	color: #000;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	word-wrap: break-word;
+}
+
+.match-plan-btn {
+	position: absolute;
+	right: 12px;
+	top: 15px;
+	width: 42px;
+	height: 28px;
+	line-height: 28px;
+	text-align: center;
+	font-size: 12px;
+	background-color: #3086f3;
+	color: #fff;
+	border-radius: 4px;
+}
+
+.match-plan-close {
+	z-index: 9;
+	position: absolute;
+	left: 10px;
+	top: 20px;
+	width: 20px;
+	height: 20px;
+	background: url(https://st.douding.cn/images_cn/iphone/miniDocin/ico_dialog_close.png) no-repeat 50% 50%;
+	background-size: 62% 62%;
+}
+
+.match-point {
+	position: absolute;
+	width: 80px;
+	margin: 0 auto;
+	left: 50%;
+	bottom: 6px;
+	margin-left: -40px;
+	height: 10px;
+	line-height: 10px;
+	text-align: center;
+}
+
+.match-point li {
+	display: inline-block;
+	width: 4px;
+	height: 4px;
+	vertical-align: 2px;
+	background-color: #4d4d4d;
+	border-radius: 4px;
+}
+
+.match-point li.cur {
+	width: 8px;
+	background-color: #2692ff;
+}
+
+.match-point .match-logo {
+	width: 20px;
+	height: 8px;
+	margin-left: 8px;
+	vertical-align: 0;
+	background: url(https://st.douding.cn/images_cn/iphone/match_plan/match-logo.png) no-repeat 0 50% transparent;
+	background-size: auto 100%;
+}
+
+.docInfoMod1 {
+	background-color: #f1f1f1;
+	margin: 10px;
+	padding: 10px;
+}
+
+.docInfoMod1 .inner {
+	padding: 0 0 0 33px;
+	color: #333;
+	line-height: 20px;
+}
+
+.docInfoMod1 .inner h1 {
+	font-size: 12px;
+}
+
+.docInfoMod1 .inner p {
+	font-size: 12px;
+}
+
+.docInfoMod1 .inner p span {
+	padding-right: 8px;
+}
+
+.docInfoMod1 .inner p .report {
+	float: right;
+}
+
+.docInfoMod1 .inner.doc-mark {
+	position: relative;
+}
+
+.docInfoMod1 .inner.doc-mark em {
+	position: absolute;
+	top: 0;
+	left: 10px;
+}
+
+.docInfoMod1 .detail_download {
+	padding: 10px 10px 10px 0;
+}
+
+.player-wrap {
+	padding: 0 0 50px;
+}
+
+.btnc_light_blue {
+	background-color: #dfedfe;
+	color: #3086f3;
+	font-size: 16px;
+}
+
+.no_more_mod,
+.relateDoc {
+	background-color: #fff;
+	background: #ebebeb url(../res/images/split2.png) repeat-x left top;
+	background-size: 0.33px auto;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+	-webkit-touch-callout: none;
+	padding-top: 10px;
+}
+
+
+.no_more_tips p {
+	color: #333;
+}
+
+.no_more_tips .freeDown .ico_button,
+.open_in_app .ico_button {
+	display: block;
+	margin: 0 0.15rem;
+	width: auto;
+	margin-top: 12px;
+	height: 44px;
+	line-height: 44px;
+}
+
+.no_more_tips .freeDown .btnc_light_blue:active {
+/* 	background-color: #edf5ff;
+	color: #3086f3; */
+}
+
+.free_down_fun {
+	display: -webkit-flex;
+	margin: 0 0.15rem;
+}
+
+.free_down_fun .free_down_btns {
+	-webkit-box-flex: 1;
+	width: 50%;
+	border: 1px solid #999;
+	border-radius: 3px;
+	height: 44px;
+	line-height: 44px;
+	color: #333;
+	font-size: 16px;
+}
+
+.free_down_fun .free_down_btns:first-child {
+	margin-right: 0.12rem;
+}
+
+.free_down_fun .nextDoc:active {
+	color: #999;
+	border-color: #999;
+}
+
+.open_in_app .ico_button {
+	margin-top: 20px;
+}

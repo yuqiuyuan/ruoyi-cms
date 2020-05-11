@@ -1,0 +1,298 @@
+<!--<!DOCTYPE html>-->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="width=device-width,maximum-scale=1.0,minimum-scale=1.0,initial-scale=1.0,user-scalable=no">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <title>机场工程</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/blog/h5PageCss/menu.css}"/>
+  <link rel="stylesheet" type="text/css" th:href="@{/blog/h5PageCss/base.css}"/>
+  <link rel="stylesheet" type="text/css" th:href="@{/blog/h5PageCss/index.css}"/>
+</head>
+<body>
+<!-- 菜单 -->
+<div id="menu" class="mm-menu mm-horizontal mm-ismenu">
+  <div class="menuWarp mm-panel mm-opened mm-current">
+    <div class="loginBar">
+      <div class="user_pic">
+        <img th:src="@{/blog/images/user_loginout@3x.png}">
+      </div>
+      <!-- 未登录 -->
+      <!-- <div class="user_login_info">
+        <div class="user_name">您还没有登录</div>
+        <div class="user_amount">
+          <a class="ui_btn ui_btn_blue" href="###">登录</a>
+          <a class="ui_btn ui_btn_blue" href="###">注册</a>
+        </div>
+      </div> -->
+      <!-- 已登录 -->
+      <div class="user_login_info">
+        <div class="user_name">317b737880</div>
+        <div class="user_amount">余额：0.00 豆元 &nbsp;
+          <a href="/jsp_cn/touchPay/touch_fin.jsp" class="ico_button btnc_org">充值</a>
+        </div>
+      </div>
+    </div>
+    <div class="subscribWrap">
+      <nav class="minNav">
+        <a href="###" class="cur"><span class="ui_index_menu ui_index"></span>首页</a>
+        <a href="###"><span class="ui_index_menu ui_dingyue"></span>我的订阅</a>
+        <a href="###"><span class="ui_index_menu ui_bookshop"></span>我的书房</a>
+        <a href="###"><span class="ui_index_menu ui_mydocin"></span>我的豆丁</a>
+        <a href="###"><span class="ui_index_menu ui_topic"></span>我的专题</a>
+        <a href="###"><span class="ui_index_menu ui_plus"></span>Plus会员专区</a>
+      </nav>
+      <dl id="userTagDataDiv" class="mySubscrib">
+        <dt>订阅</dt>
+        <dd><a href="###"><img alt="热门时事" th:src="@{/blog/images/s_104.png}">热门时事</a></dd>
+        <dd><a href="###"><img alt="DOCINDAILY日报" th:src="@{/blog/images/s_169.png}">DOCINDAILY日报</a></dd>
+        <dd><a href="###"><img alt="杂志" th:src="@{/blog/images/s_105.png}">杂志</a></dd>
+        <dd><a href="###"><img alt="两性情感" th:src="@{/blog/images/s_129.png}">两性情感</a></dd>
+        <dd><a href="###"><img alt="建筑" th:src="@{/blog/images/s_171.png}">建筑</a></dd>
+      </dl>
+      <div class="myQuit">
+        <a href="###"><span class="ui_index_menu ui_set"></span>添加订阅频道</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 主页面 -->
+<div id="page" class="mm-page">
+  <!-- 头部 -->
+  <div class="headerWrap">
+    <div id="headerTop" class="headerBg">
+      <div class="toolbarBackcon"><a class="toolbarCateNew"></a></div>
+      <div class="toolbarApp" style="display:none;"><a href="###" title="下载App">下载App</a></div>
+      <div class="toolbarPlus"><a href="###" title="PLUS会员"></a></div>
+      <div class="newHeadLogo"><img height="43" th:src="@{/blog/images/ui_logo.png}" alt=""></div>
+      <div class="search-box-new">
+        <div class="search-box-inner">
+          <span class="search-text"><span class="ico_btn_search"></span>在五亿文档库里搜索文档</span>
+        </div>
+      </div>
+    </div>
+    <div class="nav-bar-scroll1">
+      <div class="nav-bar-main1">
+        <div class="nav-slider">
+          <ul>
+            <li th:each="category:${@cms.selectNavCategories()}" th:if="${category.parentId==null||category.parentId==0}">
+              <a th:href="@{${'/blog/category/' + category.categoryId}}" th:text="${category.categoryName}" th:title="${category.categoryName}"></a>
+            </li>
+          </ul>
+        </div>
+        <span class="more_touch_btn"><span class="ico_more_btn"></span></span>
+      </div>
+    </div>
+  </div>
+  <!-- 频道 -->
+  <div class="m-channel-box fadeOutUp">
+    <div class="m-header-top">
+      <header>
+        <div class="header-toolbar-left">
+          <div class="header-back">
+            <a class="ico_btn_back" href="javascript:void(0);"></a>
+          </div>
+        </div>
+        <span class="header-toolbar-title">频道导航</span>
+        <div class="header-toolbar-right">
+          <div class="header-cancel">
+            <a class="ico-btn-cancel" href="javascript:void(0);">取消</a>
+          </div>
+        </div>
+      </header>
+    </div>
+    <div class="m-channel-items" id="wrapper">
+      <div id="scroller" style="transition-property: transform; transform-origin: 0px 0px;">
+        <section class="m-channel-list">
+          <a href="###" class="m-list-link" title="分类">
+            <i class="channel-list-ico ico-list-fenlei"></i>
+            <span class="m-list-info">分类</span>
+          </a>
+          <a href="###" class="m-list-link" title="专题">
+            <i class="channel-list-ico ico-list-zhuanti"></i>
+            <span class="m-list-info">专题</span>
+          </a>
+          <!-- 判断 -->
+          <a href="###" class="m-list-link" title="VIP">
+            <i class="channel-list-ico ico-list-build-or-vip"></i>
+            <span class="m-list-info">VIP</span>
+          </a>
+        </section>
+        <section class="m-channel-list">
+          <a href="###" class="m-list-link" title="建筑">
+            <i class="channel-list-ico ico-list-jianzhu"></i>
+            <span class="m-list-info">建筑</span>
+          </a>
+          <a href="###" class="m-list-link" title="课堂">
+            <i class="channel-list-ico ico-list-ketang"></i>
+            <span class="m-list-info">课堂</span>
+          </a>
+          <a href="###" class="m-list-link hot" title="在家学">
+            <i class="channel-list-ico ico-list-online"></i>
+            <span class="m-list-info">在家学</span>
+          </a>
+          <a href="###" class="m-list-link" title="考研">
+            <i class="channel-list-ico ico-list-kaoyan"></i>
+            <span class="m-list-info">考研</span>
+          </a>
+          <a href="###" class="m-list-link" title="医疗">
+            <i class="channel-list-ico ico-list-yiliao"></i>
+            <span class="m-list-info">医疗</span>
+          </a>
+          <a href="###" class="m-list-link" title="微案例">
+            <i class="channel-list-ico ico-list-wal"></i>
+            <span class="m-list-info">微案例</span>
+          </a>
+          <a href="###" class="m-list-link" title="漫画">
+            <i class="channel-list-ico ico-list-manhua"></i>
+            <span class="m-list-info">漫画</span>
+          </a>
+          <a href="###" class="m-list-link" title="小说">
+            <i class="channel-list-ico ico-list-nove"></i>
+            <span class="m-list-info">小说</span>
+          </a>
+          <a href="###" class="m-list-link" title="日报">
+            <i class="channel-list-ico ico-list-daily"></i>
+            <span class="m-list-info">日报</span>
+          </a>
+          <a href="###" class="m-list-link" title="APP下载">
+            <i class="channel-list-ico ico-list-app"></i>
+            <span class="m-list-info">下载App</span>
+          </a>
+        </section>
+        <section class="m-channel-list">
+          <a href="###" class="m-list-link" title="我的">
+            <i class="channel-list-ico ico-list-mine"></i>
+            <span class="m-list-info">我的</span>
+          </a>
+          <a href="###" class="m-list-link" title="充值">
+            <i class="channel-list-ico ico-list-chongzhi"></i>
+            <span class="m-list-info">充值</span>
+          </a>
+          <a href="###" class="m-list-link" title="订阅">
+            <i class="channel-list-ico ico-list-dingyue"></i>
+            <span class="m-list-info">订阅</span>
+          </a>
+        </section>
+      </div>
+    </div>
+  </div>
+  <!-- 主页面内容 -->
+  <div id="content" class="booklist">
+    <!--    <h2>热门推荐</h2>-->
+    <!-- 推荐的文档-->
+    <div id="sections">
+      <a th:each="item,temp:${@cms.avatarIndexList(10)}" th:href="detail.html" target="_self">
+        <dl class="clear">
+          <dt>
+            <div class="bookPic">
+              <img th:src="@{${item.coverImage}}" th:alt="${item.title}">
+              <span class="bookPage">5</span>
+            </div>
+          </dt>
+          <dd class="bookTitle" th:text="${item.title}"></dd>
+          <dd><span class="fch" th:text="${item.description}">
+            <text th:text="${#strings.abbreviate(item.description,48)}"></text></span></dd>
+          <dd>[[${item.hit}]]&nbsp次阅读</dd>
+        </dl>
+      </a>
+    </div>
+    <div id="loadPage" class="loadPage">
+      <span class="loadMoreData">点击加载更多</span>
+    </div>
+  </div>
+  <!-- 返回顶部 -->
+  <div onclick="goBackTop();" class="goBackTop"><span></span></div>
+</div>
+<!-- 透明层:点击关闭菜单 -->
+<div id="mm-blocker"></div>
+<script th:src="@{/blog/h5PageJs/jquery-1.9.0.min.js}"></script>
+<script th:src="@{/blog/avatar/js/jquery-2.1.4.min.js}"></script>
+<script th:src="@{/blog/h5PageJs/common.js}"></script>
+<script>
+  var currentIndex = 2; //当前页码
+  var totalPage = 3; //共多少页
+  hideURLbar(); //隐藏地址栏
+  goBackTop(); //返回顶部
+  loadImgs(); //加载图片
+  fixedHeader(); //页面滚动固定头部
+  handleMenu(); //点击个人信息
+  handleChannel(); //频道分类
+  loadMoreData(); //点击加载更多
+  function fixedHeader() {
+    var bannerTop = jQuery('.search-box-new').offset().top;
+    var headerWrap = jQuery('.headerWrap');
+    jQuery(window).on("scroll", function () {
+      var st = jQuery(this).scrollTop();
+      if (st > bannerTop) {
+        headerWrap.addClass("headScroll mm-fixed-top");
+      } else {
+        headerWrap.removeClass("headScroll mm-fixed-top");
+      }
+    })
+  }
+
+  function handleMenu() {
+    var menu = jQuery(".mm-menu");
+    var html = jQuery("html");
+    jQuery(".toolbarBackcon").click(function () {
+      menu.addClass("mm-current mm-opened");
+      html.addClass("mm-opening");
+    })
+    jQuery("#mm-blocker").click(function () {
+      html.removeClass("mm-opening");
+      //菜单隐藏时候会有白屏出现需要延迟下
+      setTimeout(function () {
+        menu.removeClass("mm-current mm-opened");
+      }, 400)
+    })
+  }
+
+  function handleChannel() {
+    jQuery(".more_touch_btn").click(function () {
+      jQuery(".m-channel-box").removeClass("fadeOutUp").addClass("fadeInDown");
+    })
+    jQuery(".header-cancel,.header-back").click(function () {
+      jQuery(".m-channel-box").removeClass("fadeInDown").addClass("fadeOutUp");
+    })
+  }
+
+  function loadMoreData() {
+    var oLoadBtn = jQuery("#loadPage"),
+        oLoadState = jQuery(".loadMoreData");
+    if (oLoadBtn.length > 0) {
+      oLoadBtn.show();
+      oLoadBtn.bind("click", function () {
+        oLoadState.html("正在加载..");
+        jQuery.ajax({
+          url: "data/ajax_index.txt",
+          data: "page=" + currentIndex,
+          context: jQuery("#sections"),
+          success: function (data) {
+            var dataHtml = data.trim();
+            if (dataHtml == "" || dataHtml == null) {
+              oLoadState.hide();
+              return;
+            }
+            jQuery(this).append(dataHtml);
+            if (currentIndex < totalPage) {
+              loadImgs(); //加载图片
+              oLoadState.html("点击加载更多");
+              currentIndex++;
+              if (currentIndex == totalPage) {
+                oLoadState.hide();
+              }
+            } else {
+              oLoadState.hide();
+              return;
+            }
+          }
+        });
+      });
+    }
+  }
+</script>
+</body>
+</html>
