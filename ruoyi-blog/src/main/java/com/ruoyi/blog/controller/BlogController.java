@@ -17,11 +17,13 @@ import com.ruoyi.common.utils.IpUtils;
 import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.common.utils.poi.ExcelUtil;
 import com.ruoyi.system.service.ISysConfigService;
+import com.sun.xml.internal.bind.v2.TODO;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -118,6 +120,42 @@ public class BlogController extends BaseController {
 //    model.addAttribute("totalPages", new PageInfo(articles).getPages());
 //    model.addAttribute("articleList", articles);
     return "h5page/index";
+  }
+
+  @GetMapping("/h5page/search")
+  public String h5search (String content, Model model) {
+    model.addAttribute("content", content);
+    Article form = new Article();
+    if (!ObjectUtils.isEmpty(content)) {
+      form.setTitle(content.trim());
+      form.setDescription(content.trim());
+    }
+    startPage();
+    List<Article> articles = articleService.fuzzySearchList(form);
+    if (!ObjectUtils.isEmpty(content)) {
+      hightLight(content, articles);
+    }
+    PageInfo pageInfo = new PageInfo(articles);
+    model.addAttribute("total", pageInfo.getTotal());
+    model.addAttribute("pageNo", pageInfo.getPageNum());
+    model.addAttribute("pageSize", pageInfo.getPageSize());
+    model.addAttribute("totalPages", pageInfo.getPages());
+    model.addAttribute("hasPrevious", pageInfo.isHasPreviousPage());
+    model.addAttribute("hasNext", pageInfo.isHasNextPage());
+    model.addAttribute("currentPage", pageInfo.getPageNum());
+    model.addAttribute("prePage", pageInfo.getPrePage());
+    model.addAttribute("nextPage", pageInfo.getNextPage());
+    model.addAttribute("navNums", pageInfo.getNavigatepageNums());
+    model.addAttribute("articleList", articles);
+    return "h5page/list";
+  }
+
+  private void hightLight (String content, List<Article> articles) {
+    articles.forEach(article -> {
+      String title = article.getTitle();
+      title.replace(content, String.format("<font size=\"3\" color=\"red\">%s</font>", content));
+      article.setTitle(title);
+    });
   }
 
   /**

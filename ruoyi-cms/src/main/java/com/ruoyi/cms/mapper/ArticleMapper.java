@@ -125,4 +125,6 @@ public interface ArticleMapper
      * @return
      */
     public int articleLook(String id);
+
+    List<Article> fuzzySearchList (Article article);
 }

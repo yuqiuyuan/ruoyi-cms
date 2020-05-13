@@ -94,6 +94,17 @@
     order by update_time desc
   </select>
 
+  <select id="fuzzySearchList" parameterType="Article" resultMap="ArticleResult">
+    <include refid="selectArticleVo"/>
+    <where>
+      1=1
+      <if test="title != null  and title != ''">and title like CONCAT('%',#{title},'%')</if>
+      <if test="keywords != null  and keywords != ''">or keywords like CONCAT('%',#{keywords},'%')</if>
+      <if test="description != null  and description != ''">or description like CONCAT('%',#{description},'%')</if>
+    </where>
+    order by update_time desc
+  </select>
+
   <select id="selectArticlesRegionNotNull" parameterType="Article" resultMap="ArticleResult">
     <include refid="selectArticleVo"/>
     <where>

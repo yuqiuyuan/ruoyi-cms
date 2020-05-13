@@ -1287,7 +1287,7 @@ body {
   top: 0;
   bottom: 0;
   width: 35px;
-  background: url(../res/images/cross.png) center center no-repeat;
+  background: url(../images/cross.png) center center no-repeat;
   background-size: 16px 16px;
   z-index: 2;
   display: none;
