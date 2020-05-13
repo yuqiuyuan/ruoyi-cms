@@ -136,6 +136,7 @@ public class BlogController extends BaseController {
       hightLight(content, articles);
     }
     PageInfo pageInfo = new PageInfo(articles);
+    model.addAttribute("searchKey", content);
     model.addAttribute("total", pageInfo.getTotal());
     model.addAttribute("pageNo", pageInfo.getPageNum());
     model.addAttribute("pageSize", pageInfo.getPageSize());

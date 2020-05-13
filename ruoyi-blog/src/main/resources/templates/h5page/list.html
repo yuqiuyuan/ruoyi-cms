@@ -13,7 +13,7 @@
   <link rel="stylesheet" type="text/css" th:href="@{/blog/h5PageCss/list.css}"/>
   <style>
     .search-nav-li {
-      width: 94%;
+      width: 97%;
       display: -webkit-box;
     }
   </style>
@@ -26,7 +26,7 @@
       <div class="m-search-header marb5">
         <div class="search-box-new header-searchInput">
           <div class="search-box-inner">
-            <span class="search-text"><span class="ico_btn_search"></span><span id="search-word">英语考试</span></span><i
+            <span class="search-text"><span class="ico_btn_search"></span><span id="search-word" th:text="${searchKey}"></span></span><i
               class="cross" style="display: inline;"></i>
           </div>
         </div>
