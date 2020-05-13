@@ -13,7 +13,7 @@
   <link rel="stylesheet" type="text/css" th:href="@{/blog/h5PageCss/list.css}"/>
   <style>
     .search-nav-li {
-      width: 97%;
+      width: 100%;
       display: -webkit-box;
     }
   </style>
@@ -37,9 +37,10 @@
       <div class="nav-bar-main1">
         <div class="nav-slider search-nav-container">
           <ul class="search-nav-li">
-            <li class="cur" data-type="1"><a href="###">全部</a></li>
-            <li class="" th:each="category:${@cms.selectNavCategories()}" th:if="${category.parentId==null||category.parentId==0}">
-              <a href="###" th:text="${category.categoryName}" th:title="${category.categoryName}"></a>
+            <li class="cur" data-type="1"><a href="javascript:location.reload()">全部</a></li>
+            <li class="" th:value="${category.categoryId}" th:each="category:${@cms.selectNavCategories()}"
+                th:if="${category.parentId==null||category.parentId==0}">
+              <a href="javascript:void(0)" th:text="${category.categoryName}" th:title="${category.categoryName}"></a>
             </li>
           </ul>
         </div>
@@ -118,6 +119,59 @@
   loadImgs(); //加载图片
   loadMoreData(); //点击加载更多
   navFunc();//页签切换
+  $(".search-nav-li li").click(function () {
+    $(".search-nav-li li").removeClass("cur");
+    this.setAttribute("class", "cur");
+    categoryId = this.value;
+    content = $("#search-word").text();
+    url = window.location.origin + '/blog/h5page/q/' + categoryId;
+    $.ajax({
+      cache: true,
+      type: "POST",
+      dataType: "json",
+      url: url,
+      data: {"content": content},
+      async: true,
+      processData: false,		//用于对data参数进行序列化处理 这里必须false
+      contentType: false, 	//必须
+      beforeSend: function () {
+        //$.modal.loading("数据上传中，请稍后...");
+      },
+      error: function (request) {
+        //$.modal.alertError("系统错误");
+      },
+      success: function (data) {
+        var resultHtml = "";
+        if (data.data.length > 0) {
+          for (var i = 0; i < data.data.length; i++) {
+            var description = data.data[i].description;
+            if (description.length > 46) {
+              description = description.substr(0, 46) + "..."
+            }
+            html = '<a href=/blog/h5page/detail/' + data.data[i].id + ' target="_self">' +
+                '<dl class="clear">' +
+                '<dt>' +
+                '<div class="bookPic">' +
+                '<img alt="' + data.data[i].title + '" src="' + data.data[i].coverImage + '">' +
+                '<span class="bookPage">5</span>' +
+                '</div>' +
+                '</dt>' +
+                '<dd class="bookTitle" >' + data.data[i].title + '</dd>' +
+                '<dd><span class="fch">' +
+                description + '</span></dd>' +
+                '<dd>' + data.data[i].hit + '&nbsp次阅读</dd>' +
+                '</dl>' +
+                '</a>';
+            resultHtml = resultHtml + html;
+          }
+          $("#sections").html(resultHtml);
+        }
+
+        console.log(data);
+      }
+    });
+  });
+
   function loadMoreData() {
     var oLoadBtn = jQuery("#loadPage"),
         oLoadState = jQuery(".loadMoreData"),

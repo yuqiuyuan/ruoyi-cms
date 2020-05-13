@@ -347,6 +347,21 @@ public class BlogController extends BaseController {
     return prefix + "/" + getTheme() + "/search";
   }
 
+  @PostMapping("/h5page/q/{categoryId}")
+  @ResponseBody
+  public AjaxResult queryByCategory (@PathVariable("categoryId") String categoryId, String content, Model model) {
+    model.addAttribute("content", content);
+    Article form = new Article();
+    if (!ObjectUtils.isEmpty(content)) {
+      form.setTitle(content.trim());
+      form.setDescription(content.trim());
+    }
+    form.setCategoryId(categoryId);
+    startPage();
+    List<Article> articles = articleService.fuzzySearchList(form);
+    return AjaxResult.success(articles);
+  }
+
   /**
    * 标签列表
    *
