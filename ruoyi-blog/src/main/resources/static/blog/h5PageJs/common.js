@@ -370,7 +370,7 @@ var touchFun = {
     var oSearchInput = jQuery('<div class="m-search-header"></div>');
     var oSearchKey = jQuery('<div class="bdSug_wpr search-autocomplete"></div>');
     var strInput =
-        '<div class="header-searchInput"><form><input placeholder="搜索文档或关键词" type="search" autocomplete="off" class="search-input" οnkeyup=" if(event.keyCode==13) {search()}"  baidusug="2" id="search" value="'
+        '<div class="header-searchInput"><form action="javascript:return true"><input placeholder="搜索文档或关键词" type="search" autocomplete="off" class="search-input" baidusug="2" id="search" value="'
         +
         searchWord +
         '"><i class="ico_ui ico_btn_search"></i><i id="cross" class="cross" style="display: none;"></i></form></div>';
@@ -480,7 +480,7 @@ var touchFun = {
 touchFun.touchFunInit();
 
 function inputForbidTab() { //ios input调起键盘时禁止tab切换
-                            // 判断是否是IOS
+  // 判断是否是IOS
   if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
 
     jQuery('input, textarea').on('focus', function () {
