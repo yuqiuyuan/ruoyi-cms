@@ -223,6 +223,24 @@ public class BlogController extends BaseController {
    * @param articleId
    * @return
    */
+  @GetMapping("/h5page/detail/{articleId}")
+  public String h5pageDetail (HttpServletRequest request, Model model, @PathVariable("articleId") String articleId) {
+    Article article = articleService.selectArticleById(articleId);
+    if (article == null) {
+      throw new BusinessException("该文章不存在!");
+    }
+    model.addAttribute("article", article);
+    model.addAttribute("categoryId", article.getCategoryId());
+    return "/h5page/detail";
+  }
+
+  /**
+   * 文章详情
+   *
+   * @param model
+   * @param articleId
+   * @return
+   */
   @GetMapping("/article/{articleId}")
   public String article (HttpServletRequest request, Model model, @PathVariable("articleId") String articleId) {
     Article article = articleService.selectArticleById(articleId);
