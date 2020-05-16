@@ -76,8 +76,8 @@
   </div>
   <div class="docInfoMod1">
     <div class="inner doc-mark">
-      <h1>职业病防治法.pdf</h1>
-      <em class="pdf"></em>
+      <h1 th:text="${article.description}"></h1>
+      <!--      <em class="pdf"></em>-->
       <div class="detail ">
         <p>
           <span class="size">2.61M,&nbsp;17页,<text th:text="${article.hit}"></text>次阅读</span>
@@ -85,13 +85,25 @@
         </p>
         <p>
           <span class="report" id="jOpenReport"><i class="ico_report"></i>举报</span>
-          <span class="time">分享于2011-06-25 16:28</span>
+          <span class="time">分享于<text th:text="${article.publishTime}"></text></span>
         </p>
       </div>
     </div>
   </div>
   <!-- 文档主要内容 -->
-  <div id="docContent"></div>
+  <div id="docContent">
+    <div class="panel pagemodel" th:each="item,temp:${articleDetail}" th:data-page="${item.curRecords}">
+      <div id="page1" style="height: 266.25px; overflow: hidden;">
+        <img th:src="${item.url}" data-imgid="1"
+             style="transform: scale(1);"></div>
+      <div class="pageNum">
+        <text th:text="${item.curRecords}"></text>
+        /
+        <text th:text="${item.totalRecords}"></text>
+        页
+      </div>
+    </div>
+  </div>
   <!-- 已阅读文档尾部 -->
   <div id="j_isend" class="no_more_mod" style="display: block;">
     <div class="no_more_inner">
@@ -204,7 +216,7 @@
         _this.curSectionIndex = Math.ceil(pageRecord / _this.perNum);
         _this.curLoadPage = (_this.curSectionIndex - 1) * _this.perNum;
       }
-      _this.createPage();
+      // _this.createPage();
     },
     createPage: function () {
       var _this = this;

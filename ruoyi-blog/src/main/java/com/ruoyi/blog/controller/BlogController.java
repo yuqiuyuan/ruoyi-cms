@@ -11,6 +11,7 @@ import com.ruoyi.cms.util.CmsConstants;
 import com.ruoyi.common.core.controller.BaseController;
 import com.ruoyi.common.core.domain.AjaxResult;
 import com.ruoyi.common.exception.BusinessException;
+import com.ruoyi.common.utils.DateUtils;
 import com.ruoyi.common.utils.IpUtils;
 import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.system.service.ISysConfigService;
@@ -229,8 +230,13 @@ public class BlogController extends BaseController {
     if (article == null) {
       throw new BusinessException("该文章不存在!");
     }
+    PdfDetail query = new PdfDetail();
+    query.setArticleId(articleId);
+    List<PdfDetail> articleDetail = articleService.getArticleDetail(query);
+    article.setPublishTime(DateUtils.dateTime(article.getUpdateTime()));
     model.addAttribute("article", article);
     model.addAttribute("categoryId", article.getCategoryId());
+    model.addAttribute("articleDetail", articleDetail);
     return "/h5page/detail";
   }
 
