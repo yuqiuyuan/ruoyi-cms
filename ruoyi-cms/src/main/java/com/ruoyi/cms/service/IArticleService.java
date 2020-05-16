@@ -2,6 +2,7 @@ package com.ruoyi.cms.service;
 
 import com.ruoyi.cms.domain.Article;
 import com.ruoyi.cms.domain.ArticleRegionType;
+import com.ruoyi.cms.domain.PdfDetail;
 
 import java.util.List;
 
@@ -36,6 +37,14 @@ public interface IArticleService {
    * @return 文章管理集合
    */
   public List<Article> fuzzySearchList (Article article);
+
+  /**
+   * 查询文章管理列表
+   *
+   * @param article 文章管理
+   * @return 文章管理集合
+   */
+  List<PdfDetail> getArticleDetail (PdfDetail pdfDetail);
 
   /**
    * 新增文章管理

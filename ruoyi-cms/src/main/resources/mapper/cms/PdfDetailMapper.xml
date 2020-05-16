@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.cms.mapper.PdfDetailMapper">
+  <resultMap type="PdfDetail" id="PdfDetailResult">
+    <result property="id" column="id"/>
+    <result property="articleId" column="article_id"/>
+    <result property="url" column="url"/>
+    <result property="totalRecords" column="total_records"/>
+    <result property="curRecords" column="cur_records"/>
+    <result property="totalPages" column="total_pages"/>
+    <result property="curPages" column="cur_pages"/>
+    <result property="deleteFlag" column="delete_flag"/>
+  </resultMap>
+
+  <sql id="selectPdfDetailVo">
+        select id, article_id, url, total_records, cur_records, total_pages, cur_pages, delete_flag from cms_pdf_detail
+    </sql>
+
+  <select id="selectPdfDetail" parameterType="PdfDetail" resultMap="PdfDetailResult">
+    <include refid="selectPdfDetailVo"/>
+    <where>
+      delete_flag=0
+      <if test="articleId != null  and articleId != ''">and article_id = #{articleId}</if>
+      <if test="id != null  and id != ''">and id = #{id}</if>
+    </where>
+    order by cur_records
+  </select>
+
+  <insert id="insertPdfDetail" parameterType="PdfDetail">
+    insert into cms_pdf_detail
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null  and id != ''">id,</if>
+      <if test="articleId != null  and articleId != ''">article_id,</if>
+      <if test="url != null  and url != ''">url,</if>
+      <if test="totalRecords != null  and totalRecords != ''">total_records,</if>
+      <if test="curRecords != null  and curRecords != ''">cur_records,</if>
+      <if test="totalPages != null  and totalPages != ''">total_pages,</if>
+      <if test="curPages != null  and curPages != ''">cur_pages,</if>
+      <if test="deleteFlag != null  and deleteFlag != ''">delete_flag,</if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null  and id != ''">#{id},</if>
+      <if test="articleId != null  and articleId != ''">#{articleId},</if>
+      <if test="url != null  and url != ''">#{url},</if>
+      <if test="totalRecords != null  and totalRecords != ''">#{totalRecords},</if>
+      <if test="curRecords != null  and curRecords != ''">#{curRecords},</if>
+      <if test="totalPages != null  and totalPages != ''">#{totalPages},</if>
+      <if test="curPages != null  and curPages != ''">#{curPages},</if>
+      0,
+    </trim>
+  </insert>
+</mapper>

@@ -1,8 +1,9 @@
 package com.ruoyi.cms.service.impl;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.annotation.Resource;
 
 import cn.hutool.cache.Cache;
 import cn.hutool.cache.CacheUtil;
@@ -11,7 +12,9 @@ import com.google.common.collect.Lists;
 
 import com.ruoyi.cms.domain.ArticleRegionType;
 import com.ruoyi.cms.domain.Category;
+import com.ruoyi.cms.domain.PdfDetail;
 import com.ruoyi.cms.domain.Tags;
+import com.ruoyi.cms.mapper.PdfDetailMapper;
 import com.ruoyi.cms.mapper.TagsMapper;
 import com.ruoyi.cms.service.ICategoryService;
 import com.ruoyi.common.utils.DateUtils;
@@ -21,10 +24,6 @@ import com.ruoyi.ehcache.util.EhCacheUtils;
 import com.ruoyi.framework.util.ShiroUtils;
 import com.ruoyi.system.domain.SysUser;
 import org.apache.commons.collections.CollectionUtils;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.select.Elements;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.ruoyi.cms.mapper.ArticleMapper;
 import com.ruoyi.cms.domain.Article;
@@ -41,12 +40,14 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class ArticleServiceImpl implements IArticleService {
 
-  @Autowired
+  @Resource
   private ArticleMapper articleMapper;
-  @Autowired
+  @Resource
   private TagsMapper tagsMapper;
-  @Autowired
+  @Resource
   private ICategoryService categoryService;
+  @Resource
+  private PdfDetailMapper PdfDetailMapper;
 
   private Cache<String, Category> categoryCache = CacheUtil.newLFUCache(100);
   private Cache<String, Tags> tagCache = CacheUtil.newLFUCache(100);
@@ -90,6 +91,11 @@ public class ArticleServiceImpl implements IArticleService {
     selectTags(articles);
     selectCategory(articles);
     return articles;
+  }
+
+  @Override
+  public List<PdfDetail> getArticleDetail (PdfDetail pdfDetail) {
+    return PdfDetailMapper.selectPdfDetail(pdfDetail);
   }
 
   /**
