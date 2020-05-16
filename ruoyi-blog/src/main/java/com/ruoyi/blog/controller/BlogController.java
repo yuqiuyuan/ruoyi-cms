@@ -151,6 +151,51 @@ public class BlogController extends BaseController {
     return "h5page/list";
   }
 
+  @PostMapping("/h5page/search/p")
+  @ResponseBody
+  public AjaxResult h5searchP (String content) {
+    Article form = new Article();
+    if (!ObjectUtils.isEmpty(content)) {
+      form.setTitle(content.trim());
+      form.setDescription(content.trim());
+    }
+    startPage();
+    List<Article> articles = articleService.fuzzySearchList(form);
+    PageInfo pageInfo = new PageInfo(articles);
+    Map<String, Object> model = new HashMap<>();
+    model.put("totalPages", pageInfo.getTotal());
+    model.put("hasNext", pageInfo.isHasNextPage());
+    model.put("dataHtml", appandHtml(articles));
+    return AjaxResult.success(model);
+  }
+
+  private String appandHtml (List<Article> articles) {
+    StringBuilder result = new StringBuilder();
+    if (articles.size() > 0) {
+      articles.forEach(article -> {
+        String description = article.getDescription();
+        if (description.length() > 46) {
+          description = article.getDescription().substring(0, 46) + "...";
+        }
+        String curHtml = "<a href=/blog/h5page/detail/" + article.getId() + " target=\"_self\">"
+            + "<dl class=\"clear\"><dt>"
+            + "<div class=\"bookPic\">"
+            + "<img alt=\"" + article.getTitle() + "\" src=\"" + article.getCoverImage() + "\">"
+            + "<span class=\"bookPage\">5</span>"
+            + "</div></dt>" + "</div>"
+            + "<dd class=\"bookTitle\" >" + article.getTitle() + "</dd>"
+            + "<dd><span class=\"fch\">" + description + "</span></dd>"
+            + "<dd>" + article.getHit() + "&nbsp次阅读</dd>"
+            + "</dl>" + "</a>";
+        result.append(curHtml);
+      });
+    } else {
+
+    }
+    return result.toString();
+  }
+
+
   private void hightLight (String content, List<Article> articles) {
     articles.forEach(article -> {
       String title = article.getTitle();
@@ -349,8 +394,17 @@ public class BlogController extends BaseController {
 
   @PostMapping("/h5page/q/{categoryId}")
   @ResponseBody
-  public AjaxResult queryByCategory (@PathVariable("categoryId") String categoryId, String content, Model model) {
-    model.addAttribute("content", content);
+  public AjaxResult queryByCategory (@PathVariable("categoryId") String categoryId, String content) {
+    List<Article> articles = getArticles(categoryId, content);
+    PageInfo pageInfo = new PageInfo(articles);
+    Map<String, Object> model = new HashMap<>();
+    model.put("totalPages", pageInfo.getTotal());
+    model.put("hasNext", pageInfo.isHasNextPage());
+    model.put("dataHtml", appandHtml(articles));
+    return AjaxResult.success(model);
+  }
+
+  private List<Article> getArticles (@PathVariable("categoryId") String categoryId, String content) {
     Article form = new Article();
     if (!ObjectUtils.isEmpty(content)) {
       form.setTitle(content.trim());
@@ -358,8 +412,7 @@ public class BlogController extends BaseController {
     }
     form.setCategoryId(categoryId);
     startPage();
-    List<Article> articles = articleService.fuzzySearchList(form);
-    return AjaxResult.success(articles);
+    return articleService.fuzzySearchList(form);
   }
 
   /**

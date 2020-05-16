@@ -108,12 +108,15 @@
   </div>
   <!-- 返回顶部 -->
   <div onclick="goBackTop();" class="goBackTop"><span></span></div>
+  <input id="currentIndex" th:value="${currentPage}" style="display: none">
+  <input id="totalPage" th:value="${totalPages}" style="display: none">
+  <input id="category" value="ALL" style="display: none">
 </div>
 <script th:src="@{/blog/avatar/js/jquery-2.1.4.min.js}"></script>
 <script th:src="@{/blog/h5PageJs/common.js}"></script>
 <script>
-  var currentIndex = 2; //当前页码
-  var totalPage = 3; //共多少页
+  var currentIndex = parseInt($("#currentIndex").val()); //当前页码
+  var totalPage = parseInt($("#totalPage").val()); //共多少页
   hideURLbar(); //隐藏地址栏
   goBackTop(); //返回顶部
   loadImgs(); //加载图片
@@ -124,6 +127,12 @@
     this.setAttribute("class", "cur");
     categoryId = this.value;
     content = $("#search-word").text();
+    if (categoryId) {
+      $("#category").val(categoryId);
+    } else {
+      $("#category").val("ALL");
+    }
+
     url = window.location.origin + '/blog/h5page/q/' + categoryId;
     $.ajax({
       cache: true,
@@ -141,33 +150,13 @@
         //$.modal.alertError("系统错误");
       },
       success: function (data) {
-        var resultHtml = "";
-        if (data.data.length > 0) {
-          for (var i = 0; i < data.data.length; i++) {
-            var description = data.data[i].description;
-            if (description.length > 46) {
-              description = description.substr(0, 46) + "..."
-            }
-            html = '<a href=/blog/h5page/detail/' + data.data[i].id + ' target="_self">' +
-                '<dl class="clear">' +
-                '<dt>' +
-                '<div class="bookPic">' +
-                '<img alt="' + data.data[i].title + '" src="' + data.data[i].coverImage + '">' +
-                '<span class="bookPage">5</span>' +
-                '</div>' +
-                '</dt>' +
-                '<dd class="bookTitle" >' + data.data[i].title + '</dd>' +
-                '<dd><span class="fch">' +
-                description + '</span></dd>' +
-                '<dd>' + data.data[i].hit + '&nbsp次阅读</dd>' +
-                '</dl>' +
-                '</a>';
-            resultHtml = resultHtml + html;
-          }
-          $("#sections").html(resultHtml);
+        $("#sections").html(data.data.dataHtml);
+        var oLoadState = jQuery(".loadMoreData");
+        if (data.data.hasNext) {
+          oLoadState.show();
+        } else {
+          oLoadState.hide();
         }
-
-        console.log(data);
       }
     });
   });
@@ -181,27 +170,36 @@
     if (jQuery("#sections a dl").length < 10) {
       oLoadBtn.hide();
     }
-
+    currentIndex = parseInt($("#currentIndex").val()) + 1;
+    $("#currentIndex").val(currentIndex);
     if (oLoadBtn.length > 0) {
       oLoadBtn.show();
       oLoadBtn.bind("click", function () {
         oLoadState.html("正在加载..");
+        var keyWord = $("#search-word").text();
+        var url;
+        if ('ALL' == $("#category").val()) {
+          url = window.location.origin + '/blog/h5page/search/p?content=' + keyWord;
+        } else {
+          url = window.location.origin + '/blog/h5page/q/' + categoryId;
+        }
         jQuery.ajax({
-          url: "data/ajax_index.txt",
-          data: "page=" + currentIndex,
+          url: url,
+          type: "POST",
+          data: "pageNum=" + currentIndex,
           context: jQuery("#sections"),
           success: function (data) {
-            var dataHtml = data.trim();
+            var dataHtml = data.data.dataHtml;
             if (dataHtml == "" || dataHtml == null) {
               oLoadState.hide();
               return;
             }
-            jQuery(this).append(dataHtml);
+            $("#sections").append(dataHtml);
             if (currentIndex < totalPage) {
               loadImgs(); //加载图片
               oLoadState.html("点击加载更多");
               currentIndex++;
-              if (currentIndex == totalPage) {
+              if (currentIndex == totalPage + 1) {
                 oLoadState.hide();
               }
             } else {

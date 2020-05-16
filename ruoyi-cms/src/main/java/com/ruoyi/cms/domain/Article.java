@@ -90,7 +90,7 @@ public class Article extends BaseEntity {
    * pdf标志
    */
   @Excel(name = "pdf标志")
-  private int pdfFlag;
+  private Integer pdfFlag;
 
   /**
    * 频道栏目ID
