@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width,maximum-scale=1.0,minimum-scale=1.0,initial-scale=1.0,user-scalable=no">
   <meta name="keywords" content="">
   <meta name="description" content="">
-  <title>搜索结果列表</title>
+  <title>机场工程</title>
   <link rel="stylesheet" type="text/css" th:href="@{/blog/h5PageCss/menu.css}"/>
   <link rel="stylesheet" type="text/css" th:href="@{/blog/h5PageCss/base.css}"/>
   <link rel="stylesheet" type="text/css" th:href="@{/blog/h5PageCss/index.css}"/>
@@ -47,39 +47,6 @@
         <span class="more_touch_btn"><span class="ico_more_btn"></span></span>
       </div>
     </div>
-    <!--    <nav class="search-nav-container">-->
-    <!--      <ul class="search-nav-li">-->
-    <!--        <li class="cur" data-type="1"><a href="###">全部</a></li>-->
-    <!--        &lt;!&ndash;            <li class="" data-type="1"><a href="###">机场运营</a></li>&ndash;&gt;-->
-    <!--        &lt;!&ndash;            <li class="" data-type="1"><a href="###">机场运营</a></li>&ndash;&gt;-->
-    <!--        &lt;!&ndash;            <li class="" data-type="1"><a href="###">机场运营</a></li>&ndash;&gt;-->
-    <!--        &lt;!&ndash;            <li class="" data-type="1"><a href="###">机场运营</a></li>&ndash;&gt;-->
-    <!--        &lt;!&ndash;            <li class="" data-type="1"><a href="###">其他</a></li>&ndash;&gt;-->
-    <!--        &lt;!&ndash;        <li th:each="category:${@cms.selectNavCategories()}" th:if="${category.parentId==null||category.parentId==0}">&ndash;&gt;-->
-    <!--        &lt;!&ndash;          <a th:href="@{${'/blog/category/' + category.categoryId}}" th:text="${category.categoryName}" th:title="${category.categoryName}"></a>&ndash;&gt;-->
-    <!--        &lt;!&ndash;        </li>&ndash;&gt;-->
-    <!--        <li id="openType" class="openType" data-type="5">-->
-    <!--          <a href="javascript:void(0);"><span class="doc-type">格式</span><span class="type_down"></span>-->
-    <!--          </a>-->
-    <!--        </li>-->
-    <!--      </ul>-->
-    <!--      <div class="type_down_list">-->
-    <!--        <div class="type_down_list_inner">-->
-    <!--          <div class="type_down_list_bd">-->
-    <!--            <ul class="type_item">-->
-    <!--              <li class="on"><a href="###" title="全部">全部</a></li>-->
-    <!--              <li class=""><a href="###" title="PDF">PDF</a></li>-->
-    <!--              <li class=""><a href="###" title="DOC">DOC</a></li>-->
-    <!--              <li class=""><a href="###" title="PPT">PPT</a></li>-->
-    <!--              <li class=""><a href="###" title="XLS">XLS</a></li>-->
-    <!--              <li class=""><a href="###" title="TXT">TXT</a></li>-->
-    <!--              <li class=""><a href="###" title="豆单">豆单</a></li>-->
-    <!--            </ul>-->
-    <!--          </div>-->
-    <!--        </div>-->
-    <!--        <span class="hide_type_list">点击此处向上收起</span>-->
-    <!--      </div>-->
-    <!--    </nav>-->
   </div>
   <!-- 搜索结果列表 -->
   <div id="content">
@@ -122,6 +89,7 @@
   loadImgs(); //加载图片
   loadMoreData(); //点击加载更多
   navFunc();//页签切换
+  handleChannel();
   $(".search-nav-li li").click(function () {
     $(".search-nav-li li").removeClass("cur");
     this.setAttribute("class", "cur");

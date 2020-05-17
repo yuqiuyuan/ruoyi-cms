@@ -13,6 +13,7 @@
   <link rel="stylesheet" type="text/css" th:href="@{/blog/h5PageCss/base.css}"/>
   <link rel="stylesheet" type="text/css" th:href="@{/blog/h5PageCss/detail.css}"/>
   <link rel="stylesheet" type="text/css" th:href="@{/blog/h5PageCss/view.css}"/>
+  <link rel="stylesheet" type="text/css" th:href="@{/blog/h5PageCss/list.css}"/>
 </head>
 <body style="padding-top: 43px;">
 <div id="docpage" class="player-wrap">
@@ -29,32 +30,16 @@
         <!-- 普通搜索 -->
         <div class="toolbar_search"><span class="ico_btn_blue_search"></span></div>
         <!-- 漫画订阅 -->
-        <!-- 小说历史 -->
-        <!-- 漫画搜索 -->
-        <!-- 医疗 -->
-        <!-- 小说搜索-->
         <div class="toolbar_more"><span class="ico_more_btn"></span></div>
       </div>
     </header>
-    <div class="header_nav_list headerBg" style="height: 0px;">
+    <div class="header_nav_list" style="height: 0px;">
       <ul class="header_nav_list_ul">
         <li><a href="###" title="首页">首页</a></li>
-        <li><a href="###" title="分类">分类</a></li>
-        <li><a href="###" title="专题">专题</a></li>
-        <li><a href="###" title="Plus会员">Plus会员</a></li>
-        <li><a href="###" title="我的" class="info-my">我的</a></li>
-        <li><a href="###" title="建筑">建筑</a></li>
-        <li><a href="###" title="考研">考研</a></li>
-        <li><a href="###" title="在家学" class="hot">在家学</a></li>
-        <li><a href="###" title="课堂">课堂</a></li>
-        <li><a href="###" title="充值">充值</a></li>
-        <li><a href="###" title="医疗">医疗</a></li>
-        <li><a href="###" title="小说">小说</a></li>
-        <li><a href="###" title="微案例">微案例</a></li>
-        <li><a href="###" title="日报">日报</a></li>
-        <li><a href="###" title="下载App">下载App</a></li>
-        <li><a href="###" title="漫画">漫画</a></li>
-        <li><a href="###" title="订阅">订阅</a></li>
+        <li class="" th:value="${category.categoryId}" th:each="category:${@cms.selectNavCategories()}"
+            th:if="${category.parentId==null||category.parentId==0}">
+          <a href="javascript:void(0)" th:text="${category.categoryName}" th:title="${category.categoryName}"></a>
+        </li>
       </ul>
     </div>
   </div>

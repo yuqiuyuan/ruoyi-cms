@@ -152,7 +152,7 @@ body {
 }
 
 .headerBg {
-  background: url(../images/index_top_bg.jpg) 0 0 no-repeat;
+  /*background: url(../images/index_top_bg.jpg) 0 0 no-repeat;*/
   background-size: cover;
 }
 
@@ -777,7 +777,7 @@ body {
 
 /*head nav list*/
 .header_nav_list {
-  background-color: #3479ba;
+  background-color: #338aec;
   transition: all .3s;
   opacity: 0;
   overflow: hidden;

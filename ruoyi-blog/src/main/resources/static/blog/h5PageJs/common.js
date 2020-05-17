@@ -258,9 +258,9 @@ var touchFun = {
     }
     if (oShowNavlistBtn.length > 0 && oToolHeadTop.length > 0) {
       jQuery(".m-header-top .header_nav_list").addClass("headerBg");
-      var oNavListHeight = "130px"; //100
+      var oNavListHeight = "75px"; //100
 
-      var oHeaderHeight = "173px"; //173
+      var oHeaderHeight = "114px"; //173
       jQuery(".header_nav_list").css("height", 0);
       var headerBarHeight = jQuery(".m-header-top").height();
       jQuery("body").css({
@@ -480,7 +480,7 @@ var touchFun = {
 touchFun.touchFunInit();
 
 function inputForbidTab() { //ios input调起键盘时禁止tab切换
-  // 判断是否是IOS
+                            // 判断是否是IOS
   if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
 
     jQuery('input, textarea').on('focus', function () {
@@ -492,4 +492,12 @@ function inputForbidTab() { //ios input调起键盘时禁止tab切换
 
     jQuery('select').attr('tabindex', '-1')
   }
+}
+function handleChannel() {
+  jQuery(".more_touch_btn").click(function() {
+    jQuery(".m-channel-box").removeClass("fadeOutUp").addClass("fadeInDown");
+  })
+  jQuery(".header-cancel,.header-back").click(function() {
+    jQuery(".m-channel-box").removeClass("fadeInDown").addClass("fadeOutUp");
+  })
 }
