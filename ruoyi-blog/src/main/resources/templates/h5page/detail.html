@@ -104,9 +104,13 @@
         页
       </div>
     </div>
+    <div id="refreshPage" th:if="${hasNext}" class="foldpagewg-root2 foldpagewg-top-up">
+      <div class="foldpagewg-text">点击加载更多</div>
+      <div class="foldpagewg-icon"></div>
+    </div>
   </div>
   <!-- 已阅读文档尾部 -->
-  <div id="j_isend" class="no_more_mod" style="display: block;">
+  <div id="j_isend" th:if="${!hasNext}" class="no_more_mod" style="display: block;">
     <div class="no_more_inner">
       <div class="no_more_tips">
         <p style="margin-bottom:28px;">君，已阅读到文档结尾了~</p>
@@ -140,6 +144,9 @@
   <!--  </div>-->
   <!-- 返回顶部 -->
   <div onclick="goBackTop();" class="goBackTop"><span></span></div>
+  <input id="curPage" style="display:none;" value="1"/>
+  <input id="totalPages" style="display:none;" th:value="${totalPages}"/>
+  <input id="hasNext" style="display:none;" th:value="${hasNext}"/>
 </div>
 
 <script th:src="@{/blog/avatar/js/jquery-2.1.4.min.js}"></script>
@@ -219,6 +226,7 @@
         _this.curLoadPage = (_this.curSectionIndex - 1) * _this.perNum;
       }
       // _this.createPage();
+      _this.ctrolTabBtn();
     },
     createPage: function () {
       var _this = this;
@@ -260,18 +268,51 @@
     },
     ctrolTabBtn: function () {
       var _this = this;
-      if (typeof (pageRecord) != "undefined" && pageRecord > 1) {
-        jQuery(".convertTips,.docInfoMod, .docInfoMod1").hide();
-        jQuery(
-            '<div id="refreshPage" class="foldpagewg-root2 foldpagewg-top-up"><div class="foldpagewg-text">点击加载更多</div><div class="foldpagewg-icon"></div></div>'
-        ).prependTo(jQuery("#docContent"));
+      if ($("#hasNext").val()) {
+        // jQuery(".convertTips,.docInfoMod, .docInfoMod1").hide();
+        // jQuery(
+        //     '<div id="refreshPage" class="foldpagewg-root2 foldpagewg-top-up"><div class="foldpagewg-text">点击加载更多</div><div class="foldpagewg-icon"></div></div>'
+        // ).prependTo(jQuery("#docContent"));
         jQuery("#refreshPage").click(function () {
-          pageRecord = 0;
-          _this.curLoadPage = 0;
-          _this.curSectionIndex = 1;
-          jQuery("#docContent").html("");
-          _this.createPage1();
-          jQuery(".convertTips,.docInfoMod, .docInfoMod1").show();
+          $("#refreshPage").remove();
+          var curPage = parseInt($("#curPage").val()) + 1;
+          $("#curPage").val(curPage)
+          url = window.location.href + "/q";
+          jQuery.ajax({
+            url: url,
+            type: "POST",
+            data: "pageNum=" + curPage,
+            context: jQuery("#sections"),
+            success: function (data) {
+              var dataHtml = data.data.dataHtml;
+              if (dataHtml == "" || dataHtml == null) {
+                oLoadState.hide();
+                return;
+              }
+              $("#docContent").append(dataHtml);
+              if (data.data.hasNext) {
+                $("#docContent").append(
+                    "<div id=\"refreshPage\" class=\"foldpagewg-root2 foldpagewg-top-up\"><div class=\"foldpagewg-text\">点击加载更多</div><div class=\"foldpagewg-icon\"></div></div>");
+              } else {
+                $("#docpage").append()
+                var bottum = "  <div id=\"j_isend\" class=\"no_more_mod\" style=\"display: block;\">\n"
+                    + "    <div class=\"no_more_inner\">\n"
+                    + "      <div class=\"no_more_tips\">\n"
+                    + "        <p style=\"margin-bottom:28px;\">君，已阅读到文档结尾了~</p>\n"
+                    + "        <div class=\"freeDown\">\n"
+                    + "          <div class=\"free_down_fun\">\n"
+                    + "            <a class=\"free_down_btns\" href=\"javascript:void(0);\">立即下载</a>\n"
+                    + "            <a class=\"free_down_btns nextDoc\" href=\"javascript:void(0);\">换一篇</a>\n"
+                    + "          </div>\n"
+                    + "          <!--          <span class=\"ico_button btnc_light_blue openInApp\">从APP打开该文档，阅读高清版</span>-->\n"
+                    + "        </div>\n"
+                    + "      </div>\n"
+                    + "    </div>\n"
+                    + "  </div>";
+                $("#docpage").append(bottum)
+              }
+            }
+          });
 
         });
       }

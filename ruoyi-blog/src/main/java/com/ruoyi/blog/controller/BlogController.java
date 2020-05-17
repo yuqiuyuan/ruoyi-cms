@@ -187,16 +187,16 @@ public class BlogController extends BaseController {
     return "处理完成";
   }
 
-  private String appandDocument (PdfDetail pdfDetail) {
+  private String appandDocument (List<PdfDetail> pdfDetails) {
     StringBuilder result = new StringBuilder();
-    result.append("<div class=\"panel pagemodel\" data-page=\"").append(pdfDetail.getCurRecords()).append("\">");
-    result.append("<div id = \"page1\" >");
-    result.append("<img th:src = \"").append(pdfDetail.getUrl()).append("\" data - imgid = \"1\" style = \"transform: scale(1);\" ></div >");
-    result.append("<div class=\"pageNum\" >");
-    result.append("<text th:text = \"").append(pdfDetail.getCurRecords());
-    result.append("\" ></text >/");
-    result.append("<text th:text = \"").append(pdfDetail.getTotalRecords()).append("\" ></text >页");
-    result.append("</div ></div >");
+    pdfDetails.forEach(pdfDetail -> {
+      result.append("<div class=\"panel pagemodel\" data-page=\"").append(pdfDetail.getCurRecords()).append("\">");
+      result.append("<div id = \"page1\" >");
+      result.append("<img src = \"").append(pdfDetail.getUrl()).append("\" data - imgid = \"1\" style = \"transform: scale(1);\" ></div >");
+      result.append("<div class=\"pageNum\" >").append(pdfDetail.getCurRecords() + 1).append(" / ");
+      result.append(pdfDetail.getTotalRecords()).append(" 页");
+      result.append("</div ></div >");
+    });
     return result.toString();
   }
 
@@ -321,6 +321,31 @@ public class BlogController extends BaseController {
     return AjaxResult.success(data);
   }
 
+
+  /**
+   * 文章详情
+   *
+   * @param articleId
+   * @return
+   */
+  @PostMapping("/h5page/detail/{articleId}/q")
+  @ResponseBody
+  public AjaxResult h5pageDetailq (@PathVariable("articleId") String articleId) {
+    Article article = articleService.selectArticleById(articleId);
+    if (article == null) {
+      throw new BusinessException("该文章不存在!");
+    }
+    PdfDetail query = new PdfDetail();
+    query.setArticleId(articleId);
+    startPage(5);
+    List<PdfDetail> articleDetails = articleService.getArticleDetail(query);
+    PageInfo pageInfo = new PageInfo(articleDetails);
+    Map<String, Object> model = new HashMap<>();
+    model.put("totalPages", pageInfo.getTotal());
+    model.put("hasNext", pageInfo.isHasNextPage());
+    model.put("dataHtml", appandDocument(articleDetails));
+    return AjaxResult.success(model);
+  }
 
   /**
    * 文章详情
