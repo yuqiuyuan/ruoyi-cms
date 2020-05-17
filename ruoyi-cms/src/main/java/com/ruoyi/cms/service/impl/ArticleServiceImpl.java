@@ -107,7 +107,6 @@ public class ArticleServiceImpl implements IArticleService {
   @Override
   @Transactional
   public int insertArticle (Article article) {
-    article.setId(Guid.get());
     article.setCreateTime(DateUtils.getNowDate());
     article.setUpdateTime(DateUtils.getNowDate());
     SysUser user = ShiroUtils.getSysUser();

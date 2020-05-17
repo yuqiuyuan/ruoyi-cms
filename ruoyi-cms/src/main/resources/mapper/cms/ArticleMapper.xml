@@ -51,6 +51,7 @@
   <select id="selectArticleList" parameterType="Article" resultMap="ArticleResult">
     <include refid="selectArticleVo"/>
     <where>
+      <if test="id != null  and id != ''">and id = #{id}</if>
       <if test="yhid != null  and yhid != ''">and yhid = #{yhid}</if>
       <if test="articleRegion != null  and articleRegion != ''">and article_region = #{articleRegion}</if>
       <if test="author != null  and author != ''">and author = #{author}</if>

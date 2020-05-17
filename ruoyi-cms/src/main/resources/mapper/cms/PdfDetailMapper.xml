@@ -38,7 +38,7 @@
       <if test="curRecords != null  and curRecords != ''">cur_records,</if>
       <if test="totalPages != null  and totalPages != ''">total_pages,</if>
       <if test="curPages != null  and curPages != ''">cur_pages,</if>
-      <if test="deleteFlag != null  and deleteFlag != ''">delete_flag,</if>
+      delete_flag,
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null  and id != ''">#{id},</if>

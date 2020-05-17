@@ -4,25 +4,42 @@ package com.ruoyi.blog.controller;
 import cn.hutool.cache.Cache;
 import cn.hutool.cache.CacheUtil;
 import cn.hutool.core.collection.CollectionUtil;
+import com.aliyun.oss.OSS;
+import com.aliyun.oss.OSSClientBuilder;
+import com.aliyun.oss.model.GetObjectRequest;
+import com.aliyun.oss.model.OSSObject;
 import com.github.pagehelper.PageInfo;
 import com.ruoyi.cms.domain.*;
+import com.ruoyi.cms.mapper.PdfDetailMapper;
 import com.ruoyi.cms.service.*;
 import com.ruoyi.cms.util.CmsConstants;
+import com.ruoyi.cms.util.PdfHelper;
 import com.ruoyi.common.core.controller.BaseController;
 import com.ruoyi.common.core.domain.AjaxResult;
 import com.ruoyi.common.exception.BusinessException;
 import com.ruoyi.common.utils.DateUtils;
+import com.ruoyi.common.utils.Guid;
 import com.ruoyi.common.utils.IpUtils;
 import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.system.service.ISysConfigService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLEncoder;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -32,6 +49,7 @@ import java.util.stream.Collectors;
  * @author wujiyue
  * @date 2019-11-16
  */
+@Slf4j
 @Controller
 @RequestMapping("/blog")
 public class BlogController extends BaseController {
@@ -40,6 +58,23 @@ public class BlogController extends BaseController {
   //private static final String theme="/pnews";
   //private static final String theme="/pblog";
   //private static final String theme="/avatar";
+  @Value("${cms.oss.endpoint}")
+  private String endpoint;
+
+  @Value("${cms.oss.accessKeyId}")
+  private String accessKeyId;
+
+  @Value("${cms.oss.accessKeySecret}")
+  private String accessKeySecret;
+
+  @Value("${cms.oss.bucketName}")
+  private String bucketName;
+
+  @Value("${cms.oss.objectName}")
+  private String objectName;
+
+  @Resource
+  PdfDetailMapper pdfDetailMapper;
 
   @Autowired
   private IArticleService articleService;
@@ -117,6 +152,55 @@ public class BlogController extends BaseController {
     return "h5page/index";
   }
 
+  /**
+   * 首页
+   *
+   * @param model
+   * @return
+   */
+  @GetMapping({"/h5page/pdfDeal/{articleId}"})
+  @ResponseBody
+  public String pdfDeal (Model model, @PathVariable("articleId") String articleId) {
+    Article q = new Article();
+    q.setId(articleId);
+    List<Article> articles = articleService.selectArticleList(q);
+    OSS ossClient = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);
+    try {
+      articles.forEach(article -> {
+        log.info("{} 处理中。。。", article.getTitle());
+        String[] url = article.getStaticUrl().split("/");
+        OSSObject object = ossClient
+            .getObject(new GetObjectRequest(bucketName, objectName + File.separator + "document" + File.separator + url[url.length - 1]));
+        try {
+          byte[] pdfBytes = PdfHelper.ossContent(object.getObjectContent());
+          addPdfDetail(ossClient, UUID.randomUUID().toString(), article.getId(), pdfBytes);
+        } catch (IOException e) {
+          e.printStackTrace();
+        }
+        log.info("{} 处理完成", article.getTitle());
+      });
+    } catch (Exception e) {
+      log.error("{}处理异常", "", e);
+    } finally {
+      ossClient.shutdown();
+    }
+    return "处理完成";
+  }
+
+  private String appandDocument (PdfDetail pdfDetail) {
+    StringBuilder result = new StringBuilder();
+    result.append("<div class=\"panel pagemodel\" data-page=\"").append(pdfDetail.getCurRecords()).append("\">");
+    result.append("<div id = \"page1\" >");
+    result.append("<img th:src = \"").append(pdfDetail.getUrl()).append("\" data - imgid = \"1\" style = \"transform: scale(1);\" ></div >");
+    result.append("<div class=\"pageNum\" >");
+    result.append("<text th:text = \"").append(pdfDetail.getCurRecords());
+    result.append("\" ></text >/");
+    result.append("<text th:text = \"").append(pdfDetail.getTotalRecords()).append("\" ></text >页");
+    result.append("</div ></div >");
+    return result.toString();
+  }
+
+
   @GetMapping("/h5page/search")
   public String h5search (String content, Model model) {
     model.addAttribute("content", content);
@@ -162,6 +246,27 @@ public class BlogController extends BaseController {
     model.put("hasNext", pageInfo.isHasNextPage());
     model.put("dataHtml", appandHtml(articles));
     return AjaxResult.success(model);
+  }
+
+  private void addPdfDetail (OSS ossClient, String originalFilename, String articleId, byte[] content) {
+    int rows = PdfHelper.getPages(content);
+    for (int i = 0; i < rows; i++) {
+      byte[] bytes = PdfHelper.pdf2imgFromBytes(content, i);
+      String url = uploadToOss(ossClient, originalFilename, bytes, i);
+      PdfDetail pdfDetail = new PdfDetail();
+      pdfDetail.setCurRecords(i);
+      pdfDetail.setTotalRecords(rows);
+      pdfDetail.setUrl(url);
+      pdfDetail.setArticleId(articleId);
+      pdfDetail.setId(Guid.get());
+      pdfDetailMapper.insertPdfDetail(pdfDetail);
+    }
+  }
+
+  private String uploadToOss (OSS ossClient, String originFilename, byte[] content, int i) {
+    final String object = objectName + File.separator + "document" + File.separator + originFilename + "-" + i;
+    ossClient.putObject(bucketName, object, new ByteArrayInputStream(content));
+    return String.format("https://%s.%s/%s", bucketName, endpoint, object);
   }
 
   private String appandHtml (List<Article> articles) {
@@ -232,11 +337,23 @@ public class BlogController extends BaseController {
     }
     PdfDetail query = new PdfDetail();
     query.setArticleId(articleId);
+    startPage();
     List<PdfDetail> articleDetail = articleService.getArticleDetail(query);
+    PageInfo pageInfo = new PageInfo(articleDetail);
     article.setPublishTime(DateUtils.dateTime(article.getUpdateTime()));
     model.addAttribute("article", article);
     model.addAttribute("categoryId", article.getCategoryId());
     model.addAttribute("articleDetail", articleDetail);
+    model.addAttribute("total", pageInfo.getTotal());
+    model.addAttribute("pageNo", pageInfo.getPageNum());
+    model.addAttribute("pageSize", pageInfo.getPageSize());
+    model.addAttribute("totalPages", pageInfo.getPages());
+    model.addAttribute("hasPrevious", pageInfo.isHasPreviousPage());
+    model.addAttribute("hasNext", pageInfo.isHasNextPage());
+    model.addAttribute("currentPage", pageInfo.getPageNum());
+    model.addAttribute("prePage", pageInfo.getPrePage());
+    model.addAttribute("nextPage", pageInfo.getNextPage());
+    model.addAttribute("navNums", pageInfo.getNavigatepageNums());
     return "/h5page/detail";
   }
 

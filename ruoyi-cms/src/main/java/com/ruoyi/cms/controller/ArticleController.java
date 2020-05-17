@@ -15,6 +15,7 @@ import com.ruoyi.cms.util.CmsConstants;
 import com.ruoyi.common.config.Global;
 import com.ruoyi.common.core.text.Convert;
 import com.ruoyi.common.exception.BusinessException;
+import com.ruoyi.common.utils.Guid;
 import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.common.utils.file.FileUploadUtils;
 import com.ruoyi.common.utils.file.MimeTypeUtils;
@@ -118,6 +119,7 @@ public class ArticleController extends BaseController
     @ResponseBody
     public AjaxResult addSave(Article article)
     {
+        article.setId(Guid.get());
         return toAjax(articleService.insertArticle(article));
     }
 

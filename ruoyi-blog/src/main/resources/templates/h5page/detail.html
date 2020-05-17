@@ -80,7 +80,7 @@
       <!--      <em class="pdf"></em>-->
       <div class="detail ">
         <p>
-          <span class="size">2.61M,&nbsp;17页,<text th:text="${article.hit}"></text>次阅读</span>
+          <span class="size">2.61M,&nbsp;<text th:text="${total}"></text>页,<text th:text="${article.hit}"></text>次阅读</span>
           <a class="detail_download" data-handel="download" href="javascript:void(0);">[立即下载]</a>
         </p>
         <p>
@@ -93,11 +93,11 @@
   <!-- 文档主要内容 -->
   <div id="docContent">
     <div class="panel pagemodel" th:each="item,temp:${articleDetail}" th:data-page="${item.curRecords}">
-      <div id="page1" style="height: 266.25px; overflow: hidden;">
+      <div id="page1">
         <img th:src="${item.url}" data-imgid="1"
              style="transform: scale(1);"></div>
       <div class="pageNum">
-        <text th:text="${item.curRecords}"></text>
+        <text th:text="${item.curRecords+1}"></text>
         /
         <text th:text="${item.totalRecords}"></text>
         页
