@@ -13,6 +13,17 @@
   <link rel="stylesheet" type="text/css" th:href="@{/blog/h5PageCss/base.css}"/>
   <link rel="stylesheet" type="text/css" th:href="@{/blog/h5PageCss/detail.css}"/>
   <link rel="stylesheet" type="text/css" th:href="@{/blog/h5PageCss/view.css}"/>
+  <style>
+    .max {
+      width: 100%;
+      height: auto;
+    }
+
+    .min {
+      width: 100px;
+      height: auto;
+    }
+  </style>
 </head>
 <body style="padding-top: 43px;">
 <div id="docpage" class="player-wrap">
@@ -96,7 +107,7 @@
     <div class="panel pagemodel" th:each="item,temp:${articleDetail}" th:data-page="${item.curRecords}">
       <div id="page1">
         <img th:src="${item.url}" data-imgid="1"
-             style="transform: scale(1);"></div>
+             style="transform: scale(1);" class="pdfImg"></div>
       <div class="pageNum">
         <text th:text="${item.curRecords+1}"></text>
         /
@@ -141,8 +152,17 @@
   <!-- 返回顶部 -->
   <div onclick="goBackTop();" class="goBackTop"><span></span></div>
 </div>
+
 <script th:src="@{/blog/avatar/js/jquery-2.1.4.min.js}"></script>
 <script th:src="@{/blog/h5PageJs/common.js}"></script>
+<script>
+  $(function () {
+    $('.pdfImg').click(function () {
+      $(this).toggleClass('min');
+      $(this).toggleClass('max');
+    });
+  });
+</script>
 <script>
   hideURLbar(); //隐藏地址栏
   goBackTop(); //返回顶部
