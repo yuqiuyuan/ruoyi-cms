@@ -291,8 +291,10 @@
               }
               $("#docContent").append(dataHtml);
               if (data.data.hasNext) {
+                $("#hasNext").val(data.data.hasNext);
                 $("#docContent").append(
                     "<div id=\"refreshPage\" class=\"foldpagewg-root2 foldpagewg-top-up\"><div class=\"foldpagewg-text\">点击加载更多</div><div class=\"foldpagewg-icon\"></div></div>");
+                _this.ctrolTabBtn();
               } else {
                 $("#docpage").append()
                 var bottum = "  <div id=\"j_isend\" class=\"no_more_mod\" style=\"display: block;\">\n"
