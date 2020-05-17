@@ -354,7 +354,7 @@ public class BlogController extends BaseController {
     model.addAttribute("prePage", pageInfo.getPrePage());
     model.addAttribute("nextPage", pageInfo.getNextPage());
     model.addAttribute("navNums", pageInfo.getNavigatepageNums());
-    return "/h5page/detail";
+    return "h5page/detail";
   }
 
   /**
