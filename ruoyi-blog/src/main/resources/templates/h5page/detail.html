@@ -13,17 +13,6 @@
   <link rel="stylesheet" type="text/css" th:href="@{/blog/h5PageCss/base.css}"/>
   <link rel="stylesheet" type="text/css" th:href="@{/blog/h5PageCss/detail.css}"/>
   <link rel="stylesheet" type="text/css" th:href="@{/blog/h5PageCss/view.css}"/>
-  <style>
-    .max {
-      width: 200%;
-      height: auto;
-    }
-
-    .min {
-      width: 100px;
-      height: auto;
-    }
-  </style>
 </head>
 <body style="padding-top: 43px;">
 <div id="docpage" class="player-wrap">
@@ -155,14 +144,6 @@
 
 <script th:src="@{/blog/avatar/js/jquery-2.1.4.min.js}"></script>
 <script th:src="@{/blog/h5PageJs/common.js}"></script>
-<script>
-  $(function () {
-    $('.pdfImg').click(function () {
-      $(this).toggleClass('min');
-      $(this).toggleClass('max');
-    });
-  });
-</script>
 <script>
   hideURLbar(); //隐藏地址栏
   goBackTop(); //返回顶部

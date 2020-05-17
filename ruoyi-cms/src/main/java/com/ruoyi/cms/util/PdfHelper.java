@@ -60,7 +60,7 @@ public class PdfHelper {
     try {
       doc = PDDocument.load(input);
       PDFRenderer renderer = new PDFRenderer(doc);
-      BufferedImage image = renderer.renderImage(0, 1.25f);
+      BufferedImage image = renderer.renderImageWithDPI(0, 0.5f);
       ByteArrayOutputStream imageOutputStream = new ByteArrayOutputStream();
       ImageIO.write(image, "PNG", imageOutputStream);
       return imageOutputStream.toByteArray();
@@ -100,7 +100,7 @@ public class PdfHelper {
     try {
       doc = PDDocument.load(input);
       PDFRenderer renderer = new PDFRenderer(doc);
-      BufferedImage image = renderer.renderImage(i, 1.25f);
+      BufferedImage image = renderer.renderImage(i, 7f);
       ByteArrayOutputStream imageOutputStream = new ByteArrayOutputStream();
       ImageIO.write(image, "PNG", imageOutputStream);
       return imageOutputStream.toByteArray();

@@ -337,7 +337,7 @@ public class BlogController extends BaseController {
     }
     PdfDetail query = new PdfDetail();
     query.setArticleId(articleId);
-    startPage();
+    startPage(5);
     List<PdfDetail> articleDetail = articleService.getArticleDetail(query);
     PageInfo pageInfo = new PageInfo(articleDetail);
     article.setPublishTime(DateUtils.dateTime(article.getUpdateTime()));
