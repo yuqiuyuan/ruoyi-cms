@@ -11,6 +11,7 @@
   <link rel="stylesheet" type="text/css" th:href="@{/blog/h5PageCss/base.css}"/>
   <link rel="stylesheet" type="text/css" th:href="@{/blog/h5PageCss/index.css}"/>
   <link rel="stylesheet" type="text/css" th:href="@{/blog/h5PageCss/list.css}"/>
+  <!--  <link rel="stylesheet" type="text/css" th:href="@{/blog/h5PageCss/detail.css}"/>-->
   <style>
     .search-nav-li {
       width: 100%;
@@ -20,6 +21,32 @@
 </head>
 <body>
 <div id="page">
+  <!-- 头部 -->
+  <div class="m-header-top m-header-top-end" style="margin-top: 96px;">
+    <!--    <header>-->
+    <!--      <div class="header-toolbar-left">-->
+    <!--        <div class="header-back">-->
+    <!--          <a class="ico_btn_back" href="javascript:void(0);"></a>-->
+    <!--        </div>-->
+    <!--      </div>-->
+    <!--      <span class="header-toolbar-title" th:text="${article.title}"></span>-->
+    <!--      <div class="header-toolbar-right">-->
+    <!-- 普通搜索 -->
+    <!--        <div class="toolbar_search"><span class="ico_btn_blue_search"></span></div>-->
+    <!-- 漫画订阅 -->
+
+    <!--      </div>-->
+    <!--    </header>-->
+    <div class="header_nav_list" style="height: 0px">
+      <ul class="header_nav_list_ul">
+        <li><a href="###" title="首页">首页</a></li>
+        <li class="" th:value="${category.categoryId}" th:each="category:${@cms.selectNavCategories()}"
+            th:if="${category.parentId==null||category.parentId==0}">
+          <a href="javascript:void(0)" th:text="${category.categoryName}" th:title="${category.categoryName}"></a>
+        </li>
+      </ul>
+    </div>
+  </div>
   <!-- 搜索结果列表头部 -->
   <div class="searchHeader">
     <div class="m-search-page">
@@ -89,7 +116,8 @@
   loadImgs(); //加载图片
   loadMoreData(); //点击加载更多
   navFunc();//页签切换
-  handleChannel();
+  handleChannelList();
+  openChannelList();
   $(".search-nav-li li").click(function () {
     $(".search-nav-li li").removeClass("cur");
     this.setAttribute("class", "cur");
@@ -176,6 +204,98 @@
             }
           }
         });
+      });
+    }
+  }
+
+  function openChannelList() {
+    var oShowNavlistBtn = jQuery(".more_touch_btn"),
+
+        oToolHeadTop = jQuery(".m-header-top");
+    if (jQuery(".header_nav_list").length > 0) {
+      jQuery(".header_nav_list").css("height", 0);
+    }
+    if (oShowNavlistBtn.length > 0 && oToolHeadTop.length > 0) {
+      jQuery(".m-header-top .header_nav_list").addClass("headerBg");
+      var oNavListHeight = "70px"; //100
+
+      var oHeaderHeight = "168px"; //173
+      jQuery(".header_nav_list").css("height", 0);
+      var headerBarHeight = jQuery(".searchHeader").height();
+      jQuery("body").css({
+        'paddingTop': headerBarHeight + 'px'
+      });
+      oShowNavlistBtn.bind("click", function () {
+        if (jQuery(this).find('span').hasClass("ico_more_up")) {
+          jQuery(this).find('span').removeClass("ico_more_up");
+          jQuery("body").css({
+            'paddingTop': headerBarHeight,
+            'webkitTransition': 'all .3s',
+          });
+          jQuery(".header_nav_list").css({
+            //"visibility":'hidden',
+            'opacity': '0',
+            "height": '0'
+          });
+          // 适应医疗
+          if (jQuery(".header_nav_list").hasClass('header_nav_list_others')) {
+            if (jQuery('.menu').length >= 1) {
+              jQuery('.menu').removeClass('menu-down-cur');
+            }
+            if (jQuery('.menu-detail').length >= 1) {
+              jQuery('.menu-detail').removeClass('menu-detail-cur');
+            }
+            if (jQuery('.search-menu').length >= 1) {
+              jQuery('.search-menu').removeClass('search-menu-cur');
+            }
+          }
+          if (typeof (playerConf) != "undefined" && !jQuery("#wrap").hasClass("minpic")) {
+            var tempHeight = jQuery(window).height() - jQuery(".m-header-top header").height() - 60;
+            jQuery("#wrap").css({
+              "height": tempHeight
+            });
+          }
+        } else {
+          jQuery(this).find('span').addClass("ico_more_up");
+          jQuery(".header_nav_list").css({
+            'opacity': '1',
+            "height": oNavListHeight
+          });
+          jQuery("body").css({
+            'paddingTop': oHeaderHeight,
+            'webkitTransition': 'all .3s'
+          });
+          // 适应医疗
+          if (jQuery(".header_nav_list").hasClass('header_nav_list_others')) {
+            // 查疾病 查药品页
+            if (jQuery('.menu').length >= 1) {
+              jQuery('.menu').addClass('menu-down-cur');
+            }
+            if (jQuery('.menu-detail').length >= 1) {
+              jQuery('.menu-detail').addClass('menu-detail-cur');
+            }
+            // 搜索结果页
+            if (jQuery('.search-menu').length >= 1) {
+              jQuery('.search-menu').addClass('search-menu-cur');
+            }
+          }
+          //alert(oHeaderHeight);
+          if (typeof (playerConf) != "undefined" && !jQuery("#wrap").hasClass("minpic")) {
+            var tempHeight = jQuery(window).height() - oHeaderHeight - 60;
+            jQuery("#wrap").css({
+              "height": tempHeight
+            });
+          }
+          //点击搜索 导航隐藏
+          if (jQuery(".m-header-top-end .ico_btn_black_search").length > 0 && jQuery("#searchBox").is(":visible")) {
+            jQuery("#searchBox").hide();
+          }
+        }
+      });
+    } else if (oShowNavlistBtn.length == 0 && jQuery(".m-header-top-end").length == 1) {
+      var headerBarHeight = jQuery(".m-header-top header").outerHeight();
+      jQuery("body").css({
+        'paddingTop': headerBarHeight + 'px'
       });
     }
   }

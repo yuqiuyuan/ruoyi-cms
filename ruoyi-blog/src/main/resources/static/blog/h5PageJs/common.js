@@ -493,11 +493,21 @@ function inputForbidTab() { //ios input调起键盘时禁止tab切换
     jQuery('select').attr('tabindex', '-1')
   }
 }
+
 function handleChannel() {
-  jQuery(".more_touch_btn").click(function() {
+  jQuery(".more_touch_btn").click(function () {
     jQuery(".m-channel-box").removeClass("fadeOutUp").addClass("fadeInDown");
   })
-  jQuery(".header-cancel,.header-back").click(function() {
+  jQuery(".header-cancel,.header-back").click(function () {
+    jQuery(".m-channel-box").removeClass("fadeInDown").addClass("fadeOutUp");
+  })
+}
+
+function handleChannelList() {
+  jQuery(".more_touch_btn").click(function () {
+    jQuery(".m-channel-box").removeClass("fadeOutUp").addClass("fadeInDown");
+  })
+  jQuery(".header-cancel,.header-back").click(function () {
     jQuery(".m-channel-box").removeClass("fadeInDown").addClass("fadeOutUp");
   })
 }
