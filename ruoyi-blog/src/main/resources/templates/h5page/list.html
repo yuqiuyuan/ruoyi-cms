@@ -42,7 +42,7 @@
         <li><a href="###" title="首页">首页</a></li>
         <li class="" th:value="${category.categoryId}" th:each="category:${@cms.selectNavCategories()}"
             th:if="${category.parentId==null||category.parentId==0}">
-          <a href="javascript:void(0)" th:text="${category.categoryName}" th:title="${category.categoryName}"></a>
+          <a th:href="${'javascript:navDo('+category.categoryId+')'}" th:text="${category.categoryName}" th:title="${category.categoryName}"></a>
         </li>
       </ul>
     </div>
@@ -65,7 +65,7 @@
         <div class="nav-slider search-nav-container">
           <ul class="search-nav-li">
             <li class="cur" data-type="1"><a href="javascript:location.reload()">全部</a></li>
-            <li class="" th:value="${category.categoryId}" th:each="category:${@cms.selectNavCategories()}"
+            <li th:id="${'navli-'+category.categoryId}" th:value="${category.categoryId}" th:each="category:${@cms.selectNavCategories()}"
                 th:if="${category.parentId==null||category.parentId==0}">
               <a href="javascript:void(0)" th:text="${category.categoryName}" th:title="${category.categoryName}"></a>
             </li>
@@ -156,6 +156,11 @@
       }
     });
   });
+
+  function navDo(id) {
+    $("#navli-" + id).click();
+    $(".more_touch_btn").click();
+  }
 
   function loadMoreData() {
     var oLoadBtn = jQuery("#loadPage"),
