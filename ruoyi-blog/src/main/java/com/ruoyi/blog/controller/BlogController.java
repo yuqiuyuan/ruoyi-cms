@@ -43,6 +43,8 @@ import java.net.URLEncoder;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import static com.ruoyi.common.utils.DateUtils.YYYY_MM_DD_HH_MM_SS;
+
 /**
  * 广告位Controller
  *
@@ -365,7 +367,7 @@ public class BlogController extends BaseController {
     startPage(5);
     List<PdfDetail> articleDetail = articleService.getArticleDetail(query);
     PageInfo pageInfo = new PageInfo(articleDetail);
-    article.setPublishTime(DateUtils.dateTime(article.getUpdateTime()));
+    article.setPublishTime(DateUtils.parseDateToStr(YYYY_MM_DD_HH_MM_SS, article.getUpdateTime()));
     model.addAttribute("article", article);
     model.addAttribute("categoryId", article.getCategoryId());
     model.addAttribute("articleDetail", articleDetail);

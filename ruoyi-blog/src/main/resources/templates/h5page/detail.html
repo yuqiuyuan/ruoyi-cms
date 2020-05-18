@@ -67,11 +67,11 @@
       <!--      <em class="pdf"></em>-->
       <div class="detail ">
         <p>
-          <span class="size">2.61M,&nbsp;<text th:text="${total}"></text>页,<text th:text="${article.hit}"></text>次阅读</span>
+          <span class="size">&nbsp<text th:text="${total}"></text>页,<text th:text="${article.hit}"></text>次阅读</span>
           <a class="detail_download" data-handel="download" href="javascript:void(0);">[立即下载]</a>
         </p>
         <p>
-          <span class="report" id="jOpenReport"><i class="ico_report"></i><text th:text="${}">举报</text></span>
+          <span class="report" id="jOpenReport"><i class="ico_report"></i><text th:text="${article.category.categoryName}">举报</text></span>
           <span class="time">分享于<text th:text="${article.publishTime}"></text></span>
         </p>
       </div>
