@@ -14,25 +14,26 @@
   <link rel="stylesheet" type="text/css" th:href="@{/blog/h5PageCss/detail.css}"/>
   <link rel="stylesheet" type="text/css" th:href="@{/blog/h5PageCss/view.css}"/>
   <link rel="stylesheet" type="text/css" th:href="@{/blog/h5PageCss/list.css}"/>
+  <th:block th:include="include :: jasny-bootstrap-css"/>
 </head>
-<body style="padding-top: 43px;">
+<body style="padding-top: 0px;">
 <div id="docpage" class="player-wrap">
   <!-- 头部 -->
   <div class="m-header-top m-header-top-end">
-    <header>
-      <div class="header-toolbar-left">
-        <div class="header-back">
-          <a class="ico_btn_back" href="javascript:void(0);"></a>
-        </div>
-      </div>
-      <span class="header-toolbar-title" th:text="${article.title}"></span>
-      <div class="header-toolbar-right">
-        <!-- 普通搜索 -->
-        <div class="toolbar_search"><span class="ico_btn_blue_search"></span></div>
-        <!-- 漫画订阅 -->
-        <div class="toolbar_more"><span class="ico_more_btn"></span></div>
-      </div>
-    </header>
+    <!--    <header>-->
+    <!--      <div class="header-toolbar-left">-->
+    <!--        <div class="header-back">-->
+    <!--          <a class="ico_btn_back" href="javascript:void(0);"></a>-->
+    <!--        </div>-->
+    <!--      </div>-->
+    <!--      &lt;!&ndash;      <span class="header-toolbar-title">机场工程</span>&ndash;&gt;-->
+    <!--      <div class="header-toolbar-right">-->
+    <!--        &lt;!&ndash; 普通搜索 &ndash;&gt;-->
+    <!--        &lt;!&ndash;        <div class="toolbar_search"><span class="ico_btn_blue_search"></span></div>&ndash;&gt;-->
+    <!--        &lt;!&ndash; 漫画订阅 &ndash;&gt;-->
+    <!--        &lt;!&ndash;        <div class="toolbar_more"><span class="ico_more_btn"></span></div>&ndash;&gt;-->
+    <!--      </div>-->
+    <!--    </header>-->
     <div class="header_nav_list" style="height: 0px;">
       <ul class="header_nav_list_ul">
         <li><a href="###" title="首页">首页</a></li>
@@ -44,16 +45,16 @@
     </div>
   </div>
   <!-- 工具栏 -->
-  <div id="func-bar-ft" class="func-bar-ft">
-    <div class="func-bar-bd">
-      <div class="func-item func0">
-        <a href="javascript:void(0);" class="doc-func doc-qq">客服</a>
-      </div>
-      <div class="func-item func1"><span id="doc-share" class="doc-func doc-share-ft">分享</span></div>
-      <div id="224755827" class="func-item func2"><span id="justFor" class="doc-func doc-collect on">收藏</span></div>
-      <div class="func-item func3"><span class="doc-func doc-download">立即下载</span></div>
-    </div>
-  </div>
+  <!--  <div id="func-bar-ft" class="func-bar-ft">-->
+  <!--    <div class="func-bar-bd">-->
+  <!--      <div class="func-item func0">-->
+  <!--        <a href="javascript:void(0);" class="doc-func doc-qq">客服</a>-->
+  <!--      </div>-->
+  <!--      <div class="func-item func1"><span id="doc-share" class="doc-func doc-share-ft">分享</span></div>-->
+  <!--      <div id="224755827" class="func-item func2"><span id="justFor" class="doc-func doc-collect on">收藏</span></div>-->
+  <!--      <div class="func-item func3"><span class="doc-func doc-download">立即下载</span></div>-->
+  <!--    </div>-->
+  <!--  </div>-->
   <!-- 文档头部 -->
   <div class="docInfoMod">
     <h1><span class="ico_you" th:title="${article.title}"></span>
@@ -70,7 +71,7 @@
           <a class="detail_download" data-handel="download" href="javascript:void(0);">[立即下载]</a>
         </p>
         <p>
-          <span class="report" id="jOpenReport"><i class="ico_report"></i>举报</span>
+          <span class="report" id="jOpenReport"><i class="ico_report"></i><text th:text="${}">举报</text></span>
           <span class="time">分享于<text th:text="${article.publishTime}"></text></span>
         </p>
       </div>
@@ -129,6 +130,7 @@
   <!--  </div>-->
   <!-- 返回顶部 -->
   <div onclick="goBackTop();" class="goBackTop"><span></span></div>
+  <div onclick="goBackTop();" class="download"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span></div>
   <input id="curPage" style="display:none;" value="1"/>
   <input id="totalPages" style="display:none;" th:value="${totalPages}"/>
   <input id="hasNext" style="display:none;" th:value="${hasNext}"/>
@@ -139,6 +141,7 @@
 <script>
   hideURLbar(); //隐藏地址栏
   goBackTop(); //返回顶部
+  download();
   //说明：付费阅读的参数配置
   var rechargeConfig = {
     pid: '224755827',//文档id
@@ -509,6 +512,7 @@
         _this.tabNextBtn();
       }
     },
+
   };
   var myPic = new CutPicView(viewConfig);
 </script>

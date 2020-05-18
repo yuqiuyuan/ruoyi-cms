@@ -423,7 +423,7 @@ div[id^="page"] div a {
 }
 
 .player-wrap {
-  padding: 0 0 50px;
+  padding: 0 0 0px;
 }
 
 .btnc_light_blue {
@@ -493,3 +493,26 @@ div[id^="page"] div a {
 .open_in_app .ico_button {
   margin-top: 20px;
 }
+
+.download {
+  position: fixed;
+  right: 5px;
+  /* bottom: 20px; */
+  bottom: 37px;
+  width: 40px;
+  height: 40px;
+  background-color: #454545;
+  -webkit-border-radius: 2px;
+  cursor: pointer;
+  text-align: center;
+  line-height: 40px;
+  color: #fff;
+  font-size: 20px;
+  z-index: 90;
+  visibility: hidden;
+  opacity: 0.9;
+  -webkit-box-shadow: 0 0 5px #9C9C9C;
+}
+
+
+

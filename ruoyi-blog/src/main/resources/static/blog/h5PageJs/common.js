@@ -43,6 +43,28 @@ function goBackTop() {
   });
 }
 
+function download() {
+  var oBackTopBtn = jQuery(".download");
+  if (!oBackTopBtn) {
+    return;
+  }
+  jQuery(window).on("scroll", function () {
+    var st = jQuery(this).scrollTop();
+    var sw = window.innerHeight;
+    if (oBackTopBtn) {
+      if (st > 10) {
+        oBackTopBtn.css("visibility", "visible");
+        oBackTopBtn.click(function (e) {
+          e.stopPropagation();
+          hideURLbar();
+        });
+      } else {
+        oBackTopBtn.css("visibility", "hidden");
+      }
+    }
+  });
+}
+
 //search delete
 function delSearchContent() {
   var oInput = document.getElementById("search"),

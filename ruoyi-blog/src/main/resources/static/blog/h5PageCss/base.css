@@ -3280,6 +3280,16 @@ h3.searchHot {
   line-height: 14px;
   text-align: center;
 }
+.download span {
+  position: relative;
+  background: url(../images/download.png) 0 0 no-repeat;
+  background-size: 23px 20px;
+  background-position: 50% 70%;
+  display: block;
+  padding: 16px 0;
+  line-height: 14px;
+  text-align: center;
+}
 
 /*main content*/
 .mainContent {
