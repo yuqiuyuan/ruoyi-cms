@@ -283,7 +283,7 @@ public class BlogController extends BaseController {
                         + "<dl class=\"clear\"><dt>"
                         + "<div class=\"bookPic\">"
                         + "<img alt=\"" + article.getTitle() + "\" src=\"" + article.getCoverImage() + "\">"
-                        + "<span class=\"bookPage\">5</span>"
+                        + "<span class=\"bookPage\">" + article.getPageSize() + "</span>"
                         + "</div></dt>" + "</div>"
                         + "<dd class=\"bookTitle\" >" + article.getTitle() + "</dd>"
                         + "<dd><span class=\"fch\">" + description + "</span></dd>"
