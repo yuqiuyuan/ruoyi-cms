@@ -1,375 +1,380 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <meta name="format-detection" content="telephone=no">
-  <meta name="viewport" content="width=device-width,maximum-scale=1.0,minimum-scale=1.0,initial-scale=1.0,user-scalable=no">
-  <meta name="keywords" content="">
-  <meta name="description" content="">
-  <title>机场工程</title>
-  <link rel="stylesheet" type="text/css" th:href="@{/blog/h5PageCss/menu.css}"/>
-  <link rel="stylesheet" type="text/css" th:href="@{/blog/h5PageCss/base.css}"/>
-  <link rel="stylesheet" type="text/css" th:href="@{/blog/h5PageCss/index.css}"/>
-  <link rel="stylesheet" type="text/css" th:href="@{/blog/h5PageCss/list.css}"/>
-  <!--  <link rel="stylesheet" type="text/css" th:href="@{/blog/h5PageCss/detail.css}"/>-->
-  <style>
-    .search-nav-li {
-      width: 100%;
-      display: -webkit-box;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport"
+          content="width=device-width,maximum-scale=1.0,minimum-scale=1.0,initial-scale=1.0,user-scalable=no">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title>机场工程</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/blog/h5PageCss/menu.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/blog/h5PageCss/base.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/blog/h5PageCss/index.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/blog/h5PageCss/list.css}"/>
+    <!--  <link rel="stylesheet" type="text/css" th:href="@{/blog/h5PageCss/detail.css}"/>-->
+    <style>
+        .search-nav-li {
+            width: 100%;
+            display: -webkit-box;
+        }
+    </style>
 </head>
 <body>
 <div id="page">
-  <!-- 头部 -->
-  <div class="m-header-top m-header-top-end" style="margin-top: 96px;">
-    <!--    <header>-->
-    <!--      <div class="header-toolbar-left">-->
-    <!--        <div class="header-back">-->
-    <!--          <a class="ico_btn_back" href="javascript:void(0);"></a>-->
-    <!--        </div>-->
-    <!--      </div>-->
-    <!--      <span class="header-toolbar-title" th:text="${article.title}"></span>-->
-    <!--      <div class="header-toolbar-right">-->
-    <!-- 普通搜索 -->
-    <!--        <div class="toolbar_search"><span class="ico_btn_blue_search"></span></div>-->
-    <!-- 漫画订阅 -->
+    <!-- 头部 -->
+    <div class="m-header-top m-header-top-end" style="margin-top: 96px;">
+        <!--    <header>-->
+        <!--      <div class="header-toolbar-left">-->
+        <!--        <div class="header-back">-->
+        <!--          <a class="ico_btn_back" href="javascript:void(0);"></a>-->
+        <!--        </div>-->
+        <!--      </div>-->
+        <!--      <span class="header-toolbar-title" th:text="${article.title}"></span>-->
+        <!--      <div class="header-toolbar-right">-->
+        <!-- 普通搜索 -->
+        <!--        <div class="toolbar_search"><span class="ico_btn_blue_search"></span></div>-->
+        <!-- 漫画订阅 -->
 
-    <!--      </div>-->
-    <!--    </header>-->
-    <div class="header_nav_list" style="height: 0px">
-      <ul class="header_nav_list_ul">
-        <li><a href="javascript:location.reload()" title="首页">首页</a></li>
-        <li class="" th:value="${category.categoryId}" th:each="category:${@cms.selectNavCategories()}"
-            th:if="${category.parentId==null||category.parentId==0}">
-          <a th:href="${'javascript:navDo('+category.categoryId+')'}" th:text="${category.categoryName}" th:title="${category.categoryName}"></a>
-        </li>
-      </ul>
-    </div>
-  </div>
-  <!-- 搜索结果列表头部 -->
-  <div class="searchHeader">
-    <div class="m-search-page">
-      <div class="m-search-header marb5">
-        <div class="search-box-new header-searchInput">
-          <div class="search-box-inner">
-            <span class="search-text"><span class="ico_btn_search"></span><span id="search-word" th:text="${searchKey}"></span></span><i
-              class="cross" style="display: inline;"></i>
-          </div>
+        <!--      </div>-->
+        <!--    </header>-->
+        <div class="header_nav_list" style="height: 0px">
+            <ul class="header_nav_list_ul">
+                <li><a href="javascript:location.reload()" title="首页">首页</a></li>
+                <li class="" th:value="${category.categoryId}" th:each="category:${@cms.selectNavCategories()}"
+                    th:if="${category.parentId==null||category.parentId==0}">
+                    <a th:href="${'javascript:navDo('+category.categoryId+')'}" th:text="${category.categoryName}"
+                       th:title="${category.categoryName}"></a>
+                </li>
+            </ul>
         </div>
-        <div class="header-searchBtn"><a id="search-cancel-back" href="javascript:void(0);">取消</a></div>
-      </div>
     </div>
-    <div class="nav-bar-scroll1">
-      <div class="nav-bar-main1">
-        <div class="nav-slider search-nav-container">
-          <ul class="search-nav-li">
-            <li class="cur" data-type="1"><a href="javascript:location.reload()">全部</a></li>
-            <li th:id="${'navli-'+category.categoryId}" th:value="${category.categoryId}" th:each="category:${@cms.selectNavCategories()}"
-                th:if="${category.parentId==null||category.parentId==0}">
-              <a href="javascript:void(0)" th:text="${category.categoryName}" th:title="${category.categoryName}"></a>
-            </li>
-          </ul>
+    <!-- 搜索结果列表头部 -->
+    <div class="searchHeader">
+        <div class="m-search-page">
+            <div class="m-search-header marb5">
+                <div class="search-box-new header-searchInput">
+                    <div class="search-box-inner">
+                        <span class="search-text"><span class="ico_btn_search"></span><span id="search-word"
+                                                                                            th:text="${searchKey}"></span></span><i
+                            class="cross" style="display: inline;"></i>
+                    </div>
+                </div>
+                <div class="header-searchBtn"><a id="search-cancel-back" href="javascript:void(0);">取消</a></div>
+            </div>
         </div>
-        <span class="more_touch_btn"><span class="ico_more_btn"></span></span>
-      </div>
+        <div class="nav-bar-scroll1">
+            <div class="nav-bar-main1">
+                <div class="nav-slider search-nav-container">
+                    <ul class="search-nav-li">
+                        <li class="cur" data-type="1"><a href="javascript:location.reload()">全部</a></li>
+                        <li th:id="${'navli-'+category.categoryId}" th:value="${category.categoryId}"
+                            th:each="category:${@cms.selectNavCategories()}"
+                            th:if="${category.parentId==null||category.parentId==0}">
+                            <a href="javascript:void(0)" th:text="${category.categoryName}"
+                               th:title="${category.categoryName}"></a>
+                        </li>
+                    </ul>
+                </div>
+                <span class="more_touch_btn"><span class="ico_more_btn"></span></span>
+            </div>
+        </div>
     </div>
-  </div>
-  <!-- 搜索结果列表 -->
-  <div id="content">
-    <div class="mainContent booklist">
-      <!-- 内容 -->
-      <div id="sections">
-        <a th:href="@{${'/blog/h5page/detail/'+item.id}}" th:each="item,temp:${articleList}" target="_self">
-          <dl class="clear">
-            <dt>
-              <div class="bookPic">
-                <img th:alt="${item.title}" th:src="@{${item.coverImage}}">
-                <span class="bookPage">5</span>
-              </div>
-            </dt>
-            <dd class="bookTitle" th:text="${item.title}"></dd>
-            <dd><span class="fch">
+    <!-- 搜索结果列表 -->
+    <div id="content">
+        <div class="mainContent booklist">
+            <!-- 内容 -->
+            <div id="sections">
+                <a th:href="@{${'/blog/h5page/detail/'+item.id}}" th:each="item,temp:${articleList}" target="_self">
+                    <dl class="clear">
+                        <dt>
+                            <div class="bookPic">
+                                <img th:alt="${item.title}" th:src="@{${item.coverImage}}">
+                                <span class="bookPage" th:text="${item.pageSize}"></span>
+                            </div>
+                        </dt>
+                        <dd class="bookTitle" th:text="${item.title}"></dd>
+                        <dd><span class="fch">
               <text th:text="${#strings.abbreviate(item.description,48)}"></text></span></dd>
-            <dd>[[${item.hit}]]&nbsp次阅读</dd>
-          </dl>
-        </a>
-      </div>
-      <div th:if="${hasNext}" id="loadPage" class="loadPage">
-        <span class="loadMoreData">点击加载更多</span>
-      </div>
+                        <dd>[[${item.hit}]]&nbsp次阅读</dd>
+                    </dl>
+                </a>
+            </div>
+            <div th:if="${hasNext}" id="loadPage" class="loadPage">
+                <span class="loadMoreData">点击加载更多</span>
+            </div>
+        </div>
     </div>
-  </div>
-  <!-- 返回顶部 -->
-  <div onclick="goBackTop();" class="goBackTop"><span></span></div>
-  <input id="currentIndex" th:value="${currentPage}" style="display: none">
-  <input id="totalPage" th:value="${totalPages}" style="display: none">
-  <input id="category" value="ALL" style="display: none">
+    <!-- 返回顶部 -->
+    <div onclick="goBackTop();" class="goBackTop"><span></span></div>
+    <input id="currentIndex" th:value="${currentPage}" style="display: none">
+    <input id="totalPage" th:value="${totalPages}" style="display: none">
+    <input id="category" value="ALL" style="display: none">
 </div>
 <script th:src="@{/blog/avatar/js/jquery-2.1.4.min.js}"></script>
 <script th:src="@{/blog/h5PageJs/common.js}"></script>
 <script>
-  var currentIndex = parseInt($("#currentIndex").val()); //当前页码
-  var totalPage = parseInt($("#totalPage").val()); //共多少页
-  hideURLbar(); //隐藏地址栏
-  goBackTop(); //返回顶部
-  loadImgs(); //加载图片
-  loadMoreData(); //点击加载更多
-  navFunc();//页签切换
-  handleChannelList();
-  openChannelList();
-  $(".search-nav-li li").click(function () {
-    $(".search-nav-li li").removeClass("cur");
-    this.setAttribute("class", "cur");
-    categoryId = this.value;
-    content = $("#search-word").text();
-    if (categoryId) {
-      $("#category").val(categoryId);
-    } else {
-      $("#category").val("ALL");
-    }
-
-    url = window.location.origin + '/blog/h5page/q/' + categoryId;
-    $.ajax({
-      cache: true,
-      type: "POST",
-      dataType: "json",
-      url: url,
-      data: {"content": content},
-      async: true,
-      processData: false,		//用于对data参数进行序列化处理 这里必须false
-      contentType: false, 	//必须
-      beforeSend: function () {
-        //$.modal.loading("数据上传中，请稍后...");
-      },
-      error: function (request) {
-        //$.modal.alertError("系统错误");
-      },
-      success: function (data) {
-        $("#sections").html(data.data.dataHtml);
-        var oLoadState = jQuery(".loadMoreData");
-        if (data.data.hasNext) {
-          oLoadState.show();
+    var currentIndex = parseInt($("#currentIndex").val()); //当前页码
+    var totalPage = parseInt($("#totalPage").val()); //共多少页
+    hideURLbar(); //隐藏地址栏
+    goBackTop(); //返回顶部
+    loadImgs(); //加载图片
+    loadMoreData(); //点击加载更多
+    navFunc();//页签切换
+    handleChannelList();
+    openChannelList();
+    $(".search-nav-li li").click(function () {
+        $(".search-nav-li li").removeClass("cur");
+        this.setAttribute("class", "cur");
+        categoryId = this.value;
+        content = $("#search-word").text();
+        if (categoryId) {
+            $("#category").val(categoryId);
         } else {
-          oLoadState.hide();
+            $("#category").val("ALL");
         }
-      }
-    });
-  });
 
-  function navDo(id) {
-    $("#navli-" + id).click();
-    $(".more_touch_btn").click();
-  }
-
-  function loadMoreData() {
-    var oLoadBtn = jQuery("#loadPage"),
-        oLoadState = jQuery(".loadMoreData"),
-        curDlNum = jQuery("#sections dl").length;
-
-    oLoadBtn.show();
-    if (jQuery("#sections a dl").length < 10) {
-      oLoadBtn.hide();
-    }
-    currentIndex = parseInt($("#currentIndex").val()) + 1;
-    $("#currentIndex").val(currentIndex);
-    if (oLoadBtn.length > 0) {
-      oLoadBtn.show();
-      oLoadBtn.bind("click", function () {
-        oLoadState.html("正在加载..");
-        var keyWord = $("#search-word").text();
-        var url;
-        if ('ALL' == $("#category").val()) {
-          url = window.location.origin + '/blog/h5page/search/p?content=' + keyWord;
-        } else {
-          url = window.location.origin + '/blog/h5page/q/' + categoryId;
-        }
-        jQuery.ajax({
-          url: url,
-          type: "POST",
-          data: "pageNum=" + currentIndex,
-          context: jQuery("#sections"),
-          success: function (data) {
-            var dataHtml = data.data.dataHtml;
-            if (dataHtml == "" || dataHtml == null) {
-              oLoadState.hide();
-              return;
+        url = window.location.origin + '/blog/h5page/q/' + categoryId;
+        $.ajax({
+            cache: true,
+            type: "POST",
+            dataType: "json",
+            url: url,
+            data: {"content": content},
+            async: true,
+            processData: false,		//用于对data参数进行序列化处理 这里必须false
+            contentType: false, 	//必须
+            beforeSend: function () {
+                //$.modal.loading("数据上传中，请稍后...");
+            },
+            error: function (request) {
+                //$.modal.alertError("系统错误");
+            },
+            success: function (data) {
+                $("#sections").html(data.data.dataHtml);
+                var oLoadState = jQuery(".loadMoreData");
+                if (data.data.hasNext) {
+                    oLoadState.show();
+                } else {
+                    oLoadState.hide();
+                }
             }
-            $("#sections").append(dataHtml);
-            if (currentIndex < totalPage) {
-              loadImgs(); //加载图片
-              oLoadState.html("点击加载更多");
-              currentIndex++;
-              if (currentIndex == totalPage + 1) {
-                oLoadState.hide();
-              }
-            } else {
-              oLoadState.hide();
-              return;
-            }
-          }
         });
-      });
-    }
-  }
-
-  function openChannelList() {
-    var oShowNavlistBtn = jQuery(".more_touch_btn"),
-
-        oToolHeadTop = jQuery(".m-header-top");
-    if (jQuery(".header_nav_list").length > 0) {
-      jQuery(".header_nav_list").css("height", 0);
-    }
-    if (oShowNavlistBtn.length > 0 && oToolHeadTop.length > 0) {
-      jQuery(".m-header-top .header_nav_list").addClass("headerBg");
-      var oNavListHeight = "70px"; //100
-
-      var oHeaderHeight = "168px"; //173
-      jQuery(".header_nav_list").css("height", 0);
-      var headerBarHeight = jQuery(".searchHeader").height();
-      jQuery("body").css({
-        'paddingTop': headerBarHeight + 'px'
-      });
-      oShowNavlistBtn.bind("click", function () {
-        if (jQuery(this).find('span').hasClass("ico_more_up")) {
-          jQuery(this).find('span').removeClass("ico_more_up");
-          jQuery("body").css({
-            'paddingTop': headerBarHeight,
-            'webkitTransition': 'all .3s',
-          });
-          jQuery(".header_nav_list").css({
-            //"visibility":'hidden',
-            'opacity': '0',
-            "height": '0'
-          });
-          // 适应医疗
-          if (jQuery(".header_nav_list").hasClass('header_nav_list_others')) {
-            if (jQuery('.menu').length >= 1) {
-              jQuery('.menu').removeClass('menu-down-cur');
-            }
-            if (jQuery('.menu-detail').length >= 1) {
-              jQuery('.menu-detail').removeClass('menu-detail-cur');
-            }
-            if (jQuery('.search-menu').length >= 1) {
-              jQuery('.search-menu').removeClass('search-menu-cur');
-            }
-          }
-          if (typeof (playerConf) != "undefined" && !jQuery("#wrap").hasClass("minpic")) {
-            var tempHeight = jQuery(window).height() - jQuery(".m-header-top header").height() - 60;
-            jQuery("#wrap").css({
-              "height": tempHeight
-            });
-          }
-        } else {
-          jQuery(this).find('span').addClass("ico_more_up");
-          jQuery(".header_nav_list").css({
-            'opacity': '1',
-            "height": oNavListHeight
-          });
-          jQuery("body").css({
-            'paddingTop': oHeaderHeight,
-            'webkitTransition': 'all .3s'
-          });
-          // 适应医疗
-          if (jQuery(".header_nav_list").hasClass('header_nav_list_others')) {
-            // 查疾病 查药品页
-            if (jQuery('.menu').length >= 1) {
-              jQuery('.menu').addClass('menu-down-cur');
-            }
-            if (jQuery('.menu-detail').length >= 1) {
-              jQuery('.menu-detail').addClass('menu-detail-cur');
-            }
-            // 搜索结果页
-            if (jQuery('.search-menu').length >= 1) {
-              jQuery('.search-menu').addClass('search-menu-cur');
-            }
-          }
-          //alert(oHeaderHeight);
-          if (typeof (playerConf) != "undefined" && !jQuery("#wrap").hasClass("minpic")) {
-            var tempHeight = jQuery(window).height() - oHeaderHeight - 60;
-            jQuery("#wrap").css({
-              "height": tempHeight
-            });
-          }
-          //点击搜索 导航隐藏
-          if (jQuery(".m-header-top-end .ico_btn_black_search").length > 0 && jQuery("#searchBox").is(":visible")) {
-            jQuery("#searchBox").hide();
-          }
-        }
-      });
-    } else if (oShowNavlistBtn.length == 0 && jQuery(".m-header-top-end").length == 1) {
-      var headerBarHeight = jQuery(".m-header-top header").outerHeight();
-      jQuery("body").css({
-        'paddingTop': headerBarHeight + 'px'
-      });
-    }
-  }
-
-  function navFunc() {
-    var oSearchHead = jQuery(".searchHeader"),
-        iHeadHeight = oSearchHead.height();
-    jQuery("body").css({"paddingTop": iHeadHeight});
-    var oBackCancel = jQuery("#search-cancel-back");
-    oBackCancel.bind("click", function () {
-      history.back();
     });
 
-    var openTypelist = jQuery("#openType");
-    if (openTypelist.length > 0) {
-      var iTypeListHeight = jQuery(".type_down_list").height() + 5;
-      jQuery(".type_down_list").css('height', 0);
-      jQuery(".type_down_list").show();
-      //点击格式
-      openTypelist.bind("click", function () {
-        if (jQuery(this).hasClass("on")) {
-          jQuery(".type_down_list").css('height', 0);
-          jQuery(this).removeClass("on");
-        } else {
-          jQuery(".type_down_list").css('height', iTypeListHeight);
-          jQuery(this).addClass("on");
-        }
-        return false;
-      });
-      //选择格式
-      jQuery(".type_down_list .type_item li").bind("click", function () {
-        var title = jQuery(this).find("a").attr("title");
-        jQuery(".type_down_list .type_item li").removeClass("on");
-        jQuery(this).addClass("on");
-        if (title == "全部") {
-          title = "格式";
-        }
-        openTypelist.find(".doc-type").text(title);
-        jQuery(".type_down_list").css('height', 0);
-        openTypelist.removeClass("on");
-
-      });
-      jQuery(".type_down_list .hide_type_list").bind("click", function (e) {
-        if (jQuery('.type_down_list').length == 0) {
-          return;
-        }
-        var _con = jQuery('.type_down_list_inner');   // 设置目标区域
-        //console.log(!_con.is(e.target));
-        //console.log(_con.has(e.target).length);
-        if (!_con.is(e.target) && _con.has(e.target).length === 0) {
-          //   jQuery(".type_down_list").hide();
-          // jQuery(".type_down_list").slideUp("fast");
-          jQuery(".type_down_list").css('height', 0);
-        }
-        openTypelist.removeClass("on");
-        return false;
-      });
-      var aTabsLi = jQuery(".search-nav-li li");
-      aTabsLi.bind("click", function () {
-        var index = jQuery(this).index();
-        // if (index !== 4) {
-        jQuery(this).addClass("cur").siblings().removeClass("cur").removeClass("on");
-        jQuery(".type_down_list").css('height', 0);
-        // }
-
-      });
-
+    function navDo(id) {
+        $("#navli-" + id).click();
+        $(".more_touch_btn").click();
     }
-  }
+
+    function loadMoreData() {
+        var oLoadBtn = jQuery("#loadPage"),
+            oLoadState = jQuery(".loadMoreData"),
+            curDlNum = jQuery("#sections dl").length;
+
+        oLoadBtn.show();
+        if (jQuery("#sections a dl").length < 10) {
+            oLoadBtn.hide();
+        }
+        currentIndex = parseInt($("#currentIndex").val()) + 1;
+        $("#currentIndex").val(currentIndex);
+        if (oLoadBtn.length > 0) {
+            oLoadBtn.show();
+            oLoadBtn.bind("click", function () {
+                oLoadState.html("正在加载..");
+                var keyWord = $("#search-word").text();
+                var url;
+                if ('ALL' == $("#category").val()) {
+                    url = window.location.origin + '/blog/h5page/search/p?content=' + keyWord;
+                } else {
+                    url = window.location.origin + '/blog/h5page/q/' + categoryId;
+                }
+                jQuery.ajax({
+                    url: url,
+                    type: "POST",
+                    data: "pageNum=" + currentIndex,
+                    context: jQuery("#sections"),
+                    success: function (data) {
+                        var dataHtml = data.data.dataHtml;
+                        if (dataHtml == "" || dataHtml == null) {
+                            oLoadState.hide();
+                            return;
+                        }
+                        $("#sections").append(dataHtml);
+                        if (currentIndex < totalPage) {
+                            loadImgs(); //加载图片
+                            oLoadState.html("点击加载更多");
+                            currentIndex++;
+                            if (currentIndex == totalPage + 1) {
+                                oLoadState.hide();
+                            }
+                        } else {
+                            oLoadState.hide();
+                            return;
+                        }
+                    }
+                });
+            });
+        }
+    }
+
+    function openChannelList() {
+        var oShowNavlistBtn = jQuery(".more_touch_btn"),
+
+            oToolHeadTop = jQuery(".m-header-top");
+        if (jQuery(".header_nav_list").length > 0) {
+            jQuery(".header_nav_list").css("height", 0);
+        }
+        if (oShowNavlistBtn.length > 0 && oToolHeadTop.length > 0) {
+            jQuery(".m-header-top .header_nav_list").addClass("headerBg");
+            var oNavListHeight = "70px"; //100
+
+            var oHeaderHeight = "168px"; //173
+            jQuery(".header_nav_list").css("height", 0);
+            var headerBarHeight = jQuery(".searchHeader").height();
+            jQuery("body").css({
+                'paddingTop': headerBarHeight + 'px'
+            });
+            oShowNavlistBtn.bind("click", function () {
+                if (jQuery(this).find('span').hasClass("ico_more_up")) {
+                    jQuery(this).find('span').removeClass("ico_more_up");
+                    jQuery("body").css({
+                        'paddingTop': headerBarHeight,
+                        'webkitTransition': 'all .3s',
+                    });
+                    jQuery(".header_nav_list").css({
+                        //"visibility":'hidden',
+                        'opacity': '0',
+                        "height": '0'
+                    });
+                    // 适应医疗
+                    if (jQuery(".header_nav_list").hasClass('header_nav_list_others')) {
+                        if (jQuery('.menu').length >= 1) {
+                            jQuery('.menu').removeClass('menu-down-cur');
+                        }
+                        if (jQuery('.menu-detail').length >= 1) {
+                            jQuery('.menu-detail').removeClass('menu-detail-cur');
+                        }
+                        if (jQuery('.search-menu').length >= 1) {
+                            jQuery('.search-menu').removeClass('search-menu-cur');
+                        }
+                    }
+                    if (typeof (playerConf) != "undefined" && !jQuery("#wrap").hasClass("minpic")) {
+                        var tempHeight = jQuery(window).height() - jQuery(".m-header-top header").height() - 60;
+                        jQuery("#wrap").css({
+                            "height": tempHeight
+                        });
+                    }
+                } else {
+                    jQuery(this).find('span').addClass("ico_more_up");
+                    jQuery(".header_nav_list").css({
+                        'opacity': '1',
+                        "height": oNavListHeight
+                    });
+                    jQuery("body").css({
+                        'paddingTop': oHeaderHeight,
+                        'webkitTransition': 'all .3s'
+                    });
+                    // 适应医疗
+                    if (jQuery(".header_nav_list").hasClass('header_nav_list_others')) {
+                        // 查疾病 查药品页
+                        if (jQuery('.menu').length >= 1) {
+                            jQuery('.menu').addClass('menu-down-cur');
+                        }
+                        if (jQuery('.menu-detail').length >= 1) {
+                            jQuery('.menu-detail').addClass('menu-detail-cur');
+                        }
+                        // 搜索结果页
+                        if (jQuery('.search-menu').length >= 1) {
+                            jQuery('.search-menu').addClass('search-menu-cur');
+                        }
+                    }
+                    //alert(oHeaderHeight);
+                    if (typeof (playerConf) != "undefined" && !jQuery("#wrap").hasClass("minpic")) {
+                        var tempHeight = jQuery(window).height() - oHeaderHeight - 60;
+                        jQuery("#wrap").css({
+                            "height": tempHeight
+                        });
+                    }
+                    //点击搜索 导航隐藏
+                    if (jQuery(".m-header-top-end .ico_btn_black_search").length > 0 && jQuery("#searchBox").is(":visible")) {
+                        jQuery("#searchBox").hide();
+                    }
+                }
+            });
+        } else if (oShowNavlistBtn.length == 0 && jQuery(".m-header-top-end").length == 1) {
+            var headerBarHeight = jQuery(".m-header-top header").outerHeight();
+            jQuery("body").css({
+                'paddingTop': headerBarHeight + 'px'
+            });
+        }
+    }
+
+    function navFunc() {
+        var oSearchHead = jQuery(".searchHeader"),
+            iHeadHeight = oSearchHead.height();
+        jQuery("body").css({"paddingTop": iHeadHeight});
+        var oBackCancel = jQuery("#search-cancel-back");
+        oBackCancel.bind("click", function () {
+            history.back();
+        });
+
+        var openTypelist = jQuery("#openType");
+        if (openTypelist.length > 0) {
+            var iTypeListHeight = jQuery(".type_down_list").height() + 5;
+            jQuery(".type_down_list").css('height', 0);
+            jQuery(".type_down_list").show();
+            //点击格式
+            openTypelist.bind("click", function () {
+                if (jQuery(this).hasClass("on")) {
+                    jQuery(".type_down_list").css('height', 0);
+                    jQuery(this).removeClass("on");
+                } else {
+                    jQuery(".type_down_list").css('height', iTypeListHeight);
+                    jQuery(this).addClass("on");
+                }
+                return false;
+            });
+            //选择格式
+            jQuery(".type_down_list .type_item li").bind("click", function () {
+                var title = jQuery(this).find("a").attr("title");
+                jQuery(".type_down_list .type_item li").removeClass("on");
+                jQuery(this).addClass("on");
+                if (title == "全部") {
+                    title = "格式";
+                }
+                openTypelist.find(".doc-type").text(title);
+                jQuery(".type_down_list").css('height', 0);
+                openTypelist.removeClass("on");
+
+            });
+            jQuery(".type_down_list .hide_type_list").bind("click", function (e) {
+                if (jQuery('.type_down_list').length == 0) {
+                    return;
+                }
+                var _con = jQuery('.type_down_list_inner');   // 设置目标区域
+                //console.log(!_con.is(e.target));
+                //console.log(_con.has(e.target).length);
+                if (!_con.is(e.target) && _con.has(e.target).length === 0) {
+                    //   jQuery(".type_down_list").hide();
+                    // jQuery(".type_down_list").slideUp("fast");
+                    jQuery(".type_down_list").css('height', 0);
+                }
+                openTypelist.removeClass("on");
+                return false;
+            });
+            var aTabsLi = jQuery(".search-nav-li li");
+            aTabsLi.bind("click", function () {
+                var index = jQuery(this).index();
+                // if (index !== 4) {
+                jQuery(this).addClass("cur").siblings().removeClass("cur").removeClass("on");
+                jQuery(".type_down_list").css('height', 0);
+                // }
+
+            });
+
+        }
+    }
 </script>
 </body>
 </html>

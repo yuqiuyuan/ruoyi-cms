@@ -58,227 +58,228 @@ import java.util.UUID;
 @RequestMapping("/cms/document")
 public class DocumentController extends BaseController {
 
-  private String prefix = "cms/document";
+    private String prefix = "cms/document";
 
-  @Resource
-  private IArticleService articleService;
-  @Resource
-  private ITagsService tagsService;
+    @Resource
+    private IArticleService articleService;
+    @Resource
+    private ITagsService tagsService;
 
-  @Resource
-  private ISysConfigService configService;
+    @Resource
+    private ISysConfigService configService;
 
-  @Value("${cms.oss.endpoint}")
-  private String endpoint;
+    @Value("${cms.oss.endpoint}")
+    private String endpoint;
 
-  @Value("${cms.oss.accessKeyId}")
-  private String accessKeyId;
+    @Value("${cms.oss.accessKeyId}")
+    private String accessKeyId;
 
-  @Value("${cms.oss.accessKeySecret}")
-  private String accessKeySecret;
+    @Value("${cms.oss.accessKeySecret}")
+    private String accessKeySecret;
 
-  @Value("${cms.oss.bucketName}")
-  private String bucketName;
+    @Value("${cms.oss.bucketName}")
+    private String bucketName;
 
-  @Value("${cms.oss.objectName}")
-  private String objectName;
+    @Value("${cms.oss.objectName}")
+    private String objectName;
 
-  @Resource
-  PdfDetailMapper pdfDetailMapper;
+    @Resource
+    PdfDetailMapper pdfDetailMapper;
 
-  private String getEditorType () {
-    return configService.selectConfigByKey(CmsConstants.KEY_EDITOR_TYPE);
-  }
-
-  @RequiresPermissions("cms:document:view")
-  @GetMapping()
-  public String article () {
-    return prefix + "/article";
-  }
-
-  /**
-   * 查询文章管理列表
-   */
-  @RequiresPermissions("cms:document:list")
-  @PostMapping("/list")
-  @ResponseBody
-  public TableDataInfo list (Article article) {
-    startPage();
-    article.setPdfFlag(1);
-    List<Article> list = articleService.selectArticleList(article);
-    return getDataTable(list);
-  }
-
-  /**
-   * 导出文章管理列表
-   */
-  @RequiresPermissions("cms:document:export")
-  @PostMapping("/export")
-  @ResponseBody
-  public AjaxResult export (Article article) {
-    List<Article> list = articleService.selectArticleList(article);
-    ExcelUtil<Article> util = new ExcelUtil<Article>(Article.class);
-    return util.exportExcel(list, "article");
-  }
-
-  /**
-   * 新增文章管理
-   */
-  @GetMapping("/add")
-  public String add (ModelMap mmap) {
-    List<Tags> tags = tagsService.selectTagsAll();
-    mmap.put("tags", tags);
-    String editorType = getEditorType();
-    if (CmsConstants.EDITOR_TYPE_EDITORMD.equals(editorType)) {
-      return prefix + "/add_editormd";
-    } else {
-      return prefix + "/add";
+    private String getEditorType() {
+        return configService.selectConfigByKey(CmsConstants.KEY_EDITOR_TYPE);
     }
-  }
 
-  /**
-   * 新增保存文章管理
-   */
-  @RequiresPermissions("cms:document:add")
-  @Log(title = "文章管理", businessType = BusinessType.INSERT)
-  @PostMapping("/add")
-  @ResponseBody
-  public AjaxResult addSave (Article article) {
-    article.setId(Guid.get());
-    loadStaticUrl(article);
-    return toAjax(articleService.insertArticle(article));
-  }
-
-  /**
-   * 修改文章管理
-   */
-  @GetMapping("/edit/{id}")
-  public String edit (@PathVariable("id") String id, ModelMap mmap) {
-    Article article = articleService.selectArticleById(id);
-    mmap.put("article", article);
-    String tagIds = article.getTags();
-    List<Tags> tags = tagsService.selectSelectedTagsAll(tagIds);
-    mmap.put("tags", tags);
-    String editorType = getEditorType();
-    if (CmsConstants.EDITOR_TYPE_EDITORMD.equals(editorType)) {
-      return prefix + "/edit_editormd";
-    } else {
-      return prefix + "/edit";
+    @RequiresPermissions("cms:document:view")
+    @GetMapping()
+    public String article() {
+        return prefix + "/article";
     }
-  }
 
-  /**
-   * 修改保存文章管理
-   */
-  @RequiresPermissions("cms:document:edit")
-  @Log(title = "文章管理", businessType = BusinessType.UPDATE)
-  @PostMapping("/edit")
-  @ResponseBody
-  public AjaxResult editSave (Article article) {
-    loadStaticUrl(article);
-    return toAjax(articleService.updateArticle(article));
-  }
+    /**
+     * 查询文章管理列表
+     */
+    @RequiresPermissions("cms:document:list")
+    @PostMapping("/list")
+    @ResponseBody
+    public TableDataInfo list(Article article) {
+        startPage();
+        article.setPdfFlag(1);
+        List<Article> list = articleService.selectArticleList(article);
+        return getDataTable(list);
+    }
 
-  private void loadStaticUrl (Article article) {
-    OSS ossClient = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);
-    final MultipartFile docUrl = article.getDocUrl();
-    final MultipartFile coverImageUrl = article.getCoverImageUrl();
-    try {
-      if (null != docUrl) {
-        final byte[] content = docUrl.getBytes();
-        addPdfDetail(ossClient, docUrl.getOriginalFilename(), article.getId(), content);
-        final long currentTimeMillis = System.currentTimeMillis();
-        final String object = objectName + File.separator + "document" + File.separator + currentTimeMillis + docUrl.getOriginalFilename();
-        ossClient.putObject(bucketName, object, new ByteArrayInputStream(content));
-        final String url = String.format("https://%s.%s/%s", bucketName, endpoint, object);
-        article.setStaticUrl(url);
-        if (null == coverImageUrl) {
-          final byte[] imgBytes = PdfHelper.pdf2imgFromBytes(content);
-          final String imgObject = objectName + File.separator + "coverImage" + File.separator + currentTimeMillis + ".png";
-          ossClient.putObject(bucketName, imgObject, new ByteArrayInputStream(imgBytes));
-          final String coverImage = String.format("https://%s.%s/%s", bucketName, endpoint, imgObject);
-          article.setCoverImage(coverImage);
+    /**
+     * 导出文章管理列表
+     */
+    @RequiresPermissions("cms:document:export")
+    @PostMapping("/export")
+    @ResponseBody
+    public AjaxResult export(Article article) {
+        List<Article> list = articleService.selectArticleList(article);
+        ExcelUtil<Article> util = new ExcelUtil<Article>(Article.class);
+        return util.exportExcel(list, "article");
+    }
+
+    /**
+     * 新增文章管理
+     */
+    @GetMapping("/add")
+    public String add(ModelMap mmap) {
+        List<Tags> tags = tagsService.selectTagsAll();
+        mmap.put("tags", tags);
+        String editorType = getEditorType();
+        if (CmsConstants.EDITOR_TYPE_EDITORMD.equals(editorType)) {
+            return prefix + "/add_editormd";
+        } else {
+            return prefix + "/add";
         }
-      }
-      if (null != coverImageUrl) {
-        final byte[] content = coverImageUrl.getBytes();
-        final String url = uploadToOss(ossClient, coverImageUrl.getOriginalFilename(), content);
-        article.setCoverImage(url);
-      }
-    } catch (IOException e) {
-      log.error("oss 上传文件[{}]失败～！", null != docUrl ? docUrl.getOriginalFilename() : "获取文件名失败~!", e);
-    } finally {
-      ossClient.shutdown();
     }
-  }
 
-  private String uploadToOss (OSS ossClient, String originFilename, byte[] content) {
-    final long currentTimeMillis = System.currentTimeMillis();
-    final String object = objectName + File.separator + "document" + File.separator + currentTimeMillis + originFilename;
-    ossClient.putObject(bucketName, object, new ByteArrayInputStream(content));
-    return String.format("https://%s.%s/%s", bucketName, endpoint, object);
-  }
-
-  private void addPdfDetail (OSS ossClient, String originalFilename, String articleId, byte[] content) {
-    int rows = PdfHelper.getPages(content);
-    for (int i = 0; i < rows; i++) {
-      byte[] bytes = PdfHelper.pdf2imgFromBytes(content, i);
-      String url = uploadToOss(ossClient, originalFilename, bytes);
-      PdfDetail pdfDetail = new PdfDetail();
-      pdfDetail.setCurRecords(i);
-      pdfDetail.setTotalRecords(rows);
-      pdfDetail.setUrl(url);
-      pdfDetail.setId(UUID.randomUUID().toString());
-      pdfDetail.setArticleId(articleId);
-      pdfDetailMapper.insertPdfDetail(pdfDetail);
+    /**
+     * 新增保存文章管理
+     */
+    @RequiresPermissions("cms:document:add")
+    @Log(title = "文章管理", businessType = BusinessType.INSERT)
+    @PostMapping("/add")
+    @ResponseBody
+    public AjaxResult addSave(Article article) {
+        article.setId(Guid.get());
+        loadStaticUrl(article);
+        return toAjax(articleService.insertArticle(article));
     }
-  }
 
-  /**
-   * 删除文章管理
-   */
-  @RequiresPermissions("cms:document:remove")
-  @Log(title = "文章管理", businessType = BusinessType.DELETE)
-  @PostMapping("/remove")
-  @ResponseBody
-  public AjaxResult remove (String ids) {
-    return toAjax(articleService.deleteArticleByIds(ids));
-  }
-
-  @RequestMapping("/detail/{id}")
-  public String article_detail (@PathVariable String id, Model model) {
-    Article article = articleService.selectArticleById(id);
-    if (article == null) {
-      throw new BusinessException("您要访问的文章不存在!");
+    /**
+     * 修改文章管理
+     */
+    @GetMapping("/edit/{id}")
+    public String edit(@PathVariable("id") String id, ModelMap mmap) {
+        Article article = articleService.selectArticleById(id);
+        mmap.put("article", article);
+        String tagIds = article.getTags();
+        List<Tags> tags = tagsService.selectSelectedTagsAll(tagIds);
+        mmap.put("tags", tags);
+        String editorType = getEditorType();
+        if (CmsConstants.EDITOR_TYPE_EDITORMD.equals(editorType)) {
+            return prefix + "/edit_editormd";
+        } else {
+            return prefix + "/edit";
+        }
     }
-    Map dataMap = JSONObject.parseObject(JSON.toJSONString(article), Map.class);
-    model.addAllAttributes(dataMap);
-    return prefix + "/article-pdf";
 
-  }
-
-
-  /**
-   * 上传图片(markdown编辑器上传图片使用)
-   */
-  @PostMapping("/uploadImage")
-  @ResponseBody
-  public Object uploadImage (@RequestParam("editormd-image-file") MultipartFile file) throws Exception {
-    try {
-      // 上传图片并返回新文件名称
-      String path = FileUploadUtils.upload(Global.getUploadPath(), file, MimeTypeUtils.IMAGE_EXTENSION);
-      Map map = new HashMap();
-      map.put("success", 1);
-      map.put("url", path);
-      map.put("message", "上传成功!");
-      return map;
-    } catch (Exception e) {
-      Map map = new HashMap();
-      map.put("success", 0);
-      map.put("url", "");
-      map.put("message", "上传失败!" + e.getMessage());
-      return map;
+    /**
+     * 修改保存文章管理
+     */
+    @RequiresPermissions("cms:document:edit")
+    @Log(title = "文章管理", businessType = BusinessType.UPDATE)
+    @PostMapping("/edit")
+    @ResponseBody
+    public AjaxResult editSave(Article article) {
+        loadStaticUrl(article);
+        return toAjax(articleService.updateArticle(article));
     }
-  }
+
+    private void loadStaticUrl(Article article) {
+        OSS ossClient = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);
+        final MultipartFile docUrl = article.getDocUrl();
+        final MultipartFile coverImageUrl = article.getCoverImageUrl();
+        try {
+            if (null != docUrl) {
+                final byte[] content = docUrl.getBytes();
+                addPdfDetail(ossClient, docUrl.getOriginalFilename(), article, content);
+                final long currentTimeMillis = System.currentTimeMillis();
+                final String object = objectName + File.separator + "document" + File.separator + currentTimeMillis + docUrl.getOriginalFilename();
+                ossClient.putObject(bucketName, object, new ByteArrayInputStream(content));
+                final String url = String.format("https://%s.%s/%s", bucketName, endpoint, object);
+                article.setStaticUrl(url);
+                if (null == coverImageUrl) {
+                    final byte[] imgBytes = PdfHelper.pdf2imgFromBytes(content);
+                    final String imgObject = objectName + File.separator + "coverImage" + File.separator + currentTimeMillis + ".png";
+                    ossClient.putObject(bucketName, imgObject, new ByteArrayInputStream(imgBytes));
+                    final String coverImage = String.format("https://%s.%s/%s", bucketName, endpoint, imgObject);
+                    article.setCoverImage(coverImage);
+                }
+            }
+            if (null != coverImageUrl) {
+                final byte[] content = coverImageUrl.getBytes();
+                final String url = uploadToOss(ossClient, coverImageUrl.getOriginalFilename(), content);
+                article.setCoverImage(url);
+            }
+        } catch (IOException e) {
+            log.error("oss 上传文件[{}]失败～！", null != docUrl ? docUrl.getOriginalFilename() : "获取文件名失败~!", e);
+        } finally {
+            ossClient.shutdown();
+        }
+    }
+
+    private String uploadToOss(OSS ossClient, String originFilename, byte[] content) {
+        final long currentTimeMillis = System.currentTimeMillis();
+        final String object = objectName + File.separator + "document" + File.separator + currentTimeMillis + originFilename;
+        ossClient.putObject(bucketName, object, new ByteArrayInputStream(content));
+        return String.format("https://%s.%s/%s", bucketName, endpoint, object);
+    }
+
+    private void addPdfDetail(OSS ossClient, String originalFilename, Article article, byte[] content) {
+        int rows = PdfHelper.getPages(content);
+        for (int i = 0; i < rows; i++) {
+            byte[] bytes = PdfHelper.pdf2imgFromBytes(content, i);
+            String url = uploadToOss(ossClient, originalFilename, bytes);
+            PdfDetail pdfDetail = new PdfDetail();
+            pdfDetail.setCurRecords(i);
+            pdfDetail.setTotalRecords(rows);
+            pdfDetail.setUrl(url);
+            pdfDetail.setId(UUID.randomUUID().toString());
+            pdfDetail.setArticleId(article.getId());
+            pdfDetailMapper.insertPdfDetail(pdfDetail);
+        }
+        article.setPageSize(rows);
+    }
+
+    /**
+     * 删除文章管理
+     */
+    @RequiresPermissions("cms:document:remove")
+    @Log(title = "文章管理", businessType = BusinessType.DELETE)
+    @PostMapping("/remove")
+    @ResponseBody
+    public AjaxResult remove(String ids) {
+        return toAjax(articleService.deleteArticleByIds(ids));
+    }
+
+    @RequestMapping("/detail/{id}")
+    public String article_detail(@PathVariable String id, Model model) {
+        Article article = articleService.selectArticleById(id);
+        if (article == null) {
+            throw new BusinessException("您要访问的文章不存在!");
+        }
+        Map dataMap = JSONObject.parseObject(JSON.toJSONString(article), Map.class);
+        model.addAllAttributes(dataMap);
+        return prefix + "/article-pdf";
+
+    }
+
+
+    /**
+     * 上传图片(markdown编辑器上传图片使用)
+     */
+    @PostMapping("/uploadImage")
+    @ResponseBody
+    public Object uploadImage(@RequestParam("editormd-image-file") MultipartFile file) throws Exception {
+        try {
+            // 上传图片并返回新文件名称
+            String path = FileUploadUtils.upload(Global.getUploadPath(), file, MimeTypeUtils.IMAGE_EXTENSION);
+            Map map = new HashMap();
+            map.put("success", 1);
+            map.put("url", path);
+            map.put("message", "上传成功!");
+            return map;
+        } catch (Exception e) {
+            Map map = new HashMap();
+            map.put("success", 0);
+            map.put("url", "");
+            map.put("message", "上传失败!" + e.getMessage());
+            return map;
+        }
+    }
 
 }
