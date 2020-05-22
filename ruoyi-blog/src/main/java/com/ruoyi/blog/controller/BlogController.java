@@ -4,10 +4,13 @@ package com.ruoyi.blog.controller;
 import cn.hutool.cache.Cache;
 import cn.hutool.cache.CacheUtil;
 import cn.hutool.core.collection.CollectionUtil;
+import com.aliyun.oss.HttpMethod;
 import com.aliyun.oss.OSS;
 import com.aliyun.oss.OSSClientBuilder;
+import com.aliyun.oss.model.GeneratePresignedUrlRequest;
 import com.aliyun.oss.model.GetObjectRequest;
 import com.aliyun.oss.model.OSSObject;
+import com.aliyun.oss.model.ResponseHeaderOverrides;
 import com.github.pagehelper.PageInfo;
 import com.ruoyi.cms.domain.*;
 import com.ruoyi.cms.mapper.PdfDetailMapper;
@@ -152,6 +155,43 @@ public class BlogController extends BaseController {
 //    model.addAttribute("totalPages", new PageInfo(articles).getPages());
 //    model.addAttribute("articleList", articles);
         return "h5page/index";
+    }
+
+    /**
+     * 首页
+     *
+     * @param model
+     * @return
+     */
+    @GetMapping({"/h5page/download/{articleId}"})
+    @ResponseBody
+    public String download(@PathVariable("articleId") String articleId) {
+        Article q = new Article();
+        q.setId(articleId);
+        List<Article> articles = articleService.selectArticleList(q);
+        OSS ossClient = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);
+        try {
+            String[] pdfUrl = articles.get(0).getStaticUrl().split("/");
+            // 创建请求。
+            GeneratePresignedUrlRequest generatePresignedUrlRequest = new GeneratePresignedUrlRequest(bucketName, objectName + File.separator + "document" + File.separator + pdfUrl[pdfUrl.length - 1]);
+            generatePresignedUrlRequest.setMethod(HttpMethod.GET);
+            //设置响应头强制下载
+            ResponseHeaderOverrides responseHeaders = new ResponseHeaderOverrides();
+            responseHeaders.setContentDisposition("attachment;");
+            generatePresignedUrlRequest.setResponseHeaders(responseHeaders);
+            // 设置URL过期时间为1小时。
+            Date expiration = new Date(System.currentTimeMillis() + 3600 * 1000);
+            generatePresignedUrlRequest.setExpiration(expiration);
+            // 生成签名URL。
+            URL url = ossClient.generatePresignedUrl(generatePresignedUrlRequest);
+            log.info("文章：{}生成下载url：{}成功", articles.get(0).getTitle(), url);
+            return url.toString();
+        } catch (Exception e) {
+            log.error("{}处理异常", "", e);
+        } finally {
+            ossClient.shutdown();
+        }
+        return null;
     }
 
     /**
