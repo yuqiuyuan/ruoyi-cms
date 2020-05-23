@@ -27,8 +27,8 @@ function goBackTop() {
         return;
     }
     jQuery(window).on("scroll", function () {
-        var st = jQuery(this).scrollTop();
-        var sw = window.innerHeight;
+        const st = jQuery(this).scrollTop();
+        // const sw = window.innerHeight;
         if (oBackTopBtn) {
             if (st > 10) {
                 oBackTopBtn.css("visibility", "visible");
@@ -44,22 +44,38 @@ function goBackTop() {
 }
 
 function download() {
-    var oBackTopBtn = jQuery(".download");
-    if (!oBackTopBtn) {
+    const aDownloadBtn = jQuery(".download");
+    if (!aDownloadBtn) {
         return;
     }
     jQuery(window).on("scroll", function () {
-        var st = jQuery(this).scrollTop();
-        var sw = window.innerHeight;
-        if (oBackTopBtn) {
+        const st = jQuery(this).scrollTop();
+        // const sw = window.innerHeight;
+        if (aDownloadBtn) {
             if (st > 10) {
-                oBackTopBtn.css("visibility", "visible");
-                oBackTopBtn.click(function (e) {
-                    e.stopPropagation();
-                    hideURLbar();
+                aDownloadBtn.css("visibility", "visible");
+                aDownloadBtn.click(function () {
+                    const url = window.location.origin + "/blog/h5page/download/" + $("#articleId").val();
+                    $.ajax({
+                        cache: true,
+                        type: "GET",
+                        // dataType: "json",
+                        url: url,
+                        // data: {},
+                        async: true,
+                        processData: false,		//用于对data参数进行序列化处理 这里必须false
+                        contentType: false, 	//必须
+                        beforeSend: function () {
+                        },
+                        error: function () {
+                        },
+                        success: function (data) {
+                            window.location.href = data;
+                        }
+                    });
                 });
             } else {
-                oBackTopBtn.css("visibility", "hidden");
+                aDownloadBtn.css("visibility", "hidden");
             }
         }
     });
@@ -67,14 +83,14 @@ function download() {
 
 //search delete
 function delSearchContent() {
-    var oInput = document.getElementById("search"),
+    const oInput = document.getElementById("search"),
         oCross = document.getElementById("cross");
     if (!oInput || !oCross) {
         return;
     }
 
     function check() {
-        if (oInput.value != "") {
+        if (oInput.value !== "") {
             oCross.style.display = "block";
             //jQuery('.search-box-new .search-btn').show();
         } else {
