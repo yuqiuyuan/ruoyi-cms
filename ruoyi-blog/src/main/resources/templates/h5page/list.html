@@ -90,13 +90,13 @@
                         <dt>
                             <div class="bookPic">
                                 <img th:alt="${item.title}" th:src="@{${item.coverImage}}">
-                                <span class="bookPage" th:text="${item.pageSize}"></span>
+                                <!--<span class="bookPage" th:text="${item.pageSize}"></span>-->
                             </div>
                         </dt>
                         <dd class="bookTitle" th:text="${item.title}"></dd>
                         <dd><span class="fch">
               <text th:text="${#strings.abbreviate(item.description,48)}"></text></span></dd>
-                        <dd>[[${item.hit}]]&nbsp次阅读</dd>
+                        <dd>[[${item.hit}]]&nbsp次阅读&nbsp&nbsp[[${item.pageSize}]]页</dd>
                     </dl>
                 </a>
             </div>
