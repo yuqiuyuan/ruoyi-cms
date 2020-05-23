@@ -41,7 +41,7 @@
     </div>
     <div class="indexListGrid">
 
-      <a th:each="item:${articleList}" th:href="@{${item.staticUrl}}" target="_blank" class="item">
+      <a th:each="item:${articleList}" th:href="@{${'/blog/article/'+item.id}}" target="_blank" class="item">
 
         <div class="content" th:classappend="${not #strings.isEmpty(item.coverImage)}? 'img'">
           <div class="catWrap">
