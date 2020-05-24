@@ -4,7 +4,7 @@ package com.ruoyi.application;
  * 自定义的系统事件
  *
  * @author drebander
- * @since
+ * @since 2020-05-24
  */
 public enum ApplicationEventDefined {
 

@@ -14,6 +14,7 @@ import com.ruoyi.common.utils.StringUtils;
  * RuoYi首创 js调用 thymeleaf 实现按钮权限可见性
  * 
  * @author ruoyi
+ * @since 2020-05-24
  */
 @Service("permission")
 public class PermissionService
@@ -21,7 +22,7 @@ public class PermissionService
     private static final Logger log = LoggerFactory.getLogger(PermissionService.class);
 
     /** 没有权限，hidden用于前端隐藏按钮 */
-    public static final String NOACCESS = "hidden";
+    private static final String NOACCESS = "hidden";
 
     private static final String ROLE_DELIMETER = ",";
 

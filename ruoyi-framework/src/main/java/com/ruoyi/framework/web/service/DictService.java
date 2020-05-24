@@ -6,15 +6,18 @@ import org.springframework.stereotype.Service;
 import com.ruoyi.system.domain.SysDictData;
 import com.ruoyi.system.service.ISysDictDataService;
 
+import javax.annotation.Resource;
+
 /**
  * RuoYi首创 html调用 thymeleaf 实现字典读取
  * 
  * @author ruoyi
+ * @since 2020-05-24
  */
 @Service("dict")
 public class DictService
 {
-    @Autowired
+    @Resource
     private ISysDictDataService dictDataService;
 
     /**
