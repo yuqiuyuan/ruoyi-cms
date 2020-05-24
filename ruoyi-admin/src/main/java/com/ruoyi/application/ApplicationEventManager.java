@@ -1,4 +1,4 @@
-package com.ruoyi.applicationEvent;
+package com.ruoyi.application;
 
 
 import com.alibaba.fastjson.JSON;
@@ -17,16 +17,24 @@ import java.util.*;
 
 /**
  * 事件管理器
- * Created by zengchao on 2017-03-09.
+ *
+ * @author drebander
+ * @since 2020-05-23
  */
 public class ApplicationEventManager {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    private Map<ApplicationEventDefined, List<IApplicationEvent>> eventMap = new HashMap<>();//按照系事件分组
+    /**
+     * 按照系事件分组
+     */
+    private Map<ApplicationEventDefined, List<IApplicationEvent>> eventMap = new HashMap<>();
 
-    List<IApplicationEvent> applicationEventList;//所有实现系统事件类
+    /**
+     * 所有实现系统事件类
+     */
+    private List<IApplicationEvent> applicationEventList;
 
-    IEventLogService eventLogService;
+    private IEventLogService eventLogService;
 
     public void setApplicationEventList(List<IApplicationEvent> applicationEventList) {
         this.applicationEventList = applicationEventList;
@@ -40,10 +48,10 @@ public class ApplicationEventManager {
      * 绑定事件
      *
      * @param applicationEventDefineds 系统自定义事件数组
-     * @param applicationEvent     事件处理程序
+     * @param applicationEvent         事件处理程序
      */
     public synchronized void bind(ApplicationEventDefined[] applicationEventDefineds, IApplicationEvent applicationEvent) {
-        for(ApplicationEventDefined applicationEventDefined:applicationEventDefineds){
+        for (ApplicationEventDefined applicationEventDefined : applicationEventDefineds) {
             List<IApplicationEvent> eventList = eventMap.get(applicationEventDefined);
             if (eventList == null) {
                 eventList = new ArrayList<>();
@@ -60,7 +68,7 @@ public class ApplicationEventManager {
      * 解绑事件
      *
      * @param applicationEventDefined 事件名称
-     * @param applicationEvent     事件处理程序
+     * @param applicationEvent        事件处理程序
      */
     public synchronized void unbind(ApplicationEventDefined applicationEventDefined, IApplicationEvent applicationEvent) {
         List<IApplicationEvent> eventList = eventMap.get(applicationEventDefined);
@@ -75,8 +83,8 @@ public class ApplicationEventManager {
      * 触发事件
      *
      * @param applicationEventDefined 事件名称
-     * @param source    来源
-     * @param params    参数
+     * @param source                  来源
+     * @param params                  参数
      */
     public synchronized void trigger(ApplicationEventDefined applicationEventDefined, Object source, Object params) {
         List<IApplicationEvent> eventList = eventMap.get(applicationEventDefined);
@@ -86,60 +94,61 @@ public class ApplicationEventManager {
         for (IApplicationEvent event : eventList) {
             try {
                 event.onTrigger(source, params);
-                saveLog(applicationEventDefined,source,params);
+                saveLog(applicationEventDefined, source, params);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
-    private void saveLog(ApplicationEventDefined applicationEventDefined, Object source, Object params){
-            String clsName="";
-            if(source instanceof String){
-                clsName=source.toString();
-            }else{
-                clsName=source.getClass().getTypeName();
-            }
-            JSONObject jsonObject=JSONObject.parseObject(JSON.toJSONString(params));
-            String orgid=(String)jsonObject.get("orgid");
-            EventLog log= new EventLog();
-            SysUser user= ShiroUtils.getSysUser();
-            log.setUserId(user.getUserId().toString());
-            log.setUserName(user.getUserName());
-            log.setEventCode(applicationEventDefined.getValue());
-            log.setEventName(applicationEventDefined.getDescription());
-            log.setCreateTime(new Date());
-            log.setSource(clsName);
-            log.setDatas(JSON.toJSONString(params));
-            eventLogService.insertEventLog(log);
+    private void saveLog(ApplicationEventDefined applicationEventDefined, Object source, Object params) {
+        String clsName = "";
+        if (source instanceof String) {
+            clsName = source.toString();
+        } else {
+            clsName = source.getClass().getTypeName();
+        }
+        JSONObject jsonObject = JSONObject.parseObject(JSON.toJSONString(params));
+        String orgid = (String) jsonObject.get("orgid");
+        EventLog log = new EventLog();
+        SysUser user = ShiroUtils.getSysUser();
+        log.setUserId(user.getUserId().toString());
+        log.setUserName(user.getUserName());
+        log.setEventCode(applicationEventDefined.getValue());
+        log.setEventName(applicationEventDefined.getDescription());
+        log.setCreateTime(new Date());
+        log.setSource(clsName);
+        log.setDatas(JSON.toJSONString(params));
+        eventLogService.insertEventLog(log);
     }
+
     /**
      * 初始化
      * 扫描系统中注解形式的事件
      */
     @PostConstruct
     public void init() {
-        if(CollectionUtils.isNotEmpty(applicationEventList)){
-            for(IApplicationEvent event:applicationEventList){
-                 Class cls =   event.getClass();
+        if (CollectionUtils.isNotEmpty(applicationEventList)) {
+            for (IApplicationEvent event : applicationEventList) {
+                Class cls = event.getClass();
                 Object instance = null;
-                if(!cls.getName().contains("proxy")){
-                    instance= SpringUtils.getBean(cls);
+                if (!cls.getName().contains("proxy")) {
+                    instance = SpringUtils.getBean(cls);
                     if (instance instanceof IApplicationEvent) {
-                        ApplicationEvent eventAnno =(ApplicationEvent) cls.getAnnotation(ApplicationEvent.class);
+                        ApplicationEvent eventAnno = (ApplicationEvent) cls.getAnnotation(ApplicationEvent.class);
                         this.bind(eventAnno.value(), (IApplicationEvent) instance);
                     }
                 }
             }
             logger.info("系统事件总计注册数量：" + this.eventMap.size());
             //遍历自定义系统内置事件列出各个事件注册数量
-            ApplicationEventDefined[] applicationEventDefineds= ApplicationEventDefined.values();
-            for(ApplicationEventDefined applicationEventDefined:applicationEventDefineds){
+            ApplicationEventDefined[] applicationEventDefineds = ApplicationEventDefined.values();
+            for (ApplicationEventDefined applicationEventDefined : applicationEventDefineds) {
                 List<IApplicationEvent> eventList = eventMap.get(applicationEventDefined);
-                if(CollectionUtils.isNotEmpty(eventList)){
-                    logger.info("系统事件"+applicationEventDefined.getValue()+"["+applicationEventDefined.getDescription()+"]注册数量：" + eventList.size());
-                }else{
-                    logger.info("系统事件"+applicationEventDefined.getValue()+"["+applicationEventDefined.getDescription()+"]注册数量：0");
+                if (CollectionUtils.isNotEmpty(eventList)) {
+                    logger.info("系统事件" + applicationEventDefined.getValue() + "[" + applicationEventDefined.getDescription() + "]注册数量：" + eventList.size());
+                } else {
+                    logger.info("系统事件" + applicationEventDefined.getValue() + "[" + applicationEventDefined.getDescription() + "]注册数量：0");
                 }
             }
 

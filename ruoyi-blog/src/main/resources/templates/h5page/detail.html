@@ -69,7 +69,7 @@
             <div class="detail ">
                 <p>
                     <span class="size">&nbsp<text th:text="${total}"></text>页,<text th:text="${article.hit}"></text>次阅读</span>
-                    <a class="detail_download" data-handel="download" href="javascript:void(0);">[立即下载]</a>
+                    <!--<a class="detail_download" data-handel="download" href="javascript:void(0);">[立即下载]</a>-->
                 </p>
                 <p>
                     <span class="report" id="jOpenReport"><i class="ico_report"></i><text
@@ -132,8 +132,8 @@
     <!--  </div>-->
     <!-- 返回顶部 -->
     <div onclick="goBackTop();" class="goBackTop"><span></span></div>
-    <div onclick="goBackTop();" class="download"><span class="glyphicon glyphicon-download-alt"
-                                                       aria-hidden="true"></span></div>
+    <!--<div onclick="goBackTop();" class="download"><span class="glyphicon glyphicon-download-alt"-->
+    <!--aria-hidden="true"></span></div>-->
     <input id="curPage" style="display:none;" value="1"/>
     <input id="totalPages" style="display:none;" th:value="${totalPages}"/>
     <input id="hasNext" style="display:none;" th:value="${hasNext}"/>
@@ -145,7 +145,7 @@
 <script>
     hideURLbar(); //隐藏地址栏
     goBackTop(); //返回顶部
-    download();
+    // download();
     //说明：付费阅读的参数配置
     var rechargeConfig = {
         pid: '224755827',//文档id

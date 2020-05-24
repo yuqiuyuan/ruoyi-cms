@@ -1,14 +1,17 @@
-package com.ruoyi.applicationEvent;
+package com.ruoyi.application;
 
 /**
  * 系统事件接口
- * Created by zengchao on 2017-03-09.
+ *
+ * @author drebander
+ * @since 2020-05-23
  */
 public interface IApplicationEvent {
     /**
      * 当事件被触发时
-     * @param source
-     * @param params
+     *
+     * @param source source
+     * @param params params
      */
     void onTrigger(Object source, Object params);
 }

@@ -1,9 +1,9 @@
-package com.ruoyi.applicationEvent.config;
+package com.ruoyi.application.config;
 
 
-import com.ruoyi.applicationEvent.ApplicationEventAspect;
-import com.ruoyi.applicationEvent.ApplicationEventManager;
-import com.ruoyi.applicationEvent.IApplicationEvent;
+import com.ruoyi.application.ApplicationEventAspect;
+import com.ruoyi.application.ApplicationEventManager;
+import com.ruoyi.application.IApplicationEvent;
 import com.ruoyi.system.service.IEventLogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

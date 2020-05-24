@@ -1,4 +1,4 @@
-package com.ruoyi.applicationEvent;
+package com.ruoyi.application;
 
 import java.lang.annotation.*;
 
