@@ -32,120 +32,120 @@ import java.util.List;
 public class PdfHelper {
 
 
-  @Value("${cms.oss.endpoint}")
-  private static String endpoint;
+    @Value("${cms.oss.endpoint}")
+    private static String endpoint;
 
-  @Value("${cms.oss.accessKeyId}")
-  private static String accessKeyId;
+    @Value("${cms.oss.accessKeyId}")
+    private static String accessKeyId;
 
-  @Value("${cms.oss.accessKeySecret}")
-  private static String accessKeySecret;
+    @Value("${cms.oss.accessKeySecret}")
+    private static String accessKeySecret;
 
-  @Value("${cms.oss.bucketName}")
-  private static String bucketName;
+    @Value("${cms.oss.bucketName}")
+    private static String bucketName;
 
-  @Value("${cms.oss.objectName}")
-  private static String objectName;
+    @Value("${cms.oss.objectName}")
+    private static String objectName;
 
 
-  /**
-   * pdf 首页转换成图片 字节数组形式输出
-   *
-   * @param content pdf bytes
-   * @return img bytes
-   */
-  public static byte[] pdf2imgFromBytes (byte[] content) {
-    InputStream input = new ByteArrayInputStream(content);
-    PDDocument doc;
-    try {
-      doc = PDDocument.load(input);
-      PDFRenderer renderer = new PDFRenderer(doc);
-      BufferedImage image = renderer.renderImageWithDPI(0, 0.5f);
-      ByteArrayOutputStream imageOutputStream = new ByteArrayOutputStream();
-      ImageIO.write(image, "PNG", imageOutputStream);
-      return imageOutputStream.toByteArray();
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-    return null;
-  }
-
-  /**
-   * pdf 首页转换成图片 字节数组形式输出
-   *
-   * @param content pdf bytes
-   * @return img bytes
-   */
-  public static int getPages (byte[] content) {
-    InputStream input = new ByteArrayInputStream(content);
-    PDDocument doc;
-    try {
-      doc = PDDocument.load(input);
-      return doc.getPages().getCount();
-    } catch (IOException e) {
-      e.printStackTrace();
-    } finally {
-      try {
-        input.close();
-      } catch (IOException e) {
-        e.printStackTrace();
-      }
-    }
-    return 0;
-  }
-
-  public static byte[] pdf2imgFromBytes (byte[] content, int i) {
-    InputStream input = new ByteArrayInputStream(content);
-    PDDocument doc = null;
-    try {
-      doc = PDDocument.load(input);
-      PDFRenderer renderer = new PDFRenderer(doc);
-      BufferedImage image = renderer.renderImage(i, 7f);
-      ByteArrayOutputStream imageOutputStream = new ByteArrayOutputStream();
-      ImageIO.write(image, "PNG", imageOutputStream);
-      return imageOutputStream.toByteArray();
-    } catch (IOException e) {
-      e.printStackTrace();
-    } finally {
-      if (doc != null) {
+    /**
+     * pdf 首页转换成图片 字节数组形式输出
+     *
+     * @param content pdf bytes
+     * @return img bytes
+     */
+    public static byte[] pdf2imgFromBytes(byte[] content) {
+        InputStream input = new ByteArrayInputStream(content);
+        PDDocument doc;
         try {
-          doc.close();
+            doc = PDDocument.load(input);
+            PDFRenderer renderer = new PDFRenderer(doc);
+            BufferedImage image = renderer.renderImageWithDPI(0, 0.5f);
+            ByteArrayOutputStream imageOutputStream = new ByteArrayOutputStream();
+            ImageIO.write(image, "PNG", imageOutputStream);
+            return imageOutputStream.toByteArray();
         } catch (IOException e) {
-          e.printStackTrace();
+            e.printStackTrace();
         }
-      }
+        return null;
     }
-    return null;
-  }
 
-
-  public static byte[] getPdfBytes (String url) throws IOException {
-    URL urlConet = new URL(URLEncoder.encode(url));
-    HttpURLConnection con = (HttpURLConnection) urlConet.openConnection();
-    con.setRequestMethod("GET");
-    con.setConnectTimeout(4 * 100000);
-    InputStream inStream = con.getInputStream();    //通过输入流获取图片数据
-    ByteArrayOutputStream outStream = new ByteArrayOutputStream();
-    byte[] buffer = new byte[2048];
-    int len = 0;
-    while ((len = inStream.read(buffer)) != -1) {
-      outStream.write(buffer, 0, len);
+    /**
+     * pdf 首页转换成图片 字节数组形式输出
+     *
+     * @param content pdf bytes
+     * @return img bytes
+     */
+    public static int getPages(byte[] content) {
+        InputStream input = new ByteArrayInputStream(content);
+        PDDocument doc;
+        try {
+            doc = PDDocument.load(input);
+            return doc.getPages().getCount();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                input.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return 0;
     }
-    inStream.close();
-    byte[] data = outStream.toByteArray();
-    return data;
-  }
 
-
-  public static byte[] ossContent (InputStream is) throws IOException {
-    ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
-    byte[] buffer = new byte[1024];
-    int ch;
-    while ((ch = is.read(buffer)) != -1) {
-      byteStream.write(buffer, 0, ch);
+    public static byte[] pdf2imgFromBytes(byte[] content, int i) {
+        InputStream input = new ByteArrayInputStream(content);
+        PDDocument doc = null;
+        try {
+            doc = PDDocument.load(input);
+            PDFRenderer renderer = new PDFRenderer(doc);
+            BufferedImage image = renderer.renderImage(i, 2.5f);
+            ByteArrayOutputStream imageOutputStream = new ByteArrayOutputStream();
+            ImageIO.write(image, "PNG", imageOutputStream);
+            return imageOutputStream.toByteArray();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (doc != null) {
+                try {
+                    doc.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return null;
     }
-    byte data[] = byteStream.toByteArray();
-    byteStream.close();
-    return data;
-  }
+
+
+    public static byte[] getPdfBytes(String url) throws IOException {
+        URL urlConet = new URL(URLEncoder.encode(url));
+        HttpURLConnection con = (HttpURLConnection) urlConet.openConnection();
+        con.setRequestMethod("GET");
+        con.setConnectTimeout(4 * 100000);
+        InputStream inStream = con.getInputStream();    //通过输入流获取图片数据
+        ByteArrayOutputStream outStream = new ByteArrayOutputStream();
+        byte[] buffer = new byte[2048];
+        int len = 0;
+        while ((len = inStream.read(buffer)) != -1) {
+            outStream.write(buffer, 0, len);
+        }
+        inStream.close();
+        byte[] data = outStream.toByteArray();
+        return data;
+    }
+
+
+    public static byte[] ossContent(InputStream is) throws IOException {
+        ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
+        byte[] buffer = new byte[1024];
+        int ch;
+        while ((ch = is.read(buffer)) != -1) {
+            byteStream.write(buffer, 0, ch);
+        }
+        byte data[] = byteStream.toByteArray();
+        byteStream.close();
+        return data;
+    }
 }

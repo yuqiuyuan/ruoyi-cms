@@ -186,9 +186,9 @@ public class DocumentController extends BaseController {
         try {
             if (null != docUrl) {
                 final byte[] content = docUrl.getBytes();
-                addPdfDetail(ossClient, docUrl.getOriginalFilename(), article, content);
+                addPdfDetail(ossClient, article, content);
                 final long currentTimeMillis = System.currentTimeMillis();
-                final String object = objectName + File.separator + "document" + File.separator + currentTimeMillis + docUrl.getOriginalFilename();
+                final String object = objectName + File.separator + "document" + File.separator + currentTimeMillis + article.getId();
                 ossClient.putObject(bucketName, object, new ByteArrayInputStream(content));
                 final String url = String.format("https://%s.%s/%s", bucketName, endpoint, object);
                 article.setStaticUrl(url);
@@ -219,11 +219,17 @@ public class DocumentController extends BaseController {
         return String.format("https://%s.%s/%s", bucketName, endpoint, object);
     }
 
-    private void addPdfDetail(OSS ossClient, String originalFilename, Article article, byte[] content) {
+    private String uploadToOss(OSS ossClient, String originFilename, byte[] content, int i) {
+        final String object = objectName + File.separator + "document" + File.separator + originFilename + "-" + i;
+        ossClient.putObject(bucketName, object, new ByteArrayInputStream(content));
+        return String.format("https://%s.%s/%s", bucketName, endpoint, object);
+    }
+
+    private void addPdfDetail(OSS ossClient, Article article, byte[] content) {
         int rows = PdfHelper.getPages(content);
         for (int i = 0; i < rows; i++) {
             byte[] bytes = PdfHelper.pdf2imgFromBytes(content, i);
-            String url = uploadToOss(ossClient, originalFilename, bytes);
+            String url = uploadToOss(ossClient, article.getId(), bytes, i);
             PdfDetail pdfDetail = new PdfDetail();
             pdfDetail.setCurRecords(i);
             pdfDetail.setTotalRecords(rows);
