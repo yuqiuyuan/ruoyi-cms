@@ -39,10 +39,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLEncoder;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -137,23 +134,14 @@ public class BlogController extends BaseController {
     }
 
     /**
-     * 首页
+     * 首页(暂时不向外暴露)
      *
      * @param model
      * @return
      */
-    @GetMapping({"/h5page"})
+//    @GetMapping({"/h5page"})
+    @Deprecated
     public String h5page(Model model) {
-//        model.addAttribute("pageUrl", "blog/index");
-//        model.addAttribute("categoryId", "index");
-
-//    Article form = new Article();
-//    startPage();
-//    List<Article> articles = articleService.selectArticlesRegionNotNull(form);
-//    model.addAttribute("pageNo", new PageInfo(articles).getPageNum());
-//    model.addAttribute("pageSize", new PageInfo(articles).getPageSize());
-//    model.addAttribute("totalPages", new PageInfo(articles).getPages());
-//    model.addAttribute("articleList", articles);
         return "h5page/index";
     }
 
@@ -197,12 +185,11 @@ public class BlogController extends BaseController {
     /**
      * 首页
      *
-     * @param model
-     * @return
+     * @return result
      */
     @GetMapping({"/h5page/pdfDeal/{articleId}"})
     @ResponseBody
-    public String pdfDeal(Model model, @PathVariable("articleId") String articleId) {
+    public String generatePdfDetailImage(@PathVariable("articleId") String articleId) {
         Article q = new Article();
         q.setId(articleId);
         List<Article> articles = articleService.selectArticleList(q);
@@ -229,7 +216,7 @@ public class BlogController extends BaseController {
         return "处理完成";
     }
 
-    private String appandDocument(List<PdfDetail> pdfDetails) {
+    private String appendDocumentContentHtml(List<PdfDetail> pdfDetails) {
         StringBuilder result = new StringBuilder();
         pdfDetails.forEach(pdfDetail -> {
             result.append("<div class=\"panel pagemodel\" data-page=\"").append(pdfDetail.getCurRecords()).append("\">");
@@ -256,6 +243,13 @@ public class BlogController extends BaseController {
         if (!ObjectUtils.isEmpty(content)) {
             hightLight(content, articles);
         }
+        if (articles.size() > 4) {
+            model.addAttribute("firstArticleList", articles.subList(0, 4));
+            model.addAttribute("secondArticleList", articles.subList(4, articles.size()));
+        } else {
+            model.addAttribute("firstArticleList", articles);
+            model.addAttribute("secondArticleList", new ArrayList<Article>(0));
+        }
         PageInfo pageInfo = new PageInfo(articles);
         model.addAttribute("searchKey", content);
         model.addAttribute("total", pageInfo.getTotal());
@@ -268,7 +262,7 @@ public class BlogController extends BaseController {
         model.addAttribute("prePage", pageInfo.getPrePage());
         model.addAttribute("nextPage", pageInfo.getNextPage());
         model.addAttribute("navNums", pageInfo.getNavigatepageNums());
-        model.addAttribute("articleList", articles);
+//        model.addAttribute("articleList", articles);
         return "h5page/list";
     }
 
@@ -286,65 +280,10 @@ public class BlogController extends BaseController {
         Map<String, Object> model = new HashMap<>();
         model.put("totalPages", pageInfo.getTotal());
         model.put("hasNext", pageInfo.isHasNextPage());
-        model.put("dataHtml", appandHtml(articles));
+        model.put("dataHtml", appendDocumentListHtml(articles));
         return AjaxResult.success(model);
     }
 
-    private void addPdfDetail(OSS ossClient, String originalFilename, String articleId, byte[] content) {
-        int rows = PdfHelper.getPages(content);
-        for (int i = 0; i < rows; i++) {
-            byte[] bytes = PdfHelper.pdf2imgFromBytes(content, i);
-            String url = uploadToOss(ossClient, originalFilename, bytes, i);
-            PdfDetail pdfDetail = new PdfDetail();
-            pdfDetail.setCurRecords(i);
-            pdfDetail.setTotalRecords(rows);
-            pdfDetail.setUrl(url);
-            pdfDetail.setArticleId(articleId);
-            pdfDetail.setId(Guid.get());
-            pdfDetailMapper.insertPdfDetail(pdfDetail);
-        }
-    }
-
-    private String uploadToOss(OSS ossClient, String originFilename, byte[] content, int i) {
-        final String object = objectName + File.separator + "document" + File.separator + originFilename + "-" + i;
-        ossClient.putObject(bucketName, object, new ByteArrayInputStream(content));
-        return String.format("https://%s.%s/%s", bucketName, endpoint, object);
-    }
-
-    private String appandHtml(List<Article> articles) {
-        StringBuilder result = new StringBuilder();
-        if (articles.size() > 0) {
-            articles.forEach(article -> {
-                String description = article.getDescription();
-                if (description.length() > 46) {
-                    description = article.getDescription().substring(0, 46) + "...";
-                }
-                String curHtml = "<a href=/blog/h5page/detail/" + article.getId() + " target=\"_self\">"
-                        + "<dl class=\"clear\"><dt>"
-                        + "<div class=\"bookPic\">"
-                        + "<img alt=\"" + article.getTitle() + "\" src=\"" + article.getCoverImage() + "\">"
-                        + "<span class=\"bookPage\">" + article.getPageSize() + "</span>"
-                        + "</div></dt>" + "</div>"
-                        + "<dd class=\"bookTitle\" >" + article.getTitle() + "</dd>"
-                        + "<dd><span class=\"fch\">" + description + "</span></dd>"
-                        + "<dd>" + article.getHit() + "&nbsp次阅读</dd>"
-                        + "</dl>" + "</a>";
-                result.append(curHtml);
-            });
-        } else {
-
-        }
-        return result.toString();
-    }
-
-
-    private void hightLight(String content, List<Article> articles) {
-        articles.forEach(article -> {
-            String title = article.getTitle();
-            title.replace(content, String.format("<font size=\"3\" color=\"red\">%s</font>", content));
-            article.setTitle(title);
-        });
-    }
 
     /**
      * 获取一个专辑以及其关联的素材
@@ -385,7 +324,7 @@ public class BlogController extends BaseController {
         Map<String, Object> model = new HashMap<>();
         model.put("totalPages", pageInfo.getTotal());
         model.put("hasNext", pageInfo.isHasNextPage());
-        model.put("dataHtml", appandDocument(articleDetails));
+        model.put("dataHtml", appendDocumentContentHtml(articleDetails));
         return AjaxResult.success(model);
     }
 
@@ -610,7 +549,7 @@ public class BlogController extends BaseController {
         Map<String, Object> model = new HashMap<>();
         model.put("totalPages", pageInfo.getTotal());
         model.put("hasNext", pageInfo.isHasNextPage());
-        model.put("dataHtml", appandHtml(articles));
+        model.put("dataHtml", appendDocumentListHtml(articles));
         return AjaxResult.success(model);
     }
 
@@ -908,5 +847,65 @@ public class BlogController extends BaseController {
         String currentTheme = blogThemeService.queryCurrentBlogTheme();
         model.addAttribute("currentTheme", currentTheme);
         return prefix + "/blogTheme";
+    }
+
+//*******************************************************************************************************************
+
+    /**
+     *
+     */
+    private void addPdfDetail(OSS ossClient, String originalFilename, String articleId, byte[] content) {
+        int rows = PdfHelper.getPages(content);
+        for (int i = 0; i < rows; i++) {
+            byte[] bytes = PdfHelper.pdf2imgFromBytes(content, i);
+            String url = uploadToOss(ossClient, originalFilename, bytes, i);
+            PdfDetail pdfDetail = new PdfDetail();
+            pdfDetail.setCurRecords(i);
+            pdfDetail.setTotalRecords(rows);
+            pdfDetail.setUrl(url);
+            pdfDetail.setArticleId(articleId);
+            pdfDetail.setId(Guid.get());
+            pdfDetailMapper.insertPdfDetail(pdfDetail);
+        }
+    }
+
+    private String uploadToOss(OSS ossClient, String originFilename, byte[] content, int i) {
+        final String object = objectName + File.separator + "document" + File.separator + originFilename + "-" + i;
+        ossClient.putObject(bucketName, object, new ByteArrayInputStream(content));
+        return String.format("https://%s.%s/%s", bucketName, endpoint, object);
+    }
+
+    private String appendDocumentListHtml(List<Article> articles) {
+        StringBuilder result = new StringBuilder();
+        if (articles.size() > 0) {
+            articles.forEach(article -> {
+                String description = article.getDescription();
+                if (description.length() > 46) {
+                    description = article.getDescription().substring(0, 46) + "...";
+                }
+                String curHtml = "<a href=/blog/h5page/detail/" + article.getId() + " target=\"_self\">"
+                        + "<dl class=\"clear\"><dt>"
+                        + "<div class=\"bookPic\">"
+                        + "<img alt=\"" + article.getTitle() + "\" src=\"" + article.getCoverImage() + "\">"
+                        + "</div></dt>" + "</div>"
+                        + "<dd class=\"bookTitle\" >" + article.getTitle() + "</dd>"
+                        + "<dd><span class=\"fch\">" + description + "</span></dd>"
+                        + "<dd>" + article.getHit() + "&nbsp次阅读&nbsp " + article.getPageSize() + "页</dd>"
+                        + "</dl>" + "</a>";
+                result.append(curHtml);
+            });
+        } else {
+
+        }
+        return result.toString();
+    }
+
+
+    private void hightLight(String content, List<Article> articles) {
+        articles.forEach(article -> {
+            String title = article.getTitle();
+            title.replace(content, String.format("<font size=\"3\" color=\"red\">%s</font>", content));
+            article.setTitle(title);
+        });
     }
 }
