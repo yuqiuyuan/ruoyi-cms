@@ -85,45 +85,6 @@
         <div class="mainContent booklist">
             <!-- 内容 -->
             <div id="sections">
-                <a th:href="@{${'/blog/h5page/detail/'+item.id}}" th:each="item,temp:${firstArticleList}"
-                   target="_self">
-                    <dl class="clear">
-                        <dt>
-                            <div class="bookPic">
-                                <img th:alt="${item.title}" th:src="@{${item.coverImage}}">
-                                <!--<span class="bookPage" th:text="${item.pageSize}"></span>-->
-                            </div>
-                        </dt>
-                        <dd class="bookTitle" th:text="${item.title}"></dd>
-                        <dd>
-                            <span class="fch">
-                                <text th:text="${#strings.abbreviate(item.description,48)}"></text>
-                            </span>
-                        </dd>
-                        <dd>[[${item.hit}]]&nbsp次阅读&nbsp&nbsp[[${item.pageSize}]]页</dd>
-                    </dl>
-                </a>
-                <a>
-                    <img style="max-height: 150px" th:src="@{${'/blog/images/airport.jpg'}}">
-                </a>
-                <a th:href="@{${'/blog/h5page/detail/'+item.id}}" th:each="item,temp:${secondArticleList}"
-                   target="_self">
-                    <dl class="clear">
-                        <dt>
-                            <div class="bookPic">
-                                <img th:alt="${item.title}" th:src="@{${item.coverImage}}">
-                                <!--<span class="bookPage" th:text="${item.pageSize}"></span>-->
-                            </div>
-                        </dt>
-                        <dd class="bookTitle" th:text="${item.title}"></dd>
-                        <dd>
-                            <span class="fch">
-                                <text th:text="${#strings.abbreviate(item.description,48)}"></text>
-                            </span>
-                        </dd>
-                        <dd>[[${item.hit}]]&nbsp次阅读&nbsp&nbsp[[${item.pageSize}]]页</dd>
-                    </dl>
-                </a>
             </div>
             <div th:if="${hasNext}" id="loadPage" class="loadPage">
                 <span class="loadMoreData">点击加载更多</span>
@@ -145,6 +106,7 @@
     goBackTop(); //返回顶部
     loadImgs(); //加载图片
     loadMoreData(); //点击加载更多
+    loadInitData();
     navFunc();//页签切换
     handleChannelList();
     openChannelList();
@@ -186,6 +148,37 @@
             }
         });
     });
+
+    function loadInitData() {
+        var keyWord = $("#search-word").text();
+        var oLoadState = jQuery(".loadMoreData");
+        var url = window.location.origin + '/blog/h5page/search/list?content=' + keyWord;
+        jQuery.ajax({
+            url: url,
+            type: "POST",
+            data: "pageNum=0" ,
+            context: jQuery("#sections"),
+            success: function (data) {
+                var dataHtml = data.data.dataHtml;
+                if (dataHtml == "" || dataHtml == null) {
+                    oLoadState.hide();
+                    return;
+                }
+                $("#sections").append(dataHtml);
+                if (data.data.hasNext) {
+                    loadImgs(); //加载图片
+                    oLoadState.html("点击加载更多");
+                    currentIndex++;
+                    if (currentIndex == totalPage + 1) {
+                        oLoadState.hide();
+                    }
+                } else {
+                    oLoadState.hide();
+                    return;
+                }
+            }
+        });
+    }
 
     function navDo(id) {
         $("#navli-" + id).click();

@@ -216,19 +216,6 @@ public class BlogController extends BaseController {
         return "处理完成";
     }
 
-    private String appendDocumentContentHtml(List<PdfDetail> pdfDetails) {
-        StringBuilder result = new StringBuilder();
-        pdfDetails.forEach(pdfDetail -> {
-            result.append("<div class=\"panel pagemodel\" data-page=\"").append(pdfDetail.getCurRecords()).append("\">");
-            result.append("<div id = \"page1\" >");
-            result.append("<img src = \"").append(pdfDetail.getUrl()).append("\" data - imgid = \"1\" style = \"transform: scale(1);\" ></div >");
-            result.append("<div class=\"pageNum\" >").append(pdfDetail.getCurRecords() + 1).append(" / ");
-            result.append(pdfDetail.getTotalRecords()).append(" 页");
-            result.append("</div ></div >");
-        });
-        return result.toString();
-    }
-
 
     @GetMapping("/h5page/search")
     public String h5search(String content, Model model) {
@@ -240,16 +227,6 @@ public class BlogController extends BaseController {
         }
         startPage();
         List<Article> articles = articleService.fuzzySearchList(form);
-        if (!ObjectUtils.isEmpty(content)) {
-            hightLight(content, articles);
-        }
-        if (articles.size() > 4) {
-            model.addAttribute("firstArticleList", articles.subList(0, 4));
-            model.addAttribute("secondArticleList", articles.subList(4, articles.size()));
-        } else {
-            model.addAttribute("firstArticleList", articles);
-            model.addAttribute("secondArticleList", new ArrayList<Article>(0));
-        }
         PageInfo pageInfo = new PageInfo(articles);
         model.addAttribute("searchKey", content);
         model.addAttribute("total", pageInfo.getTotal());
@@ -258,11 +235,10 @@ public class BlogController extends BaseController {
         model.addAttribute("totalPages", pageInfo.getPages());
         model.addAttribute("hasPrevious", pageInfo.isHasPreviousPage());
         model.addAttribute("hasNext", pageInfo.isHasNextPage());
-        model.addAttribute("currentPage", pageInfo.getPageNum());
+        model.addAttribute("currentPage", 0);
         model.addAttribute("prePage", pageInfo.getPrePage());
         model.addAttribute("nextPage", pageInfo.getNextPage());
         model.addAttribute("navNums", pageInfo.getNavigatepageNums());
-//        model.addAttribute("articleList", articles);
         return "h5page/list";
     }
 
@@ -280,7 +256,24 @@ public class BlogController extends BaseController {
         Map<String, Object> model = new HashMap<>();
         model.put("totalPages", pageInfo.getTotal());
         model.put("hasNext", pageInfo.isHasNextPage());
-        model.put("dataHtml", appendDocumentListHtml(articles));
+        model.put("dataHtml", _highLight(content, appendDocumentListHtml(articles)));
+        return AjaxResult.success(model);
+    }
+    @PostMapping("/h5page/search/list")
+    @ResponseBody
+    public AjaxResult h5searchIndex(String content) {
+        Article form = new Article();
+        if (!ObjectUtils.isEmpty(content)) {
+            form.setTitle(content.trim());
+            form.setDescription(content.trim());
+        }
+        startPage();
+        List<Article> articles = articleService.fuzzySearchList(form);
+        PageInfo pageInfo = new PageInfo(articles);
+        Map<String, Object> model = new HashMap<>();
+        model.put("totalPages", pageInfo.getTotal());
+        model.put("hasNext", pageInfo.isHasNextPage());
+        model.put("dataHtml", _highLight(content, appendIndexDocumentHtml(articles)));
         return AjaxResult.success(model);
     }
 
@@ -549,7 +542,7 @@ public class BlogController extends BaseController {
         Map<String, Object> model = new HashMap<>();
         model.put("totalPages", pageInfo.getTotal());
         model.put("hasNext", pageInfo.isHasNextPage());
-        model.put("dataHtml", appendDocumentListHtml(articles));
+        model.put("dataHtml", _highLight(content, appendDocumentListHtml(articles)));
         return AjaxResult.success(model);
     }
 
@@ -851,6 +844,20 @@ public class BlogController extends BaseController {
 
 //*******************************************************************************************************************
 
+
+    private String appendDocumentContentHtml(List<PdfDetail> pdfDetails) {
+        StringBuilder result = new StringBuilder();
+        pdfDetails.forEach(pdfDetail -> {
+            result.append("<div class=\"panel pagemodel\" data-page=\"").append(pdfDetail.getCurRecords()).append("\">");
+            result.append("<div id = \"page1\" >");
+            result.append("<img src = \"").append(pdfDetail.getUrl()).append("\" data - imgid = \"1\" style = \"transform: scale(1);\" ></div >");
+            result.append("<div class=\"pageNum\" >").append(pdfDetail.getCurRecords() + 1).append(" / ");
+            result.append(pdfDetail.getTotalRecords()).append(" 页");
+            result.append("</div ></div >");
+        });
+        return result.toString();
+    }
+
     /**
      *
      */
@@ -873,6 +880,19 @@ public class BlogController extends BaseController {
         final String object = objectName + File.separator + "document" + File.separator + originFilename + "-" + i;
         ossClient.putObject(bucketName, object, new ByteArrayInputStream(content));
         return String.format("https://%s.%s/%s", bucketName, endpoint, object);
+    }
+
+    private String appendIndexDocumentHtml(List<Article> articles) {
+        StringBuilder result = new StringBuilder();
+        if (articles.size() > 5) {
+            result.append(appendDocumentListHtml(articles.subList(0, 5)));
+            result.append("<a><img style=\"max-height: 150px\" src=\"/blog/images/airport.jpg\"></a>");
+            result.append(appendDocumentListHtml(articles.subList(5, articles.size())));
+        } else {
+            result.append(appendDocumentListHtml(articles));
+            result.append("<a><img style=\"max-height: 150px\" src=\"/blog/images/airport.jpg\"></a>");
+        }
+        return result.toString();
     }
 
     private String appendDocumentListHtml(List<Article> articles) {
@@ -901,11 +921,15 @@ public class BlogController extends BaseController {
     }
 
 
-    private void hightLight(String content, List<Article> articles) {
+    private void highLight(String content, List<Article> articles) {
         articles.forEach(article -> {
             String title = article.getTitle();
             title.replace(content, String.format("<font size=\"3\" color=\"red\">%s</font>", content));
             article.setTitle(title);
         });
+    }
+
+    private String _highLight(String keyWord, String html) {
+        return ObjectUtils.isEmpty(keyWord) ? html : html.replaceAll(keyWord, String.format("<font color=\"red\">%s</font>", keyWord));
     }
 }
