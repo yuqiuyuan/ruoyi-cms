@@ -256,9 +256,10 @@ public class BlogController extends BaseController {
         Map<String, Object> model = new HashMap<>();
         model.put("totalPages", pageInfo.getTotal());
         model.put("hasNext", pageInfo.isHasNextPage());
-        model.put("dataHtml", _highLight(content, appendDocumentListHtml(articles)));
+        model.put("dataHtml", appendDocumentListHtml(content, articles));
         return AjaxResult.success(model);
     }
+
     @PostMapping("/h5page/search/list")
     @ResponseBody
     public AjaxResult h5searchIndex(String content) {
@@ -273,7 +274,7 @@ public class BlogController extends BaseController {
         Map<String, Object> model = new HashMap<>();
         model.put("totalPages", pageInfo.getTotal());
         model.put("hasNext", pageInfo.isHasNextPage());
-        model.put("dataHtml", _highLight(content, appendIndexDocumentHtml(articles)));
+        model.put("dataHtml", appendIndexDocumentHtml(content, articles));
         return AjaxResult.success(model);
     }
 
@@ -542,11 +543,11 @@ public class BlogController extends BaseController {
         Map<String, Object> model = new HashMap<>();
         model.put("totalPages", pageInfo.getTotal());
         model.put("hasNext", pageInfo.isHasNextPage());
-        model.put("dataHtml", _highLight(content, appendDocumentListHtml(articles)));
+        model.put("dataHtml", appendDocumentListHtml(content, articles));
         return AjaxResult.success(model);
     }
 
-    private List<Article> getArticles(@PathVariable("categoryId") String categoryId, String content) {
+    private List<Article> getArticles(String categoryId, String content) {
         Article form = new Article();
         if (!ObjectUtils.isEmpty(content)) {
             form.setTitle(content.trim());
@@ -895,6 +896,19 @@ public class BlogController extends BaseController {
         return result.toString();
     }
 
+    private String appendIndexDocumentHtml(String keyWord, List<Article> articles) {
+        StringBuilder result = new StringBuilder();
+        if (articles.size() > 5) {
+            result.append(appendDocumentListHtml(keyWord, articles.subList(0, 5)));
+            result.append("<a><img style=\"max-height: 150px\" src=\"/blog/images/airport.jpg\"></a>");
+            result.append(appendDocumentListHtml(keyWord, articles.subList(5, articles.size())));
+        } else {
+            result.append(appendDocumentListHtml(keyWord, articles));
+            result.append("<a><img style=\"max-height: 150px\" src=\"/blog/images/airport.jpg\"></a>");
+        }
+        return result.toString();
+    }
+
     private String appendDocumentListHtml(List<Article> articles) {
         StringBuilder result = new StringBuilder();
         if (articles.size() > 0) {
@@ -910,6 +924,31 @@ public class BlogController extends BaseController {
                         + "</div></dt>" + "</div>"
                         + "<dd class=\"bookTitle\" >" + article.getTitle() + "</dd>"
                         + "<dd><span class=\"fch\">" + description + "</span></dd>"
+                        + "<dd>" + article.getHit() + "&nbsp次阅读&nbsp " + article.getPageSize() + "页</dd>"
+                        + "</dl>" + "</a>";
+                result.append(curHtml);
+            });
+        } else {
+
+        }
+        return result.toString();
+    }
+
+    private String appendDocumentListHtml(String keyWord, List<Article> articles) {
+        StringBuilder result = new StringBuilder();
+        if (articles.size() > 0) {
+            articles.forEach(article -> {
+                String description = article.getDescription();
+                if (description.length() > 46) {
+                    description = article.getDescription().substring(0, 46) + "...";
+                }
+                String curHtml = "<a href=/blog/h5page/detail/" + article.getId() + " target=\"_self\">"
+                        + "<dl class=\"clear\"><dt>"
+                        + "<div class=\"bookPic\">"
+                        + "<img alt=\"" + article.getTitle() + "\" src=\"" + article.getCoverImage() + "\">"
+                        + "</div></dt>" + "</div>"
+                        + "<dd class=\"bookTitle\" >" + _highLight(keyWord, article.getTitle()) + "</dd>"
+                        + "<dd><span class=\"fch\">" + _highLight(keyWord, description) + "</span></dd>"
                         + "<dd>" + article.getHit() + "&nbsp次阅读&nbsp " + article.getPageSize() + "页</dd>"
                         + "</dl>" + "</a>";
                 result.append(curHtml);

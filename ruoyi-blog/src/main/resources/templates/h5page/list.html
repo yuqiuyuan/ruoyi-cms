@@ -113,8 +113,8 @@
     $(".search-nav-li li").click(function () {
         $(".search-nav-li li").removeClass("cur");
         this.setAttribute("class", "cur");
-        categoryId = this.value;
-        content = $("#search-word").text();
+        const categoryId = this.value;
+        const content = $("#search-word").text();
         if (categoryId) {
             $("#category").val(categoryId);
         } else {
@@ -123,14 +123,14 @@
 
         url = window.location.origin + '/blog/h5page/q/' + categoryId;
         $.ajax({
-            cache: true,
+            // cache: true,
             type: "POST",
             dataType: "json",
             url: url,
             data: {"content": content},
             async: true,
-            processData: false,		//用于对data参数进行序列化处理 这里必须false
-            contentType: false, 	//必须
+            // processData: false,		//用于对data参数进行序列化处理 这里必须false
+            // contentType: false, 	//必须
             beforeSend: function () {
                 //$.modal.loading("数据上传中，请稍后...");
             },
@@ -156,7 +156,7 @@
         jQuery.ajax({
             url: url,
             type: "POST",
-            data: "pageNum=0" ,
+            data: "pageNum=0",
             context: jQuery("#sections"),
             success: function (data) {
                 var dataHtml = data.data.dataHtml;
